@@ -2,27 +2,27 @@
 
 import { modelAvailable } from './catalog.ts'
 import { randomUUID } from 'node:crypto'
-import type { Context } from '@deepseek-ai/cordis'
-import { brandString } from '@deepseek-ai/dsh-brand'
-import type { Agent, ModelSelection as AgentModelSelection } from '@deepseek-ai/dsh-agent'
-import { AttachmentError } from '@deepseek-ai/dsh-attachment'
+import type { Context } from '@master-harness/cordis'
+import { brandString } from '@master-harness/brand'
+import type { Agent, ModelSelection as AgentModelSelection } from '@master-harness/agent'
+import { AttachmentError } from '@master-harness/attachment'
 import type {
   AttachmentAdmissionPart, ImageAttachmentRef,
-} from '@deepseek-ai/dsh-attachment'
-import type { FileUploadReceiptId, StagedAttachment } from '@deepseek-ai/dsh-client-file-upload/types'
-import type {} from '@deepseek-ai/dsh-client-file-upload'
+} from '@master-harness/attachment'
+import type { FileUploadReceiptId, StagedAttachment } from '@master-harness/client-file-upload/types'
+import type {} from '@master-harness/client-file-upload'
 import {
   ReasoningEffortId, assistantStreamChunks, createUserMessage, freezeMessage,
-} from '@deepseek-ai/dsh-llm'
-import type { MessageSource } from '@deepseek-ai/dsh-llm'
-import { buildForkSeed } from '@deepseek-ai/dsh-session/fork'
-import { SessionLogOffset, SessionSeq } from '@deepseek-ai/dsh-session'
-import type { SessionEvent, SessionHeader, SessionId, UserMessage } from '@deepseek-ai/dsh-session'
-import { SessionQueryError, type SessionObservation } from '@deepseek-ai/dsh-session-query'
-import { SessionTitleInvalidError } from '@deepseek-ai/dsh-session-title'
-import { assertNever } from '@deepseek-ai/dsh-util-values'
-import { RemoteError, remoteErrorOf } from '@deepseek-ai/dsh-typert-protocol'
-import type { Workspace } from '@deepseek-ai/dsh-workspace'
+} from '@master-harness/llm'
+import type { MessageSource } from '@master-harness/llm'
+import { buildForkSeed } from '@master-harness/session/fork'
+import { SessionLogOffset, SessionSeq } from '@master-harness/session'
+import type { SessionEvent, SessionHeader, SessionId, UserMessage } from '@master-harness/session'
+import { SessionQueryError, type SessionObservation } from '@master-harness/session-query'
+import { SessionTitleInvalidError } from '@master-harness/session-title'
+import { assertNever } from '@master-harness/util-values'
+import { RemoteError, remoteErrorOf } from '@master-harness/typert-protocol'
+import type { Workspace } from '@master-harness/workspace'
 import {
   ApiSessionAgentController,
   ApiSessionCwdConflict,

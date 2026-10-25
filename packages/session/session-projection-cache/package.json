@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-session-projection-cache",
+  "name": "@master-harness/session-projection-cache",
   "description": "Persisted projection cache (ctx.sessionProjectionCache): durable per-session checkpoint records on the session_projcache storage domain (per-record layout), throttled write-behind, and the cached listing read",
   "version": "0.2.1-rc.3",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/session/session-projection-cache"
   },
   "type": "module",
@@ -29,22 +29,22 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@deepseek-ai/dsh-util-values": "workspace:*",
-    "@deepseek-ai/schemastery": "workspace:~",
+    "@master-harness/util-values": "workspace:*",
+    "@master-harness/schemastery": "workspace:~",
     "zod": "4.4.3"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-storage-domain": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/session-projection": "workspace:*",
+    "@master-harness/storage-domain": "workspace:*"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-storage": "workspace:*",
-    "@deepseek-ai/dsh-storage-domain": "workspace:*",
-    "@deepseek-ai/dsh-storage-json": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/session-projection": "workspace:*",
+    "@master-harness/storage": "workspace:*",
+    "@master-harness/storage-domain": "workspace:*",
+    "@master-harness/storage-json": "workspace:*"
   }
 }

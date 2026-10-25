@@ -10,15 +10,15 @@
  * it until asked again.
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import { TimerService } from '@deepseek-ai/cordis-plugin-timer'
+import type { Context } from '@master-harness/cordis'
+import { TimerService } from '@master-harness/cordis-plugin-timer'
 import type {
   ApprovalRequestId, CordisDynamicPluginId, DynamicCordisInvokeResult,
   DynamicCordisInventoryRow,
-} from '@deepseek-ai/dsh-api-remotes/client'
-import type { ClientModuleSystem } from '@deepseek-ai/dsh-client-modules/client'
-import type { SlotRegistry } from '@deepseek-ai/dsh-client-ui-renderer/client'
-import type { JsonValue } from '@deepseek-ai/dsh-util-values'
+} from '@master-harness/api-remotes/client'
+import type { ClientModuleSystem } from '@master-harness/client-modules/client'
+import type { SlotRegistry } from '@master-harness/client-ui-renderer/client'
+import type { JsonValue } from '@master-harness/util-values'
 // The Client Remote assembly is the one place the two planes meet: it mounts the
 // `dynamicCordisRunner` namespace and re-exports its payload vocabulary, so this
 // package names what it sends without importing a Host package.
@@ -54,7 +54,7 @@ export type { DynamicCordisGuardEnv, DynamicCordisSlotLedgerRow } from './guard.
 export type {
   ApprovalRequestId, CordisDynamicPackageId, CordisDynamicPluginId, CordisDynamicPluginRunId,
   DynamicCordisPackage,
-} from '@deepseek-ai/dsh-api-remotes/client'
+} from '@master-harness/api-remotes/client'
 
 
 /**
@@ -122,7 +122,7 @@ export interface CordisRunnerFace {
   isLoaded(pluginId: CordisDynamicPluginId): boolean
 }
 
-declare module '@deepseek-ai/cordis' {
+declare module '@master-harness/cordis' {
   interface Context {
     /** Run orchestration and page-local load state: what run surfaces read and call. */
     dynamicCordisRunner: CordisRunnerFace

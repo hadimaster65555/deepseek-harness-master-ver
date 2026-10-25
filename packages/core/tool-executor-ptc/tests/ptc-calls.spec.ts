@@ -1,7 +1,7 @@
-import { Context } from '@deepseek-ai/cordis'
-import Sessions, { SessionId } from '@deepseek-ai/dsh-session'
-import SandboxPolicy, { setSandboxMode } from '@deepseek-ai/dsh-sandbox-policy'
-import SessionProjections from '@deepseek-ai/dsh-session-projection'
+import { Context } from '@master-harness/cordis'
+import Sessions, { SessionId } from '@master-harness/session'
+import SandboxPolicy, { setSandboxMode } from '@master-harness/sandbox-policy'
+import SessionProjections from '@master-harness/session-projection'
 import { expect, it, onTestFinished, vi } from 'vitest'
 import { PtcCalls } from '../src/ptc-calls.ts'
 

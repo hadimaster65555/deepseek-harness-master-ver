@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-agent-instructions",
+  "name": "@master-harness/agent-instructions",
   "description": "Workspace context loader for AGENTS.md/CLAUDE.md instruction files",
   "version": "0.2.1-rc.3",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/context/agent-instructions"
   },
   "type": "module",
@@ -29,38 +29,38 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-fs": "workspace:*",
-    "@deepseek-ai/dsh-home-paths": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-tools": "workspace:*",
-    "@deepseek-ai/dsh-working-directory": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/agent": "workspace:*",
+    "@master-harness/fs": "workspace:*",
+    "@master-harness/home-paths": "workspace:*",
+    "@master-harness/llm": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/tools": "workspace:*",
+    "@master-harness/working-directory": "workspace:*"
   },
   "dependencies": {
-    "@deepseek-ai/dsh-util-values": "workspace:*",
-    "@deepseek-ai/schemastery": "workspace:~"
+    "@master-harness/util-values": "workspace:*",
+    "@master-harness/schemastery": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/cordis-plugin-loader": "workspace:~",
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-agent-loop": "workspace:*",
-    "@deepseek-ai/dsh-agent-loop-testkit": "workspace:*",
-    "@deepseek-ai/dsh-fs": "workspace:*",
-    "@deepseek-ai/dsh-fs-local": "workspace:*",
-    "@deepseek-ai/dsh-home-paths": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-llm-deepseek": "workspace:*",
-    "@deepseek-ai/dsh-llm-deepseek-api-key": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-system-prompt": "workspace:*",
-    "@deepseek-ai/dsh-tool-executor-native": "workspace:*",
-    "@deepseek-ai/dsh-tool-fs": "workspace:*",
-    "@deepseek-ai/dsh-tool-testkit": "workspace:*",
-    "@deepseek-ai/dsh-tools": "workspace:*",
-    "@deepseek-ai/dsh-working-directory": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/cordis-plugin-loader": "workspace:~",
+    "@master-harness/agent": "workspace:*",
+    "@master-harness/agent-loop": "workspace:*",
+    "@master-harness/agent-loop-testkit": "workspace:*",
+    "@master-harness/fs": "workspace:*",
+    "@master-harness/fs-local": "workspace:*",
+    "@master-harness/home-paths": "workspace:*",
+    "@master-harness/llm": "workspace:*",
+    "@master-harness/llm-deepseek": "workspace:*",
+    "@master-harness/llm-deepseek-api-key": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/session-projection": "workspace:*",
+    "@master-harness/system-prompt": "workspace:*",
+    "@master-harness/tool-executor-native": "workspace:*",
+    "@master-harness/tool-fs": "workspace:*",
+    "@master-harness/tool-testkit": "workspace:*",
+    "@master-harness/tools": "workspace:*",
+    "@master-harness/working-directory": "workspace:*"
   }
 }

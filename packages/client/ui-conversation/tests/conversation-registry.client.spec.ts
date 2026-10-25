@@ -1,21 +1,21 @@
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@master-harness/cordis'
 import { afterEach, describe, expect, it, onTestFinished, vi } from 'vitest'
-import { SessionSeq } from '@deepseek-ai/dsh-session/types'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import { createAssistantMessage, LlmAttemptId } from '@deepseek-ai/dsh-llm'
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
+import { SessionSeq } from '@master-harness/session/types'
+import type { SessionId } from '@master-harness/session/types'
+import { createAssistantMessage, LlmAttemptId } from '@master-harness/llm'
+import { createSnapshotStore } from '@master-harness/client-store'
 import {
   createScope, MutableSessionEventSource,
-} from '@deepseek-ai/dsh-api-session-controller/client'
+} from '@master-harness/api-session-controller/client'
 import type {
   ISessions, SessionBinding, SessionEventLike, SessionFace, SessionListState, SessionSnapshot,
-} from '@deepseek-ai/dsh-api-session-controller/client'
+} from '@master-harness/api-session-controller/client'
 import {
   ConversationEventRegistry, ConversationNodeAssembler, ConversationViewRegistry, UiConversation,
-} from '@deepseek-ai/dsh-client-ui-conversation/client'
+} from '@master-harness/client-ui-conversation/client'
 import type {
   ConversationNodeDefinition, ConversationViewDefinition, ConversationViewNode,
-} from '@deepseek-ai/dsh-client-ui-conversation/client'
+} from '@master-harness/client-ui-conversation/client'
 
 const SESSION_ID = 'resident' as SessionId
 

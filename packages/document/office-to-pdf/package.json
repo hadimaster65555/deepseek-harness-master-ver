@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-office-to-pdf",
+  "name": "@master-harness/office-to-pdf",
   "description": "Shared Office-to-PDF conversion with bounded queues and caching",
   "version": "0.2.1-rc.3",
   "publishConfig": {
@@ -11,7 +11,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/document/office-to-pdf"
   },
   "exports": {
@@ -46,21 +46,21 @@
     "lib/typert.remote-client.d.ts"
   ],
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~"
+    "@master-harness/cordis": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/cordis-plugin-loader": "workspace:~",
-    "@deepseek-ai/cordis-plugin-include": "workspace:~",
-    "@deepseek-ai/dsh-api-workspace-files": "workspace:*",
-    "@deepseek-ai/dsh-fs": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/cordis-plugin-loader": "workspace:~",
+    "@master-harness/cordis-plugin-include": "workspace:~",
+    "@master-harness/api-workspace-files": "workspace:*",
+    "@master-harness/fs": "workspace:*",
+    "@master-harness/session": "workspace:*"
   },
   "dependencies": {
     "@deepseek-ai/libreoffice-kit": "^0.1.5",
-    "@deepseek-ai/schemastery": "workspace:~",
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*",
+    "@master-harness/schemastery": "workspace:~",
+    "@master-harness/brand": "workspace:*",
+    "@master-harness/typert-protocol": "workspace:*",
     "zod": "4.4.3"
   }
 }

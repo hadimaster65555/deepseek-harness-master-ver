@@ -1,13 +1,13 @@
 {
-  "name": "@deepseek-ai/dsh-host-directory-picker-native",
-  "description": "Native-OS-chooser backend of the directory-picker seam for the DeepSeek Harness web GUI host",
+  "name": "@master-harness/host-directory-picker-native",
+  "description": "Native-OS-chooser backend of the directory-picker seam for the Master Harness web GUI host",
   "version": "0.2.1-rc.3",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/host/directory-picker-native"
   },
   "type": "module",
@@ -34,15 +34,15 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@deepseek-ai/dsh-host-directory-picker": "workspace:*",
-    "@deepseek-ai/dsh-native-command": "workspace:*",
+    "@master-harness/host-directory-picker": "workspace:*",
+    "@master-harness/native-command": "workspace:*",
     "koffi": "3.1.1"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~"
+    "@master-harness/cordis": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
+    "@master-harness/cordis": "workspace:~",
     "tsx": "^4.23.13"
   }
 }

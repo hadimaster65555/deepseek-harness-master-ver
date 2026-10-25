@@ -3,14 +3,14 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/architecture/2026-09-17-native-v4-read-validation.md
 /agent-note-mandatory-native-v4-relationship-validation:
-  en: 67bc5b987df97d21
-  zh: 173eb273e11a24a9
+  en: a3e4f1f0af4a7e2d
+  zh: 204015f7aa616269
 /agent-note-mandatory-native-v4-relationship-validation/problem:
   en: cfb527c1c2ca661a
   zh: b61a906330cdaf97
 /agent-note-mandatory-native-v4-relationship-validation/decision:
-  en: 534efaae5eb9beb0
-  zh: ccb3734458248383
+  en: 5cab543afba5b52a
+  zh: b0ab6bfa42dbc991
 /agent-note-mandatory-native-v4-relationship-validation/alternatives-considered:
   en: 96a37d9ba0252630
   zh: fdf2d085805f0010

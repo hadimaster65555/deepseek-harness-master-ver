@@ -1,16 +1,16 @@
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
+import SessionProjectionRegistry from '@master-harness/session-projection'
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { Context } from '@deepseek-ai/cordis'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import { agentPresetProjectionDefinition } from '@deepseek-ai/dsh-agent-preset-registry'
-import SessionStore, { SESSION_FORMAT_VERSION, SessionId } from '@deepseek-ai/dsh-session'
-import type { SessionHeader } from '@deepseek-ai/dsh-session'
-import { SessionAlreadyOwnedError } from '@deepseek-ai/dsh-session-persistence'
-import type { SessionObservation } from '@deepseek-ai/dsh-session-query'
-import TypertRegistry from '@deepseek-ai/dsh-typert-registry'
+import { Context } from '@master-harness/cordis'
+import AgentRegistry from '@master-harness/agent'
+import type { Agent } from '@master-harness/agent'
+import { agentPresetProjectionDefinition } from '@master-harness/agent-preset-registry'
+import SessionStore, { SESSION_FORMAT_VERSION, SessionId } from '@master-harness/session'
+import type { SessionHeader } from '@master-harness/session'
+import { SessionAlreadyOwnedError } from '@master-harness/session-persistence'
+import type { SessionObservation } from '@master-harness/session-query'
+import TypertRegistry from '@master-harness/typert-registry'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import {
   ApiSessionAgentController,
@@ -255,7 +255,7 @@ describe('ApiSession creation', () => {
 
   it('surfaces directory creation failure', async () => {
     const { agents } = await harness()
-    const parent = mkdtempSync(join(tmpdir(), 'dsh-session-controller-file-'))
+    const parent = mkdtempSync(join(tmpdir(), 'mh-session-controller-file-'))
     tempDirs.push(parent)
     const file = join(parent, 'file')
     writeFileSync(file, 'not a directory')

@@ -5,63 +5,63 @@
 /:
   en: 3fe330c4d51197ec
   zh: 5874f3bcd419dbbc
-/deepseek-ai-dsh-typert-generator:
-  en: 572884e8456e3876
-  zh: 766da5ce0943f314
-/deepseek-ai-dsh-typert-generator/summary:
-  en: c481285bb066ad9f
-  zh: b5d9e32c7747f04a
-/deepseek-ai-dsh-typert-generator/table-of-contents:
+/master-harness-typert-generator:
+  en: 253ba8114e52140f
+  zh: eb66c5c93f1d412b
+/master-harness-typert-generator/summary:
+  en: 824c7cd816947ea2
+  zh: d2e7569eeac7dfb1
+/master-harness-typert-generator/table-of-contents:
   en: d152484eb41ac6b4
   zh: 09388d293f9be9cb
-/deepseek-ai-dsh-typert-generator/use-this-package:
+/master-harness-typert-generator/use-this-package:
   en: 949dec3bb987644a
   zh: 0ed333a6067465dc
-/deepseek-ai-dsh-typert-generator/use-this-package/publishing-typert-artifacts-from-a-package:
-  en: c7078becc8f12609
-  zh: 4b8838b559ecb677
-/deepseek-ai-dsh-typert-generator/use-this-package/ordinary-remote-metadata:
-  en: 6bb456bb03fc6617
-  zh: 029407c373b8e6a6
-/deepseek-ai-dsh-typert-generator/use-this-package/analyzing-a-workspace-statically:
+/master-harness-typert-generator/use-this-package/publishing-typert-artifacts-from-a-package:
+  en: 1e5ed7bf37e0efb3
+  zh: 89266c6f41f3ea74
+/master-harness-typert-generator/use-this-package/ordinary-remote-metadata:
+  en: f8b045aa91605594
+  zh: 2a89dc604ee0f0e5
+/master-harness-typert-generator/use-this-package/analyzing-a-workspace-statically:
   en: 0a4f5896df9f2fab
   zh: e7d0d6cddd7a59e7
-/deepseek-ai-dsh-typert-generator/use-this-package/running-generation-inside-a-tsdown-build:
+/master-harness-typert-generator/use-this-package/running-generation-inside-a-tsdown-build:
   en: 15ecce4f32b7a8c0
   zh: c7d6b449d7b20338
-/deepseek-ai-dsh-typert-generator/use-this-package/generating-without-a-bundler:
+/master-harness-typert-generator/use-this-package/generating-without-a-bundler:
   en: cf6893be24bdc495
   zh: dafc23e2d2e8553e
-/deepseek-ai-dsh-typert-generator/understand-the-implementation:
+/master-harness-typert-generator/understand-the-implementation:
   en: b90762df7a978580
   zh: 123ab225a2b5df2a
-/deepseek-ai-dsh-typert-generator/understand-the-implementation/design-concept:
+/master-harness-typert-generator/understand-the-implementation/design-concept:
   en: 0a515742229bf442
   zh: dfd2c5eddd943af9
-/deepseek-ai-dsh-typert-generator/understand-the-implementation/source-map:
+/master-harness-typert-generator/understand-the-implementation/source-map:
   en: 89d9205446b496a6
   zh: d7bcae876c1905ec
-/deepseek-ai-dsh-typert-generator/understand-the-implementation/analysis-and-faces:
-  en: a844aafcafbc27b6
-  zh: 8efe7d472361bbc2
-/deepseek-ai-dsh-typert-generator/understand-the-implementation/emission-and-publication-contract:
-  en: 2f6f72eecffc33c2
-  zh: ded33dbc1d9a4ea5
-/deepseek-ai-dsh-typert-generator/understand-the-implementation/catalog-projection:
+/master-harness-typert-generator/understand-the-implementation/analysis-and-faces:
+  en: ae3809efa4684750
+  zh: 7c00d72b1b2d5271
+/master-harness-typert-generator/understand-the-implementation/emission-and-publication-contract:
+  en: c2a1441bd60568f4
+  zh: 915569271dc0808e
+/master-harness-typert-generator/understand-the-implementation/catalog-projection:
   en: e85b521a1e01ab2c
   zh: 4416dca569de0f61
-/deepseek-ai-dsh-typert-generator/further-exploration:
-  en: 6df514142eaad512
-  zh: e1ca60bd9fa30096
-/deepseek-ai-dsh-typert-generator/model-experience:
+/master-harness-typert-generator/further-exploration:
+  en: 7e43d8c27362ed5a
+  zh: 61525c818e4d7ef6
+/master-harness-typert-generator/model-experience:
   en: e6641e8b5e5f42ca
   zh: 2fdc0d3fde7e9216
-/deepseek-ai-dsh-typert-generator/model-experience/kv-cache-effect:
+/master-harness-typert-generator/model-experience/kv-cache-effect:
   en: 09310605f7d136d4
   zh: 3535ec7eba83b90f
-/deepseek-ai-dsh-typert-generator/known-limitations-and-deferred-work:
+/master-harness-typert-generator/known-limitations-and-deferred-work:
   en: fdc6707a82ceb4c3
   zh: 91fb8cab9fcf56bc
-/deepseek-ai-dsh-typert-generator/known-limitations-and-deferred-work/dev-note:
+/master-harness-typert-generator/known-limitations-and-deferred-work/dev-note:
   en: e67f633dc6fe7773
   zh: 3bb0c20c93f16f98

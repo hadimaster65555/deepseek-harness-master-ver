@@ -6,7 +6,7 @@
   display: grid;
   grid-template-columns: minmax(max-content, 1fr);
   padding: 6px 0 20px;
-  font: var(--dsw-font-markdown-code-block);
+  font: var(--mh-font-markdown-code-block);
   overflow-x: auto;
 }
 
@@ -27,12 +27,12 @@
 }
 
 .path {
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
   font-weight: 500;
 }
 
 .gap {
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
 }
 
 .del::before {
@@ -40,9 +40,9 @@
 }
 
 .del {
-  color: var(--dsw-alias-state-error-primary);
-  background: var(--dsw-alias-code-diff-deleted);
-  box-shadow: inset 3px 0 0 var(--dsw-alias-state-error-primary);
+  color: var(--mh-alias-state-error-primary);
+  background: var(--mh-alias-code-diff-deleted);
+  box-shadow: inset 3px 0 0 var(--mh-alias-state-error-primary);
 }
 
 .add::before {
@@ -50,13 +50,13 @@
 }
 
 .add {
-  color: var(--dsw-alias-state-success-primary);
-  background: var(--dsw-alias-code-diff-added);
-  box-shadow: inset 3px 0 0 var(--dsw-alias-state-success-primary);
+  color: var(--mh-alias-state-success-primary);
+  background: var(--mh-alias-code-diff-added);
+  box-shadow: inset 3px 0 0 var(--mh-alias-state-success-primary);
 }
 
 .context {
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
 }
 
 .context::before {
@@ -69,7 +69,7 @@
   padding: 0 22px;
   border: none;
   background: transparent;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   cursor: pointer;
   font: inherit;
   text-align: left;
@@ -77,6 +77,6 @@
 
 @media (hover: hover) {
   .expand:hover {
-    color: var(--dsw-alias-label-secondary);
+    color: var(--mh-alias-label-secondary);
   }
 }

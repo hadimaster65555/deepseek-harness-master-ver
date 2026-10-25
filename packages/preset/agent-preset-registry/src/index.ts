@@ -1,16 +1,16 @@
 /** Declarative Agent capability sets, activation and session binding. */
-import type { ProjectionHandle } from '@deepseek-ai/dsh-session-projection'
-import { Context, Service } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { Remote, RemoteError, TypertRemoteService } from '@deepseek-ai/dsh-typert-protocol'
-import { bindScopeParent, createScope, scopeOf, scopeParentOf, type Scope, type ScopeKey, type ScopeParentBinding } from '@deepseek-ai/dsh-scope'
-import { entryListSchema } from '@deepseek-ai/cordis-plugin-include'
+import type { ProjectionHandle } from '@master-harness/session-projection'
+import { Context, Service } from '@master-harness/cordis'
+import z from '@master-harness/schemastery'
+import { Remote, RemoteError, TypertRemoteService } from '@master-harness/typert-protocol'
+import { bindScopeParent, createScope, scopeOf, scopeParentOf, type Scope, type ScopeKey, type ScopeParentBinding } from '@master-harness/scope'
+import { entryListSchema } from '@master-harness/cordis-plugin-include'
 import { dump } from 'js-yaml'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import type { Session } from '@deepseek-ai/dsh-session'
+import type { Agent } from '@master-harness/agent'
+import type { Session } from '@master-harness/session'
 // Type-only: the optional `settings` service this registry keeps off the generated pages.
-import type {} from '@deepseek-ai/dsh-settings'
-import type {} from '@deepseek-ai/dsh-tools'
+import type {} from '@master-harness/settings'
+import type {} from '@master-harness/tools'
 import type { AgentPresetDocument, AgentPresetRoster } from './types.ts'
 import { entryListProblem, type PresetDefinition } from './definition.ts'
 import type { AgentPreset, Config } from './preset.ts'
@@ -24,7 +24,7 @@ export { auditRows, leakedServices, type PresetMount, type RowAudit } from './mo
 export type { AgentPresetInspection } from './composition-inventory.ts'
 export type { AgentPreset, Config } from './preset.ts'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@master-harness/cordis' {
   interface Context {
     agentPresets: AgentPresetRegistry
   }

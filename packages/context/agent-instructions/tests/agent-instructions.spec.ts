@@ -1,21 +1,21 @@
-import { executeToolFixture } from '@deepseek-ai/dsh-tool-testkit'
-import * as NativeToolExecutor from '@deepseek-ai/dsh-tool-executor-native'
+import { executeToolFixture } from '@master-harness/tool-testkit'
+import * as NativeToolExecutor from '@master-harness/tool-executor-native'
 import { chmod, mkdtemp, mkdir, rm, stat, symlink, utimes, writeFile } from 'node:fs/promises'
-import { provideWorkingDirectoryFixture } from '@deepseek-ai/dsh-agent-loop-testkit'
+import { provideWorkingDirectoryFixture } from '@master-harness/agent-loop-testkit'
 import { dirname, isAbsolute, join, relative, resolve, sep } from 'node:path'
 import { tmpdir } from 'node:os'
 import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import Loader from '@deepseek-ai/cordis-plugin-loader'
-import type { Config as AgentInstructionsConfig } from '@deepseek-ai/dsh-agent-instructions'
-import * as AgentInstructions from '@deepseek-ai/dsh-agent-instructions'
-import LlmRuntime, { createUserMessage, ToolCallId, type Message, type MessageSource, type StreamChunk } from '@deepseek-ai/dsh-llm'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
-import SessionStore, { SessionId, SessionSeq, type SessionEvent, type SurfaceIntent, type UserMessage } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import AgentRegistry, { agentEvents, type Agent } from '@deepseek-ai/dsh-agent'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import { FileSystem, FsTargetKey, FsVersion } from '@deepseek-ai/dsh-fs'
+import { Context } from '@master-harness/cordis'
+import Loader from '@master-harness/cordis-plugin-loader'
+import type { Config as AgentInstructionsConfig } from '@master-harness/agent-instructions'
+import * as AgentInstructions from '@master-harness/agent-instructions'
+import LlmRuntime, { createUserMessage, ToolCallId, type Message, type MessageSource, type StreamChunk } from '@master-harness/llm'
+import type { ContextFormed } from '@master-harness/llm'
+import SessionStore, { SessionId, SessionSeq, type SessionEvent, type SurfaceIntent, type UserMessage } from '@master-harness/session'
+import SessionProjectionRegistry from '@master-harness/session-projection'
+import AgentRegistry, { agentEvents, type Agent } from '@master-harness/agent'
+import AgentLoop from '@master-harness/agent-loop'
+import { FileSystem, FsTargetKey, FsVersion } from '@master-harness/fs'
 import type {
   FsDirEntry,
   FsEditOutcome,
@@ -25,21 +25,21 @@ import type {
   FsTarget,
   FsWriteIntent,
   FsWriteOutcome,
-} from '@deepseek-ai/dsh-fs'
-import LocalFileSystem from '@deepseek-ai/dsh-fs-local'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime from '@deepseek-ai/dsh-tools'
-import { defineContentToolFixture } from '@deepseek-ai/dsh-tool-testkit'
+} from '@master-harness/fs'
+import LocalFileSystem from '@master-harness/fs-local'
+import SystemPrompt from '@master-harness/system-prompt'
+import ToolRuntime from '@master-harness/tools'
+import { defineContentToolFixture } from '@master-harness/tool-testkit'
 import type {
   ToolExecution,
   ToolExecutionToken,
-} from '@deepseek-ai/dsh-tools'
-import * as ToolFs from '@deepseek-ai/dsh-tool-fs'
+} from '@master-harness/tools'
+import * as ToolFs from '@master-harness/tool-fs'
 import {
   discoverBaselineInstructionFiles,
   loadBaselineInstructions,
   renderAgentInstructions,
-} from '@deepseek-ai/dsh-agent-instructions'
+} from '@master-harness/agent-instructions'
 import {
   applyInstructionVersionUpdates,
   baselineInstructionState,
@@ -60,9 +60,9 @@ import { MockAdapter, textResponse, toolCallResponse } from '../../../core/agent
 import {
   mountAgentLoopTestDependencies,
   mountAgentLoopTestHarness,
-} from '@deepseek-ai/dsh-agent-loop-testkit'
+} from '@master-harness/agent-loop-testkit'
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@master-harness/llm' {
   interface MessageSourceMap {
     'downstream': { kind: 'downstream' } & ContextFormed
     'other': { kind: 'other' } & ContextFormed
@@ -122,10 +122,10 @@ const isolatedAgentLoop = await mountAgentLoopTestHarness(isolatedInboxCtx)
 let nextStubSession = 1
 // The shared agents root defaults to the developer's real ~/.agents, whose
 // AGENTS.md would otherwise join every discovery result. Tests that exercise
-// that root pin `DSH_AGENTS_HOME`; the rest read this absent root.
-const absentAgentsHome = await mkdtemp(join(tmpdir(), 'dsh-absent-agents-'))
+// that root pin `MH_AGENTS_HOME`; the rest read this absent root.
+const absentAgentsHome = await mkdtemp(join(tmpdir(), 'mh-absent-agents-'))
 beforeEach(() => {
-  vi.stubEnv('DSH_AGENTS_HOME', absentAgentsHome)
+  vi.stubEnv('MH_AGENTS_HOME', absentAgentsHome)
 })
 afterAll(async () => {
   await isolatedInboxCtx.fiber.dispose()
@@ -141,7 +141,7 @@ function claimInbox(agent: Agent, target: 'next-turn' | 'next-step'): UserMessag
 const requestTimeoutMs = process.platform === 'win32' ? 5_000 : 1_000
 
 async function tempRepo(): Promise<string> {
-  return mkdtemp(join(tmpdir(), 'dsh-workspace-context-'))
+  return mkdtemp(join(tmpdir(), 'mh-workspace-context-'))
 }
 
 async function write(path: string, content: string): Promise<void> {
@@ -152,15 +152,15 @@ async function write(path: string, content: string): Promise<void> {
 /**
  * Pin the harness home for the current test; the plugin resolves it from the
  * process environment and ignores row configuration.
- * @param home - absolute harness home that `$DSH_HOME` names.
+ * @param home - absolute harness home that `$MH_HOME` names.
  */
 function pinHarnessHome(home: string): void {
-  vi.stubEnv('DSH_HOME', home)
+  vi.stubEnv('MH_HOME', home)
 }
 
 /** Pin the shared agents root for the current test; the plugin resolves it from the process environment. */
 function pinAgentsHome(home: string): void {
-  vi.stubEnv('DSH_AGENTS_HOME', home)
+  vi.stubEnv('MH_AGENTS_HOME', home)
 }
 
 class RecordingFileSystem extends FileSystem {
@@ -453,7 +453,7 @@ describe('workspace context instruction discovery', () => {
       const files = await discoverBaselineInstructionFiles({ cwd })
 
       expect(files.map(file => file.displayPath)).toEqual([
-        '$DSH_HOME/AGENTS.md',
+        '$MH_HOME/AGENTS.md',
         'AGENTS.md',
         'CLAUDE.md',
         join('packages', 'CLAUDE.md'),
@@ -736,11 +736,11 @@ describe('workspace context instruction discovery', () => {
   it('uses the default harness home and cwd itself as root when no project marker exists', async () => {
     const root = await tempRepo()
     const emptyHome = await tempRepo()
-    // Isolate the default-home fallback: blank DSH_HOME is treated as unset, and
-    // the home dirs point at an empty dir so the default ~/.dsh holds no global
+    // Isolate the default-home fallback: blank MH_HOME is treated as unset, and
+    // the home dirs point at an empty dir so the default ~/.mh holds no global
     // scope. Windows homedir() reads USERPROFILE (not HOME), so both must be
-    // stubbed or a real ~/.dsh/AGENTS.md would otherwise leak in.
-    vi.stubEnv('DSH_HOME', '')
+    // stubbed or a real ~/.mh/AGENTS.md would otherwise leak in.
+    vi.stubEnv('MH_HOME', '')
     vi.stubEnv('HOME', emptyHome)
     if (process.platform === 'win32') vi.stubEnv('USERPROFILE', emptyHome)
     try {
@@ -769,10 +769,10 @@ describe('workspace context instruction discovery', () => {
       await write(join(envHome, 'AGENTS.md'), 'environment rule')
       pinHarnessHome(envHome)
 
-      const files = await discoverBaselineInstructionFiles({ cwd: root, dshHome: ownerHome })
-      const loaded = await loadBaselineInstructions({ cwd: root, dshHome: ownerHome, maxBytes: 65536 })
+      const files = await discoverBaselineInstructionFiles({ cwd: root, mhHome: ownerHome })
+      const loaded = await loadBaselineInstructions({ cwd: root, mhHome: ownerHome, maxBytes: 65536 })
 
-      expect(files).toEqual([{ absolutePath: join(ownerHome, 'AGENTS.md'), displayPath: '$DSH_HOME/AGENTS.md' }])
+      expect(files).toEqual([{ absolutePath: join(ownerHome, 'AGENTS.md'), displayPath: '$MH_HOME/AGENTS.md' }])
       expect(loaded?.text).toContain('owner-resolved rule')
       expect(loaded?.text).not.toContain('environment rule')
     } finally {
@@ -783,16 +783,16 @@ describe('workspace context instruction discovery', () => {
     }
   })
 
-  it('honors DSH_HOME from the process environment', async () => {
+  it('honors MH_HOME from the process environment', async () => {
     const root = await tempRepo()
     const envHome = await tempRepo()
     try {
       await write(join(envHome, 'AGENTS.md'), 'env global rule')
-      vi.stubEnv('DSH_HOME', envHome)
+      vi.stubEnv('MH_HOME', envHome)
 
       const files = await discoverBaselineInstructionFiles({ cwd: root })
 
-      expect(files).toEqual([{ absolutePath: join(envHome, 'AGENTS.md'), displayPath: '$DSH_HOME/AGENTS.md' }])
+      expect(files).toEqual([{ absolutePath: join(envHome, 'AGENTS.md'), displayPath: '$MH_HOME/AGENTS.md' }])
     } finally {
       vi.unstubAllEnvs()
       await rm(root, { recursive: true, force: true })
@@ -800,18 +800,18 @@ describe('workspace context instruction discovery', () => {
     }
   })
 
-  it('honors DSH_AGENTS_HOME from the process environment', async () => {
+  it('honors MH_AGENTS_HOME from the process environment', async () => {
     const root = await tempRepo()
     const emptyHome = await tempRepo()
     const envAgents = await tempRepo()
     try {
       await write(join(envAgents, 'AGENTS.md'), 'env shared rule')
-      vi.stubEnv('DSH_AGENTS_HOME', envAgents)
+      vi.stubEnv('MH_AGENTS_HOME', envAgents)
 
       pinHarnessHome(emptyHome)
       const files = await discoverBaselineInstructionFiles({ cwd: root })
 
-      expect(files).toEqual([{ absolutePath: join(envAgents, 'AGENTS.md'), displayPath: '$DSH_AGENTS_HOME/AGENTS.md' }])
+      expect(files).toEqual([{ absolutePath: join(envAgents, 'AGENTS.md'), displayPath: '$MH_AGENTS_HOME/AGENTS.md' }])
     } finally {
       vi.unstubAllEnvs()
       await rm(root, { recursive: true, force: true })
@@ -834,8 +834,8 @@ describe('workspace context instruction discovery', () => {
       const loaded = await loadBaselineInstructions({ cwd: root, maxBytes: 65536 })
       const text = loaded?.text ?? ''
 
-      expect(text).toContain('Instructions from: $DSH_HOME/AGENTS.md\n\nharness home rule')
-      expect(text).toContain('Instructions from: $DSH_AGENTS_HOME/AGENTS.md\n\nshared agents rule')
+      expect(text).toContain('Instructions from: $MH_HOME/AGENTS.md\n\nharness home rule')
+      expect(text).toContain('Instructions from: $MH_AGENTS_HOME/AGENTS.md\n\nshared agents rule')
       expect(text.indexOf('harness home rule')).toBeLessThan(text.indexOf('shared agents rule'))
     } finally {
       vi.unstubAllEnvs()
@@ -853,11 +853,11 @@ describe('workspace context instruction discovery', () => {
 
       // A set environment variable would override the homedir default and
       // relabel the root, so both homes must fall back to the stubbed OS home.
-      vi.stubEnv('DSH_HOME', '')
-      vi.stubEnv('DSH_AGENTS_HOME', '')
+      vi.stubEnv('MH_HOME', '')
+      vi.stubEnv('MH_AGENTS_HOME', '')
       vi.resetModules()
       vi.doMock('node:os', () => ({ homedir: () => home }))
-      const isolated = await import('@deepseek-ai/dsh-agent-instructions')
+      const isolated = await import('@master-harness/agent-instructions')
       const files = await isolated.discoverBaselineInstructionFiles({ cwd: root })
 
       expect(files.map(file => file.displayPath)).toEqual(['~/.agents/AGENTS.md'])
@@ -870,20 +870,20 @@ describe('workspace context instruction discovery', () => {
     }
   })
 
-  it('labels the default DSH home as ~/.dsh when HOME points at the configured default', async () => {
+  it('labels the default MH home as ~/.mh when HOME points at the configured default', async () => {
     const root = await tempRepo()
     const home = await tempRepo()
     try {
-      await write(join(home, '.dsh/AGENTS.md'), 'global default rule')
+      await write(join(home, '.mh/AGENTS.md'), 'global default rule')
 
-      // A set DSH_HOME would override the homedir default and relabel the home.
-      vi.stubEnv('DSH_HOME', '')
+      // A set MH_HOME would override the homedir default and relabel the home.
+      vi.stubEnv('MH_HOME', '')
       vi.resetModules()
       vi.doMock('node:os', () => ({ homedir: () => home }))
-      const isolated = await import('@deepseek-ai/dsh-agent-instructions')
+      const isolated = await import('@master-harness/agent-instructions')
       const files = await isolated.discoverBaselineInstructionFiles({ cwd: root })
 
-      expect(files.map(file => file.displayPath)).toEqual(['~/.dsh/AGENTS.md'])
+      expect(files.map(file => file.displayPath)).toEqual(['~/.mh/AGENTS.md'])
     } finally {
       vi.unstubAllEnvs()
       vi.doUnmock('node:os')
@@ -893,19 +893,19 @@ describe('workspace context instruction discovery', () => {
     }
   })
 
-  it('expands a ~/.dsh DSH_HOME to the operating-system home directory', async () => {
+  it('expands a ~/.mh MH_HOME to the operating-system home directory', async () => {
     const root = await tempRepo()
     const home = await tempRepo()
     try {
-      await write(join(home, '.dsh/AGENTS.md'), 'global tilde rule')
+      await write(join(home, '.mh/AGENTS.md'), 'global tilde rule')
 
       vi.resetModules()
       vi.doMock('node:os', () => ({ homedir: () => home }))
-      const isolated = await import('@deepseek-ai/dsh-agent-instructions')
-      pinHarnessHome('~/.dsh')
+      const isolated = await import('@master-harness/agent-instructions')
+      pinHarnessHome('~/.mh')
       const files = await isolated.discoverBaselineInstructionFiles({ cwd: root })
 
-      expect(files).toEqual([{ absolutePath: join(home, '.dsh/AGENTS.md'), displayPath: '~/.dsh/AGENTS.md' }])
+      expect(files).toEqual([{ absolutePath: join(home, '.mh/AGENTS.md'), displayPath: '~/.mh/AGENTS.md' }])
     } finally {
       vi.unstubAllEnvs()
       vi.doUnmock('node:os')
@@ -915,7 +915,7 @@ describe('workspace context instruction discovery', () => {
     }
   })
 
-  it('deduplicates user-global instructions when DSH_HOME points at the project root', async () => {
+  it('deduplicates user-global instructions when MH_HOME points at the project root', async () => {
     const root = await tempRepo()
     try {
       await mkdir(join(root, '.git'), { recursive: true })
@@ -924,7 +924,7 @@ describe('workspace context instruction discovery', () => {
       pinHarnessHome(root)
       const files = await discoverBaselineInstructionFiles({ cwd: root })
 
-      expect(files).toEqual([{ absolutePath: join(root, 'AGENTS.md'), displayPath: '$DSH_HOME/AGENTS.md' }])
+      expect(files).toEqual([{ absolutePath: join(root, 'AGENTS.md'), displayPath: '$MH_HOME/AGENTS.md' }])
     } finally {
       vi.unstubAllEnvs()
       await rm(root, { recursive: true, force: true })
@@ -1239,7 +1239,7 @@ describe('workspace context rendering', () => {
 
   it('renders a user-global file and project files that fit one budget as one unmarked chain', () => {
     const rendered = renderAgentInstructions([
-      { absolutePath: '/home/user/.dsh/AGENTS.md', displayPath: '~/.dsh/AGENTS.md', content: 'Prefer pnpm.' },
+      { absolutePath: '/home/user/.mh/AGENTS.md', displayPath: '~/.mh/AGENTS.md', content: 'Prefer pnpm.' },
       { absolutePath: '/repo/AGENTS.md', displayPath: 'AGENTS.md', content: 'root rules' },
       { absolutePath: '/repo/pkg/AGENTS.md', displayPath: 'pkg/AGENTS.md', content: 'package rules' },
     ], { maxBytes: 65536 })
@@ -1249,7 +1249,7 @@ describe('workspace context rendering', () => {
         '<system-reminder>',
         baselineIntro,
         '',
-        'Instructions from: ~/.dsh/AGENTS.md',
+        'Instructions from: ~/.mh/AGENTS.md',
         '',
         'Prefer pnpm.',
         '',
@@ -1270,10 +1270,10 @@ describe('workspace context rendering', () => {
   it.each([
     {
       layout: '20/30/20 KiB',
-      files: [kibInstruction('~/.dsh/AGENTS.md', 20), kibInstruction('AGENTS.md', 30), kibInstruction('pkg/AGENTS.md', 20)],
+      files: [kibInstruction('~/.mh/AGENTS.md', 20), kibInstruction('AGENTS.md', 30), kibInstruction('pkg/AGENTS.md', 20)],
     },
-    { layout: '40/30 KiB', files: [kibInstruction('~/.dsh/AGENTS.md', 40), kibInstruction('AGENTS.md', 30)] },
-    { layout: '63.5/8 KiB', files: [kibInstruction('~/.dsh/AGENTS.md', 63.5), kibInstruction('AGENTS.md', 8)] },
+    { layout: '40/30 KiB', files: [kibInstruction('~/.mh/AGENTS.md', 40), kibInstruction('AGENTS.md', 30)] },
+    { layout: '63.5/8 KiB', files: [kibInstruction('~/.mh/AGENTS.md', 63.5), kibInstruction('AGENTS.md', 8)] },
   ])('keeps every file of the $layout layout when each chain fits its own budget', ({ files }) => {
     const { rendered, included } = renderAgentInstructionSet(files, { maxBytes: 65536 })
 
@@ -1287,7 +1287,7 @@ describe('workspace context rendering', () => {
 
   it('omits the harness-home file before the shared-root file when only the user-global chain exceeds its budget', () => {
     const files = [
-      { absolutePath: '/home/user/.dsh/AGENTS.md', displayPath: '~/.dsh/AGENTS.md', content: 'home '.repeat(100) },
+      { absolutePath: '/home/user/.mh/AGENTS.md', displayPath: '~/.mh/AGENTS.md', content: 'home '.repeat(100) },
       { absolutePath: '/home/user/.agents/AGENTS.md', displayPath: '~/.agents/AGENTS.md', content: 'shared rule' },
       { absolutePath: '/repo/AGENTS.md', displayPath: 'AGENTS.md', content: 'root '.repeat(40) },
       { absolutePath: '/repo/pkg/AGENTS.md', displayPath: 'pkg/AGENTS.md', content: 'package rule' },
@@ -1297,7 +1297,7 @@ describe('workspace context rendering', () => {
 
     expect(rendered.text).toBe([
       '<system-reminder>',
-      'Workspace instruction budget 600 bytes: omitted ~/.dsh/AGENTS.md',
+      'Workspace instruction budget 600 bytes: omitted ~/.mh/AGENTS.md',
       '',
       baselineIntro,
       '',
@@ -1314,7 +1314,7 @@ describe('workspace context rendering', () => {
       'package rule',
       '</system-reminder>',
     ].join('\n'))
-    expect(rendered.omitted).toEqual([{ absolutePath: '/home/user/.dsh/AGENTS.md', displayPath: '~/.dsh/AGENTS.md' }])
+    expect(rendered.omitted).toEqual([{ absolutePath: '/home/user/.mh/AGENTS.md', displayPath: '~/.mh/AGENTS.md' }])
     expect(rendered.truncated).toEqual([])
     expect(included).toEqual(files.slice(1))
     expect(Buffer.byteLength(rendered.text, 'utf8')).toBeGreaterThan(600)
@@ -1322,26 +1322,26 @@ describe('workspace context rendering', () => {
   })
 
   it('truncates an oversized user-global file within its own budget while the project chain renders whole', () => {
-    const userGlobal = kibInstruction('~/.dsh/AGENTS.md', 70)
+    const userGlobal = kibInstruction('~/.mh/AGENTS.md', 70)
     const files = [
       userGlobal,
       { absolutePath: '/repo/AGENTS.md', displayPath: 'AGENTS.md', content: 'root rule' },
       { absolutePath: '/repo/pkg/AGENTS.md', displayPath: 'pkg/AGENTS.md', content: 'package rule' },
     ]
-    const truncated = [{ displayPath: '~/.dsh/AGENTS.md', originalBytes: 71680, includedBytes: 65129 }]
+    const truncated = [{ displayPath: '~/.mh/AGENTS.md', originalBytes: 71680, includedBytes: 65131 }]
 
     const { rendered, included } = renderAgentInstructionSet(files, { maxBytes: 65536 })
 
     expect(rendered).toEqual({
       text: [
         '<system-reminder>',
-        'Workspace instruction budget 65536 bytes: truncated ~/.dsh/AGENTS.md from 71680 to 65129 bytes',
+        'Workspace instruction budget 65536 bytes: truncated ~/.mh/AGENTS.md from 71680 to 65131 bytes',
         '',
         baselineIntro,
         '',
-        'Instructions from: ~/.dsh/AGENTS.md',
+        'Instructions from: ~/.mh/AGENTS.md',
         '',
-        userGlobal.content.slice(0, 65129),
+        userGlobal.content.slice(0, 65131),
         '',
         'Instructions from: AGENTS.md',
         '',
@@ -1368,7 +1368,7 @@ describe('workspace context rendering', () => {
     const projectAlone = renderAgentInstructions(project, { maxBytes: 600 })
 
     const rendered = renderAgentInstructions([
-      { absolutePath: '/home/user/.dsh/AGENTS.md', displayPath: '~/.dsh/AGENTS.md', content: 'Prefer pnpm.' },
+      { absolutePath: '/home/user/.mh/AGENTS.md', displayPath: '~/.mh/AGENTS.md', content: 'Prefer pnpm.' },
       ...project,
     ], { maxBytes: 600 })
 
@@ -1381,7 +1381,7 @@ describe('workspace context rendering', () => {
       '',
       baselineIntro,
       '',
-      'Instructions from: ~/.dsh/AGENTS.md',
+      'Instructions from: ~/.mh/AGENTS.md',
       '',
       'Prefer pnpm.',
       '',
@@ -1394,7 +1394,7 @@ describe('workspace context rendering', () => {
   })
 
   it('keeps a user-global file that fills its budget exactly while the project chain fits only its notice and empty heading', () => {
-    const userGlobal = { absolutePath: '/home/user/.dsh/AGENTS.md', displayPath: '~/.dsh/AGENTS.md', content: 'Use pnpm.' }
+    const userGlobal = { absolutePath: '/home/user/.mh/AGENTS.md', displayPath: '~/.mh/AGENTS.md', content: 'Use pnpm.!' }
     const project = [
       { absolutePath: '/repo/AGENTS.md', displayPath: 'AGENTS.md', content: 'r'.repeat(1000) },
       { absolutePath: '/repo/packages/app/AGENTS.md', displayPath: 'packages/app/AGENTS.md', content: 'a'.repeat(1000) },
@@ -1416,9 +1416,9 @@ describe('workspace context rendering', () => {
       '',
       baselineIntro,
       '',
-      'Instructions from: ~/.dsh/AGENTS.md',
+      'Instructions from: ~/.mh/AGENTS.md',
       '',
-      'Use pnpm.',
+      'Use pnpm.!',
       '',
       'Instructions from: packages/app/src/feature/AGENTS.md',
       '',
@@ -1431,7 +1431,7 @@ describe('workspace context rendering', () => {
   })
 
   it('keeps a user-global file that fills its budget exactly while the project chain fits only its bare notice', () => {
-    const userGlobal = { absolutePath: '/home/user/.dsh/AGENTS.md', displayPath: '~/.dsh/AGENTS.md', content: 'g'.repeat(5) }
+    const userGlobal = { absolutePath: '/home/user/.mh/AGENTS.md', displayPath: '~/.mh/AGENTS.md', content: 'g'.repeat(6) }
     expect(Buffer.byteLength(renderAgentInstructions([userGlobal], { maxBytes: 316 }).text, 'utf8')).toBe(316)
     expect(renderAgentInstructions(deepProjectFiles, { maxBytes: 316 }).text).toBe(deepProjectMarker(316))
 
@@ -1443,9 +1443,9 @@ describe('workspace context rendering', () => {
       '',
       baselineIntro,
       '',
-      'Instructions from: ~/.dsh/AGENTS.md',
+      'Instructions from: ~/.mh/AGENTS.md',
       '',
-      'g'.repeat(5),
+      'g'.repeat(6),
       '</system-reminder>',
     ].join('\n'))
     expect(included).toEqual([userGlobal])
@@ -1454,14 +1454,14 @@ describe('workspace context rendering', () => {
 
   it('merges a frameless project chain at exactly twice the budget and falls back to one budget one byte above', () => {
     const userGlobal = (bytes: number): { absolutePath: string; displayPath: string; content: string } => (
-      { absolutePath: '/home/user/.dsh/AGENTS.md', displayPath: '~/.dsh/AGENTS.md', content: 'g'.repeat(bytes) }
+      { absolutePath: '/home/user/.mh/AGENTS.md', displayPath: '~/.mh/AGENTS.md', content: 'g'.repeat(bytes) }
     )
     const deepestHeading = 'Instructions from: aaaaaaaaaa/bbbbbbbbbb/cccccccccc/dddddddddd/AGENTS.md'
     expect(renderAgentInstructions(deepProjectFiles, { maxBytes: 318 }).text).toBe(`${deepProjectMarker(318)}\n\n${deepestHeading}\n\n`)
     expect(renderAgentInstructions([userGlobal(6)], { maxBytes: 318 })).toMatchObject({ omitted: [], truncated: [] })
 
-    const atBound = renderAgentInstructionSet([userGlobal(5), ...deepProjectFiles], { maxBytes: 318 })
-    const overBound = renderAgentInstructionSet([userGlobal(6), ...deepProjectFiles], { maxBytes: 318 })
+    const atBound = renderAgentInstructionSet([userGlobal(6), ...deepProjectFiles], { maxBytes: 318 })
+    const overBound = renderAgentInstructionSet([userGlobal(7), ...deepProjectFiles], { maxBytes: 318 })
 
     expect(atBound.rendered.text).toBe([
       '<system-reminder>',
@@ -1469,9 +1469,9 @@ describe('workspace context rendering', () => {
       '',
       baselineIntro,
       '',
-      'Instructions from: ~/.dsh/AGENTS.md',
+      'Instructions from: ~/.mh/AGENTS.md',
       '',
-      'g'.repeat(5),
+      'g'.repeat(6),
       '',
       deepestHeading,
       '',
@@ -1479,17 +1479,17 @@ describe('workspace context rendering', () => {
       '</system-reminder>',
     ].join('\n'))
     expect(Buffer.byteLength(atBound.rendered.text, 'utf8')).toBe(2 * 318)
-    expect(atBound.included).toEqual([userGlobal(5)])
-    expect(overBound.rendered.text).toBe('Workspace instruction budget 318 bytes: omitted ~/.dsh/AGENTS.md, AGENTS.md, aaaaaaaaaa/AGENTS.md, '
+    expect(atBound.included).toEqual([userGlobal(6)])
+    expect(overBound.rendered.text).toBe('Workspace instruction budget 318 bytes: omitted ~/.mh/AGENTS.md, AGENTS.md, aaaaaaaaaa/AGENTS.md, '
       + 'aaaaaaaaaa/bbbbbbbbbb/AGENTS.md, aaaaaaaaaa/bbbbbbbbbb/cccccccccc/AGENTS.md; '
       + 'truncated aaaaaaaaaa/bbbbbbbbbb/cccccccccc/dddddddddd/AGENTS.md from 5000 to 0 bytes')
-    expect(overBound.rendered.omitted[0]).toEqual({ absolutePath: '/home/user/.dsh/AGENTS.md', displayPath: '~/.dsh/AGENTS.md' })
+    expect(overBound.rendered.omitted[0]).toEqual({ absolutePath: '/home/user/.mh/AGENTS.md', displayPath: '~/.mh/AGENTS.md' })
     expect(overBound.included).toEqual([])
   })
 
   it('keeps both chains whole when each fills its budget exactly and truncates both one byte lower', () => {
     const files = [
-      { absolutePath: '/home/user/.dsh/AGENTS.md', displayPath: '~/.dsh/AGENTS.md', content: 'g'.repeat(289) },
+      { absolutePath: '/home/user/.mh/AGENTS.md', displayPath: '~/.mh/AGENTS.md', content: 'g'.repeat(290) },
       { absolutePath: '/repo/AGENTS.md', displayPath: 'AGENTS.md', content: 'p'.repeat(296) },
     ]
     for (const file of files) {
@@ -1503,7 +1503,7 @@ describe('workspace context rendering', () => {
     expect(Buffer.byteLength(exact.rendered.text, 'utf8')).toBe(928)
     expect(exact.included).toEqual(files)
     expect(below.rendered.text.split('\n')[1]).toBe(
-      'Workspace instruction budget 599 bytes: truncated ~/.dsh/AGENTS.md from 289 to 198 bytes, AGENTS.md from 296 to 212 bytes',
+      'Workspace instruction budget 599 bytes: truncated ~/.mh/AGENTS.md from 290 to 200 bytes, AGENTS.md from 296 to 212 bytes',
     )
     expect(below.rendered.omitted).toEqual([])
     expect(below.included).toEqual(files)
@@ -1512,19 +1512,19 @@ describe('workspace context rendering', () => {
 
   it('frames both chains under the compact intro when neither chain fits the full intro', () => {
     const rendered = renderAgentInstructions([
-      { absolutePath: '/home/user/.dsh/AGENTS.md', displayPath: '~/.dsh/AGENTS.md', content: 'g'.repeat(1000) },
+      { absolutePath: '/home/user/.mh/AGENTS.md', displayPath: '~/.mh/AGENTS.md', content: 'g'.repeat(1000) },
       { absolutePath: '/repo/pkg/AGENTS.md', displayPath: 'pkg/AGENTS.md', content: 'p'.repeat(1000) },
     ], { maxBytes: 300 })
 
     expect(rendered.text).toBe([
       '<system-reminder>',
-      'Workspace instruction budget 300 bytes: truncated ~/.dsh/AGENTS.md from 1000 to 51 bytes, pkg/AGENTS.md from 1000 to 57 bytes',
+      'Workspace instruction budget 300 bytes: truncated ~/.mh/AGENTS.md from 1000 to 53 bytes, pkg/AGENTS.md from 1000 to 57 bytes',
       '',
       'Workspace instructions were omitted or truncated to fit the configured byte budget.',
       '',
-      'Instructions from: ~/.dsh/AGENTS.md',
+      'Instructions from: ~/.mh/AGENTS.md',
       '',
-      'g'.repeat(51),
+      'g'.repeat(53),
       '',
       'Instructions from: pkg/AGENTS.md',
       '',
@@ -1536,15 +1536,15 @@ describe('workspace context rendering', () => {
 
   it('frames the budget notices of both chains without an intro when neither chain fits a frame of its own', () => {
     const { rendered, included } = renderAgentInstructionSet([
-      { absolutePath: '/home/user/.dsh/AGENTS.md', displayPath: '~/.dsh/AGENTS.md', content: 'g'.repeat(1000) },
+      { absolutePath: '/home/user/.mh/AGENTS.md', displayPath: '~/.mh/AGENTS.md', content: 'g'.repeat(1000) },
       { absolutePath: '/repo/pkg/AGENTS.md', displayPath: 'pkg/AGENTS.md', content: 'p'.repeat(1000) },
     ], { maxBytes: 150 })
 
     expect(rendered.text).toBe([
       '<system-reminder>',
-      'Workspace instruction budget 150 bytes: truncated ~/.dsh/AGENTS.md from 1000 to 0 bytes, pkg/AGENTS.md from 1000 to 0 bytes',
+      'Workspace instruction budget 150 bytes: truncated ~/.mh/AGENTS.md from 1000 to 0 bytes, pkg/AGENTS.md from 1000 to 0 bytes',
       '',
-      'Instructions from: ~/.dsh/AGENTS.md',
+      'Instructions from: ~/.mh/AGENTS.md',
       '',
       '',
       '',
@@ -1559,20 +1559,20 @@ describe('workspace context rendering', () => {
 
   it('falls back to the single-budget notice when the merged chain notices would exceed twice the budget', () => {
     const rendered = renderAgentInstructions([
-      { absolutePath: '/home/user/.dsh/AGENTS.md', displayPath: '~/.dsh/AGENTS.md', content: 'g'.repeat(1000) },
+      { absolutePath: '/home/user/.mh/AGENTS.md', displayPath: '~/.mh/AGENTS.md', content: 'g'.repeat(1000) },
       { absolutePath: '/repo/pkg/AGENTS.md', displayPath: 'pkg/AGENTS.md', content: 'p'.repeat(1000) },
     ], { maxBytes: 50 })
 
     expect(rendered).toEqual({
       text: 'Workspace instruction budget 50 bytes: omitted ~/.',
-      omitted: [{ absolutePath: '/home/user/.dsh/AGENTS.md', displayPath: '~/.dsh/AGENTS.md' }],
+      omitted: [{ absolutePath: '/home/user/.mh/AGENTS.md', displayPath: '~/.mh/AGENTS.md' }],
       truncated: [{ displayPath: 'pkg/AGENTS.md', originalBytes: 1000, includedBytes: 0 }],
     })
   })
 
   it('keeps every two-chain baseline and change batch within twice the budget at every limit', () => {
     const files = [
-      { absolutePath: '/home/user/.dsh/AGENTS.md', displayPath: '~/.dsh/AGENTS.md', content: 'home '.repeat(200) },
+      { absolutePath: '/home/user/.mh/AGENTS.md', displayPath: '~/.mh/AGENTS.md', content: 'home '.repeat(200) },
       { absolutePath: '/home/user/.agents/AGENTS.md', displayPath: '~/.agents/AGENTS.md', content: 'shared '.repeat(30) },
       { absolutePath: '/repo/AGENTS.md', displayPath: 'AGENTS.md', content: 'root '.repeat(200) },
       { absolutePath: '/repo/packages/app/AGENTS.md', displayPath: 'packages/app/AGENTS.md', content: 'app '.repeat(100) },
@@ -1591,20 +1591,20 @@ describe('workspace context rendering', () => {
 
   it('truncates multibyte content in both chains on code point boundaries near the limit', () => {
     const files = [
-      { absolutePath: '/home/user/.dsh/AGENTS.md', displayPath: '~/.dsh/AGENTS.md', content: '规'.repeat(400) },
+      { absolutePath: '/home/user/.mh/AGENTS.md', displayPath: '~/.mh/AGENTS.md', content: '规'.repeat(400) },
       { absolutePath: '/repo/AGENTS.md', displayPath: 'AGENTS.md', content: '😀'.repeat(300) },
     ]
 
     const rendered = renderAgentInstructions(files, { maxBytes: 700 })
 
     expect(rendered.truncated).toEqual([
-      { displayPath: '~/.dsh/AGENTS.md', originalBytes: 1200, includedBytes: 297 },
+      { displayPath: '~/.mh/AGENTS.md', originalBytes: 1200, includedBytes: 300 },
       { displayPath: 'AGENTS.md', originalBytes: 1200, includedBytes: 312 },
     ])
     expect(rendered.text).toContain([
-      'Instructions from: ~/.dsh/AGENTS.md',
+      'Instructions from: ~/.mh/AGENTS.md',
       '',
-      '规'.repeat(99),
+      '规'.repeat(100),
       '',
       'Instructions from: AGENTS.md',
       '',
@@ -1620,7 +1620,7 @@ describe('workspace context rendering', () => {
 
   it.each([0, -1, Number.NaN, Number.POSITIVE_INFINITY])('renders nothing from either chain when the budget %s disables loading', (maxBytes) => {
     const files = [
-      { absolutePath: '/home/user/.dsh/AGENTS.md', displayPath: '~/.dsh/AGENTS.md', content: 'global rule' },
+      { absolutePath: '/home/user/.mh/AGENTS.md', displayPath: '~/.mh/AGENTS.md', content: 'global rule' },
       { absolutePath: '/repo/AGENTS.md', displayPath: 'AGENTS.md', content: 'root rule' },
     ]
     const items = files.map(file => ({
@@ -1635,8 +1635,8 @@ describe('workspace context rendering', () => {
   it('retains a user-global change beside project changes when each chain fits its own budget', () => {
     const items = [
       {
-        change: { action: 'set' as const, scope: sk(USER_GLOBAL_DIRECTORY, USER_GLOBAL_FILE), path: '~/.dsh/AGENTS.md', digest: 'global' },
-        file: { absolutePath: '/home/user/.dsh/AGENTS.md', displayPath: '~/.dsh/AGENTS.md', content: 'Prefer pnpm.' },
+        change: { action: 'set' as const, scope: sk(USER_GLOBAL_DIRECTORY, USER_GLOBAL_FILE), path: '~/.mh/AGENTS.md', digest: 'global' },
+        file: { absolutePath: '/home/user/.mh/AGENTS.md', displayPath: '~/.mh/AGENTS.md', content: 'Prefer pnpm.' },
       },
       {
         change: { action: 'set' as const, scope: sk('a', 'AGENTS.md'), path: 'a/AGENTS.md', digest: 'a' },
@@ -1652,7 +1652,7 @@ describe('workspace context rendering', () => {
     expect(rendered.changes).toEqual(items.map(item => item.change))
     expect(rendered.text).toBe([
       '<system-reminder>',
-      'Additional instructions from: ~/.dsh/AGENTS.md',
+      'Additional instructions from: ~/.mh/AGENTS.md',
       '',
       `These user-global instructions apply to all work. ${additionalGuidance}`,
       '',
@@ -1678,8 +1678,8 @@ describe('workspace context rendering', () => {
   it('drops a user-global change that cannot fit its own budget while retaining the project changes', () => {
     const items = [
       {
-        change: { action: 'set' as const, scope: sk(USER_GLOBAL_DIRECTORY, USER_GLOBAL_FILE), path: '~/.dsh/AGENTS.md', digest: 'global' },
-        file: { absolutePath: '/home/user/.dsh/AGENTS.md', displayPath: '~/.dsh/AGENTS.md', content: 'g'.repeat(1000) },
+        change: { action: 'set' as const, scope: sk(USER_GLOBAL_DIRECTORY, USER_GLOBAL_FILE), path: '~/.mh/AGENTS.md', digest: 'global' },
+        file: { absolutePath: '/home/user/.mh/AGENTS.md', displayPath: '~/.mh/AGENTS.md', content: 'g'.repeat(1000) },
       },
       {
         change: { action: 'replace' as const, scope: sk('a', 'AGENTS.md'), path: 'a/AGENTS.md', digest: 'a' },
@@ -1696,7 +1696,7 @@ describe('workspace context rendering', () => {
     expect(rendered.changes).toEqual([items[1]!.change, items[2]!.change])
     expect(rendered.text).toBe([
       '<system-reminder>',
-      'Workspace instruction budget 330 bytes: truncated ~/.dsh/AGENTS.md from 1000 to 0 bytes',
+      'Workspace instruction budget 330 bytes: truncated ~/.mh/AGENTS.md from 1000 to 0 bytes',
       '',
       'Updated instructions from: a/AGENTS.md',
       '',
@@ -1719,8 +1719,8 @@ describe('workspace context rendering', () => {
         file: { absolutePath: '/repo/a/AGENTS.md', displayPath: 'a/AGENTS.md', content: 'a'.repeat(bytes) },
       },
       {
-        change: { action: 'set', scope: sk(USER_GLOBAL_DIRECTORY, USER_GLOBAL_FILE), path: '~/.dsh/AGENTS.md', digest: 'global' },
-        file: { absolutePath: '/home/user/.dsh/AGENTS.md', displayPath: '~/.dsh/AGENTS.md', content: 'g'.repeat(bytes) },
+        change: { action: 'set', scope: sk(USER_GLOBAL_DIRECTORY, USER_GLOBAL_FILE), path: '~/.mh/AGENTS.md', digest: 'global' },
+        file: { absolutePath: '/home/user/.mh/AGENTS.md', displayPath: '~/.mh/AGENTS.md', content: 'g'.repeat(bytes) },
       },
     ]
     const batchText = (marker: string[], projectBytes: number, userGlobalBytes: number): string => [
@@ -1732,7 +1732,7 @@ describe('workspace context rendering', () => {
       '',
       'a'.repeat(projectBytes),
       '',
-      'Additional instructions from: ~/.dsh/AGENTS.md',
+      'Additional instructions from: ~/.mh/AGENTS.md',
       '',
       `These user-global instructions apply to all work. ${additionalGuidance}`,
       '',
@@ -1750,7 +1750,7 @@ describe('workspace context rendering', () => {
     expect(split).toEqual(fits)
     expect(Buffer.byteLength(split.text, 'utf8')).toBeGreaterThan(400)
     expect(truncated).toEqual({
-      text: batchText(['Workspace instruction budget 400 bytes: truncated a/AGENTS.md from 1000 to 41 bytes, ~/.dsh/AGENTS.md from 1000 to 25 bytes', ''], 41, 25),
+      text: batchText(['Workspace instruction budget 400 bytes: truncated a/AGENTS.md from 1000 to 41 bytes, ~/.mh/AGENTS.md from 1000 to 27 bytes', ''], 41, 27),
       changes: large.map(item => item.change),
     })
   })
@@ -1758,30 +1758,30 @@ describe('workspace context rendering', () => {
   it('retains a user-global change beside a frameless project batch at exactly twice the budget and drops it one byte above', () => {
     const items = (globalBytes: number): ChangeRenderItem[] => [
       {
-        change: { action: 'set', scope: sk(USER_GLOBAL_DIRECTORY, USER_GLOBAL_FILE), path: '~/.dsh/AGENTS.md', digest: 'global' },
-        file: { absolutePath: '/home/user/.dsh/AGENTS.md', displayPath: '~/.dsh/AGENTS.md', content: 'g'.repeat(globalBytes) },
+        change: { action: 'set', scope: sk(USER_GLOBAL_DIRECTORY, USER_GLOBAL_FILE), path: '~/.mh/AGENTS.md', digest: 'global' },
+        file: { absolutePath: '/home/user/.mh/AGENTS.md', displayPath: '~/.mh/AGENTS.md', content: 'g'.repeat(globalBytes) },
       },
       {
         change: { action: 'set', scope: sk('a', 'AGENTS.md'), path: 'a/AGENTS.md', digest: 'a' },
         file: { absolutePath: '/repo/a/AGENTS.md', displayPath: 'a/AGENTS.md', content: 'p'.repeat(5000) },
       },
     ]
-    const atBoundItems = items(34)
+    const atBoundItems = items(35)
     expect(renderInstructionChanges(items(35).slice(0, 1), 321).changes).toHaveLength(1)
 
     const atBound = renderInstructionChanges(atBoundItems, 321)
-    const overBound = renderInstructionChanges(items(35), 321)
+    const overBound = renderInstructionChanges(items(36), 321)
 
     expect(atBound.changes).toEqual([atBoundItems[0]!.change])
     expect(atBound.text).toBe([
       '<system-reminder>',
       'Workspace instruction budget 321 bytes: truncated a/AGENTS.md from 5000 to 0 bytes',
       '',
-      'Additional instructions from: ~/.dsh/AGENTS.md',
+      'Additional instructions from: ~/.mh/AGENTS.md',
       '',
       `These user-global instructions apply to all work. ${additionalGuidance}`,
       '',
-      'g'.repeat(34),
+      'g'.repeat(35),
       '',
       'Additional instructions from: a/AGENTS.md',
       '',
@@ -1792,7 +1792,7 @@ describe('workspace context rendering', () => {
     ].join('\n'))
     expect(Buffer.byteLength(atBound.text, 'utf8')).toBe(2 * 321)
     expect(overBound).toEqual({
-      text: 'Workspace instruction budget 321 bytes: omitted ~/.dsh/AGENTS.md; truncated a/AGENTS.md from 5000 to 0 bytes',
+      text: 'Workspace instruction budget 321 bytes: omitted ~/.mh/AGENTS.md; truncated a/AGENTS.md from 5000 to 0 bytes',
       changes: [],
     })
   })
@@ -1810,7 +1810,7 @@ describe('workspace context request injection', () => {
       await write(join(rowHome, 'AGENTS.md'), 'stale row instruction')
       pinHarnessHome(processHome)
       // Schemastery retains unknown row keys, so the actual plugin must ignore them.
-      const rowConfig = { maxBytes: 65536, dshHome: rowHome, agentsHome: rowHome }
+      const rowConfig = { maxBytes: 65536, mhHome: rowHome, agentsHome: rowHome }
       await mountAgentInstructions(ctx, rowConfig)
       const agent = await stubAgent(root)
 
@@ -2053,10 +2053,10 @@ describe('workspace context request injection', () => {
       const contexts = original.session.snapshotEvents().filter(event => event.type === 'user/message'
         && event.data.source.kind === 'agent-instructions')
       expect(contexts).toHaveLength(1)
-      expect(derivedText(original)).toContain('truncated $DSH_HOME/AGENTS.md from 1900 to 0 bytes')
+      expect(derivedText(original)).toContain('truncated $MH_HOME/AGENTS.md from 1900 to 0 bytes')
       expect(derivedText(original)).toContain('Instructions from: AGENTS.md\n\nproject')
       expect(derivedText(original)).not.toContain('global instruction')
-      expect(derivedText(original)).not.toContain('$DSH_AGENTS_HOME')
+      expect(derivedText(original)).not.toContain('$MH_AGENTS_HOME')
       await syncAgentInstructions(ctx, original)
       await syncAgentInstructions(ctx, original)
       expect(original.inbox.nextStep.filter(message => message.source.kind === 'agent-instructions')).toEqual([])
@@ -2086,7 +2086,7 @@ describe('workspace context request injection', () => {
       await mountAgentInstructions(ctx, { maxBytes: 700 })
       const original = await stubAgent(root)
       await composeBaselinePrefix(ctx, original)
-      expect(derivedText(original)).toContain('Instructions from: $DSH_HOME/AGENTS.md')
+      expect(derivedText(original)).toContain('Instructions from: $MH_HOME/AGENTS.md')
       const userGlobalScope = sk(USER_GLOBAL_DIRECTORY, USER_GLOBAL_FILE)
       // The fixture models a log recorded under one shared budget: the same
       // identity, a baseline with only the project file, and its omission notice.
@@ -2094,7 +2094,7 @@ describe('workspace context request injection', () => {
         if (event.type !== 'user/message' || event.data.source.kind !== 'agent-instructions') return event
         const text = [
           '<system-reminder>',
-          'Workspace instruction budget 700 bytes: omitted $DSH_HOME/AGENTS.md',
+          'Workspace instruction budget 700 bytes: omitted $MH_HOME/AGENTS.md',
           '',
           baselineIntro,
           '',
@@ -2117,10 +2117,10 @@ describe('workspace context request injection', () => {
       expect(transitions).toHaveLength(1)
       const transition = transitions[0]
       expect(transition?.type === 'user/message' ? transition.data.source : undefined).toMatchObject({
-        changes: [{ action: 'set', scope: userGlobalScope, path: '$DSH_HOME/AGENTS.md' }],
+        changes: [{ action: 'set', scope: userGlobalScope, path: '$MH_HOME/AGENTS.md' }],
       })
       expect(transition?.type === 'user/message' ? blocksText(transition.data.content) : '').toContain([
-        'Additional instructions from: $DSH_HOME/AGENTS.md',
+        'Additional instructions from: $MH_HOME/AGENTS.md',
         '',
         `These user-global instructions apply to all work. ${additionalGuidance}`,
         '',
@@ -2709,7 +2709,7 @@ describe('workspace context request injection', () => {
         kind: 'agent-instructions',
         changes: [{ action: 'remove', scope: sk(AGENTS_GLOBAL_DIRECTORY, USER_GLOBAL_FILE) }],
       })
-      expect(blocksText(pending?.content)).toContain('Instructions removed: $DSH_AGENTS_HOME/AGENTS.md')
+      expect(blocksText(pending?.content)).toContain('Instructions removed: $MH_AGENTS_HOME/AGENTS.md')
     } finally {
       vi.unstubAllEnvs()
       await rm(root, { recursive: true, force: true })
@@ -2736,7 +2736,7 @@ describe('workspace context request injection', () => {
       await syncAgentInstructions(ctx, agent)
 
       const text = blocksText((await agentInstructionsOf(agent))?.content)
-      expect(text).toContain('Additional instructions from: $DSH_AGENTS_HOME/AGENTS.md')
+      expect(text).toContain('Additional instructions from: $MH_AGENTS_HOME/AGENTS.md')
       expect(text).toContain('These user-global instructions apply to all work.')
       expect(text).toContain('shared delta rule')
       expect(text).not.toContain(AGENTS_GLOBAL_DIRECTORY)
@@ -2775,7 +2775,7 @@ describe('workspace context request injection', () => {
         await composeBaselinePrefix(ctx, agent)
 
         expect(derivedText(agent).match(/shared global rule/g)).toHaveLength(1)
-        expect(derivedText(agent)).not.toContain('$DSH_AGENTS_HOME/AGENTS.md')
+        expect(derivedText(agent)).not.toContain('$MH_AGENTS_HOME/AGENTS.md')
         await syncAgentInstructions(ctx, agent)
         expect(agent.inbox.nextStep.filter(message => message.source.kind === 'agent-instructions')).toEqual([])
 
@@ -2801,14 +2801,14 @@ describe('workspace context request injection', () => {
             {
               action: winner === 'edit' ? 'replace' : 'remove',
               scope: sk(USER_GLOBAL_DIRECTORY, USER_GLOBAL_FILE),
-              path: '$DSH_HOME/AGENTS.md',
+              path: '$MH_HOME/AGENTS.md',
             },
-            { action: 'set', scope: sk(AGENTS_GLOBAL_DIRECTORY, USER_GLOBAL_FILE), path: '$DSH_AGENTS_HOME/AGENTS.md' },
+            { action: 'set', scope: sk(AGENTS_GLOBAL_DIRECTORY, USER_GLOBAL_FILE), path: '$MH_AGENTS_HOME/AGENTS.md' },
           ],
         })
         const recoveredText = blocksText(pending[0]?.content)
-        expect(recoveredText).toContain(`${winner === 'edit' ? 'Updated instructions from:' : 'Instructions removed:'} $DSH_HOME/AGENTS.md`)
-        expect(recoveredText).toContain('Additional instructions from: $DSH_AGENTS_HOME/AGENTS.md')
+        expect(recoveredText).toContain(`${winner === 'edit' ? 'Updated instructions from:' : 'Instructions removed:'} $MH_HOME/AGENTS.md`)
+        expect(recoveredText).toContain('Additional instructions from: $MH_AGENTS_HOME/AGENTS.md')
         expect(recoveredText).toContain('These user-global instructions apply to all work.')
         expect(recoveredText.match(/shared global rule/g)).toHaveLength(1)
         if (winner === 'edit') expect(recoveredText).toContain('new harness rule')
@@ -2876,8 +2876,8 @@ describe('workspace context request injection', () => {
           { action: 'set', scope: sk(AGENTS_GLOBAL_DIRECTORY, USER_GLOBAL_FILE) },
         ],
       })
-      expect(blocksText(recovered.content)).toContain('Updated instructions from: $DSH_HOME/AGENTS.md')
-      expect(blocksText(recovered.content)).toContain('Additional instructions from: $DSH_AGENTS_HOME/AGENTS.md')
+      expect(blocksText(recovered.content)).toContain('Updated instructions from: $MH_HOME/AGENTS.md')
+      expect(blocksText(recovered.content)).toContain('Additional instructions from: $MH_AGENTS_HOME/AGENTS.md')
       expect(blocksText(recovered.content)).not.toContain('Additional instructions from: AGENTS.md')
       await appendAdditionalContexts(ctx, agent)
       await syncAgentInstructions(ctx, agent)
@@ -2905,7 +2905,7 @@ describe('workspace context request injection', () => {
       const agent = await stubAgent(root)
       const baseline = baselineInstructionState([{
         absolutePath: harnessPath,
-        displayPath: '$DSH_HOME/AGENTS.md',
+        displayPath: '$MH_HOME/AGENTS.md',
         content: 'shared global rule',
         version: FsVersion('harness-v1'),
       }])
@@ -2936,8 +2936,8 @@ describe('workspace context request injection', () => {
       expect(recovered?.context.source).toMatchObject({
         kind: 'agent-instructions',
         changes: [
-          { action: 'replace', scope: sk(USER_GLOBAL_DIRECTORY, USER_GLOBAL_FILE), path: '$DSH_HOME/AGENTS.md' },
-          { action: 'set', scope: sk(AGENTS_GLOBAL_DIRECTORY, USER_GLOBAL_FILE), path: '$DSH_AGENTS_HOME/AGENTS.md' },
+          { action: 'replace', scope: sk(USER_GLOBAL_DIRECTORY, USER_GLOBAL_FILE), path: '$MH_HOME/AGENTS.md' },
+          { action: 'set', scope: sk(AGENTS_GLOBAL_DIRECTORY, USER_GLOBAL_FILE), path: '$MH_AGENTS_HOME/AGENTS.md' },
         ],
       })
       expect(blocksText(recovered?.context.content)).toContain('These user-global instructions apply to all work.')
@@ -2971,8 +2971,8 @@ describe('workspace context request injection', () => {
       await syncAgentInstructions(ctx, agent)
 
       const text = blocksText((await agentInstructionsOf(agent))?.content)
-      expect(text).toContain('Instructions removed: $DSH_HOME/AGENTS.md')
-      expect(text).toContain('Additional instructions from: $DSH_AGENTS_HOME/AGENTS.md')
+      expect(text).toContain('Instructions removed: $MH_HOME/AGENTS.md')
+      expect(text).toContain('Additional instructions from: $MH_AGENTS_HOME/AGENTS.md')
       expect(text).toContain('shared global rule')
       expect(text).not.toContain('agents-global')
     } finally {
@@ -3049,8 +3049,8 @@ describe('workspace context request injection', () => {
         await mountAgentInstructionsPlugin(ctx, { maxBytes: 65536 })
         const agent = await stubAgent(root)
         await composeBaselinePrefix(ctx, agent)
-        expect(derivedText(agent)).toContain('Instructions from: $DSH_HOME/AGENTS.md')
-        expect(derivedText(agent)).toContain('Instructions from: $DSH_AGENTS_HOME/AGENTS.md')
+        expect(derivedText(agent)).toContain('Instructions from: $MH_HOME/AGENTS.md')
+        expect(derivedText(agent)).toContain('Instructions from: $MH_AGENTS_HOME/AGENTS.md')
 
         if (formation === 'shared-edited') {
           fs.entries.set(sharedPath, { type: 'file', content: duplicateText, version: FsVersion('shared-v2') })
@@ -3062,9 +3062,9 @@ describe('workspace context request injection', () => {
         expect(removal.source.changes).toContainEqual({
           action: 'remove',
           scope: sk(AGENTS_GLOBAL_DIRECTORY, USER_GLOBAL_FILE),
-          path: '$DSH_AGENTS_HOME/AGENTS.md',
+          path: '$MH_AGENTS_HOME/AGENTS.md',
         })
-        expect(blocksText(removal.content)).toContain('Instructions removed: $DSH_AGENTS_HOME/AGENTS.md')
+        expect(blocksText(removal.content)).toContain('Instructions removed: $MH_AGENTS_HOME/AGENTS.md')
         await appendAdditionalContexts(ctx, agent)
 
         fs.readTargets.length = 0
@@ -3085,13 +3085,13 @@ describe('workspace context request injection', () => {
             {
               action: winner === 'edit' ? 'replace' : 'remove',
               scope: sk(USER_GLOBAL_DIRECTORY, USER_GLOBAL_FILE),
-              path: '$DSH_HOME/AGENTS.md',
+              path: '$MH_HOME/AGENTS.md',
             },
-            { action: 'set', scope: sk(AGENTS_GLOBAL_DIRECTORY, USER_GLOBAL_FILE), path: '$DSH_AGENTS_HOME/AGENTS.md' },
+            { action: 'set', scope: sk(AGENTS_GLOBAL_DIRECTORY, USER_GLOBAL_FILE), path: '$MH_AGENTS_HOME/AGENTS.md' },
           ],
         })
         const promotedText = blocksText(promotion.content)
-        expect(promotedText).toContain('Additional instructions from: $DSH_AGENTS_HOME/AGENTS.md')
+        expect(promotedText).toContain('Additional instructions from: $MH_AGENTS_HOME/AGENTS.md')
         expect(promotedText).toContain('These user-global instructions apply to all work.')
         expect(promotedText.match(/global rule B/g)).toHaveLength(1)
         expect(fs.readTargets.filter(path => path === sharedPath)).toHaveLength(1)
@@ -3540,8 +3540,8 @@ describe('workspace context request injection', () => {
 
       const text = derivedText(agent)
       expect(text.match(/shared global rule/g)).toHaveLength(1)
-      expect(text).toContain('Instructions from: $DSH_HOME/AGENTS.md')
-      expect(text).not.toContain('Instructions from: $DSH_AGENTS_HOME/AGENTS.md')
+      expect(text).toContain('Instructions from: $MH_HOME/AGENTS.md')
+      expect(text).not.toContain('Instructions from: $MH_AGENTS_HOME/AGENTS.md')
     } finally {
       vi.unstubAllEnvs()
       await rm(root, { recursive: true, force: true })
@@ -4133,7 +4133,7 @@ describe('workspace context request injection', () => {
     }
   })
 
-  it('labels a custom DSH_HOME as $DSH_HOME instead of pretending it is ~/.dsh', async () => {
+  it('labels a custom MH_HOME as $MH_HOME instead of pretending it is ~/.mh', async () => {
     const root = await tempRepo()
     const home = await tempRepo()
     try {
@@ -4141,7 +4141,7 @@ describe('workspace context request injection', () => {
       pinHarnessHome(home)
       const files = await discoverBaselineInstructionFiles({ cwd: root })
 
-      expect(files.map(file => file.displayPath)).toEqual(['$DSH_HOME/AGENTS.md'])
+      expect(files.map(file => file.displayPath)).toEqual(['$MH_HOME/AGENTS.md'])
     } finally {
       vi.unstubAllEnvs()
       await rm(root, { recursive: true, force: true })
@@ -4168,7 +4168,7 @@ describe('workspace context request injection', () => {
           },
         }
       })
-      const isolated = await import('@deepseek-ai/dsh-agent-instructions')
+      const isolated = await import('@master-harness/agent-instructions')
       pinHarnessHome(home)
       await isolated.loadBaselineInstructions({ cwd: root, maxBytes: 65536 })
       observedStats.clear()
@@ -4204,7 +4204,7 @@ describe('workspace context request injection', () => {
           },
         }
       })
-      const isolated = await import('@deepseek-ai/dsh-agent-instructions')
+      const isolated = await import('@master-harness/agent-instructions')
 
       pinHarnessHome(home)
       const rendered = await isolated.loadBaselineInstructions({ cwd: root, maxBytes: 65536 })
@@ -4243,7 +4243,7 @@ describe('workspace context request injection', () => {
           },
         }
       })
-      const isolated = await import('@deepseek-ai/dsh-agent-instructions')
+      const isolated = await import('@master-harness/agent-instructions')
 
       pinHarnessHome(home)
       await expect(isolated.loadBaselineInstructions({ cwd, maxBytes: 65536 }))

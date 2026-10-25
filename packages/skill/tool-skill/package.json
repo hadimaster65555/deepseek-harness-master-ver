@@ -1,13 +1,13 @@
 {
-  "name": "@deepseek-ai/dsh-tool-skill",
-  "description": "Model-facing skill loading tool for the DeepSeek Harness",
+  "name": "@master-harness/tool-skill",
+  "description": "Model-facing skill loading tool for the Master Harness",
   "version": "0.2.1-rc.3",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/skill/tool-skill"
   },
   "type": "module",
@@ -29,28 +29,28 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-skill": "workspace:*",
-    "@deepseek-ai/dsh-tools": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-working-directory": "workspace:*"
+    "@master-harness/agent": "workspace:*",
+    "@master-harness/llm": "workspace:*",
+    "@master-harness/skill": "workspace:*",
+    "@master-harness/tools": "workspace:*",
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/working-directory": "workspace:*"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:~"
+    "@master-harness/schemastery": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-agent-loop-testkit": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-scope": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-skill": "workspace:*",
-    "@deepseek-ai/dsh-skill-filesystem": "workspace:*",
-    "@deepseek-ai/dsh-tool-executor-native": "workspace:*",
-    "@deepseek-ai/dsh-tool-testkit": "workspace:*",
-    "@deepseek-ai/dsh-tools": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-working-directory": "workspace:*"
+    "@master-harness/agent": "workspace:*",
+    "@master-harness/agent-loop-testkit": "workspace:*",
+    "@master-harness/llm": "workspace:*",
+    "@master-harness/scope": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/skill": "workspace:*",
+    "@master-harness/skill-filesystem": "workspace:*",
+    "@master-harness/tool-executor-native": "workspace:*",
+    "@master-harness/tool-testkit": "workspace:*",
+    "@master-harness/tools": "workspace:*",
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/working-directory": "workspace:*"
   }
 }

@@ -1,5 +1,5 @@
 /**
- * Experimental bridge for Claude Code mods. A mod is a DSH plugin built with
+ * Experimental bridge for Claude Code mods. A mod is a MH plugin built with
  * {@link defineMod} around the mod's `register(on, options)`; this service
  * keeps the loaded mods and raises their events from harness extension
  * points — `session.start` on `agent/created`, `prompt.submit` and
@@ -7,26 +7,26 @@
  * `turn.complete` on `turn/end`, `session.end` on `agent/disposed`, and
  * `command.run` from the commands a mod registers. The `$` a hook receives is
  * served by {@link createHostOps} over the composed harness services.
- * @module @deepseek-ai/dsh-experimental-claude-code-mods
+ * @module @master-harness/experimental-claude-code-mods
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type {} from '@deepseek-ai/dsh-working-directory'
-import z from '@deepseek-ai/schemastery'
-import type { Agent, PreStepDecision } from '@deepseek-ai/dsh-agent'
-import { Remote, TypertRemoteService } from '@deepseek-ai/dsh-typert-protocol'
-import type { AssistantMessage, ContentBlock, TokenUsage } from '@deepseek-ai/dsh-llm'
-import { SessionId } from '@deepseek-ai/dsh-session'
-import type { UserMessage } from '@deepseek-ai/dsh-session'
-import { scopeOf } from '@deepseek-ai/dsh-scope'
-import { validateJsonSchemaValue } from '@deepseek-ai/dsh-tools'
-import type { PostToolDecision, ToolExecutionResult, ToolExecutionToken } from '@deepseek-ai/dsh-tools'
+import type { Context } from '@master-harness/cordis'
+import type {} from '@master-harness/working-directory'
+import z from '@master-harness/schemastery'
+import type { Agent, PreStepDecision } from '@master-harness/agent'
+import { Remote, TypertRemoteService } from '@master-harness/typert-protocol'
+import type { AssistantMessage, ContentBlock, TokenUsage } from '@master-harness/llm'
+import { SessionId } from '@master-harness/session'
+import type { UserMessage } from '@master-harness/session'
+import { scopeOf } from '@master-harness/scope'
+import { validateJsonSchemaValue } from '@master-harness/tools'
+import type { PostToolDecision, ToolExecutionResult, ToolExecutionToken } from '@master-harness/tools'
 import type { LoadedMod } from './chain.ts'
 import { RewriteRefusedError } from './chain.ts'
 import { ModsEngine } from './engine.ts'
 import { createHostOps, toolCallResultOf } from './host-ops.ts'
 import type { AgentBinding } from './host-ops.ts'
-import type { JsonValue } from '@deepseek-ai/dsh-util-values'
+import type { JsonValue } from '@master-harness/util-values'
 import { SurfaceTable } from './surfaces.ts'
 import { createToolNameAliases } from './tool-names.ts'
 import { messageOf, record, stringify } from './values.ts'
@@ -36,7 +36,7 @@ import type {
   SurfaceSnapshot, TurnStartResult, TurnUsage, UiRenderInput, UiRenderResult,
 } from './types.ts'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@master-harness/cordis' {
   interface Context {
     claudeCodeMods: ClaudeCodeMods
   }

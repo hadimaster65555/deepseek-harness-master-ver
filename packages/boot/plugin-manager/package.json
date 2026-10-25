@@ -1,13 +1,13 @@
 {
-  "name": "@deepseek-ai/dsh-plugin-manager",
-  "description": "Current-profile plugin and bundle management shared by dsh CLI, Web and agent tools",
+  "name": "@master-harness/plugin-manager",
+  "description": "Current-profile plugin and bundle management shared by mh CLI, Web and agent tools",
   "version": "0.2.1-rc.3",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/boot/plugin-manager"
   },
   "type": "module",
@@ -60,63 +60,63 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@deepseek-ai/dsh-app-boot": "workspace:*",
-    "@deepseek-ai/dsh-atomic-write": "workspace:*",
-    "@deepseek-ai/dsh-official-bundles": "workspace:*",
-    "@deepseek-ai/schemastery": "workspace:~",
+    "@master-harness/app-boot": "workspace:*",
+    "@master-harness/atomic-write": "workspace:*",
+    "@master-harness/official-bundles": "workspace:*",
+    "@master-harness/schemastery": "workspace:~",
     "execa": "^10.0.1",
     "semver": "^7.8.5",
     "yaml": "^2.9.0",
     "zod": "4.4.3",
-    "@deepseek-ai/dsh-util-values": "workspace:*",
-    "@deepseek-ai/dsh-plugin-detail": "workspace:*",
-    "@deepseek-ai/dsh-timeout": "workspace:*",
+    "@master-harness/util-values": "workspace:*",
+    "@master-harness/plugin-detail": "workspace:*",
+    "@master-harness/timeout": "workspace:*",
     "hosted-git-info": "^9.0.3"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/cordis-plugin-loader": "workspace:~",
-    "@deepseek-ai/dsh-host-plugin-inventory": "workspace:*",
-    "@deepseek-ai/dsh-subprocess": "workspace:*",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*",
-    "@deepseek-ai/dsh-tools": "workspace:*",
-    "@deepseek-ai/dsh-hmr": "workspace:*",
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:*",
-    "@deepseek-ai/dsh-sandbox": "workspace:*",
-    "@deepseek-ai/dsh-user-approval": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/cordis-plugin-loader": "workspace:~",
+    "@master-harness/host-plugin-inventory": "workspace:*",
+    "@master-harness/subprocess": "workspace:*",
+    "@master-harness/typert-protocol": "workspace:*",
+    "@master-harness/tools": "workspace:*",
+    "@master-harness/hmr": "workspace:*",
+    "@master-harness/brand": "workspace:*",
+    "@master-harness/sandbox-policy": "workspace:*",
+    "@master-harness/sandbox": "workspace:*",
+    "@master-harness/user-approval": "workspace:*"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-hmr": {
+    "@master-harness/hmr": {
       "optional": true
     },
-    "@deepseek-ai/dsh-user-approval": {
+    "@master-harness/user-approval": {
       "optional": true
     }
   },
   "devDependencies": {
     "chokidar": "^4.0.3",
     "@types/semver": "^7.8.0",
-    "@deepseek-ai/dsh-package-manifest": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/cordis-plugin-loader": "workspace:~",
-    "@deepseek-ai/dsh-host-plugin-inventory": "workspace:*",
-    "@deepseek-ai/dsh-subprocess": "workspace:*",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*",
-    "@deepseek-ai/dsh-tool-executor-native": "workspace:*",
-    "@deepseek-ai/dsh-tool-testkit": "workspace:*",
-    "@deepseek-ai/dsh-tools": "workspace:*",
-    "@deepseek-ai/dsh-system-prompt": "workspace:*",
-    "@deepseek-ai/dsh-hmr": "workspace:*",
-    "@deepseek-ai/cordis-plugin-timer": "workspace:~",
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:*",
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-sandbox": "workspace:*",
-    "@deepseek-ai/dsh-user-approval": "workspace:*",
-    "@deepseek-ai/dsh-client-connection": "workspace:*",
+    "@master-harness/package-manifest": "workspace:*",
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/cordis-plugin-loader": "workspace:~",
+    "@master-harness/host-plugin-inventory": "workspace:*",
+    "@master-harness/subprocess": "workspace:*",
+    "@master-harness/typert-protocol": "workspace:*",
+    "@master-harness/tool-executor-native": "workspace:*",
+    "@master-harness/tool-testkit": "workspace:*",
+    "@master-harness/tools": "workspace:*",
+    "@master-harness/system-prompt": "workspace:*",
+    "@master-harness/hmr": "workspace:*",
+    "@master-harness/cordis-plugin-timer": "workspace:~",
+    "@master-harness/brand": "workspace:*",
+    "@master-harness/sandbox-policy": "workspace:*",
+    "@master-harness/agent": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/session-projection": "workspace:*",
+    "@master-harness/sandbox": "workspace:*",
+    "@master-harness/user-approval": "workspace:*",
+    "@master-harness/client-connection": "workspace:*",
     "@types/hosted-git-info": "^3.0.5"
   }
 }

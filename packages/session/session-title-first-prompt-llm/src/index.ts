@@ -1,15 +1,15 @@
 /** First-human-message model provider for `ctx.sessionTitle`. */
 
 /* jscpd:ignore-start -- both shipped providers import the same shared packages. */
-import type { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import type { LlmResolvedModelInfo, ReasoningEffortId } from '@deepseek-ai/dsh-llm'
-import { assertNever } from '@deepseek-ai/dsh-util-values'
+import type { Context } from '@master-harness/cordis'
+import z from '@master-harness/schemastery'
+import type { LlmResolvedModelInfo, ReasoningEffortId } from '@master-harness/llm'
+import { assertNever } from '@master-harness/util-values'
 import {
   normalizeSessionTitle,
   SessionTitleProviderId,
   type SessionTitleUserMessage,
-} from '@deepseek-ai/dsh-session-title'
+} from '@master-harness/session-title'
 import {
   executeSessionTitleLlm,
   resolveSessionTitleLlmConfig,
@@ -17,7 +17,7 @@ import {
   type ResolvedSessionTitleLlmConfig,
   type SessionTitleLlmConfig,
   type SessionTitleLlmResponse,
-} from '@deepseek-ai/dsh-session-title-llm'
+} from '@master-harness/session-title-llm'
 /* jscpd:ignore-end */
 
 export const name = 'session-title-first-prompt-llm'

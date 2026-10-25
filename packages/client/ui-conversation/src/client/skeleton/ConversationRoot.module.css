@@ -4,7 +4,7 @@
   flex-direction: column;
   height: 100%;
   min-width: 0;
-  background: var(--dsw-alias-bg-base);
+  background: var(--mh-alias-bg-base);
 }
 
 /* 76px with its rule: the height of the Sidebar's tab strip and header row
@@ -20,7 +20,7 @@
   box-sizing: border-box;
   min-height: 76px;
   padding: 10px 28px 0 20px;
-  border-bottom: 0.5px solid var(--dsw-alias-border-l3);
+  border-bottom: 0.5px solid var(--mh-alias-border-l3);
 }
 
 .header:where(:not(:has(.tabs))) {
@@ -78,7 +78,7 @@
      controls, ui-layout AppFrame) when it is published; the header already
      pads 20px of it. Zero everywhere else (the fallback makes the max
      negative). */
-  padding-inline-start: max(0px, calc(var(--dsh-frame-leading-clearance, 0px) - 20px));
+  padding-inline-start: max(0px, calc(var(--mh-frame-leading-clearance, 0px) - 20px));
 }
 
 .titleCluster {
@@ -118,7 +118,7 @@
 
 .crumbSep {
   /* figma: "/" separators are 14px caption gray (75:7903), one tint lighter than crumb text. */
-  color: var(--dsw-alias-label-caption);
+  color: var(--mh-alias-label-caption);
   font-size: 14px;
   line-height: 20px;
 }
@@ -129,11 +129,11 @@
   overflow: hidden;
   padding: 4px 8px;
   border: none;
-  border-radius: var(--dsw-radius-md);
+  border-radius: var(--mh-radius-md);
   background: transparent;
   font-size: 14px;
   line-height: 20px;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   text-overflow: ellipsis;
   white-space: nowrap;
   cursor: pointer;
@@ -146,13 +146,13 @@
 
 @media (hover: hover) {
   button.crumb:hover {
-    background: var(--dsw-alias-interactive-bg-hover);
+    background: var(--mh-alias-interactive-bg-hover);
   }
 }
 
 .crumbCurrent {
   font-weight: 500;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
   cursor: default;
 }
 
@@ -222,28 +222,28 @@
    spans the text and reaches 1px past the tab box to sit over the header
    rule. */
 .tab {
-  --dsh-tab-hit-inline: 10px;
+  --mh-tab-hit-inline: 10px;
 
   position: relative;
   box-sizing: border-box;
   min-height: 35px;
-  margin: -10px calc(-1 * var(--dsh-tab-hit-inline)) 0;
-  padding: 10px var(--dsh-tab-hit-inline) 9px;
+  margin: -10px calc(-1 * var(--mh-tab-hit-inline)) 0;
+  padding: 10px var(--mh-tab-hit-inline) 9px;
   border: none;
   background: transparent;
   font-size: 13px;
   line-height: 16px;
   font-weight: 500;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   cursor: pointer;
 }
 
 .tab::after {
   content: '';
   position: absolute;
-  right: var(--dsh-tab-hit-inline);
+  right: var(--mh-tab-hit-inline);
   bottom: -1px;
-  left: var(--dsh-tab-hit-inline);
+  left: var(--mh-tab-hit-inline);
   height: 2px;
   border-radius: 2px;
   background: transparent;
@@ -253,11 +253,11 @@
    this token sheet, so the selected state rides the business blue — the
    nearest semantic token that stays blue in both themes. */
 .tabActive {
-  color: var(--dsw-alias-state-business-primary);
+  color: var(--mh-alias-state-business-primary);
 }
 
 .tabActive::after {
-  background: var(--dsw-alias-state-business-primary);
+  background: var(--mh-alias-state-business-primary);
 }
 
 /* The More launcher centers its 22px box on the tab's 16px text line. */
@@ -270,15 +270,15 @@
   height: 22px;
   margin-top: -3px;
   padding: 0;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
 }
 
-.viewsMoreActive { color: var(--dsw-alias-state-business-primary); }
+.viewsMoreActive { color: var(--mh-alias-state-business-primary); }
 
 .tabLabel { display: block; max-width: 88px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 .viewsMore[aria-expanded='true'] {
-  background: var(--dsw-alias-interactive-bg-hover);
+  background: var(--mh-alias-interactive-bg-hover);
 }
 
 .viewsMoreMenu {
@@ -314,23 +314,23 @@
   z-index: 0;
   width: min(
     10px,
-    calc((100% - var(--dsh-chat-content-width)) / 2 - 24px - 24px)
+    calc((100% - var(--mh-chat-content-width)) / 2 - 24px - 24px)
   );
   cursor: col-resize;
 }
 
 .widthHandle[data-side='left'] {
-  right: calc(50% + var(--dsh-chat-content-width) / 2 + 24px);
+  right: calc(50% + var(--mh-chat-content-width) / 2 + 24px);
 }
 
 .widthHandle[data-side='right'] {
-  left: calc(50% + var(--dsh-chat-content-width) / 2 + 24px);
+  left: calc(50% + var(--mh-chat-content-width) / 2 + 24px);
 }
 
 /* The glow: a short 2px bar following the captured pointer's Y, centered in the strip
    (29px from the content column), not a full-height rule — a 16px solid core
    centered on the pointer
-   (published during drag as --dsh-width-handle-pointer-y), fading to
+   (published during drag as --mh-width-handle-pointer-y), fading to
    transparent over 28px each side (72px total). A solid CORE, not a single
    solid stop: a lone peak washes out over the fade. The resting scrollbar
    tint keeps this secondary affordance quiet in both themes. Before the first
@@ -344,10 +344,10 @@
   border-radius: 2px;
   background: linear-gradient(
     to bottom,
-    transparent calc(var(--dsh-width-handle-pointer-y, 50%) - 36px),
-    var(--dsw-alias-scrollbar-bg-l1) calc(var(--dsh-width-handle-pointer-y, 50%) - 8px),
-    var(--dsw-alias-scrollbar-bg-l1) calc(var(--dsh-width-handle-pointer-y, 50%) + 8px),
-    transparent calc(var(--dsh-width-handle-pointer-y, 50%) + 36px)
+    transparent calc(var(--mh-width-handle-pointer-y, 50%) - 36px),
+    var(--mh-alias-scrollbar-bg-l1) calc(var(--mh-width-handle-pointer-y, 50%) - 8px),
+    var(--mh-alias-scrollbar-bg-l1) calc(var(--mh-width-handle-pointer-y, 50%) + 8px),
+    transparent calc(var(--mh-width-handle-pointer-y, 50%) + 36px)
   );
   opacity: 0;
   pointer-events: none;
@@ -389,11 +389,11 @@
 .composerStack {
   /* Horizontal geometry (card width, clearance, dock inset) rides the shared
      .root variables above so takeover siblings match the stack. */
-  --dsh-composer-stack-gap: 6px;
+  --mh-composer-stack-gap: 6px;
 
   display: flex;
   flex-direction: column;
-  gap: var(--dsh-composer-stack-gap);
+  gap: var(--mh-composer-stack-gap);
 }
 
 /* Common seat for the composer chain (fallback + elected overlay siblings). */
@@ -408,7 +408,7 @@
      the seat because it is the chain's only shared ancestor — fallback and
      elected overlay are siblings — and custom properties inherit down to
      whichever entry is mounted. */
-  --dsh-composer-text-max-height: 336px;
+  --mh-composer-text-max-height: 336px;
 }
 
 /* Active phase: header is ordinary column chrome above the scrollport (not
@@ -435,21 +435,21 @@
   /* Shared width axis for the transcript, dock cards, composer, and takeover
      cards. Main width controls publish the live body width and optional user
      preference; embedded occurrences override this adaptive axis below. */
-  --dsh-chat-content-width: var(
-    --dsh-chat-user-width,
-    clamp(680px, calc(var(--dsh-conversation-column-width, 0px) * 0.64), 920px)
+  --mh-chat-content-width: var(
+    --mh-chat-user-width,
+    clamp(680px, calc(var(--mh-conversation-column-width, 0px) * 0.64), 920px)
   );
-  --dsh-composer-card-max-width: calc(var(--dsh-chat-content-width) + 32px);
-  --dsh-composer-side-clearance: 16px;
-  --dsh-composer-dock-inset: 8px;
+  --mh-composer-card-max-width: calc(var(--mh-chat-content-width) + 32px);
+  --mh-composer-side-clearance: 16px;
+  --mh-composer-dock-inset: 8px;
 }
 
 .embeddedBody {
   overflow: hidden;
-  --dsh-chat-content-width: min(calc(100% - 32px), 920px);
-  --dsh-composer-card-max-width: min(calc(100% - 16px), 952px);
-  --dsh-composer-side-clearance: 8px;
-  --dsh-composer-dock-inset: 8px;
+  --mh-chat-content-width: min(calc(100% - 32px), 920px);
+  --mh-composer-card-max-width: min(calc(100% - 16px), 952px);
+  --mh-composer-side-clearance: 8px;
+  --mh-composer-dock-inset: 8px;
 }
 
 .scrollBody {
@@ -501,8 +501,8 @@
      fade from their own base. */
   background: linear-gradient(
     180deg,
-    color-mix(in srgb, var(--dsw-alias-bg-base) 0%, transparent) 0px,
-    var(--dsw-alias-bg-base) 36px
+    color-mix(in srgb, var(--mh-alias-bg-base) 0%, transparent) 0px,
+    var(--mh-alias-bg-base) 36px
   );
 }
 
@@ -544,12 +544,12 @@
   /* Chat's seat rides this box's content box, which its own scrolling shortens
      by the bar's width; the overlay seat is against the padding box, so it
      must give back the same width to keep the input card in place across
-     tabs. Reads ui-theme's --dsh-scrollbar-width, which mirrors the WebKit
+     tabs. Reads ui-theme's --mh-scrollbar-width, which mirrors the WebKit
      bar's layout width. Chat reserves the engine-resolved width, so on an
      engine where the resolved width differs from this fixed 8px the card
      drifts by half the difference — accepted residual risk, recorded in
      ([decision](../../../../../../.agents/notes/archived/bug-fix/2026-08-12-composer-overlay-seat-width-compensation.md)). */
-  right: var(--dsh-scrollbar-width);
+  right: var(--mh-scrollbar-width);
   bottom: 0;
   left: 0;
 }
@@ -567,7 +567,7 @@
   padding-bottom: 32px;
   /* Card cap + both clearances: the hero input card lands at exactly the same
      width as the docked composer at every viewport. */
-  width: min(calc(var(--dsh-composer-card-max-width) + 2 * var(--dsh-composer-side-clearance)), 100%);
+  width: min(calc(var(--mh-composer-card-max-width) + 2 * var(--mh-composer-side-clearance)), 100%);
   z-index: 1;
 }
 

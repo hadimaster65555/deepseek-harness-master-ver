@@ -1,23 +1,23 @@
 /**
  * Model-facing `get_goal`, `create_goal`, and `update_goal` tools over the
  * persisted same-session goal domain.
- * @module @deepseek-ai/dsh-tool-goal
+ * @module @master-harness/tool-goal
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { GoalId } from '@deepseek-ai/dsh-goal'
-import type { GoalRef, GoalView } from '@deepseek-ai/dsh-goal'
-import { boundContextSummary, createUserMessage, HarnessError } from '@deepseek-ai/dsh-llm'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
-declare module '@deepseek-ai/dsh-llm' {
+import type { Context } from '@master-harness/cordis'
+import z from '@master-harness/schemastery'
+import { GoalId } from '@master-harness/goal'
+import type { GoalRef, GoalView } from '@master-harness/goal'
+import { boundContextSummary, createUserMessage, HarnessError } from '@master-harness/llm'
+import type { ContextFormed } from '@master-harness/llm'
+declare module '@master-harness/llm' {
   interface MessageSourceMap {
     'tool-goal': { kind: 'tool-goal' } & ContextFormed
   }
 }
 
-import { defineTool } from '@deepseek-ai/dsh-tools'
-import type { GenericCallView } from '@deepseek-ai/dsh-tools'
+import { defineTool } from '@master-harness/tools'
+import type { GenericCallView } from '@master-harness/tools'
 import {
   completionAuthority,
   goalToolExecution,

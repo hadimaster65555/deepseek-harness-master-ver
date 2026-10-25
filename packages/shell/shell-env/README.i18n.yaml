@@ -3,56 +3,56 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write packages/shell/shell-env/README.md
 /:
-  en: c54342d0151b089c
-  zh: 9ad6284f24c5e3f6
-/deepseek-ai-dsh-shell-env:
-  en: d26b77029fa722ab
-  zh: 8e6bed763372b561
-/deepseek-ai-dsh-shell-env/summary:
-  en: 021be213f32988e1
-  zh: f3ce1ef82377b4f4
-/deepseek-ai-dsh-shell-env/table-of-contents:
+  en: 23301e5717882381
+  zh: 17406e56aa2e3716
+/master-harness-shell-env:
+  en: 42a39a33aac58730
+  zh: 1223e50a545d8d0e
+/master-harness-shell-env/summary:
+  en: f55d6ce4b96a6056
+  zh: 6595d584246ea831
+/master-harness-shell-env/table-of-contents:
   en: d152484eb41ac6b4
   zh: 09388d293f9be9cb
-/deepseek-ai-dsh-shell-env/use-this-package:
-  en: 34d2f05183df200f
-  zh: 7753b97c91743901
-/deepseek-ai-dsh-shell-env/use-this-package/what-every-shell-call-receives:
-  en: eae86664fefc6690
-  zh: 05a4e5946c8d2b87
-/deepseek-ai-dsh-shell-env/use-this-package/adding-your-own-environment-facts:
-  en: 21ef223626e35905
-  zh: 5c468055099b0135
-/deepseek-ai-dsh-shell-env/use-this-package/choosing-the-harness-home:
-  en: 0041438f2b7f7e4f
-  zh: 93fa165b07adcdf4
-/deepseek-ai-dsh-shell-env/use-this-package/what-can-go-wrong:
-  en: 42c75945b581b7e6
-  zh: 6b5c487cfa28b206
-/deepseek-ai-dsh-shell-env/understand-the-implementation:
+/master-harness-shell-env/use-this-package:
+  en: 8ec39d7da9ee6b08
+  zh: ab3ae60117851d2c
+/master-harness-shell-env/use-this-package/what-every-shell-call-receives:
+  en: f1fd3f9c7392468d
+  zh: a7fabcd3852e7009
+/master-harness-shell-env/use-this-package/adding-your-own-environment-facts:
+  en: 5160eedd29573b8b
+  zh: 0c47487a189323b7
+/master-harness-shell-env/use-this-package/choosing-the-harness-home:
+  en: 55376243a20a2cc3
+  zh: b7183bec745cc316
+/master-harness-shell-env/use-this-package/what-can-go-wrong:
+  en: 839d78d3094cccfc
+  zh: 9b30b4366dc6568f
+/master-harness-shell-env/understand-the-implementation:
   en: f782557ca8da3138
   zh: e8f0082b9692cacc
-/deepseek-ai-dsh-shell-env/understand-the-implementation/design-philosophy:
-  en: 311b66ea29b5702f
-  zh: 3a98c2fb1fcaa519
-/deepseek-ai-dsh-shell-env/understand-the-implementation/source-map:
+/master-harness-shell-env/understand-the-implementation/design-philosophy:
+  en: d5b27ea0d2c81d85
+  zh: cb93812bc5f92c7a
+/master-harness-shell-env/understand-the-implementation/source-map:
   en: 72eba3bfadcfa581
   zh: dcd83e02a1910f27
-/deepseek-ai-dsh-shell-env/understand-the-implementation/collection:
-  en: 0c2d7d5b2131630f
-  zh: b44d4f0ddf89421b
-/deepseek-ai-dsh-shell-env/further-exploration:
-  en: 6a4175df7b7341c7
-  zh: 7885831274008502
-/deepseek-ai-dsh-shell-env/model-experience:
-  en: 8acf3cd9aeef5f55
-  zh: 69725e78f73c2f16
-/deepseek-ai-dsh-shell-env/model-experience/kv-cache-effect:
+/master-harness-shell-env/understand-the-implementation/collection:
+  en: 931e6872ccaac6a9
+  zh: e4e61c3b08a9da27
+/master-harness-shell-env/further-exploration:
+  en: caa64137498f0e63
+  zh: bc0930f4e4b92695
+/master-harness-shell-env/model-experience:
+  en: 4483bdcd41d6ea92
+  zh: 78a227daa32adec2
+/master-harness-shell-env/model-experience/kv-cache-effect:
   en: e95e649f0410fa75
   zh: b3d64877420b4c0d
-/deepseek-ai-dsh-shell-env/known-limitations-and-deferred-work:
-  en: be9888161315f026
-  zh: 97d1d05c1c322596
-/deepseek-ai-dsh-shell-env/known-limitations-and-deferred-work/dev-note:
+/master-harness-shell-env/known-limitations-and-deferred-work:
+  en: 27f916ae1252d667
+  zh: 65da4db79faab09c
+/master-harness-shell-env/known-limitations-and-deferred-work/dev-note:
   en: e67f633dc6fe7773
   zh: 3bb0c20c93f16f98

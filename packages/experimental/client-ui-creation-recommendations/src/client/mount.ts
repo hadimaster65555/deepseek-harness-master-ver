@@ -1,13 +1,13 @@
 /** Register the personalized page card body and its localized copy. */
 import { createElement } from 'react'
-import type { Context } from '@deepseek-ai/cordis'
-import type {} from '@deepseek-ai/dsh-client-locale/client'
-import type {} from '@deepseek-ai/dsh-client-ui-action-cards/client'
+import type { Context } from '@master-harness/cordis'
+import type {} from '@master-harness/client-locale/client'
+import type {} from '@master-harness/client-ui-action-cards/client'
 import { PageCardBody } from './Card.tsx'
 import { de, en, es, fr, ja, pt, ru, zh, type RecommendationKey } from './locales.ts'
 import { createCreationInfoStore } from './info-store.ts'
 
-declare module '@deepseek-ai/dsh-client-ui-slots' {
+declare module '@master-harness/client-ui-slots' {
   interface LocaleNamespaceMap { creationRecommendations: RecommendationKey }
 }
 

@@ -11,10 +11,10 @@
 import { mkdir, mkdtemp, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { Context } from '@deepseek-ai/cordis'
-import { LocalFileSystem } from '@deepseek-ai/dsh-fs-local'
-import { SessionId } from '@deepseek-ai/dsh-session/types'
-import { remoteErrorOf } from '@deepseek-ai/dsh-typert-protocol'
+import { Context } from '@master-harness/cordis'
+import { LocalFileSystem } from '@master-harness/fs-local'
+import { SessionId } from '@master-harness/session/types'
+import { remoteErrorOf } from '@master-harness/typert-protocol'
 import { WorkspaceFiles, type Config, type WorkspaceFileScope } from '../src/index.ts'
 
 /** Build the header-derived scope that direct service calls receive after Typert lookup. */

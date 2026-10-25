@@ -9,12 +9,12 @@
   display: flex;
   border: 0;
   border-radius: 16px;
-  background: var(--dsw-specific-menu);
-  backdrop-filter: var(--dsw-menu-backdrop-filter);
-  --dsw-elevation-stroke-color: var(--dsw-alias-border-l1);
-  box-shadow: var(--dsw-elevation-prominent);
+  background: var(--mh-specific-menu);
+  backdrop-filter: var(--mh-menu-backdrop-filter);
+  --mh-elevation-stroke-color: var(--mh-alias-border-l1);
+  box-shadow: var(--mh-elevation-prominent);
   /* Elevated surface: the scrolling columns take the l2 thumb tokens, as in
      every other menu card (see ui-theme styles/scrollbar.css). */
-  --dsh-scrollbar-thumb: var(--dsw-alias-scrollbar-bg-l2);
-  --dsh-scrollbar-thumb-hover: var(--dsw-alias-scrollbar-hover-l2);
+  --mh-scrollbar-thumb: var(--mh-alias-scrollbar-bg-l2);
+  --mh-scrollbar-thumb-hover: var(--mh-alias-scrollbar-hover-l2);
 }

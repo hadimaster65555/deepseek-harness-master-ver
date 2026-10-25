@@ -2,30 +2,30 @@
 # section, a hash of its English and Chinese blocks outside code blocks and generated regions.
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write apps/cli/reference/README.md
-/dsh-cli-behavior-reference:
-  en: 5a4f43756dae900e
-  zh: d58c479481cfa5fe
-/dsh-cli-behavior-reference/profile-boot:
-  en: b474a6fc3c98837d
-  zh: da9219f91177b6c8
-/dsh-cli-behavior-reference/profile-boot/app-arguments:
-  en: 60b4e6837299427e
-  zh: 88eac566a2e63881
-/dsh-cli-behavior-reference/profile-boot/config-schema-dump:
-  en: a356f8a68f3b3685
-  zh: c718713b5d709295
-/dsh-cli-behavior-reference/startup-diagnostics:
-  en: d6368bf97a02bd57
-  zh: 2ab7888a108961ce
-/dsh-cli-behavior-reference/plugin-management:
-  en: 8d2cfff9bab7327f
-  zh: 21515ab6e6798504
-/dsh-cli-behavior-reference/web-profile:
-  en: 149c5571acd51baf
-  zh: 300e3c2425273a92
-/dsh-cli-behavior-reference/shared-deployment-behavior:
-  en: f40edcf903a51f3f
-  zh: 8a9a915451047c8b
-/dsh-cli-behavior-reference/source-execution:
-  en: 05c2b23790f7b296
-  zh: 51f809020fb230a1
+/mh-cli-behavior-reference:
+  en: d6787dafd951e886
+  zh: 66da2ec84fd0a550
+/mh-cli-behavior-reference/profile-boot:
+  en: 6e2c91d736052a8f
+  zh: 4b33471bdec3aba4
+/mh-cli-behavior-reference/profile-boot/app-arguments:
+  en: 01fc5ef38b91e2e8
+  zh: 1373d2a17f0ce29f
+/mh-cli-behavior-reference/profile-boot/config-schema-dump:
+  en: 5842c8cc44baf094
+  zh: 7754ec2d8b7e780d
+/mh-cli-behavior-reference/startup-diagnostics:
+  en: e23fccad8f11ed1c
+  zh: fdf9e96c6e479fd6
+/mh-cli-behavior-reference/plugin-management:
+  en: 1361679889f62153
+  zh: 70191225b198c4ae
+/mh-cli-behavior-reference/web-profile:
+  en: 6f41a460f97727ee
+  zh: f3de78ab86a15e85
+/mh-cli-behavior-reference/shared-deployment-behavior:
+  en: c8349c14f15c101f
+  zh: b8e0bd7ce46b38b2
+/mh-cli-behavior-reference/source-execution:
+  en: 6801824e55100a3f
+  zh: 03a96eb10d7e7187

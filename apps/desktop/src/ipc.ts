@@ -1,41 +1,41 @@
 /** Typed preload operations exposed only by the Electron shell. */
 
-import type { DesktopKeyboardApi, DesktopShortcutsApi } from '@deepseek-ai/dsh-client-shortcuts/protocol'
+import type { DesktopKeyboardApi, DesktopShortcutsApi } from '@master-harness/client-shortcuts/protocol'
 import type { IpcMainInvokeEvent } from 'electron'
-import type { DesktopBrowserBridge } from '@deepseek-ai/dsh-client-ui-sidebar-browser/types'
-import type { DesktopFileDrag } from '@deepseek-ai/dsh-util-file-drag'
+import type { DesktopBrowserBridge } from '@master-harness/client-ui-sidebar-browser/types'
+import type { DesktopFileDrag } from '@master-harness/util-file-drag'
 
 /** IPC channel names kept private to the desktop application bundle. */
 export const DESKTOP_IPC = {
-  shortcutsInput: 'dsh-desktop:shortcuts-input',
-  shortcutsCloseWindow: 'dsh-desktop:shortcuts-close-window',
-  shortcutsGet: 'dsh-desktop:shortcuts-get',
-  shortcutsEdit: 'dsh-desktop:shortcuts-edit',
-  shortcutsChanged: 'dsh-desktop:shortcuts-changed',
-  shortcutsRecording: 'dsh-desktop:shortcuts-recording',
-  boot: 'dsh-desktop:boot',
-  enterWorkspace: 'dsh-desktop:enter-workspace',
-  onboardingActive: 'dsh-desktop:onboarding-active',
-  onboardingApiKey: 'dsh-desktop:onboarding-api-key',
-  bootFailed: 'dsh-desktop:boot-failed',
-  browserAcquire: 'dsh-desktop:browser-acquire',
-  browserRelease: 'dsh-desktop:browser-release',
-  browserOpenRequested: 'dsh-desktop:browser-open-requested',
-  directoryPick: 'dsh-desktop:directory-pick',
-  fileDragPrepare: 'dsh-desktop:file-drag-prepare',
-  fileDragCancel: 'dsh-desktop:file-drag-cancel',
-  fileDragStart: 'dsh-desktop:file-drag-start',
-  fileDragRelease: 'dsh-desktop:file-drag-release',
-  deviceInfo: 'dsh-desktop:device-info',
-  localeBootstrap: 'dsh-desktop:locale-bootstrap',
-  localeChanged: 'dsh-desktop:locale-changed',
-  updatesStatus: 'dsh-desktop:updates-status',
-  updatesOpen: 'dsh-desktop:updates-open',
-  updatesPresentation: 'dsh-desktop:updates-presentation',
-  nativeThemeSet: 'dsh-desktop:native-theme-set',
-  windowFullscreen: 'dsh-desktop:window-fullscreen',
-  windowsAppearance: 'dsh-desktop:windows-appearance',
-  windowsMenu: 'dsh-desktop:windows-menu',
+  shortcutsInput: 'mh-desktop:shortcuts-input',
+  shortcutsCloseWindow: 'mh-desktop:shortcuts-close-window',
+  shortcutsGet: 'mh-desktop:shortcuts-get',
+  shortcutsEdit: 'mh-desktop:shortcuts-edit',
+  shortcutsChanged: 'mh-desktop:shortcuts-changed',
+  shortcutsRecording: 'mh-desktop:shortcuts-recording',
+  boot: 'mh-desktop:boot',
+  enterWorkspace: 'mh-desktop:enter-workspace',
+  onboardingActive: 'mh-desktop:onboarding-active',
+  onboardingApiKey: 'mh-desktop:onboarding-api-key',
+  bootFailed: 'mh-desktop:boot-failed',
+  browserAcquire: 'mh-desktop:browser-acquire',
+  browserRelease: 'mh-desktop:browser-release',
+  browserOpenRequested: 'mh-desktop:browser-open-requested',
+  directoryPick: 'mh-desktop:directory-pick',
+  fileDragPrepare: 'mh-desktop:file-drag-prepare',
+  fileDragCancel: 'mh-desktop:file-drag-cancel',
+  fileDragStart: 'mh-desktop:file-drag-start',
+  fileDragRelease: 'mh-desktop:file-drag-release',
+  deviceInfo: 'mh-desktop:device-info',
+  localeBootstrap: 'mh-desktop:locale-bootstrap',
+  localeChanged: 'mh-desktop:locale-changed',
+  updatesStatus: 'mh-desktop:updates-status',
+  updatesOpen: 'mh-desktop:updates-open',
+  updatesPresentation: 'mh-desktop:updates-presentation',
+  nativeThemeSet: 'mh-desktop:native-theme-set',
+  windowFullscreen: 'mh-desktop:window-fullscreen',
+  windowsAppearance: 'mh-desktop:windows-appearance',
+  windowsMenu: 'mh-desktop:windows-menu',
 } as const
 
 /** Desktop release update state rendered by desktop-owned UI. */
@@ -75,7 +75,7 @@ export interface DesktopUpdatePresentation {
 }
 
 /** Product documents cannot supply update versions, package URLs, or installation authorization. */
-export interface DshDesktopProductApi {
+export interface MhDesktopProductApi {
   readonly protocolVersion: 1
   readonly browser: DesktopBrowserBridge
   readonly fileDrag: DesktopFileDrag
@@ -94,7 +94,7 @@ export interface DshDesktopProductApi {
 }
 
 /** Scheme of Desktop-owned application documents. */
-export const SCHEME = 'dsh-app'
+export const SCHEME = 'mh-app'
 
 /**
  * Reject IPC outside the allowed Desktop document origins.
@@ -103,9 +103,9 @@ export const SCHEME = 'dsh-app'
  */
 export function assertDesktopSender(event: IpcMainInvokeEvent, hostnames: readonly string[]): void {
   const senderFrame = event.senderFrame
-  if (senderFrame === null) throw new Error('dsh desktop: rejected IPC without a sender frame')
+  if (senderFrame === null) throw new Error('mh desktop: rejected IPC without a sender frame')
   const url = new URL(senderFrame.url)
   if (url.protocol !== `${SCHEME}:` || !hostnames.includes(url.hostname)) {
-    throw new Error('dsh desktop: rejected IPC from an unowned renderer')
+    throw new Error('mh desktop: rejected IPC from an unowned renderer')
   }
 }

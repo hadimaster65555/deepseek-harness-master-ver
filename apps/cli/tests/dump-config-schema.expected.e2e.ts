@@ -4,8 +4,8 @@ import { existsSync, mkdtempSync, realpathSync } from 'node:fs'
 import { copyFile, mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { Ajv2020 } from 'ajv/dist/2020.js'
 import * as yaml from 'js-yaml'
-import { entryListSchema } from '@deepseek-ai/cordis-plugin-include'
-import type { ConfigSchemaDump } from '@deepseek-ai/dsh-app-boot'
+import { entryListSchema } from '@master-harness/cordis-plugin-include'
+import type { ConfigSchemaDump } from '@master-harness/app-boot'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
@@ -15,18 +15,18 @@ import { describe, expect, it, onTestFinished } from 'vitest'
 const repoRoot = fileURLToPath(new URL('../../../', import.meta.url))
 const builtBin = join(repoRoot, 'apps/cli/lib/bin.js')
 const builtArtifactsExist = existsSync(builtBin)
-if (process.env.DSH_EXAMPLE_MODE === 'lib' && !builtArtifactsExist) {
-  throw new Error('dsh config-schema acceptance requires built CLI artifacts in lib mode; run pnpm run build first')
+if (process.env.MH_EXAMPLE_MODE === 'lib' && !builtArtifactsExist) {
+  throw new Error('mh config-schema acceptance requires built CLI artifacts in lib mode; run pnpm run build first')
 }
-const packageName = 'dsh-schema-acceptance-fixture'
+const packageName = 'mh-schema-acceptance-fixture'
 const profileName = 'schema-acceptance'
 const processTimeoutMs = 90_000
-const schemaImport = "import Schema from '@deepseek-ai/schemastery'"
+const schemaImport = "import Schema from '@master-harness/schemastery'"
 const forbiddenApply = `
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 export function apply() {
-  writeFileSync(join(process.env.DSH_HOME, 'apply-ran'), 'unexpected')
+  writeFileSync(join(process.env.MH_HOME, 'apply-ran'), 'unexpected')
   throw new Error('PLUGIN_APPLY_EXECUTED')
 }
 `
@@ -38,7 +38,7 @@ interface Fixture {
 }
 
 async function createFixture(modules: Record<string, string>, patches: string): Promise<Fixture> {
-  const root = realpathSync.native(mkdtempSync(join(tmpdir(), 'dsh-schema-acceptance-')))
+  const root = realpathSync.native(mkdtempSync(join(tmpdir(), 'mh-schema-acceptance-')))
   onTestFinished(() => rm(root, { recursive: true, force: true, maxRetries: 3 }))
   const home = join(root, 'home')
   const profile = join(home, 'profiles', profileName)
@@ -49,31 +49,31 @@ async function createFixture(modules: Record<string, string>, patches: string): 
     version: '1.0.0',
     type: 'module',
     exports: Object.fromEntries(Object.keys(modules).map(name => [`./${name}`, `./${name}.mjs`])),
-    peerDependencies: { '@deepseek-ai/schemastery': '*' },
-    dsh: { bundle: { patch: './cordis.patch.yml' } },
+    peerDependencies: { '@master-harness/schemastery': '*' },
+    mh: { bundle: { patch: './cordis.patch.yml' } },
   }))
   for (const [name, source] of Object.entries(modules)) {
     await writeFile(join(moduleDir, `${name}.mjs`), `${source}\n`)
   }
   await writeFile(join(moduleDir, 'cordis.patch.yml'), patches)
   await writeFile(join(profile, 'package.json'), JSON.stringify({
-    name: 'dsh-profile-schema-acceptance',
+    name: 'mh-profile-schema-acceptance',
     private: true,
     dependencies: { [packageName]: '1.0.0' },
-    dsh: { profile: { bundles: [packageName] } },
+    mh: { profile: { bundles: [packageName] } },
   }))
   await writeFile(join(profile, 'cordis.patch.yml'), '[]\n')
   return { root, home, profile }
 }
 
 async function installNativeInclude(fixture: Fixture): Promise<void> {
-  const name = '@deepseek-ai/cordis-plugin-include'
+  const name = '@master-harness/cordis-plugin-include'
   const directory = join(fixture.profile, 'node_modules', name)
   await mkdir(directory, { recursive: true })
   await copyFile(join(repoRoot, 'vendor/include/lib/index.js'), join(directory, 'index.js'))
   await writeFile(join(directory, 'package.json'), JSON.stringify({
     name, version: '1.0.3', type: 'module', exports: './index.js',
-    peerDependencies: { '@deepseek-ai/cordis': '*', '@deepseek-ai/cordis-plugin-loader': '*' },
+    peerDependencies: { '@master-harness/cordis': '*', '@master-harness/cordis-plugin-loader': '*' },
     dependencies: { 'js-yaml': '*' },
   }))
   const path = join(fixture.profile, 'package.json')
@@ -90,13 +90,13 @@ async function dump(
   const env = Object.fromEntries(Object.entries(process.env).filter(
     (entry): entry is [string, string] => entry[1] !== undefined
       && !/KEY|SECRET|TOKEN|PASSWORD/i.test(entry[0])
-      && !/^(DSH_|NODE_OPTIONS$|NODE_PATH$)/i.test(entry[0]),
+      && !/^(MH_|NODE_OPTIONS$|NODE_PATH$)/i.test(entry[0]),
   ))
   const result = await execa(process.execPath, [
     builtBin, '--profile', profileName, format, ...args,
   ], {
     cwd: fixture.root,
-    env: { ...env, DSH_HOME: fixture.home, DSH_TELEMETRY_DISABLED: '1' },
+    env: { ...env, MH_HOME: fixture.home, MH_TELEMETRY_DISABLED: '1' },
     extendEnv: false,
     input: '',
     timeout: processTimeoutMs,
@@ -133,7 +133,7 @@ export default class ClassPlugin {
   constructor() { throw new Error('PLUGIN_CONSTRUCTOR_EXECUTED') }
 }`
 
-describe.skipIf(!builtArtifactsExist)('dsh --dump-config-schema assembled output', () => {
+describe.skipIf(!builtArtifactsExist)('mh --dump-config-schema assembled output', () => {
   it('prints native namespace and class schemas without applying plugins or evaluating !!js', async () => {
     const fixture = await createFixture({
       namespace: namespaceModule,
@@ -172,10 +172,10 @@ describe.skipIf(!builtArtifactsExist)('dsh --dump-config-schema assembled output
 
   it.each([false, true])('expands canonical Include and re-export aliases with profile-local copy: %s', async (localCopy) => {
     const fixture = await createFixture({
-      alias: "export { default } from '@deepseek-ai/cordis-plugin-include'",
+      alias: "export { default } from '@master-harness/cordis-plugin-include'",
     }, `- insert:
     - id: canonical
-      name: '@deepseek-ai/cordis-plugin-include'
+      name: '@master-harness/cordis-plugin-include'
       config:
         path: ./nested/plugins.yml
         patches:
@@ -306,9 +306,9 @@ describe.skipIf(!builtArtifactsExist)('dsh --dump-config-schema assembled output
       { level: 'error', path: '/2', message: 'fixture module import failed' },
     ])
     expect(result.stderr.split('\n')).toEqual([
-      'dsh: error: [/0] Config is not a native Schemastery schema',
-      'dsh: error: [/1] fixture lazy schema failed',
-      'dsh: error: [/2] fixture module import failed',
+      'mh: error: [/0] Config is not a native Schemastery schema',
+      'mh: error: [/1] fixture lazy schema failed',
+      'mh: error: [/2] fixture module import failed',
     ])
   })
 
@@ -317,11 +317,11 @@ describe.skipIf(!builtArtifactsExist)('dsh --dump-config-schema assembled output
     - id: schema-retained
       name: ${packageName}/absent
 `)
-    const missingBundle = 'dsh-schema-acceptance-missing-bundle'
+    const missingBundle = 'mh-schema-acceptance-missing-bundle'
     await writeFile(join(fixture.profile, 'package.json'), JSON.stringify({
       private: true,
       dependencies: { [packageName]: '1.0.0' },
-      dsh: { profile: { bundles: [packageName, missingBundle] } },
+      mh: { profile: { bundles: [packageName, missingBundle] } },
     }))
     const result = await dump(fixture)
     expect(result.exitCode, result.stderr).toBe(1)
@@ -344,7 +344,7 @@ describe.skipIf(!builtArtifactsExist)('dsh --dump-config-schema assembled output
     await writeFile(overlay, '- id: missing\n  disabled: true\n')
     const schema = await dump(fixture, ['--patch', overlay])
     expect(schema.exitCode).toBe(0)
-    expect(schema.stderr).toBe('dsh: warning: patch: entry "missing" not found')
+    expect(schema.stderr).toBe('mh: warning: patch: entry "missing" not found')
     expect(parseSchema(schema.stdout)['x-cordis'].diagnostics).toEqual([{ level: 'warning', message: 'patch: entry "missing" not found' }])
     const config = await dump(fixture, ['--patch', overlay], '--dump-config')
     expect(config.exitCode).toBe(0)

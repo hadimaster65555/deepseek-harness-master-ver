@@ -1,25 +1,25 @@
 /**
  * Service Definition for the user-questions capability seam (`ctx.userQuestions`): a UI-backed service for
  * pausing an agent tool call until the human answers a question. The model-
- * facing tool lives in `@deepseek-ai/dsh-tool-ask-user`; UI packages compose
+ * facing tool lives in `@master-harness/tool-ask-user`; UI packages compose
  * answerers on the Agent-scoped Cordis waterfall.
  *
- * @module @deepseek-ai/dsh-user-questions
+ * @module @master-harness/user-questions
  */
 
-import { Context, Service } from '@deepseek-ai/cordis'
-import type {} from '@deepseek-ai/dsh-agent'
-import { createUserMessage, HarnessError, type MessageId, type ToolCallId, type UserMessage } from '@deepseek-ai/dsh-llm'
-import type { Session } from '@deepseek-ai/dsh-session'
-import { scopeTarget } from '@deepseek-ai/dsh-scope'
-import { Remote, TypertRemoteService } from '@deepseek-ai/dsh-typert-protocol'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import type { ProjectionHandle } from '@deepseek-ai/dsh-session-projection'
-import z from '@deepseek-ai/schemastery'
+import { Context, Service } from '@master-harness/cordis'
+import type {} from '@master-harness/agent'
+import { createUserMessage, HarnessError, type MessageId, type ToolCallId, type UserMessage } from '@master-harness/llm'
+import type { Session } from '@master-harness/session'
+import { scopeTarget } from '@master-harness/scope'
+import { Remote, TypertRemoteService } from '@master-harness/typert-protocol'
+import type { Agent } from '@master-harness/agent'
+import type { ProjectionHandle } from '@master-harness/session-projection'
+import z from '@master-harness/schemastery'
 import { userQuestionProjectionDefinition, type UserQuestionProjectionState } from './projection.ts'
 import { TimedQuestionWait } from './timed-wait.ts'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@master-harness/cordis' {
   interface Context {
     userQuestions: UserQuestionService
   }

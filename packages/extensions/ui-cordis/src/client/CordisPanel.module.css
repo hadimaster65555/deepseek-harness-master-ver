@@ -27,7 +27,7 @@
   border: none;
   border-radius: 12px;
   background: transparent;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
   font-family: inherit;
   font-size: 14px;
   cursor: pointer;
@@ -36,12 +36,12 @@
 
 @media (hover: hover) {
   .badge:hover {
-    background: var(--dsw-alias-interactive-bg-hover);
+    background: var(--mh-alias-interactive-bg-hover);
   }
 }
 
 .badge[data-active] {
-  background: var(--dsw-alias-interactive-bg-hover);
+  background: var(--mh-alias-interactive-bg-hover);
 }
 
 .badgeLabel {
@@ -54,7 +54,7 @@
 .badgeCount {
   flex: none;
   margin-left: auto;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   font-size: 12px;
   line-height: 16px;
   font-variant-numeric: tabular-nums;
@@ -95,11 +95,11 @@
   overflow: hidden;
   border: 0;
   border-radius: 12px;
-  --dsw-elevation-stroke-color: var(--dsw-alias-border-l1);
-  box-shadow: var(--dsw-elevation-prominent);
+  --mh-elevation-stroke-color: var(--mh-alias-border-l1);
+  box-shadow: var(--mh-elevation-prominent);
   /* Only `.body` scrolls; the header remains fixed above it. */
-  --dsh-scrollbar-thumb: var(--dsw-alias-scrollbar-bg-l2);
-  --dsh-scrollbar-thumb-hover: var(--dsw-alias-scrollbar-hover-l2);
+  --mh-scrollbar-thumb: var(--mh-alias-scrollbar-bg-l2);
+  --mh-scrollbar-thumb-hover: var(--mh-alias-scrollbar-hover-l2);
 }
 
 .panel::before {
@@ -107,8 +107,8 @@
   z-index: -1;
   inset: 0;
   border-radius: inherit;
-  background: var(--dsw-specific-menu);
-  backdrop-filter: var(--dsw-menu-backdrop-filter);
+  background: var(--mh-specific-menu);
+  backdrop-filter: var(--mh-menu-backdrop-filter);
   content: '';
   pointer-events: none;
 }
@@ -134,7 +134,7 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
 }
 
 .note,
@@ -142,11 +142,11 @@
   margin: 4px 0;
   font-size: 12px;
   line-height: 18px;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
 }
 
 .readError {
-  color: var(--dsw-alias-state-error-primary);
+  color: var(--mh-alias-state-error-primary);
 }
 
 /* Session headings replace per-row ownership markers. */
@@ -155,7 +155,7 @@
   font-size: 11px;
   font-weight: 500;
   line-height: 16px;
-  color: var(--dsw-alias-label-caption);
+  color: var(--mh-alias-label-caption);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -174,12 +174,12 @@
   flex-direction: column;
   gap: 8px;
   padding: 14px 12px 10px;
-  border: 0.5px solid var(--dsw-alias-border-l4);
+  border: 0.5px solid var(--mh-alias-border-l4);
   border-radius: 12px;
 }
 
 .row[data-cordis-awaiting] {
-  border-color: var(--dsw-alias-state-business-primary);
+  border-color: var(--mh-alias-state-business-primary);
 }
 
 .rowHead {
@@ -190,8 +190,8 @@
 
 .rowId {
   flex: none;
-  color: var(--dsw-alias-label-tertiary);
-  font-family: var(--dsh-font-mono, monospace);
+  color: var(--mh-alias-label-tertiary);
+  font-family: var(--mh-font-mono, monospace);
   font-size: 11px;
   line-height: 20px;
 }
@@ -203,7 +203,7 @@
   font-size: 13px;
   font-weight: 500;
   line-height: 20px;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -216,7 +216,7 @@
   height: 20px;
   font-size: 11px;
   line-height: 20px;
-  color: var(--dsw-alias-label-caption);
+  color: var(--mh-alias-label-caption);
 }
 
 .rowDetail {
@@ -230,7 +230,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--dsw-alias-label-caption);
+  color: var(--mh-alias-label-caption);
   font-size: 11px;
   line-height: 18px;
 }
@@ -240,10 +240,10 @@
   flex: 1;
   height: 26px;
   padding: 0 8px;
-  border: 0.5px solid var(--dsw-alias-border-l3);
+  border: 0.5px solid var(--mh-alias-border-l3);
   border-radius: 7px;
   background: transparent;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
   font: inherit;
 }
 
@@ -253,7 +253,7 @@
   overflow: hidden;
   font-size: 12px;
   line-height: 18px;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -261,7 +261,7 @@
 .rowError {
   font-size: 12px;
   line-height: 18px;
-  color: var(--dsw-alias-state-error-primary);
+  color: var(--mh-alias-state-error-primary);
 }
 
 .rowActions {
@@ -276,7 +276,7 @@
   align-items: center;
   gap: 8px;
   min-width: 0;
-  color: var(--dsw-alias-label-caption);
+  color: var(--mh-alias-label-caption);
   font-size: 11px;
   line-height: 18px;
 }
@@ -289,18 +289,18 @@
 
 .transitionActions button {
   padding: 2px 8px;
-  border: 0.5px solid var(--dsw-alias-border-l3);
+  border: 0.5px solid var(--mh-alias-border-l3);
   border-radius: 999px;
   corner-shape: round;
   background: transparent;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
   font: inherit;
   cursor: pointer;
 }
 
 @media (hover: hover) {
   .transitionActions button:hover:not(:disabled) {
-    background: var(--dsw-alias-interactive-bg-hover);
+    background: var(--mh-alias-interactive-bg-hover);
   }
 }
 
@@ -310,7 +310,7 @@
 }
 
 .activeVersion {
-  color: var(--dsw-alias-label-caption);
+  color: var(--mh-alias-label-caption);
   font-size: 11px;
   line-height: 16px;
 }
@@ -328,14 +328,14 @@
   border-radius: 999px;
   corner-shape: round;
   background: transparent;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   cursor: pointer;
 }
 
 @media (hover: hover) {
   .actionButton:hover:not(:disabled) {
-    background: var(--dsw-alias-interactive-bg-hover);
-    color: var(--dsw-alias-label-secondary);
+    background: var(--mh-alias-interactive-bg-hover);
+    color: var(--mh-alias-label-secondary);
   }
 }
 

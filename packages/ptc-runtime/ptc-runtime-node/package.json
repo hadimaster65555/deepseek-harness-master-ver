@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-ptc-runtime-node",
+  "name": "@master-harness/ptc-runtime-node",
   "description": "Node PTC execution with per-call sandboxed processes or in-memory REPL state",
   "version": "0.2.1-rc.3",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/ptc-runtime/ptc-runtime-node"
   },
   "type": "module",
@@ -34,32 +34,32 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-ptc-runtime": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-timeout": "workspace:*",
-    "@deepseek-ai/dsh-fs": "workspace:*",
-    "@deepseek-ai/dsh-subprocess": "workspace:*",
-    "@deepseek-ai/dsh-sandbox": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/ptc-runtime": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/timeout": "workspace:*",
+    "@master-harness/fs": "workspace:*",
+    "@master-harness/subprocess": "workspace:*",
+    "@master-harness/sandbox": "workspace:*",
+    "@master-harness/sandbox-policy": "workspace:*"
   },
   "dependencies": {
-    "@deepseek-ai/dsh-util-values": "workspace:*",
-    "@deepseek-ai/schemastery": "workspace:~",
+    "@master-harness/util-values": "workspace:*",
+    "@master-harness/schemastery": "workspace:~",
     "birpc": "4.2.0"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-ptc-runtime": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-timeout": "workspace:*",
-    "@deepseek-ai/dsh-fs": "workspace:*",
-    "@deepseek-ai/dsh-subprocess": "workspace:*",
-    "@deepseek-ai/dsh-sandbox": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:*",
-    "@deepseek-ai/dsh-fs-local": "workspace:*",
-    "@deepseek-ai/dsh-subprocess-local": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-local": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/ptc-runtime": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/timeout": "workspace:*",
+    "@master-harness/fs": "workspace:*",
+    "@master-harness/subprocess": "workspace:*",
+    "@master-harness/sandbox": "workspace:*",
+    "@master-harness/sandbox-policy": "workspace:*",
+    "@master-harness/fs-local": "workspace:*",
+    "@master-harness/subprocess-local": "workspace:*",
+    "@master-harness/session-projection": "workspace:*",
+    "@master-harness/sandbox-local": "workspace:*"
   }
 }

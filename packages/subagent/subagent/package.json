@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-subagent",
+  "name": "@master-harness/subagent",
   "description": "Abstract subagent seam (ctx.subagents): named-provider registry for delegating to child agents",
   "version": "0.2.1-rc.3",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/subagent/subagent"
   },
   "type": "module",
@@ -50,88 +50,88 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/dsh-chunked-list": "workspace:*",
-    "@deepseek-ai/dsh-util-values": "workspace:*",
-    "@deepseek-ai/schemastery": "workspace:~",
+    "@master-harness/brand": "workspace:*",
+    "@master-harness/chunked-list": "workspace:*",
+    "@master-harness/util-values": "workspace:*",
+    "@master-harness/schemastery": "workspace:~",
     "zod": "4.4.3"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-agent-preset-registry": "workspace:*",
-    "@deepseek-ai/dsh-attachment": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-sandbox": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:*",
-    "@deepseek-ai/dsh-scope": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-persistence": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-session-query": "workspace:*",
-    "@deepseek-ai/dsh-system-prompt": "workspace:*",
-    "@deepseek-ai/dsh-tools": "workspace:*",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*",
-    "@deepseek-ai/dsh-user-approval": "workspace:*",
-    "@deepseek-ai/dsh-util-time": "workspace:*",
-    "@deepseek-ai/dsh-permission-presets": "workspace:*",
-    "@deepseek-ai/dsh-workspace": "workspace:*",
-    "@deepseek-ai/dsh-working-directory": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/agent": "workspace:*",
+    "@master-harness/agent-preset-registry": "workspace:*",
+    "@master-harness/attachment": "workspace:*",
+    "@master-harness/llm": "workspace:*",
+    "@master-harness/sandbox": "workspace:*",
+    "@master-harness/sandbox-policy": "workspace:*",
+    "@master-harness/scope": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/session-persistence": "workspace:*",
+    "@master-harness/session-projection": "workspace:*",
+    "@master-harness/session-query": "workspace:*",
+    "@master-harness/system-prompt": "workspace:*",
+    "@master-harness/tools": "workspace:*",
+    "@master-harness/typert-protocol": "workspace:*",
+    "@master-harness/user-approval": "workspace:*",
+    "@master-harness/util-time": "workspace:*",
+    "@master-harness/permission-presets": "workspace:*",
+    "@master-harness/workspace": "workspace:*",
+    "@master-harness/working-directory": "workspace:*"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-agent-preset-registry": {
+    "@master-harness/agent-preset-registry": {
       "optional": true
     },
-    "@deepseek-ai/dsh-permission-presets": {
+    "@master-harness/permission-presets": {
       "optional": true
     },
-    "@deepseek-ai/dsh-sandbox": {
+    "@master-harness/sandbox": {
       "optional": true
     },
-    "@deepseek-ai/dsh-sandbox-policy": {
+    "@master-harness/sandbox-policy": {
       "optional": true
     },
-    "@deepseek-ai/dsh-session-persistence": {
+    "@master-harness/session-persistence": {
       "optional": true
     },
-    "@deepseek-ai/dsh-session-query": {
+    "@master-harness/session-query": {
       "optional": true
     },
-    "@deepseek-ai/dsh-workspace": {
+    "@master-harness/workspace": {
       "optional": true
     },
-    "@deepseek-ai/dsh-user-approval": {
+    "@master-harness/user-approval": {
       "optional": true
     }
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-agent-preset-registry": "workspace:*",
-    "@deepseek-ai/dsh-attachment": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-sandbox": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:*",
-    "@deepseek-ai/dsh-scope": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-persistence": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-session-query": "workspace:*",
-    "@deepseek-ai/dsh-system-prompt": "workspace:*",
-    "@deepseek-ai/dsh-tool-testkit": "workspace:*",
-    "@deepseek-ai/dsh-tools": "workspace:*",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*",
-    "@deepseek-ai/dsh-user-approval": "workspace:*",
-    "@deepseek-ai/dsh-util-time": "workspace:*",
-    "@deepseek-ai/dsh-permission-presets": "workspace:*",
-    "@deepseek-ai/dsh-workspace": "workspace:*",
-    "@deepseek-ai/cordis-plugin-include": "workspace:~",
-    "@deepseek-ai/cordis-plugin-loader": "workspace:~",
-    "@deepseek-ai/dsh-agent-loop": "workspace:*",
-    "@deepseek-ai/dsh-agent-loop-testkit": "workspace:*",
-    "@deepseek-ai/dsh-fs-sandbox": "workspace:*",
-    "@deepseek-ai/dsh-tool-fs": "workspace:*",
-    "@deepseek-ai/dsh-session-persistence-jsonl": "workspace:*",
-    "@deepseek-ai/dsh-working-directory": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/agent": "workspace:*",
+    "@master-harness/agent-preset-registry": "workspace:*",
+    "@master-harness/attachment": "workspace:*",
+    "@master-harness/llm": "workspace:*",
+    "@master-harness/sandbox": "workspace:*",
+    "@master-harness/sandbox-policy": "workspace:*",
+    "@master-harness/scope": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/session-persistence": "workspace:*",
+    "@master-harness/session-projection": "workspace:*",
+    "@master-harness/session-query": "workspace:*",
+    "@master-harness/system-prompt": "workspace:*",
+    "@master-harness/tool-testkit": "workspace:*",
+    "@master-harness/tools": "workspace:*",
+    "@master-harness/typert-protocol": "workspace:*",
+    "@master-harness/user-approval": "workspace:*",
+    "@master-harness/util-time": "workspace:*",
+    "@master-harness/permission-presets": "workspace:*",
+    "@master-harness/workspace": "workspace:*",
+    "@master-harness/cordis-plugin-include": "workspace:~",
+    "@master-harness/cordis-plugin-loader": "workspace:~",
+    "@master-harness/agent-loop": "workspace:*",
+    "@master-harness/agent-loop-testkit": "workspace:*",
+    "@master-harness/fs-sandbox": "workspace:*",
+    "@master-harness/tool-fs": "workspace:*",
+    "@master-harness/session-persistence-jsonl": "workspace:*",
+    "@master-harness/working-directory": "workspace:*"
   }
 }

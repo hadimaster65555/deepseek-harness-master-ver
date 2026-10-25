@@ -3,12 +3,12 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { act, cleanup, fireEvent, isInaccessible, render, screen, waitFor, within } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { allowAllAccess, bindSnapshotSelector, makeTranslate, RemoteError } from '@deepseek-ai/dsh-client-test-runtime'
-import type { RemoteResult } from '@deepseek-ai/dsh-api-remotes/client'
-import type { SessionListState } from '@deepseek-ai/dsh-api-session-controller/client'
-import type { WorkspaceSnapshot } from '@deepseek-ai/dsh-api-workspace-controller/client'
-import type { ScheduleCatalogEntry, ScheduleDeleteResult, ScheduleId, ScheduleUpdateResult } from '@deepseek-ai/dsh-schedule/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
+import { allowAllAccess, bindSnapshotSelector, makeTranslate, RemoteError } from '@master-harness/client-test-runtime'
+import type { RemoteResult } from '@master-harness/api-remotes/client'
+import type { SessionListState } from '@master-harness/api-session-controller/client'
+import type { WorkspaceSnapshot } from '@master-harness/api-workspace-controller/client'
+import type { ScheduleCatalogEntry, ScheduleDeleteResult, ScheduleId, ScheduleUpdateResult } from '@master-harness/schedule/client'
+import type { SessionId } from '@master-harness/session/types'
 import { TaskManagerPage, type TaskManagerPageProps } from '../src/client/TaskManagerPage.tsx'
 import { TaskManagerIcon } from '../src/client/TaskManagerIcon.tsx'
 import { createCatalogSource, type CatalogSnapshot } from '../src/client/catalog-source.ts'
@@ -921,12 +921,12 @@ describe('Task manager catalog', () => {
     const paths = illustration?.querySelectorAll('path')
     expect(paths).toHaveLength(20)
     // Roles follow the approved artwork's paint order, including overlapping paper and clock layers.
-    expect(paths?.[0]?.getAttribute('fill')).toBe('var(--dsw-alias-illustration-background)')
-    expect(paths?.[2]?.getAttribute('fill')).toBe('var(--dsw-alias-illustration-backing)')
-    expect(paths?.[3]?.getAttribute('fill')).toBe('var(--dsw-alias-illustration-surface)')
-    expect(paths?.[10]?.getAttribute('fill')).toBe('var(--dsw-alias-illustration-shadow)')
-    expect(paths?.[17]?.getAttribute('fill')).toBe('var(--dsw-alias-illustration-detail)')
-    expect(paths?.[18]?.getAttribute('fill')).toBe('var(--dsw-alias-illustration-inset)')
+    expect(paths?.[0]?.getAttribute('fill')).toBe('var(--mh-alias-illustration-background)')
+    expect(paths?.[2]?.getAttribute('fill')).toBe('var(--mh-alias-illustration-backing)')
+    expect(paths?.[3]?.getAttribute('fill')).toBe('var(--mh-alias-illustration-surface)')
+    expect(paths?.[10]?.getAttribute('fill')).toBe('var(--mh-alias-illustration-shadow)')
+    expect(paths?.[17]?.getAttribute('fill')).toBe('var(--mh-alias-illustration-detail)')
+    expect(paths?.[18]?.getAttribute('fill')).toBe('var(--mh-alias-illustration-inset)')
     expect(emptyNewTaskButton().textContent).toBe(en['empty.action'])
   })
 
@@ -1908,12 +1908,12 @@ describe('Task detail rule header and run-time card', () => {
     expect(stylesheet).toMatch(/\.ruleControl\s*\{[^}]*margin-right:\s*0;/)
     expect(stylesheet).toMatch(new RegExp([
       '\\.ruleRows \\.ruleControl:focus-visible\\s*\\{[^}]*',
-      'outline:\\s*2px solid var\\(--dsw-focus-ring-color, var\\(--dsw-alias-state-business-primary\\)\\);',
+      'outline:\\s*2px solid var\\(--mh-focus-ring-color, var\\(--mh-alias-state-business-primary\\)\\);',
       '[^}]*outline-offset:\\s*1px;',
     ].join('')))
     expect(stylesheet).toMatch(new RegExp([
       '\\.ruleValue:focus-visible \\.ruleValueFace\\s*\\{[^}]*',
-      'outline:\\s*2px solid var\\(--dsw-focus-ring-color, var\\(--dsw-alias-state-business-primary\\)\\);',
+      'outline:\\s*2px solid var\\(--mh-focus-ring-color, var\\(--mh-alias-state-business-primary\\)\\);',
       '[^}]*outline-offset:\\s*1px;',
     ].join('')))
     expect(stylesheet).toMatch(/\.ruleRows \.ruleValue:focus-visible\s*\{[^}]*outline:\s*none;/)
@@ -3914,9 +3914,9 @@ describe('Task detail name and instruction edits', () => {
   it('applies the detail metrics to the header, the next-run line, and the instruction box', () => {
     const stylesheet = readFileSync(resolve(import.meta.dirname, '../src/client/TaskManagerPage.module.css'), 'utf8')
     expect(stylesheet).toMatch(/\.editName\s*\{[^}]*font-size:\s*20px;[^}]*font-weight:\s*500;/)
-    expect(stylesheet).toMatch(/\.editName:hover\s*\{[^}]*box-shadow:\s*0 1px var\(--dsw-alias-border-l3\);/)
+    expect(stylesheet).toMatch(/\.editName:hover\s*\{[^}]*box-shadow:\s*0 1px var\(--mh-alias-border-l3\);/)
     expect(stylesheet).toMatch(
-      /\.editName:focus\s*\{[^}]*box-shadow:\s*0 1px var\(--dsw-focus-ring-color, var\(--dsw-alias-state-business-primary\)\);/,
+      /\.editName:focus\s*\{[^}]*box-shadow:\s*0 1px var\(--mh-focus-ring-color, var\(--mh-alias-state-business-primary\)\);/,
     )
     // The bar keeps the mock's 44px in the Tasks page's own detail column; the
     // right-panel placement states the cross size that lands its rule on the
@@ -3935,7 +3935,7 @@ describe('Task detail name and instruction edits', () => {
     // The rule view keeps the scrolling region's full 24px lead-in for the name.
     expect(stylesheet).not.toMatch(/\.detailScroll:has\(/)
     const nextRun = /\.nextRun\s*\{([^}]*)\}/.exec(stylesheet)?.[1] ?? ''
-    expect(nextRun).toMatch(/color:\s*var\(--dsw-alias-label-tertiary\);/)
+    expect(nextRun).toMatch(/color:\s*var\(--mh-alias-label-tertiary\);/)
     expect(nextRun).toMatch(/font-size:\s*13px;/)
     expect(nextRun).toMatch(/line-height:\s*20px;/)
     const instruction = /\.instruction\s*\{([^}]*)\}/.exec(stylesheet)?.[1] ?? ''
@@ -3944,13 +3944,13 @@ describe('Task detail name and instruction edits', () => {
     expect(instruction).toMatch(/max-height:\s*160px;/)
     expect(instruction).toMatch(/field-sizing:\s*content;/)
     expect(instruction).toMatch(/padding:\s*12px;/)
-    expect(instruction).toMatch(/border:\s*0\.5px solid var\(--dsw-alias-border-l3\);/)
+    expect(instruction).toMatch(/border:\s*0\.5px solid var\(--mh-alias-border-l3\);/)
     expect(instruction).toMatch(/border-radius:\s*16px;/)
     // The mock inherits the instruction's 14px text and pins its own 24px leading.
     expect(instruction).toMatch(/font-size:\s*14px;/)
     expect(instruction).toMatch(/line-height:\s*24px;/)
-    expect(stylesheet).toMatch(/\.instruction:hover\s*\{[^}]*border-color:\s*var\(--dsw-alias-border-l2\);/)
-    expect(stylesheet).toMatch(/\.instruction:focus\s*\{[^}]*border-color:\s*var\(--dsw-alias-state-business-primary\);/)
+    expect(stylesheet).toMatch(/\.instruction:hover\s*\{[^}]*border-color:\s*var\(--mh-alias-border-l2\);/)
+    expect(stylesheet).toMatch(/\.instruction:focus\s*\{[^}]*border-color:\s*var\(--mh-alias-state-business-primary\);/)
     expect(stylesheet).toMatch(/\.ruleRows\s*\{[^}]*border-radius:\s*16px;/)
   })
 })
@@ -3973,12 +3973,12 @@ describe('Mock detail metrics shared with the task list', () => {
     expect(notice).toMatch(/padding:\s*12px 14px;/)
     expect(notice).toMatch(/gap:\s*9px;/)
     expect(notice).toMatch(/align-items:\s*flex-start;/)
-    expect(notice).toMatch(/background:\s*var\(--dsw-specific-sidebar-fill\);/)
+    expect(notice).toMatch(/background:\s*var\(--mh-specific-sidebar-fill\);/)
     expect(notice).toMatch(/border-radius:\s*10px;/)
     expect(notice).toMatch(/margin:\s*0 0 20px;/)
     // The notice keeps the colour this box had before it took the mock's
     // surface fill; the retired deletion-failure variant leaves no rule behind.
-    expect(notice).toMatch(/color:\s*var\(--dsw-alias-label-secondary\);/)
+    expect(notice).toMatch(/color:\s*var\(--mh-alias-label-secondary\);/)
     expect(stylesheet).not.toMatch(/^\.error\s*\{/m)
   })
 
@@ -3990,7 +3990,7 @@ describe('Mock detail metrics shared with the task list', () => {
     expect(stylesheet).not.toMatch(/\.detailDeletedNotice/)
     const empty = rule('empty')
     expect(empty).toMatch(/padding:\s*48px 20px;/)
-    expect(empty).toMatch(/color:\s*var\(--dsw-alias-label-tertiary\);/)
+    expect(empty).toMatch(/color:\s*var\(--mh-alias-label-tertiary\);/)
     expect(empty).toMatch(/font-size:\s*14px;/)
     // The mock spaces the empty state through its children's margins, so the
     // container states no gap that would double them.
@@ -3999,7 +3999,7 @@ describe('Mock detail metrics shared with the task list', () => {
     // own 14px/400 tertiary step, so no centered state reads bolder than another.
     const heading = /\.empty h2,\s*\.empty h3,\s*\.empty \.emptyTitle\s*\{([^}]*)\}/.exec(stylesheet)?.[1] ?? ''
     expect(heading).toMatch(/margin-bottom:\s*8px;/)
-    expect(heading).toMatch(/color:\s*var\(--dsw-alias-label-tertiary\);/)
+    expect(heading).toMatch(/color:\s*var\(--mh-alias-label-tertiary\);/)
     expect(heading).toMatch(/font-size:\s*14px;/)
     expect(heading).toMatch(/font-weight:\s*400;/)
     expect(rule('emptyGlyph')).toMatch(/margin-bottom:\s*12px;/)
@@ -4030,7 +4030,7 @@ describe('Mock detail metrics shared with the task list', () => {
     // The Plugins page's macOS head clearance above that same row inset, so the
     // heading clears the hiddenInset titlebar and keeps the 76px total offset.
     expect(stylesheet).toMatch(
-      /\[data-platform='darwin'\][^{]*\.pageHeading\s*\{[^}]*padding-top:\s*calc\(28px \+ var\(--dsh-frame-top-clearance, 0px\)\);/,
+      /\[data-platform='darwin'\][^{]*\.pageHeading\s*\{[^}]*padding-top:\s*calc\(28px \+ var\(--mh-frame-top-clearance, 0px\)\);/,
     )
     // The column keeps no top inset of its own, on either platform.
     expect(stylesheet).not.toMatch(
@@ -4068,16 +4068,16 @@ describe('Mock detail metrics shared with the task list', () => {
     const field = rule('searchField')
     expect(field).toMatch(/height:\s*var\(--task-search-height\);/)
     expect(field).toMatch(/padding:\s*0 10px;/)
-    expect(field).toMatch(/border:\s*0\.5px solid var\(--dsw-alias-border-l3\);/)
+    expect(field).toMatch(/border:\s*0\.5px solid var\(--mh-alias-border-l3\);/)
     expect(field).toMatch(/border-radius:\s*12px;/)
-    expect(stylesheet).toMatch(/\.searchField:hover\s*\{[^}]*border-color:\s*var\(--dsw-alias-border-l2\);/)
+    expect(stylesheet).toMatch(/\.searchField:hover\s*\{[^}]*border-color:\s*var\(--mh-alias-border-l2\);/)
     expect(stylesheet)
-      .toMatch(/\.searchField:focus-within\s*\{[^}]*border-color:\s*var\(--dsw-alias-state-business-primary\);/)
+      .toMatch(/\.searchField:focus-within\s*\{[^}]*border-color:\s*var\(--mh-alias-state-business-primary\);/)
     expect(stylesheet).toMatch(/\.searchField > :first-child svg\s*\{[^}]*width:\s*14px;/)
-    expect(stylesheet).toMatch(/\.searchField input::placeholder\s*\{[^}]*color:\s*var\(--dsw-alias-label-caption\);/)
+    expect(stylesheet).toMatch(/\.searchField input::placeholder\s*\{[^}]*color:\s*var\(--mh-alias-label-caption\);/)
     expect(stylesheet).toMatch(/\.searchField input::-webkit-search-cancel-button\s*\{[^}]*display:\s*none;/)
     expect(rule('searchClear')).toMatch(/margin-right:\s*-6px;/)
-    expect(rule('searchClear')).toMatch(/color:\s*var\(--dsw-alias-label-tertiary\);/)
+    expect(rule('searchClear')).toMatch(/color:\s*var\(--mh-alias-label-tertiary\);/)
     expect(stylesheet).toMatch(/\.searchClear svg\s*\{[^}]*width:\s*14px;/)
     // The 2px column gap, the hover surface flush with the page column, the
     // 8px content inset, and no separator.
@@ -4091,14 +4091,14 @@ describe('Mock detail metrics shared with the task list', () => {
     expect(row).toMatch(/border-radius:\s*12px;/)
     expect(row).not.toMatch(/border(?:-(?!radius)|:)/)
     expect(stylesheet)
-      .toMatch(/\.row:hover\s*\{[^}]*background:\s*var\(--dsw-alias-interactive-bg-hover\);/)
-    expect(rule('selectedRow')).toMatch(/background:\s*var\(--dsw-alias-interactive-bg-hover\);/)
+      .toMatch(/\.row:hover\s*\{[^}]*background:\s*var\(--mh-alias-interactive-bg-hover\);/)
+    expect(rule('selectedRow')).toMatch(/background:\s*var\(--mh-alias-interactive-bg-hover\);/)
     // The inline glyph on the title line, sized to the 20px leading.
     const glyph = rule('rowGlyph')
     expect(glyph).toMatch(/width:\s*16px;/)
     expect(glyph).toMatch(/height:\s*20px;/)
     expect(glyph).toMatch(/margin-top:\s*2px;/)
-    expect(glyph).toMatch(/color:\s*var\(--dsw-alias-label-tertiary\);/)
+    expect(glyph).toMatch(/color:\s*var\(--mh-alias-label-tertiary\);/)
     const title = rule('rowTitle')
     expect(title).toMatch(/font-weight:\s*500;/)
     expect(title).toMatch(/line-height:\s*23px;/)
@@ -4106,7 +4106,7 @@ describe('Mock detail metrics shared with the task list', () => {
     expect(summary).toMatch(/margin-top:\s*2px;/)
     expect(summary).toMatch(/font-size:\s*13px;/)
     expect(summary).toMatch(/line-height:\s*21px;/)
-    expect(summary).toMatch(/color:\s*var\(--dsw-alias-label-tertiary\);/)
+    expect(summary).toMatch(/color:\s*var\(--mh-alias-label-tertiary\);/)
     // The title keeps one step at every width, so no breakpoint raises it past
     // the sibling first-level page's title.
     const narrowStep = /@media \(max-width: 760px\)\s*\{([\s\S]*?)\n\}/.exec(stylesheet)?.[1] ?? ''
@@ -4151,10 +4151,10 @@ describe('Mock detail metrics shared with the task list', () => {
   })
 
   it('states the mock run-time card heading and the l4 panel edge', () => {
-    expect(rule('ruleCard h3')).toMatch(/color:\s*var\(--dsw-alias-label-tertiary\);/)
+    expect(rule('ruleCard h3')).toMatch(/color:\s*var\(--mh-alias-label-tertiary\);/)
     expect(rule('ruleCard h3')).toMatch(/line-height:\s*20px;/)
     expect(rule('ruleCard h3')).toMatch(/font-weight:\s*400;/)
-    expect(rule('detail')).toMatch(/border-left:\s*0\.5px solid var\(--dsw-alias-border-l4\);/)
+    expect(rule('detail')).toMatch(/border-left:\s*0\.5px solid var\(--mh-alias-border-l4\);/)
   })
 
   it('steps the detail gutter at the mock breakpoints and drops the retired 18px step', () => {

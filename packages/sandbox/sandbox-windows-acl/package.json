@@ -1,13 +1,13 @@
 {
-  "name": "@deepseek-ai/dsh-sandbox-windows-acl",
-  "description": "Windows ACL write-restriction sandbox backend (restricted-token spawn with capability-SID write allowlist) for the DeepSeek Harness sandbox seam",
+  "name": "@master-harness/sandbox-windows-acl",
+  "description": "Windows ACL write-restriction sandbox backend (restricted-token spawn with capability-SID write allowlist) for the Master Harness sandbox seam",
   "version": "0.2.1-rc.3",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/sandbox/sandbox-windows-acl"
   },
   "type": "module",
@@ -34,24 +34,24 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-skill": "workspace:*",
-    "@deepseek-ai/dsh-subprocess": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/skill": "workspace:*",
+    "@master-harness/subprocess": "workspace:*"
   },
   "dependencies": {
-    "@deepseek-ai/dsh-lazy-require": "workspace:*",
-    "@deepseek-ai/dsh-win32-process": "workspace:*",
+    "@master-harness/lazy-require": "workspace:*",
+    "@master-harness/win32-process": "workspace:*",
     "koffi": "3.1.1",
     "yaml": "^2.4.2"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis-plugin-loader": "workspace:~",
-    "@deepseek-ai/cordis-plugin-include": "workspace:~",
-    "@deepseek-ai/dsh-pwsh-local": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-local": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-skill": "workspace:*",
-    "@deepseek-ai/dsh-subprocess": "workspace:*",
-    "@deepseek-ai/dsh-subprocess-local": "workspace:*"
+    "@master-harness/cordis-plugin-loader": "workspace:~",
+    "@master-harness/cordis-plugin-include": "workspace:~",
+    "@master-harness/pwsh-local": "workspace:*",
+    "@master-harness/sandbox-local": "workspace:*",
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/skill": "workspace:*",
+    "@master-harness/subprocess": "workspace:*",
+    "@master-harness/subprocess-local": "workspace:*"
   }
 }

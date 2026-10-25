@@ -8,10 +8,10 @@
   padding: 0 4px 0 8px;
   border: none;
   /* Rounded chip chrome, matching the sibling model trigger. */
-  border-radius: var(--dsw-radius-sm);
+  border-radius: var(--mh-radius-sm);
   outline: none;
   background: transparent;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
   font-size: 13px;
   line-height: 20px;
   font-weight: 500;
@@ -20,16 +20,16 @@
 
 @media (hover: hover) {
   .trigger:hover:not(:disabled) {
-    background: var(--dsw-alias-interactive-bg-hover);
+    background: var(--mh-alias-interactive-bg-hover);
   }
 }
 
 .trigger:focus-visible {
-  box-shadow: 0 0 0 2px var(--dsw-focus-ring-color, var(--dsw-alias-state-business-primary));
+  box-shadow: 0 0 0 2px var(--mh-focus-ring-color, var(--mh-alias-state-business-primary));
 }
 
 .trigger:disabled {
-  color: var(--dsw-alias-label-dimmed);
+  color: var(--mh-alias-label-dimmed);
   cursor: default;
 }
 
@@ -69,7 +69,7 @@
 
 .badge {
   flex: none;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   font-size: 8px;
   line-height: 10px;
   font-weight: 500;
@@ -81,7 +81,7 @@
      the svg and floats the glyph off-center in the 28px trigger. */
   display: inline-flex;
   flex: 0 0 auto;
-  color: var(--dsw-alias-label-caption);
+  color: var(--mh-alias-label-caption);
   transition: transform 120ms ease;
 }
 

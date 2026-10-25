@@ -1,0 +1,31 @@
+# Bilingual-pair consistency record for mh-v0.0.1-rc.3.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write docs/persistence-changes/releases/mh-v0.0.1-rc.3.md
+/:
+  en: a1363661da3a303f
+  zh: 52e383b25ead3b42
+/persistence-release-mh-v0-0-1-rc-3:
+  en: 84dfacb139b9699d
+  zh: 80f79744647b442b
+/persistence-release-mh-v0-0-1-rc-3/summary:
+  en: 714b8b232df6c3fa
+  zh: 1237c45e64b399d0
+/persistence-release-mh-v0-0-1-rc-3/table-of-contents:
+  en: 0ff4a6f3c6af323f
+  zh: f5c7bd70cc1585c7
+/persistence-release-mh-v0-0-1-rc-3/release-evidence:
+  en: 35f3528b90e77c23
+  zh: a8f2d3fba8aa3ce5
+/persistence-release-mh-v0-0-1-rc-3/declaration:
+  en: af9cea43334ee692
+  zh: c6c8bd0d6a17718a
+/persistence-release-mh-v0-0-1-rc-3/structural-changes:
+  en: 0fd2841ea23b8cd6
+  zh: 1138a25ac478eaa8
+/persistence-release-mh-v0-0-1-rc-3/verification:
+  en: 8ccca317964523b1
+  zh: 2c8b3e70a3320778
+/persistence-release-mh-v0-0-1-rc-3/dev-note:
+  en: b75c8458928b72b9
+  zh: 003ba4e17b4b5269

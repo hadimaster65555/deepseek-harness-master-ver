@@ -1,19 +1,19 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import type { Session } from '@deepseek-ai/dsh-session'
-import WebRuntime from '@deepseek-ai/dsh-web'
-import type { DeepSeekAccount } from '@deepseek-ai/dsh-deepseek-account'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
+import { Context } from '@master-harness/cordis'
+import AgentRegistry from '@master-harness/agent'
+import type { Agent } from '@master-harness/agent'
+import type { Session } from '@master-harness/session'
+import WebRuntime from '@master-harness/web'
+import type { DeepSeekAccount } from '@master-harness/deepseek-account'
+import SessionStore, { SessionId } from '@master-harness/session'
+import SessionProjectionRegistry from '@master-harness/session-projection'
 import {
   DeepSeekSearchApiProvider,
   DEEPSEEK_WEB_API_BASE_URL,
   mapSearchResponse,
   type DeepSeekSearchApiOptions,
-} from '@deepseek-ai/dsh-web-deepseek-api'
-import * as webApiPlugin from '@deepseek-ai/dsh-web-deepseek-api'
+} from '@master-harness/web-deepseek-api'
+import * as webApiPlugin from '@master-harness/web-deepseek-api'
 
 /** Construct the provider over a fixed options value; production passes a live thunk. */
 const searchProvider = (options: DeepSeekSearchApiOptions): DeepSeekSearchApiProvider =>

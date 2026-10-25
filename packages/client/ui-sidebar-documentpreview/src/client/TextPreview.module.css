@@ -25,7 +25,7 @@
   box-sizing: border-box;
   height: 38px;
   padding: 0 6px 0 16px;
-  border-bottom: 0.5px solid var(--dsw-alias-border-l3);
+  border-bottom: 0.5px solid var(--mh-alias-border-l3);
 }
 
 .path {
@@ -40,10 +40,10 @@
   align-items: center;
   margin: 0;
   padding: 6px 10px;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
   font-size: 12px;
-  background: var(--dsw-alias-bg-layer-2);
-  border-bottom: 0.5px solid var(--dsw-alias-border-l1);
+  background: var(--mh-alias-bg-layer-2);
+  border-bottom: 0.5px solid var(--mh-alias-border-l1);
 }
 
 .body {
@@ -56,11 +56,11 @@
   overflow: auto;
   /* The notice and retry surfaces in this sheet are elevated, so the file body's
      scroller rebinds the thumb indirection in a complete pair. */
-  --dsh-scrollbar-thumb: var(--dsw-alias-scrollbar-bg-l2);
-  --dsh-scrollbar-thumb-hover: var(--dsw-alias-scrollbar-hover-l2);
-  color: var(--dsw-alias-label-primary);
-  font-size: var(--dsh-content-font-size-secondary, 13px);
-  font-family: var(--dsw-font-mono, ui-monospace, monospace);
+  --mh-scrollbar-thumb: var(--mh-alias-scrollbar-bg-l2);
+  --mh-scrollbar-thumb-hover: var(--mh-alias-scrollbar-hover-l2);
+  color: var(--mh-alias-label-primary);
+  font-size: var(--mh-content-font-size-secondary, 13px);
+  font-family: var(--mh-font-mono, ui-monospace, monospace);
   line-height: 1.6;
   white-space: pre;
 }
@@ -78,7 +78,7 @@
 }
 
 .body:has([data-pdf-preview]) {
-  background: var(--dsw-alias-bg-document-preview);
+  background: var(--mh-alias-bg-document-preview);
 }
 
 .wrap {
@@ -98,7 +98,7 @@
 /* One page of lines; pages abut so the file reads as one. */
 .page {
   margin: 0;
-  font: var(--dsw-font-markdown-code-block);
+  font: var(--mh-font-markdown-code-block);
   white-space: inherit;
 }
 
@@ -114,7 +114,7 @@
 .lineMark {
   position: absolute;
   left: 0;
-  background: var(--dsw-alias-interactive-bg-hover-accent);
+  background: var(--mh-alias-interactive-bg-hover-accent);
   pointer-events: none;
   animation: line-mark-fade 2s ease-in forwards;
 }
@@ -143,9 +143,9 @@
   box-sizing: border-box;
   height: 100%;
   padding: 0 24px;
-  color: var(--dsw-alias-label-secondary);
-  font-size: var(--dsh-content-font-size-secondary, 13px);
-  font-family: var(--dsw-font-family);
+  color: var(--mh-alias-label-secondary);
+  font-size: var(--mh-content-font-size-secondary, 13px);
+  font-family: var(--mh-font-family);
   line-height: 1.6;
   text-align: center;
   white-space: normal;
@@ -179,18 +179,18 @@
   align-items: center;
   height: 32px;
   padding: 0 14px 0 12px;
-  color: var(--dsw-alias-label-primary);
-  font-size: var(--dsh-content-font-size-secondary, 13px);
+  color: var(--mh-alias-label-primary);
+  font-size: var(--mh-content-font-size-secondary, 13px);
   font-family: inherit;
   background: transparent;
-  border: 0.5px solid var(--dsw-alias-border-l2);
-  border-radius: var(--dsw-radius-md);
+  border: 0.5px solid var(--mh-alias-border-l2);
+  border-radius: var(--mh-radius-md);
   cursor: pointer;
 }
 
 @media (hover: hover) {
   .retry:hover {
-    background: var(--dsw-alias-interactive-bg-hover);
+    background: var(--mh-alias-interactive-bg-hover);
   }
 }
 
@@ -206,8 +206,8 @@
   align-items: center;
   margin: 0;
   padding: 6px 10px;
-  color: var(--dsw-alias-label-secondary);
-  font-size: var(--dsh-content-font-size-secondary, 13px);
+  color: var(--mh-alias-label-secondary);
+  font-size: var(--mh-content-font-size-secondary, 13px);
   line-height: 1.6;
   white-space: normal;
 }
@@ -227,19 +227,19 @@
 
 .action {
   padding: 4px 10px;
-  color: var(--dsw-alias-label-primary);
-  font-size: var(--dsh-content-font-size-secondary, 13px);
-  font-family: var(--dsw-font, inherit);
+  color: var(--mh-alias-label-primary);
+  font-size: var(--mh-content-font-size-secondary, 13px);
+  font-family: var(--mh-font, inherit);
   white-space: normal;
-  background: var(--dsw-alias-bg-layer-2);
-  border: 0.5px solid var(--dsw-alias-border-l2);
-  border-radius: var(--dsw-radius-sm);
+  background: var(--mh-alias-bg-layer-2);
+  border: 0.5px solid var(--mh-alias-border-l2);
+  border-radius: var(--mh-radius-sm);
   cursor: pointer;
 }
 
 @media (hover: hover) {
   .action:hover {
-    background: var(--dsw-alias-bg-layer-3);
+    background: var(--mh-alias-bg-layer-3);
   }
 }
 
@@ -248,25 +248,25 @@
   display: block;
   margin: 8px 10px;
   padding: 4px 10px;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
   font-size: 12px;
-  font-family: var(--dsw-font, inherit);
+  font-family: var(--mh-font, inherit);
   white-space: normal;
-  background: var(--dsw-alias-bg-layer-2);
-  border: 0.5px solid var(--dsw-alias-border-l2);
-  border-radius: var(--dsw-radius-sm);
+  background: var(--mh-alias-bg-layer-2);
+  border: 0.5px solid var(--mh-alias-border-l2);
+  border-radius: var(--mh-radius-sm);
   cursor: pointer;
 }
 
 @media (hover: hover) {
   .more:hover:not(:disabled) {
-    color: var(--dsw-alias-label-primary);
-    background: var(--dsw-alias-bg-layer-3);
+    color: var(--mh-alias-label-primary);
+    background: var(--mh-alias-bg-layer-3);
   }
 }
 
 .more:disabled {
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   cursor: default;
 }
 
@@ -281,11 +281,11 @@
   width: 28px;
   height: 28px;
   padding: 6px;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
   line-height: 1;
   background: transparent;
   border: none;
-  border-radius: var(--dsw-radius-sm);
+  border-radius: var(--mh-radius-sm);
   cursor: pointer;
 }
 
@@ -296,14 +296,14 @@
 
 @media (hover: hover) {
   .tool:hover {
-    color: var(--dsw-alias-label-primary);
-    background: var(--dsw-alias-interactive-bg-hover);
+    color: var(--mh-alias-label-primary);
+    background: var(--mh-alias-interactive-bg-hover);
   }
 }
 
 .tool[data-textpreview-tool='auto-refresh'][aria-pressed='true'] {
-  color: var(--dsw-alias-label-primary);
-  background: var(--dsw-alias-interactive-bg-hover);
+  color: var(--mh-alias-label-primary);
+  background: var(--mh-alias-interactive-bg-hover);
 }
 .viewerTool {
   flex: none;
@@ -311,7 +311,7 @@
   max-width: 160px;
   padding: 0 6px;
   overflow: hidden;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
   font-size: 12px;
   white-space: nowrap;
   text-overflow: ellipsis;

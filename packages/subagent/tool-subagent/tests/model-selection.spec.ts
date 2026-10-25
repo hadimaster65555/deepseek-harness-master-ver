@@ -1,16 +1,16 @@
-import { executeToolFixture } from '@deepseek-ai/dsh-tool-testkit'
-import * as NativeToolExecutor from '@deepseek-ai/dsh-tool-executor-native'
+import { executeToolFixture } from '@master-harness/tool-testkit'
+import * as NativeToolExecutor from '@master-harness/tool-executor-native'
 import { mountWorkingDirectoryFixture } from '../../subagent/tests/working-directory-fixture.ts'
 import { describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { ReasoningEffortId, ToolCallId } from '@deepseek-ai/dsh-llm'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime from '@deepseek-ai/dsh-tools'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import SubagentRuntime from '@deepseek-ai/dsh-subagent'
-import type { SubagentStartRequest } from '@deepseek-ai/dsh-subagent'
-import { Session, SessionId } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
+import { Context } from '@master-harness/cordis'
+import { ReasoningEffortId, ToolCallId } from '@master-harness/llm'
+import SystemPrompt from '@master-harness/system-prompt'
+import ToolRuntime from '@master-harness/tools'
+import type { Agent } from '@master-harness/agent'
+import SubagentRuntime from '@master-harness/subagent'
+import type { SubagentStartRequest } from '@master-harness/subagent'
+import { Session, SessionId } from '@master-harness/session'
+import SessionProjectionRegistry from '@master-harness/session-projection'
 import { MockAdapter } from '../../../core/agent-loop/tests/mock-adapter.ts'
 import * as mock from './scripted-provider.ts'
 import * as tool from '../src/index.ts'
@@ -40,7 +40,7 @@ function parentWithRoute(
   return { id, options, session: Session.create(id) } as unknown as Agent
 }
 
-describe('dsh-tool-subagent model selection', () => {
+describe('mh-tool-subagent model selection', () => {
   it('rejects empty route ids at the configuration boundary', () => {
     expect(() => { assertAllowedModelRoutes([{ provider: '', model: 'model' }]) })
       .toThrow('requires non-empty provider and model ids')

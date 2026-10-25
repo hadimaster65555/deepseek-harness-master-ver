@@ -5,48 +5,48 @@
 /:
   en: e263a0edd266210f
   zh: c5779bf7f64631d3
-/deepseek-ai-dsh-experimental-agent-team-profile:
-  en: 3deb4b95d9e58c8d
-  zh: 0ba043a54428445e
-/deepseek-ai-dsh-experimental-agent-team-profile/summary:
-  en: 3ca34df3ee31841d
-  zh: a413140d89be2d05
-/deepseek-ai-dsh-experimental-agent-team-profile/table-of-contents:
+/master-harness-experimental-agent-team-profile:
+  en: 3c6b42143ba70f58
+  zh: 9021c0120a92e680
+/master-harness-experimental-agent-team-profile/summary:
+  en: 0441caf9d32b2c43
+  zh: 036818af162df5f9
+/master-harness-experimental-agent-team-profile/table-of-contents:
   en: d152484eb41ac6b4
   zh: 09388d293f9be9cb
-/deepseek-ai-dsh-experimental-agent-team-profile/use-this-package:
+/master-harness-experimental-agent-team-profile/use-this-package:
   en: bbff250eba0f1b89
   zh: 0a618f05cc88ee2b
-/deepseek-ai-dsh-experimental-agent-team-profile/use-this-package/install-into-a-profile:
-  en: 97ef5916c04bf2a1
-  zh: 51f9d2bc3fca7936
-/deepseek-ai-dsh-experimental-agent-team-profile/use-this-package/what-you-get:
-  en: f0e95e60095fc5cb
-  zh: 8c36603b423475d0
-/deepseek-ai-dsh-experimental-agent-team-profile/understand-the-implementation:
-  en: 1134189d1362aca0
-  zh: 581357c648eb61f7
-/deepseek-ai-dsh-experimental-agent-team-profile/further-exploration:
-  en: 2513c5cb830db597
-  zh: de3df83cb9fd2340
-/deepseek-ai-dsh-experimental-agent-team-profile/model-experience:
+/master-harness-experimental-agent-team-profile/use-this-package/install-into-a-profile:
+  en: 5ac4823f1857d9b3
+  zh: d94796f083f8bba9
+/master-harness-experimental-agent-team-profile/use-this-package/what-you-get:
+  en: 867b0a541f3bcf9f
+  zh: b8e0cd44f689fb40
+/master-harness-experimental-agent-team-profile/understand-the-implementation:
+  en: 6f3453635153f511
+  zh: 9042ad1faf637969
+/master-harness-experimental-agent-team-profile/further-exploration:
+  en: deef4612d6133ea8
+  zh: 1a66ae9103f43405
+/master-harness-experimental-agent-team-profile/model-experience:
   en: 215e7ba838619b7b
   zh: a311da3843709f90
-/deepseek-ai-dsh-experimental-agent-team-profile/model-experience/team-policy-and-tools:
+/master-harness-experimental-agent-team-profile/model-experience/team-policy-and-tools:
   en: 8e1e365ff3b0dfb2
   zh: c6c91fbf1e1df934
-/deepseek-ai-dsh-experimental-agent-team-profile/model-experience/team-policy-and-tools/what-the-model-sees:
-  en: f54dc1725b90365b
-  zh: 5a505996f7684231
-/deepseek-ai-dsh-experimental-agent-team-profile/model-experience/team-policy-and-tools/token-effect:
-  en: da8c178179ba50ba
-  zh: c53d5863bc14be79
-/deepseek-ai-dsh-experimental-agent-team-profile/model-experience/team-policy-and-tools/kv-cache-effect:
-  en: ac4c8d0ba492fa6a
-  zh: 16d4a05f2e719651
-/deepseek-ai-dsh-experimental-agent-team-profile/known-limitations-and-deferred-work:
-  en: 0413821c2fc20bea
-  zh: 53e135425dd82e12
-/deepseek-ai-dsh-experimental-agent-team-profile/known-limitations-and-deferred-work/dev-note:
+/master-harness-experimental-agent-team-profile/model-experience/team-policy-and-tools/what-the-model-sees:
+  en: 656d5ec3448562cb
+  zh: 638a488e9e4e5b46
+/master-harness-experimental-agent-team-profile/model-experience/team-policy-and-tools/token-effect:
+  en: 4c704f23cd700187
+  zh: 9484789bf527c199
+/master-harness-experimental-agent-team-profile/model-experience/team-policy-and-tools/kv-cache-effect:
+  en: edc465260aeaae76
+  zh: c1b16624629d4e3a
+/master-harness-experimental-agent-team-profile/known-limitations-and-deferred-work:
+  en: a04a1352eacdb357
+  zh: 284ccd172216ea42
+/master-harness-experimental-agent-team-profile/known-limitations-and-deferred-work/dev-note:
   en: e67f633dc6fe7773
   zh: 3bb0c20c93f16f98

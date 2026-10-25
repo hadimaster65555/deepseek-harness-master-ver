@@ -3,11 +3,11 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/proposed/architecture/2026-07-19-required-cancellation-through-tool-capability-seams.md
 /agent-note-required-cancellation-through-tool-reachable-capability-seams:
-  en: 7999f4da8ee4fe80
-  zh: ea49c90e2bbaacb8
+  en: 9e762fe4a1d82558
+  zh: 2fe2a611d067f4cd
 /agent-note-required-cancellation-through-tool-reachable-capability-seams/problem:
-  en: c244ddd6aadf87ad
-  zh: d30d623e9bf25c6b
+  en: ea50b7a7b1760171
+  zh: 0104f8208fb513f1
 /agent-note-required-cancellation-through-tool-reachable-capability-seams/proposal:
   en: 20ed2d4cacc14f0c
   zh: 19ee19bcf3596048

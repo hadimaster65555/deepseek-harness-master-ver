@@ -1,22 +1,22 @@
 // @vitest-environment jsdom
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
+import { createSnapshotStore } from '@master-harness/client-store'
 /**
  * Browser-half lifecycle over the real SlotRegistry: the dictionary,
  * header-slot, and document-preview path registrations with fiber teardown
  * proving removal (HMR safety) and the injected controller faces.
  */
 
-import type { PropsRuntime, SlotComponent } from '@deepseek-ai/dsh-client-ui-slots'
-import type { ShortcutCommand } from '@deepseek-ai/dsh-client-shortcuts/client'
-import type { SessionListState } from '@deepseek-ai/dsh-api-session-controller/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import { Context } from '@deepseek-ai/cordis'
+import type { PropsRuntime, SlotComponent } from '@master-harness/client-ui-slots'
+import type { ShortcutCommand } from '@master-harness/client-shortcuts/client'
+import type { SessionListState } from '@master-harness/api-session-controller/client'
+import type { SessionId } from '@master-harness/session/types'
+import { Context } from '@master-harness/cordis'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { SlotRegistry } from '@deepseek-ai/dsh-client-ui-renderer/client'
-import { LocaleRuntime } from '@deepseek-ai/dsh-client-locale/client'
-import { LayoutController, type MainPanelId } from '@deepseek-ai/dsh-client-ui-layout/client'
-import { createLayoutStore } from '@deepseek-ai/dsh-client-ui-layout/src/client/stores.ts'
-import type {} from '@deepseek-ai/dsh-client-ui-conversation/client'
+import { SlotRegistry } from '@master-harness/client-ui-renderer/client'
+import { LocaleRuntime } from '@master-harness/client-locale/client'
+import { LayoutController, type MainPanelId } from '@master-harness/client-ui-layout/client'
+import { createLayoutStore } from '@master-harness/client-ui-layout/src/client/stores.ts'
+import type {} from '@master-harness/client-ui-conversation/client'
 import { apply, inject, type OpenInAppActionInjected, type OpenPathInjected } from '../src/client/index.ts'
 import { apply as nodeApply } from '../src/index.ts'
 import { OpenInAppAction } from '../src/client/OpenInAppAction.tsx'

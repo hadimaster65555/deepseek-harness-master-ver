@@ -6,16 +6,16 @@
  * Plugin lifecycle reads use the optional `ctx.fs` provider, so providerless products
  * mount it as a no-op.
  *
- * @module @deepseek-ai/dsh-agent-instructions
+ * @module @master-harness/agent-instructions
  */
 
-import type {} from '@deepseek-ai/dsh-working-directory'
-import type { Context } from '@deepseek-ai/cordis'
+import type {} from '@master-harness/working-directory'
+import type { Context } from '@master-harness/cordis'
 import { isDeepStrictEqual } from 'node:util'
-import type { Agent, PreStepDecision } from '@deepseek-ai/dsh-agent'
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
-import type { Session, UserMessage } from '@deepseek-ai/dsh-session'
-import type { ToolExecution, ToolExecutionResult, ToolExecutionToken } from '@deepseek-ai/dsh-tools'
+import type { Agent, PreStepDecision } from '@master-harness/agent'
+import { createUserMessage } from '@master-harness/llm'
+import type { Session, UserMessage } from '@master-harness/session'
+import type { ToolExecution, ToolExecutionResult, ToolExecutionToken } from '@master-harness/tools'
 import { Config, resolveConfig, workspaceBaselineIdentity, type ResolvedConfig } from './config.ts'
 import { findProjectRoot, loadBaselineInstructionSet } from './files.ts'
 import { trimmedInstructionDigest } from './digest.ts'
@@ -140,7 +140,7 @@ export function apply(ctx: Context, config: Config): void {
       const replacePreviousBaseline = baselinePresent && !keepVisibleBaseline
       const instructions = await loadBaselineInstructionSet({
         cwd,
-        dshHome: resolved.dshHome,
+        mhHome: resolved.mhHome,
         agentsHome: resolved.agentsHome,
         projectRootMarkers: resolved.projectRootMarkers,
         maxBytes: resolved.maxBytes,

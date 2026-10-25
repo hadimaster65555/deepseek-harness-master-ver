@@ -1,16 +1,18 @@
-# DeepSeek Harness
+# Master Harness
 
 English | [中文](README.zh.md)
 
-DeepSeek Harness (`dsh`) is an open-source agent harness developed by [DeepSeek AI](https://deepseek.com).
+Master Harness (`mh`) is an independent, open-source agent harness forked from [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness). It keeps the upstream **everything-is-a-plugin** architecture and its [Cordis](https://github.com/cordiverse/cordis) foundation, whose design is described in [_A Programming Paradigm for Spatiotemporal Composability_](https://arxiv.org/abs/2608.25512).
 
-It is built on an **everything-is-a-plugin** architecture and powered by [Cordis](https://github.com/cordiverse/cordis), whose design is described in [_A Programming Paradigm for Spatiotemporal Composability_](https://arxiv.org/abs/2608.25512).
+Documentation: [https://hadimaster65555.github.io/deepseek-harness-master-ver/](https://hadimaster65555.github.io/deepseek-harness-master-ver/)
 
-Documentation: [https://deepseek-harness.github.io/deepseek-harness/](https://deepseek-harness.github.io/deepseek-harness/)
+## Relationship to DeepSeek Harness
+
+Master Harness is not affiliated with or endorsed by DeepSeek. It credits DeepSeek Harness as the upstream project that inspired this fork, and it keeps the upstream MIT license and copyright notice. The harness still ships the DeepSeek model provider: `DEEPSEEK_API_KEY`, DeepSeek model IDs, and the related provider code remain unchanged. DeepSeek and DeepSeek Harness are trademarks of DeepSeek AI.
 
 ## Developer preview
 
-DeepSeek Harness is in _developer preview_ and iterating rapidly. **THERE WILL BE COMPATIBILITY-BREAKING CHANGES.**
+Master Harness is in _developer preview_ and iterating rapidly. **THERE WILL BE COMPATIBILITY-BREAKING CHANGES.**
 
 Review the [safety notice](SAFETY.md) before running the project.
 
@@ -21,30 +23,32 @@ Review the [safety notice](SAFETY.md) before running the project.
 Install `Node.js`, then run:
 
 ```sh
-npx @deepseek-ai/dsh web
+npx @master-harness/mh web
 ```
 
 The command starts the Web UI at `http://127.0.0.1:3080` by default and opens it in the default browser for a local launch. An SSH launch only prints the host URL because the SSH client or editor owns the local forwarded address. Pass `--no-open` to run the server without opening a browser. See [Web UI guide](docs/user/guide/index.md).
+
+The `@master-harness` npm packages are published from this fork; install from the registry only after a release is published there.
 
 ### Run from source
 
 To run from a repository checkout:
 
 ```sh
-git clone https://github.com/deepseek-ai/deepseek-harness.git
-cd deepseek-harness
+git clone https://github.com/hadimaster65555/deepseek-harness-master-ver.git
+cd deepseek-harness-master-ver
 pnpm install
 pnpm run build
-pnpm dsh web
+pnpm mh web
 ```
 
-`pnpm run build` prepares the repository artifacts. `pnpm dsh web` uses those built artifacts without rebuilding.
+`pnpm run build` prepares the repository artifacts. `pnpm mh web` uses those built artifacts without rebuilding.
 
 ## Community and support
 
-- Submit feedback or bug reports through [GitHub Discussions](https://github.com/deepseek-ai/deepseek-harness/discussions).
-- Add the [`dsh-plugin`](https://github.com/topics/dsh-plugin) topic to your plugin repository for discoverability.
-- Join <a href="https://discord.gg/4MrtZUhpxg">DeepSeek Harness Discord community</a>.
+- Submit feedback or bug reports through [GitHub Discussions](https://github.com/hadimaster65555/deepseek-harness-master-ver/discussions).
+- Add the [`mh-plugin`](https://github.com/topics/master-harness-plugin) topic to your plugin repository for discoverability.
+- Report security-sensitive issues privately as described in the [safety notice](SAFETY.md).
 
 ## Contributing
 
@@ -61,17 +65,18 @@ For agents, follow [AGENTS.md](AGENTS.md).
 ## Citation
 
 ```bibtex
-@misc{deepseek-harness2026,
-  title={DeepSeek Harness: Everything is a Plugin},
-  author={DeepSeek-AI},
+@misc{master-harness2026,
+  title={Master Harness: A Fork of DeepSeek Harness},
+  author={Master Harness contributors},
   year={2026},
   publisher={GitHub},
-  howpublished={\url{https://github.com/deepseek-ai/deepseek-harness}},
+  howpublished={\url{https://github.com/hadimaster65555/deepseek-harness-master-ver}},
+  note={Inspired by DeepSeek Harness},
 }
 ```
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE). The upstream DeepSeek copyright notice is preserved.
 
 Third-party dependencies and their licenses are disclosed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

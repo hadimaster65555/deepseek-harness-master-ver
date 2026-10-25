@@ -6,7 +6,7 @@ import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
-import { DetailFailure } from '@deepseek-ai/dsh-plugin-detail'
+import { DetailFailure } from '@master-harness/plugin-detail'
 import { RepositoryCache, type RepositoryCacheOptions } from '../src/repository-cache.ts'
 
 /** Await a rejection that matches `fields` and whose message contains `message`. */
@@ -22,7 +22,7 @@ const signal = new AbortController().signal
 const text = (bytes: Uint8Array | undefined): string => new TextDecoder().decode(bytes)
 
 beforeEach(() => {
-  root = mkdtempSync(join(tmpdir(), 'dsh-plugin-market-repositories-'))
+  root = mkdtempSync(join(tmpdir(), 'mh-plugin-market-repositories-'))
   // Git reads no configuration of the developer running the tests.
   mkdirSync(join(root, 'home'))
   vi.stubEnv('HOME', join(root, 'home'))
@@ -31,7 +31,7 @@ beforeEach(() => {
 afterEach(() => {
   vi.unstubAllEnvs()
   vi.unstubAllGlobals()
-  rmSync(root, { recursive: true, force: true })
+  rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 20 })
 })
 
 function git(cwd: string, ...args: string[]): string {
@@ -141,8 +141,8 @@ it('reports an unreachable host as a network failure, a failed local command as 
   // A clone whose commit refs cannot be written fails a local command after a successful fetch; that says nothing about
   // the repository, and the clone is deleted.
   const [clone] = readdirSync(join(root, 'cache'))
-  rmSync(join(root, 'cache', clone as string, 'refs', 'dsh'), { recursive: true })
-  writeFileSync(join(root, 'cache', clone as string, 'refs', 'dsh'), 'not a directory')
+  rmSync(join(root, 'cache', clone as string, 'refs', 'mh'), { recursive: true })
+  writeFileSync(join(root, 'cache', clone as string, 'refs', 'mh'), 'not a directory')
   writeFileSync(join(source.dir, 'README.md'), 'y')
   git(source.dir, 'commit', '--quiet', '-am', 'next')
   const broken = repositories.read(source.url, git(source.dir, 'rev-parse', 'HEAD'), 'README.md', 100, signal)
@@ -183,6 +183,7 @@ it('refuses a repository that a completed fetch left past its limit', async () =
   const source = repository('e2', Object.fromEntries(Array.from({ length: 1000 }, (_value, index) => [`dir${String(index)}/f.txt`, String(index)])))
   const repositories = cache({ maxRepositoryBytes: 4096, sizePollMs: 3_600_000 })
   await expect(repositories.read(source.url, source.commit, 'dir0/f.txt', 100, signal)).rejects.toMatchObject({ reason: 'too-large' })
+  await repositories.settled()
   expect(readdirSync(join(root, 'cache'))).toEqual([])
 })
 

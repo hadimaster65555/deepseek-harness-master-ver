@@ -1,34 +1,34 @@
 /** HTTP lifecycle, routing and optional Cordis services under real composition. */
-import * as NativeToolExecutor from '@deepseek-ai/dsh-tool-executor-native'
-import { installAccountTaskCancellation, type DeepSeekAccount } from '@deepseek-ai/dsh-deepseek-account'
-import type { AnonymousUserId } from '@deepseek-ai/dsh-anonymous-user-id'
+import * as NativeToolExecutor from '@master-harness/tool-executor-native'
+import { installAccountTaskCancellation, type DeepSeekAccount } from '@master-harness/deepseek-account'
+import type { AnonymousUserId } from '@master-harness/anonymous-user-id'
 import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { Context, LoggerLevel, Service } from '@deepseek-ai/cordis'
-import LocalAttachments from '@deepseek-ai/dsh-attachment-local'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime from '@deepseek-ai/dsh-tools'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import { AttachmentId } from '@deepseek-ai/dsh-attachment'
-import Loader from '@deepseek-ai/cordis-plugin-loader'
-import Include from '@deepseek-ai/cordis-plugin-include'
-import LlmRuntime, { createAssistantMessage, createDeveloperMessage, createSystemMessage, createToolResultMessage, createUserMessage, ToolCallId } from '@deepseek-ai/dsh-llm'
-import type { Message } from '@deepseek-ai/dsh-llm'
-import { credentialRef } from '@deepseek-ai/dsh-credentials'
-import LocalCredentials from '@deepseek-ai/dsh-credentials-local'
+import { Context, LoggerLevel, Service } from '@master-harness/cordis'
+import LocalAttachments from '@master-harness/attachment-local'
+import AgentRegistry from '@master-harness/agent'
+import type { Agent } from '@master-harness/agent'
+import AgentLoop from '@master-harness/agent-loop'
+import SystemPrompt from '@master-harness/system-prompt'
+import ToolRuntime from '@master-harness/tools'
+import SessionProjectionRegistry from '@master-harness/session-projection'
+import { AttachmentId } from '@master-harness/attachment'
+import Loader from '@master-harness/cordis-plugin-loader'
+import Include from '@master-harness/cordis-plugin-include'
+import LlmRuntime, { createAssistantMessage, createDeveloperMessage, createSystemMessage, createToolResultMessage, createUserMessage, ToolCallId } from '@master-harness/llm'
+import type { Message } from '@master-harness/llm'
+import { credentialRef } from '@master-harness/credentials'
+import LocalCredentials from '@master-harness/credentials-local'
 import { profileComposition } from '../../../settings/settings/tests/profile-composition.ts'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
+import SessionStore, { SessionId } from '@master-harness/session'
 import { DeepSeekAdapter } from '../src/adapter.ts'
 import { object } from '../src/replay.ts'
 import { DeepSeekFileStore } from '../src/file-store.ts'
-import * as Messages from '@deepseek-ai/dsh-llm-deepseek-api-key'
-import * as AccountProvider from '@deepseek-ai/dsh-llm-deepseek-account'
+import * as Messages from '@master-harness/llm-deepseek-api-key'
+import * as AccountProvider from '@master-harness/llm-deepseek-account'
 import { adapter, assemble, chunks, MODEL, options, prepareExtensions, server, sse, textEvents, user, sourceModuleLoader } from './helpers.ts'
 
 const cleanup: (() => Promise<unknown>)[] = []
@@ -44,9 +44,9 @@ async function endpoint(...args: Parameters<typeof server>) {
   return instance
 }
 async function context() {
-  const home = await mkdtemp(join(tmpdir(), 'dsh-messages-test-'))
+  const home = await mkdtemp(join(tmpdir(), 'mh-messages-test-'))
   cleanup.push(() => rm(home, { recursive: true, force: true }))
-  vi.stubEnv('DSH_HOME', home)
+  vi.stubEnv('MH_HOME', home)
   const ctx = new Context()
   cleanup.push(() => ctx.fiber.dispose())
   return { ctx, home }
@@ -58,7 +58,7 @@ async function send(agent: Agent, text: string) {
   expect(agent.session.snapshotEvents().at(-1)).toMatchObject({ type: 'turn/end', data: { reason: { kind: 'completed' } } })
 }
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@master-harness/llm' {
   interface MessageSourceMap {
     'saved-notice': { kind: 'saved-notice' }
   }
@@ -136,8 +136,8 @@ describe('direct Messages HTTP', () => {
     })
     expect(http.requests[0]).toMatchObject({ path: '/anthropic/v1/messages', headers: {
       'x-api-key': 'test-key', 'anthropic-version': '2023-06-01',
-      'user-agent': expect.stringContaining('deepseek-harness/') as string, 'x-deepseek-harness-user-id': 'test-user',
-      'x-deepseek-harness-session-id': 'session-test', 'x-deepseek-harness-compact': '1',
+      'user-agent': expect.stringContaining('master-harness/') as string, 'x-master-harness-user-id': 'test-user',
+      'x-master-harness-session-id': 'session-test', 'x-master-harness-compact': '1',
     }, body: { thinking: { type: 'enabled' }, output_config: { effort: 'high' } } })
     expect(llm.providerInfo('deepseek-official')).toEqual({ id: 'deepseek-official', name: 'DeepSeek' })
     expect(await llm.listModels('deepseek-official')).toEqual([])
@@ -263,7 +263,7 @@ describe('direct Messages HTTP', () => {
       resolveAuth: () => Promise.resolve({ headers: { 'x-api-key': 'fixture-key' },
         onRequestError: async () => { throw new Error('credential storage unavailable') },
       }),
-      resolveUserId: () => 'fixture-user' as import('@deepseek-ai/dsh-anonymous-user-id').AnonymousUserId,
+      resolveUserId: () => 'fixture-user' as import('@master-harness/anonymous-user-id').AnonymousUserId,
       prepareExtensions,
     })
     await expect(chunks(llm.stream(options()))).rejects.toMatchObject({ code: 'AUTH', failure: { status: 401 } })
@@ -286,7 +286,7 @@ describe('Cordis provider composition', () => {
     const price = () => ctx.llm.imageRequestPricing('deepseek-official', model)!
     const dummy = { attachmentId: AttachmentId(`sha256:${'a'.repeat(64)}`), width: 1, height: 1, bytes: 3, mediaType: 'image/png' as const }
     expect(price().priceImages([{ type: 'image', attachment: dummy }])[0]?.text).toBeDefined()
-    await ctx.plugin(LocalAttachments, { dshHome: home })
+    await ctx.plugin(LocalAttachments, { mhHome: home })
     const attachment = await ctx.attachments.saveImage({ data: await readFile(new URL('fixtures/red.png', import.meta.url)), mediaType: 'image/png' })
     expect(price().priceImages([{ type: 'image', attachment }])[0]?.text).not.toContain('/mounted/image.png')
     class MappedFiles extends Service {
@@ -311,12 +311,12 @@ describe('Cordis provider composition', () => {
     await ctx.plugin(Loader)
     ctx.loader.builtins.include = Include
     const modules = new Map<string, unknown>([
-      ['@deepseek-ai/dsh-llm', LlmRuntime], ['@deepseek-ai/dsh-llm-deepseek-api-key', Messages], ['@deepseek-ai/dsh-llm-deepseek-account', AccountProvider],
-      ['@deepseek-ai/dsh-credentials-local', LocalCredentials],
-      ['@deepseek-ai/dsh-agent', AgentRegistry], ['@deepseek-ai/dsh-agent-loop', AgentLoop],
-      ['@deepseek-ai/dsh-session', SessionStore], ['@deepseek-ai/dsh-session-projection', SessionProjectionRegistry],
-      ['@deepseek-ai/dsh-system-prompt', SystemPrompt], ['@deepseek-ai/dsh-tools', ToolRuntime],
-      ['@deepseek-ai/dsh-tool-executor-native', NativeToolExecutor],
+      ['@master-harness/llm', LlmRuntime], ['@master-harness/llm-deepseek-api-key', Messages], ['@master-harness/llm-deepseek-account', AccountProvider],
+      ['@master-harness/credentials-local', LocalCredentials],
+      ['@master-harness/agent', AgentRegistry], ['@master-harness/agent-loop', AgentLoop],
+      ['@master-harness/session', SessionStore], ['@master-harness/session-projection', SessionProjectionRegistry],
+      ['@master-harness/system-prompt', SystemPrompt], ['@master-harness/tools', ToolRuntime],
+      ['@master-harness/tool-executor-native', NativeToolExecutor],
     ])
     // The importer supplies source modules while Loader still owns configuration and effects.
     for (const name of modules.keys()) {
@@ -334,7 +334,7 @@ describe('Cordis provider composition', () => {
 
   it.each(['deepseek-account', 'deepseek-official'].flatMap(provider => [
     { provider, body: JSON.stringify({ error: { type: 'authentication_error', message: 'API key is invalid' } }) },
-    { provider, body: JSON.stringify({ error: { message: 'Authentication Fails (invalid dsh token)' } }) },
+    { provider, body: JSON.stringify({ error: { message: 'Authentication Fails (invalid mh token)' } }) },
     { provider, body: 'Unauthorized' },
     { provider, body: '' },
   ]))('handles $provider HTTP 401 independently of the response body ($body)', async ({ provider, body }) => {
@@ -369,7 +369,7 @@ describe('Cordis provider composition', () => {
   it('finishes the active account turn when rejected credentials publish sign-out', async () => {
     const { ctx } = await boot((response) => {
       response.writeHead(401)
-      response.end(JSON.stringify({ error: { message: 'Authentication Fails (invalid dsh token)' } }))
+      response.end(JSON.stringify({ error: { message: 'Authentication Fails (invalid mh token)' } }))
     })
     ctx.provide('deepseekAccount', { resolveToken: async (_url: string): Promise<string | undefined> => 'fixture-token',
       rejectToken: async (_token: string): Promise<void> => { ctx.emit('deepseek-account/signed-out') } } as DeepSeekAccount)
@@ -385,7 +385,7 @@ describe('Cordis provider composition', () => {
   it('preserves the inference error when rejected credential removal fails', async () => {
     const { ctx } = await boot((response) => {
       response.writeHead(401)
-      response.end(JSON.stringify({ error: { message: 'Authentication Fails (invalid dsh token)' } }))
+      response.end(JSON.stringify({ error: { message: 'Authentication Fails (invalid mh token)' } }))
     })
     ctx.provide('deepseekAccount', { resolveToken: async (_url: string): Promise<string | undefined> => 'fixture-token',
       rejectToken: async (_token: string): Promise<void> => { throw new Error('credential storage unavailable') } } as DeepSeekAccount)

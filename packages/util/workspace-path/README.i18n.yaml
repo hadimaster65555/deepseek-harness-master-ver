@@ -5,21 +5,21 @@
 /:
   en: e8d97ffa99a57ab7
   zh: 2d7247c47412c30a
-/dsh-util-workspace-path:
-  en: 328c592b68c88e44
-  zh: 7a2f03def21b86fe
-/dsh-util-workspace-path/summary:
-  en: ffdecddc9c4957ad
-  zh: 33cf84892aa5e669
-/dsh-util-workspace-path/table-of-contents:
+/mh-util-workspace-path:
+  en: 3c25ae137d31b4e0
+  zh: 6ec4e6ec1f42ca12
+/mh-util-workspace-path/summary:
+  en: 2bcaf3bbe617c32d
+  zh: 57db3b8372ba727d
+/mh-util-workspace-path/table-of-contents:
   en: e8236aa6cbcb7dca
   zh: 500e57982344c0fa
-/dsh-util-workspace-path/file-addresses:
-  en: fa695bca8bd534e0
-  zh: d8feffb4794adfcd
-/dsh-util-workspace-path/known-limitations-and-deferred-work:
+/mh-util-workspace-path/file-addresses:
+  en: a5a303c16c603dec
+  zh: 4d716babfa923f70
+/mh-util-workspace-path/known-limitations-and-deferred-work:
   en: 1e6d448f4f0030c4
   zh: c050dd5e470fe47b
-/dsh-util-workspace-path/known-limitations-and-deferred-work/dev-note:
+/mh-util-workspace-path/known-limitations-and-deferred-work/dev-note:
   en: e67f633dc6fe7773
   zh: e88aeb617ffb74ea

@@ -1,7 +1,7 @@
 /** Common paid requests and results survive Host restart without altering main conversation input. */
-import { createAssistantMessage, createUserMessage } from '@deepseek-ai/dsh-llm'
-import { pluginRecordOf, SessionId, SessionSeq, type SessionEvent } from '@deepseek-ai/dsh-session'
-import type { SessionPersistence } from '@deepseek-ai/dsh-session-persistence'
+import { createAssistantMessage, createUserMessage } from '@master-harness/llm'
+import { pluginRecordOf, SessionId, SessionSeq, type SessionEvent } from '@master-harness/session'
+import type { SessionPersistence } from '@master-harness/session-persistence'
 import type { JsonlHandleStorage } from '../../../session/session-persistence-jsonl/src/storage.ts'
 import { readFile } from 'node:fs/promises'
 import { setImmediate } from 'node:timers/promises'

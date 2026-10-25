@@ -3,20 +3,20 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/architecture/2026-09-01-v2-embedded-assistant-streams.md
 /agent-note-embed-assistant-streams-in-v2-attempt-settlements:
-  en: ada7ae6629d0d4e4
-  zh: cc1f9a43e87d2dee
+  en: f3f2999cbd4f10c0
+  zh: fbbdc66ea04ddc8f
 /agent-note-embed-assistant-streams-in-v2-attempt-settlements/problem:
   en: 9e95306554ecd1ca
   zh: 40478697fbc94e33
 /agent-note-embed-assistant-streams-in-v2-attempt-settlements/decision:
-  en: 14558bfaf20998db
-  zh: d883b1dd6f024b93
+  en: aed236b1667a4c4c
+  zh: 5e5264312eea9f15
 /agent-note-embed-assistant-streams-in-v2-attempt-settlements/decision/live-presentation-and-durable-replay:
-  en: 1dc0ec0236da450b
-  zh: 0cf2bb3c7e26eb17
+  en: c1f52969966f0a5a
+  zh: 04e32d1323e097f3
 /agent-note-embed-assistant-streams-in-v2-attempt-settlements/decision/released-v1-to-v2-migration:
-  en: c1b5a775aa073a9a
-  zh: 45a16998d636aec1
+  en: 83d74dd64ee215a8
+  zh: 233300cc3a9992d5
 /agent-note-embed-assistant-streams-in-v2-attempt-settlements/verification:
   en: 64b75fcbb0c3f819
   zh: 6fe01443a7abec72

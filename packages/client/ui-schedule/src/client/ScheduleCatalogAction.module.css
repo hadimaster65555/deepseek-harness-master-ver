@@ -18,19 +18,19 @@
   border: 0;
   border-radius: 28px;
   background: transparent;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   cursor: pointer;
 }
 
 .trigger:focus-visible {
-  color: var(--dsw-alias-label-secondary);
-  background: var(--dsw-alias-interactive-bg-hover);
+  color: var(--mh-alias-label-secondary);
+  background: var(--mh-alias-interactive-bg-hover);
 }
 
 @media (hover: hover) {
   .trigger:hover {
-    color: var(--dsw-alias-label-secondary);
-    background: var(--dsw-alias-interactive-bg-hover);
+    color: var(--mh-alias-label-secondary);
+    background: var(--mh-alias-interactive-bg-hover);
   }
 }
 
@@ -54,12 +54,12 @@
   list-style: none;
   border: 0;
   border-radius: 16px;
-  background: var(--dsw-specific-menu);
-  backdrop-filter: var(--dsw-menu-backdrop-filter);
-  --dsh-scrollbar-thumb: var(--dsw-alias-scrollbar-bg-l2);
-  --dsh-scrollbar-thumb-hover: var(--dsw-alias-scrollbar-hover-l2);
-  --dsw-elevation-stroke-color: var(--dsw-alias-border-l1);
-  box-shadow: var(--dsw-elevation-prominent);
+  background: var(--mh-specific-menu);
+  backdrop-filter: var(--mh-menu-backdrop-filter);
+  --mh-scrollbar-thumb: var(--mh-alias-scrollbar-bg-l2);
+  --mh-scrollbar-thumb-hover: var(--mh-alias-scrollbar-hover-l2);
+  --mh-elevation-stroke-color: var(--mh-alias-border-l1);
+  box-shadow: var(--mh-elevation-prominent);
 }
 
 .row {
@@ -72,7 +72,7 @@
   min-height: 48px;
   padding: 10px 12px;
   border-radius: 10px;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
 }
 
 /* A task row is one whole-row opener, so the row itself carries the hover
@@ -83,17 +83,17 @@
 
 @media (hover: hover) {
   .rowTask:hover {
-    background: var(--dsw-alias-interactive-bg-hover);
+    background: var(--mh-alias-interactive-bg-hover);
   }
 }
 
 .rowOverdue {
-  background: var(--dsw-alias-state-warn-tertiary);
+  background: var(--mh-alias-state-warn-tertiary);
 }
 
 @media (hover: hover) {
   .rowOverdue:hover {
-    background: var(--dsw-alias-state-warn-tertiary);
+    background: var(--mh-alias-state-warn-tertiary);
   }
 }
 
@@ -138,7 +138,7 @@
 }
 
 .openButton:focus-visible::after {
-  outline: 2px solid var(--dsw-focus-ring-color, var(--dsw-alias-state-business-primary));
+  outline: 2px solid var(--mh-focus-ring-color, var(--mh-alias-state-business-primary));
   outline-offset: -2px;
 }
 
@@ -149,13 +149,13 @@
   align-items: center;
   gap: 4px;
   min-width: 0;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   font-size: 10px;
   line-height: 15px;
 }
 
 .metadataOverdue {
-  color: var(--dsw-alias-state-warn-label);
+  color: var(--mh-alias-state-warn-label);
 }
 
 /* The next target states its own line and takes the frequency line's rule above. */
@@ -179,19 +179,19 @@
   border: 0;
   border-radius: 6px;
   background: none;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
   cursor: pointer;
 }
 
 .deleteButton:focus-visible {
-  color: var(--dsw-alias-label-primary);
-  background: var(--dsw-alias-interactive-bg-hover);
+  color: var(--mh-alias-label-primary);
+  background: var(--mh-alias-interactive-bg-hover);
 }
 
 @media (hover: hover) {
   .deleteButton:hover {
-    color: var(--dsw-alias-label-primary);
-    background: var(--dsw-alias-interactive-bg-hover);
+    color: var(--mh-alias-label-primary);
+    background: var(--mh-alias-interactive-bg-hover);
   }
 }
 
@@ -201,5 +201,5 @@
 
 /* The open entry keeps the same quiet gray as its hover state. */
 .trigger[aria-expanded='true'] {
-  background: var(--dsw-alias-interactive-bg-hover);
+  background: var(--mh-alias-interactive-bg-hover);
 }

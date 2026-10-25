@@ -1,8 +1,8 @@
 /** Preset roster, the new-task default and the read-only composition viewer for the settings section. */
-import type { Context } from '@deepseek-ai/cordis'
-import type {} from '@deepseek-ai/dsh-api-remotes/client'
-import { createSnapshotStore, type SnapshotStore } from '@deepseek-ai/dsh-client-store'
-import type { AgentPresetRow } from '@deepseek-ai/dsh-agent-preset-registry/types'
+import type { Context } from '@master-harness/cordis'
+import type {} from '@master-harness/api-remotes/client'
+import { createSnapshotStore, type SnapshotStore } from '@master-harness/client-store'
+import type { AgentPresetRow } from '@master-harness/agent-preset-registry/types'
 import { AGENT_PRESET_SETTINGS_NS, requiresCodingTools, writeDefaultPreset } from './settings-store.ts'
 
 /** The read-only composition viewer over one preset. */

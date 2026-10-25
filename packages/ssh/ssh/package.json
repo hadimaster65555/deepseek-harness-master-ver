@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-ssh",
+  "name": "@master-harness/ssh",
   "description": "Shared OpenSSH connection and versioned POSIX remote helper",
   "version": "0.2.1-rc.3",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/ssh/ssh"
   },
   "type": "module",
@@ -47,41 +47,41 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-fs": "workspace:*",
-    "@deepseek-ai/dsh-fs-local": "workspace:*",
-    "@deepseek-ai/dsh-fs-sandbox": "workspace:*",
-    "@deepseek-ai/dsh-subprocess": "workspace:*",
-    "@deepseek-ai/dsh-subprocess-local": "workspace:*",
-    "@deepseek-ai/dsh-sandbox": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-local": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/dsh-util-values": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/fs": "workspace:*",
+    "@master-harness/fs-local": "workspace:*",
+    "@master-harness/fs-sandbox": "workspace:*",
+    "@master-harness/subprocess": "workspace:*",
+    "@master-harness/subprocess-local": "workspace:*",
+    "@master-harness/sandbox": "workspace:*",
+    "@master-harness/sandbox-local": "workspace:*",
+    "@master-harness/sandbox-policy": "workspace:*",
+    "@master-harness/session-projection": "workspace:*",
+    "@master-harness/brand": "workspace:*",
+    "@master-harness/util-values": "workspace:*"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:~",
+    "@master-harness/schemastery": "workspace:~",
     "zod": "4.4.3"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-fs": "workspace:*",
-    "@deepseek-ai/dsh-fs-local": "workspace:*",
-    "@deepseek-ai/dsh-fs-sandbox": "workspace:*",
-    "@deepseek-ai/dsh-subprocess": "workspace:*",
-    "@deepseek-ai/dsh-subprocess-local": "workspace:*",
-    "@deepseek-ai/dsh-sandbox": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-local": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-ptc-runtime-node": "workspace:*",
-    "@deepseek-ai/dsh-fs-ssh": "workspace:*",
-    "@deepseek-ai/dsh-subprocess-ssh": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-ssh": "workspace:*",
-    "@deepseek-ai/dsh-lsp": "workspace:*",
-    "@deepseek-ai/dsh-lsp-stdio": "workspace:*",
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/dsh-util-values": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/fs": "workspace:*",
+    "@master-harness/fs-local": "workspace:*",
+    "@master-harness/fs-sandbox": "workspace:*",
+    "@master-harness/subprocess": "workspace:*",
+    "@master-harness/subprocess-local": "workspace:*",
+    "@master-harness/sandbox": "workspace:*",
+    "@master-harness/sandbox-local": "workspace:*",
+    "@master-harness/sandbox-policy": "workspace:*",
+    "@master-harness/session-projection": "workspace:*",
+    "@master-harness/ptc-runtime-node": "workspace:*",
+    "@master-harness/fs-ssh": "workspace:*",
+    "@master-harness/subprocess-ssh": "workspace:*",
+    "@master-harness/sandbox-ssh": "workspace:*",
+    "@master-harness/lsp": "workspace:*",
+    "@master-harness/lsp-stdio": "workspace:*",
+    "@master-harness/brand": "workspace:*",
+    "@master-harness/util-values": "workspace:*"
   }
 }

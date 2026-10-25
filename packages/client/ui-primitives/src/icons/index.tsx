@@ -1,7 +1,7 @@
 /**
  * Shared current-color product icons. Names identify the glyph and weight;
  * rendered size remains a prop instead of part of the component name. Each
- * icon references its `dsw-icon-<glyph>-<weight>` symbol in the document icon
+ * icon references its `mh-icon-<glyph>-<weight>` symbol in the document icon
  * sprite that ui-theme maintains, so a theme can replace the artwork without
  * touching callers and the artwork inherits `currentColor` and CSS variables.
  */

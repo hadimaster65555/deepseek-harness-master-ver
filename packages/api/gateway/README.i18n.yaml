@@ -5,30 +5,30 @@
 /:
   en: 6ffef394821a2841
   zh: 1410a5b46b97d9c7
-/deepseek-ai-dsh-api-gateway:
-  en: 7c37b852461967b9
-  zh: c6f7a5be7225c73b
-/deepseek-ai-dsh-api-gateway/summary:
-  en: 501e60ed5d702873
-  zh: 031d5e35ef579337
-/deepseek-ai-dsh-api-gateway/table-of-contents:
+/master-harness-api-gateway:
+  en: 10f06aced2edf6e2
+  zh: 2361cb13855834b9
+/master-harness-api-gateway/summary:
+  en: d285ab988ad8edec
+  zh: 7fc07995a374cda0
+/master-harness-api-gateway/table-of-contents:
   en: d9859219cdb0f367
   zh: 2a3cfa8cb786e327
-/deepseek-ai-dsh-api-gateway/host-service-typertgatewayservice-ctx-key-typertgateway:
-  en: b35573c6707d00d9
-  zh: 619bbba900b0fb8f
-/deepseek-ai-dsh-api-gateway/client-service-clientremote-ctx-key-remote:
-  en: 0916113cdbe794fb
-  zh: 14893c2cba95bfd6
-/deepseek-ai-dsh-api-gateway/model-experience:
+/master-harness-api-gateway/host-service-typertgatewayservice-ctx-key-typertgateway:
+  en: ce60ec053925ce40
+  zh: dedc6e203e9a3615
+/master-harness-api-gateway/client-service-clientremote-ctx-key-remote:
+  en: ac2d8b8cee62db0f
+  zh: 4d29362108da5c3b
+/master-harness-api-gateway/model-experience:
   en: 6cb309d3378f035d
   zh: 998042a02ee32850
-/deepseek-ai-dsh-api-gateway/model-experience/kv-cache-effect:
+/master-harness-api-gateway/model-experience/kv-cache-effect:
   en: af5abeee32f2d93b
   zh: b320bb727a223a13
-/deepseek-ai-dsh-api-gateway/known-limitations-and-deferred-work:
+/master-harness-api-gateway/known-limitations-and-deferred-work:
   en: 00e4276db8a0ec93
   zh: 1d157d909f131fff
-/deepseek-ai-dsh-api-gateway/known-limitations-and-deferred-work/dev-note:
+/master-harness-api-gateway/known-limitations-and-deferred-work/dev-note:
   en: 10727471030aee01
   zh: e6bee82abd12127d

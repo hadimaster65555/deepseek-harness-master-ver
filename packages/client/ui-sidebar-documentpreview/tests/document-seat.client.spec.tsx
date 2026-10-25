@@ -1,15 +1,15 @@
 // @vitest-environment jsdom
 /** Document extension registration and dispatch through the production Sidebar and Slot renderer. */
 import { byteResult } from './fixtures.client.ts'
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
+import { createSnapshotStore } from '@master-harness/client-store'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { act, fireEvent, screen, waitFor } from '@testing-library/react'
-import { SlotTestRuntime } from '@deepseek-ai/dsh-client-test-runtime'
-import { LocaleRuntime } from '@deepseek-ai/dsh-client-locale/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import { absoluteFileAddress, sessionFileAddress } from '@deepseek-ai/dsh-util-workspace-path'
-import { apply as resourcesApply, inject as resourcesInject } from '@deepseek-ai/dsh-client-resources/src/client/index.ts'
-import { apply as sidebarApply, inject as sidebarInject } from '@deepseek-ai/dsh-client-ui-sidebar-right/src/client/index.ts'
+import { SlotTestRuntime } from '@master-harness/client-test-runtime'
+import { LocaleRuntime } from '@master-harness/client-locale/client'
+import type { SessionId } from '@master-harness/session/types'
+import { absoluteFileAddress, sessionFileAddress } from '@master-harness/util-workspace-path'
+import { apply as resourcesApply, inject as resourcesInject } from '@master-harness/client-resources/src/client/index.ts'
+import { apply as sidebarApply, inject as sidebarInject } from '@master-harness/client-ui-sidebar-right/src/client/index.ts'
 import { apply, inject } from '../src/client/index.ts'
 import type { DocumentPreviewProps } from '../src/client/document/contract.ts'
 import type { DocumentLoadMode } from '../src/client/document/registry.ts'
@@ -38,7 +38,7 @@ afterEach(async () => {
 
 async function boot() {
   const rt = await SlotTestRuntime.create()
-  rt.ctx.provide('fileDrag', { actions: { prepare: async () => ({ start: () => true, release: () => {} }), reportFailure: () => {} }, read: () => undefined } satisfies import('@deepseek-ai/cordis').Context['fileDrag'])
+  rt.ctx.provide('fileDrag', { actions: { prepare: async () => ({ start: () => true, release: () => {} }), reportFailure: () => {} }, read: () => undefined } satisfies import('@master-harness/cordis').Context['fileDrag'])
   runtime = rt
   rt.ctx.provide('configForms', { developerTools: { enabled: createSnapshotStore(true) } } as never)
   rt.ctx.provide('layout', { openRightbar: vi.fn(), closeRightbar: vi.fn(), panelInfo: rt.panelInfo } as never)
@@ -69,7 +69,7 @@ async function boot() {
   await rt.mount({ inject: [...inject], apply })
   const view = rt.renderSlot('rightbar', { width: 600, viewportWidth: 1440, canShow: true })
   const open = (name: string): void => {
-    act(() => { rt.ctx.sidebarRight.openResource('dsh-resource://file/session/documents/' + name) })
+    act(() => { rt.ctx.sidebarRight.openResource('mh-resource://file/session/documents/' + name) })
   }
   const register = (id: string, loading: DocumentLoadMode, priority: 'builtin' | 'extension') => rt.ctx.effect(() => {
     const removeDefinition = rt.ctx.documentPreviews.register({ id, extensions: ['md'], priority, title: () => id, loading, wrap: loading === 'text-pages' })

@@ -2,24 +2,24 @@ import { externalTestParent } from '../../../subagent/subagent/tests/external-ac
 import { mkdtemp, mkdir, rm } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
-import type { Context } from '@deepseek-ai/cordis'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import SessionStore from '@deepseek-ai/dsh-session'
-import SessionProjections from '@deepseek-ai/dsh-session-projection'
-import * as JsonlSessionPersistence from '@deepseek-ai/dsh-session-persistence-jsonl'
-import FileSystem from '@deepseek-ai/dsh-fs-local'
-import Subprocess from '@deepseek-ai/dsh-subprocess-local'
-import Sandbox from '@deepseek-ai/dsh-sandbox-local'
-import SandboxPolicy from '@deepseek-ai/dsh-sandbox-policy'
-import type { SandboxMode } from '@deepseek-ai/dsh-sandbox'
-import NodePtcRuntime from '@deepseek-ai/dsh-ptc-runtime-node'
-import type { Config as NodeRuntimeConfig } from '@deepseek-ai/dsh-ptc-runtime-node'
+import type { Context } from '@master-harness/cordis'
+import type { Agent } from '@master-harness/agent'
+import AgentRegistry from '@master-harness/agent'
+import SessionStore from '@master-harness/session'
+import SessionProjections from '@master-harness/session-projection'
+import * as JsonlSessionPersistence from '@master-harness/session-persistence-jsonl'
+import FileSystem from '@master-harness/fs-local'
+import Subprocess from '@master-harness/subprocess-local'
+import Sandbox from '@master-harness/sandbox-local'
+import SandboxPolicy from '@master-harness/sandbox-policy'
+import type { SandboxMode } from '@master-harness/sandbox'
+import NodePtcRuntime from '@master-harness/ptc-runtime-node'
+import type { Config as NodeRuntimeConfig } from '@master-harness/ptc-runtime-node'
 import { onTestFinished } from 'vitest'
 
 /** Mount real Node execution services with a private working directory and awaited cleanup. */
 export async function mountPtcRuntime(ctx: Context, mode: SandboxMode = 'danger-full-access', executionMode: NodeRuntimeConfig['executionMode'] = 'per-call') {
-  const root = await mkdtemp(join(homedir(), '.dsh-workflow-test-'))
+  const root = await mkdtemp(join(homedir(), '.mh-workflow-test-'))
   onTestFinished(async () => {
     await ctx.fiber.dispose()
     await rm(root, { recursive: true, force: true })

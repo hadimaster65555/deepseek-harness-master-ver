@@ -3,36 +3,36 @@ requires = ["hatchling==1.32.0"]
 build-backend = "hatchling.build"
 
 [project]
-name = "deepseek-harness-runtime-bin"
+name = "master-harness-runtime-bin"
 version = "0.0.0.dev0"
-description = "Bundled dsh CLI runtime for the DeepSeek Harness Python SDK"
+description = "Bundled mh CLI runtime for the Master Harness Python SDK"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
-authors = [{ name = "DeepSeek" }]
+authors = [{ name = "Master Harness contributors" }]
 
 [project.urls]
-Homepage = "https://github.com/deepseek-ai/deepseek-harness"
-Documentation = "https://github.com/deepseek-ai/deepseek-harness/blob/master/python/sdk-runtime/README.md"
-Issues = "https://github.com/deepseek-ai/deepseek-harness/issues"
-Source = "https://github.com/deepseek-ai/deepseek-harness"
+Homepage = "https://github.com/hadimaster65555/deepseek-harness-master-ver"
+Documentation = "https://github.com/hadimaster65555/deepseek-harness-master-ver/blob/master/python/sdk-runtime/README.md"
+Issues = "https://github.com/hadimaster65555/deepseek-harness-master-ver/issues"
+Source = "https://github.com/hadimaster65555/deepseek-harness-master-ver"
 
 [project.scripts]
-dsh = "deepseek_harness_runtime:main"
+mh = "master_harness_runtime:main"
 
-# Include the injected dsh executable and sidecars; exclude the dev-only node closure.
+# Include the injected mh executable and sidecars; exclude the dev-only node closure.
 [tool.hatch.build]
 artifacts = [
-  "src/deepseek_harness_runtime/runtime/deepseek-harness-sdk-runtime-*",
-  "src/deepseek_harness_runtime/runtime/deepseek-harness-sdk-runtime-*/**",
-  "src/deepseek_harness_runtime/runtime/linux-*/**",
-  "src/deepseek_harness_runtime/runtime/macos-*/**",
-  "src/deepseek_harness_runtime/runtime/win-*/**",
+  "src/master_harness_runtime/runtime/master-harness-sdk-runtime-*",
+  "src/master_harness_runtime/runtime/master-harness-sdk-runtime-*/**",
+  "src/master_harness_runtime/runtime/linux-*/**",
+  "src/master_harness_runtime/runtime/macos-*/**",
+  "src/master_harness_runtime/runtime/win-*/**",
 ]
-exclude = ["src/deepseek_harness_runtime/runtime/node"]
+exclude = ["src/master_harness_runtime/runtime/node"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/deepseek_harness_runtime"]
+packages = ["src/master_harness_runtime"]
 # The release job uses Twine 6.2.0, which accepts core metadata through 2.4.
 core-metadata-version = "2.4"
 

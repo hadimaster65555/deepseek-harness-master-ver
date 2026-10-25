@@ -3,14 +3,14 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/process/2026-08-26-ban-ambiguous-origin-label.md
 /agent-note-ban-an-ambiguous-origin-label:
-  en: 98843ceb0ee72c06
-  zh: e4963bfe0e1b1314
+  en: 4464167121f53c9d
+  zh: 2371b76dbd567f4e
 /agent-note-ban-an-ambiguous-origin-label/problem:
-  en: 1b3ff74fd7669a39
-  zh: f38776a677da81f8
+  en: afb01e78d448d2ce
+  zh: 68a00a194d6c9547
 /agent-note-ban-an-ambiguous-origin-label/decision:
-  en: bb8507460f159ad1
-  zh: 357b5e6065cf389c
+  en: dfc8b3ea218d1af4
+  zh: d0dda7e76ed68a7a
 /agent-note-ban-an-ambiguous-origin-label/alternatives-considered:
   en: 50421d71ea80fef9
   zh: 512625bd4dac0734

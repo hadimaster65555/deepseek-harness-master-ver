@@ -8,7 +8,7 @@
  */
 
 import { describe, expect, it, onTestFinished, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@master-harness/cordis'
 import { z } from 'zod'
 import SessionStore, {
   SESSION_FORMAT_VERSION,
@@ -16,19 +16,19 @@ import SessionStore, {
   SessionId,
   SessionLogOffset,
   SessionSeq,
-} from '@deepseek-ai/dsh-session'
-import type { SessionEvent, SessionHeader } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import type { ProjectionDefinition } from '@deepseek-ai/dsh-session-projection'
+} from '@master-harness/session'
+import type { SessionEvent, SessionHeader } from '@master-harness/session'
+import SessionProjectionRegistry from '@master-harness/session-projection'
+import type { ProjectionDefinition } from '@master-harness/session-projection'
 
-declare module '@deepseek-ai/dsh-session-projection/types' {
+declare module '@master-harness/session-projection/types' {
   interface SessionProjectionMap {
     'test/marks': { marks: string[] }
     'test/stable-view': { marks: string[] }
   }
 }
 
-declare module '@deepseek-ai/dsh-session/types' {
+declare module '@master-harness/session/types' {
   interface SessionEventMap {
     'test/mark': { marks: string[] }
   }

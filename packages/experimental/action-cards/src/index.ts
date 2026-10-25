@@ -1,15 +1,15 @@
 /** Optional action cards below an answer: the `propose_action` tool, card state, user actions and status notices for registered kinds. */
-import { FiberState, Service, type Context } from '@deepseek-ai/cordis'
+import { FiberState, Service, type Context } from '@master-harness/cordis'
 import { z, type ZodError, type ZodType } from 'zod'
-import { Remote, TypertRemoteService } from '@deepseek-ai/dsh-typert-protocol'
-import { createUserMessage, HarnessError, type ToolCallId } from '@deepseek-ai/dsh-llm'
-import { defineTool, type ToolRunContext } from '@deepseek-ai/dsh-tools'
-import { appendPluginRecord, SessionSeq, type Session } from '@deepseek-ai/dsh-session'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import type { ProjectionHandle } from '@deepseek-ai/dsh-session-projection'
-import type { JsonValue } from '@deepseek-ai/dsh-util-values'
-import type {} from '@deepseek-ai/dsh-api-remote-access'
-import type {} from '@deepseek-ai/dsh-sandbox-policy'
+import { Remote, TypertRemoteService } from '@master-harness/typert-protocol'
+import { createUserMessage, HarnessError, type ToolCallId } from '@master-harness/llm'
+import { defineTool, type ToolRunContext } from '@master-harness/tools'
+import { appendPluginRecord, SessionSeq, type Session } from '@master-harness/session'
+import type { Agent } from '@master-harness/agent'
+import type { ProjectionHandle } from '@master-harness/session-projection'
+import type { JsonValue } from '@master-harness/util-values'
+import type {} from '@master-harness/api-remote-access'
+import type {} from '@master-harness/sandbox-policy'
 import { actionCardProjection, PROPOSE_ACTION, type ActionCardState } from './projection.ts'
 import type { ActionCardDecision, ActionCardFields, ActionCardProposal, ActionCardResult, ActionCardView } from './types.ts'
 export type * from './types.ts'
@@ -22,7 +22,7 @@ export const Config = z.object({
 /** Validated card limits after schema defaults. */
 export type Config = z.infer<typeof Config>
 
-declare module '@deepseek-ai/cordis' {
+declare module '@master-harness/cordis' {
   interface Context { actionCards: ActionCards }
 }
 

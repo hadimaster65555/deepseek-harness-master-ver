@@ -1,9 +1,9 @@
 /** One query projection for the permission page and activation guidance. */
-import type { Context } from '@deepseek-ai/cordis'
-import type {} from '@deepseek-ai/dsh-api-remotes/client'
-import type {} from '@deepseek-ai/dsh-cua/remote'
-import type { RemoteResult } from '@deepseek-ai/dsh-typert-protocol'
-import { createSnapshotStore, type SnapshotStore } from '@deepseek-ai/dsh-client-store'
+import type { Context } from '@master-harness/cordis'
+import type {} from '@master-harness/api-remotes/client'
+import type {} from '@master-harness/cua/remote'
+import type { RemoteResult } from '@master-harness/typert-protocol'
+import { createSnapshotStore, type SnapshotStore } from '@master-harness/client-store'
 import type { CuaApplicationId, CuaApplicationState, CuaSystemPermission, CuaSystemPermissionState } from '../access-types.ts'
 
 interface PermissionData {

@@ -1,9 +1,9 @@
 // @vitest-environment jsdom
 
 import type { ProcessGroupData } from '../src/client/contract/process-groups.ts'
-import type { InboxState } from '@deepseek-ai/dsh-agent/types'
-import { MessageId } from '@deepseek-ai/dsh-llm/brand'
-import type { GlobalStandardProps, PropsRenderFactories, PropsRenderSlots } from '@deepseek-ai/dsh-client-ui-slots'
+import type { InboxState } from '@master-harness/agent/types'
+import { MessageId } from '@master-harness/llm/brand'
+import type { GlobalStandardProps, PropsRenderFactories, PropsRenderSlots } from '@master-harness/client-ui-slots'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import { useEffect, useMemo } from 'react'
@@ -14,26 +14,26 @@ import type {
   LegacyConversationSlice, ModelRetryNode, StartedToolCall, SteeringMessageNode,
   ToolCallBlock, ToolResultNode, TurnErrorNode, TurnMaxTokensNode,
   TranscriptViewMode, UserContentInput, UserMessageNode,
-} from '@deepseek-ai/dsh-client-ui-chat/client'
+} from '@master-harness/client-ui-chat/client'
 import type {
   SessionListState, SessionSnapshot,
-} from '@deepseek-ai/dsh-api-session-controller/client'
+} from '@master-harness/api-session-controller/client'
 import type {
   ConversationGroupedView,
   ConversationSnapshot, ConversationViewSnapshotStore, GroupKey, GroupSnapshot,
   MessageImagesOwnerProps, NodeKey, TurnLocation,
-} from '@deepseek-ai/dsh-client-ui-conversation/client'
-import type { WorkspaceSnapshot } from '@deepseek-ai/dsh-api-workspace-controller/client'
-import { SessionSeq, type SessionId } from '@deepseek-ai/dsh-session/types'
-import type { SessionStatusSnapshot } from '@deepseek-ai/dsh-client-ui-session/client'
-import type { KeyedSnapshotSelectorHook, SnapshotSelectorHook } from '@deepseek-ai/dsh-client-ui-slots'
-import { allowAllAccess, bindSnapshotSelector, makeTranslate } from '@deepseek-ai/dsh-client-test-runtime'
-import { createSnapshotStore, type ObservableSnapshot } from '@deepseek-ai/dsh-client-store'
-import type { ConnectionState } from '@deepseek-ai/dsh-client-connection/client'
-import { EMPTY_CONVERSATION_SNAPSHOT } from '@deepseek-ai/dsh-client-ui-conversation/client'
-import { en as commonEn } from '@deepseek-ai/dsh-client-locale/src/locales/en.ts'
-import { zh as commonZh } from '@deepseek-ai/dsh-client-locale/src/locales/zh.ts'
-import { PartialArguments } from '@deepseek-ai/dsh-util-values'
+} from '@master-harness/client-ui-conversation/client'
+import type { WorkspaceSnapshot } from '@master-harness/api-workspace-controller/client'
+import { SessionSeq, type SessionId } from '@master-harness/session/types'
+import type { SessionStatusSnapshot } from '@master-harness/client-ui-session/client'
+import type { KeyedSnapshotSelectorHook, SnapshotSelectorHook } from '@master-harness/client-ui-slots'
+import { allowAllAccess, bindSnapshotSelector, makeTranslate } from '@master-harness/client-test-runtime'
+import { createSnapshotStore, type ObservableSnapshot } from '@master-harness/client-store'
+import type { ConnectionState } from '@master-harness/client-connection/client'
+import { EMPTY_CONVERSATION_SNAPSHOT } from '@master-harness/client-ui-conversation/client'
+import { en as commonEn } from '@master-harness/client-locale/src/locales/en.ts'
+import { zh as commonZh } from '@master-harness/client-locale/src/locales/zh.ts'
+import { PartialArguments } from '@master-harness/util-values'
 import { createChatStore } from '../src/client/stores.ts'
 import { derivePresentationPolicy, type CollapseTiming, type FoldedReplies } from '../src/client/presentation-policy.ts'
 import { CHAT_FLOW_INJECT, CHAT_NODE_INJECT } from '../src/client/apply.ts'
@@ -2487,7 +2487,7 @@ describe('ChatView', () => {
       '本轮运行失败plugin exploded',
       '本轮运行失败当前请求的额度已用尽QUOTA',
       '本轮运行失败当前请求的额度已用尽ACCOUNT_QUOTA',
-      '任务已停止DSH 进程在本轮完成前退出（例如被强制结束、崩溃或关闭超时），重新启动后本轮已中止。未完成的工具调用结果未知。',
+      '任务已停止MH 进程在本轮完成前退出（例如被强制结束、崩溃或关闭超时），重新启动后本轮已中止。未完成的工具调用结果未知。',
     ])
     // The transient notice is the frame-wide host's job; the failure row keeps
     // neither a recharge affordance nor a toast of its own.

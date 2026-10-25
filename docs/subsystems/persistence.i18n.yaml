@@ -3,8 +3,8 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write docs/subsystems/persistence.md
 /session-persistence:
-  en: d6ca00339e679318
-  zh: 917896dfe65cd710
+  en: bbf3f09031d41f69
+  zh: bea5c6a175a7c0ba
 /session-persistence/sessionhandle-one-open-channel-onto-a-stored-session:
   en: 283765de86ff454d
   zh: ef8fcf55a3071243
@@ -12,8 +12,8 @@
   en: a751d1952a47d938
   zh: f0ae8447fdc26dfb
 /session-persistence/crash-recovery-preserves-an-interrupted-turn:
-  en: 534044a0ce482d52
-  zh: d2e8a7dfeb066946
+  en: 91d2305aaacb2904
+  zh: cc614388aab65e0b
 /session-persistence/sessionlocation-per-session-artifact-metadata:
   en: e310ff426d848262
   zh: 8a7667349b0549a7
@@ -21,8 +21,8 @@
   en: 5795ae03d2d163cd
   zh: a46ceeb22cfbb6a1
 /session-persistence/format-refusal-logs-a-build-cannot-faithfully-read:
-  en: fa822e9185bf758b
-  zh: 7fcdbe2f69f848b9
+  en: ba8066b3e749aab5
+  zh: 04e9bf256afcdb39
 /session-persistence/createsessionoptions-seeding-and-metadata:
   en: 627c1f7798802ae7
   zh: ebfe7fb5a7f981b9
@@ -33,5 +33,5 @@
   en: 142ff3bed547efcf
   zh: a73ca5ea4743d3e8
 /session-persistence/the-backend:
-  en: adcd78909565b046
-  zh: a09bcb6ec0ebad9e
+  en: 9358131c0bb7c6c2
+  zh: 81328c4a3fd3e84a

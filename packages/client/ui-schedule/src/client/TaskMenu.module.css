@@ -15,18 +15,18 @@
   flex-direction: column;
   gap: 0;
   border: 0;
-  border-radius: var(--dsw-radius-lg);
-  background: var(--dsw-specific-menu);
-  backdrop-filter: var(--dsw-menu-backdrop-filter);
-  --dsw-elevation-stroke-color: var(--dsw-alias-border-l1);
-  box-shadow: var(--dsw-elevation-prominent);
+  border-radius: var(--mh-radius-lg);
+  background: var(--mh-specific-menu);
+  backdrop-filter: var(--mh-menu-backdrop-filter);
+  --mh-elevation-stroke-color: var(--mh-alias-border-l1);
+  box-shadow: var(--mh-elevation-prominent);
   /* Elevated surface: the scrollbar thumb takes the l2 elevation tokens. The
      declaration sits on the card rather than on `.scrollable .viewport`
      because the elevation is a property of this surface, and the custom
      properties inherit down to whichever descendant actually scrolls (see
      ui-theme styles/scrollbar.css for the rebinding contract). */
-  --dsh-scrollbar-thumb: var(--dsw-alias-scrollbar-bg-l2);
-  --dsh-scrollbar-thumb-hover: var(--dsw-alias-scrollbar-hover-l2);
+  --mh-scrollbar-thumb: var(--mh-alias-scrollbar-bg-l2);
+  --mh-scrollbar-thumb-hover: var(--mh-alias-scrollbar-hover-l2);
   position: absolute;
   top: calc(100% + 4px);
   left: 0;
@@ -54,7 +54,7 @@
 /* Viewport fit: the card stops 12px short of the viewport's top/bottom edges
  * (the hook's margin) and taller content scrolls inside .viewport. */
 .scrollable {
-  max-height: calc(100vh - 12px - max(12px, var(--dsh-frame-overlay-top, 12px)));
+  max-height: calc(100vh - 12px - max(12px, var(--mh-frame-overlay-top, 12px)));
 }
 
 .viewport {
@@ -72,7 +72,7 @@
 .header {
   flex: none;
   padding: 5px;
-  border-bottom: 0.5px solid var(--dsw-alias-border-l2);
+  border-bottom: 0.5px solid var(--mh-alias-border-l2);
 }
 
 .itemWrap {
@@ -88,18 +88,18 @@
   min-height: 34px;
   padding: 6px 8px;
   border: none;
-  border-radius: var(--dsw-radius-md);
+  border-radius: var(--mh-radius-md);
   background: transparent;
   cursor: pointer;
   font-size: 13px;
   line-height: 20px;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
   text-align: left;
 }
 
 @media (hover: hover) {
   .item:hover:not(:disabled) {
-    background: var(--dsw-alias-interactive-bg-hover);
+    background: var(--mh-alias-interactive-bg-hover);
   }
 }
 
@@ -107,7 +107,7 @@
    same fill the pointer gets: the fill is the row's focus indication, and the
    browser's default ring would double it. */
 .item:focus-visible:not(:disabled) {
-  background: var(--dsw-alias-interactive-bg-hover);
+  background: var(--mh-alias-interactive-bg-hover);
   outline: none;
 }
 
@@ -123,7 +123,7 @@
   height: 14px;
   align-items: center;
   justify-content: center;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
 }
 
 .itemIcon svg,
@@ -142,7 +142,7 @@
 
 .check {
   flex: none;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
 }
 
 /* Selected cell keeps the plain fill (marker is the trailing check); the
@@ -153,21 +153,21 @@
 
 /* Destructive row: error text/icon, danger hover fill. */
 .danger {
-  color: var(--dsw-alias-state-error-primary);
+  color: var(--mh-alias-state-error-primary);
 }
 
 .danger .itemIcon {
-  color: var(--dsw-alias-state-error-primary);
+  color: var(--mh-alias-state-error-primary);
 }
 
 @media (hover: hover) {
   .danger:hover:not(:disabled) {
-    background: var(--dsw-alias-interactive-bg-hover-danger);
+    background: var(--mh-alias-interactive-bg-hover-danger);
   }
 }
 
 .danger:focus-visible:not(:disabled) {
-  background: var(--dsw-alias-interactive-bg-hover-danger);
+  background: var(--mh-alias-interactive-bg-hover-danger);
   outline: none;
 }
 
@@ -176,7 +176,7 @@
   padding: 6px 8px;
   font-size: 11px;
   line-height: 15px;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
 }
 
 /* Separator cell (figma 122:9481): py 4 / px 2 around the hairline. l2, not
@@ -184,7 +184,7 @@
 .separator {
   height: 0.5px;
   margin: 3px 2px;
-  background: var(--dsw-alias-border-l2);
+  background: var(--mh-alias-border-l2);
 }
 
 /* Two data separators in a row draw one line. */

@@ -1,12 +1,12 @@
 /** Durable EOF refusals preserve historical generations and never fall back from the selected generation. */
 
-import { Context } from '@deepseek-ai/cordis'
-import { SESSION_FORMAT_VERSION, SessionId } from '@deepseek-ai/dsh-session'
-import { createSessionFormatCatalogWithChildren } from '@deepseek-ai/dsh-session-format-catalog'
-import type { SessionEvent } from '@deepseek-ai/dsh-session'
-import type { SessionFormatJsonObject } from '@deepseek-ai/dsh-session-format'
-import { SessionFormatUnsupportedError, SessionPersistenceCorruptionError } from '@deepseek-ai/dsh-session-persistence'
-import * as JsonlSessionPersistence from '@deepseek-ai/dsh-session-persistence-jsonl'
+import { Context } from '@master-harness/cordis'
+import { SESSION_FORMAT_VERSION, SessionId } from '@master-harness/session'
+import { createSessionFormatCatalogWithChildren } from '@master-harness/session-format-catalog'
+import type { SessionEvent } from '@master-harness/session'
+import type { SessionFormatJsonObject } from '@master-harness/session-format'
+import { SessionFormatUnsupportedError, SessionPersistenceCorruptionError } from '@master-harness/session-persistence'
+import * as JsonlSessionPersistence from '@master-harness/session-persistence-jsonl'
 import { createHash } from 'node:crypto'
 import { mkdir, mkdtemp, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -36,7 +36,7 @@ const releasedPrefix: readonly SessionFormatJsonObject[] = [
   ...prefix.slice(0, 2),
   { type: 'system/message', surfaceOp: 'append', data: {
     turn: 1, step: 1, message: {
-      id: 'native-system', role: 'system', source: { kind: 'plugin', plugin: '@deepseek-ai/dsh-system-prompt' },
+      id: 'native-system', role: 'system', source: { kind: 'plugin', plugin: '@master-harness/system-prompt' },
       content: [{ type: 'text', text: 'Inspect the durable audit.' }],
     },
   } },
@@ -124,7 +124,7 @@ const migrationRefusals = [
     tail: { type: 'session-log-deepseek/delivery-accepted', data: {
       sessionId: id, throughSeq: prefix.length - 1, sessionFormatVersion: 3,
     } },
-    diagnostic: '@deepseek-ai/dsh-session-format-v2-to-v3 refuses this format v2 Session: format v2 delivery marker claims target format v3',
+    diagnostic: '@master-harness/session-format-v2-to-v3 refuses this format v2 Session: format v2 delivery marker claims target format v3',
   },
   {
     name: 'source message colliding with the generated system ID',
@@ -170,7 +170,7 @@ let root: string
 const contexts: Context[] = []
 
 beforeEach(async () => {
-  root = await mkdtemp(join(tmpdir(), 'dsh-migration-refusal-'))
+  root = await mkdtemp(join(tmpdir(), 'mh-migration-refusal-'))
 })
 
 afterEach(async () => {

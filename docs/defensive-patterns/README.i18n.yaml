@@ -3,8 +3,8 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write docs/defensive-patterns/README.md
 /defensive-patterns:
-  en: 7229c49e920aa5b3
-  zh: 1dd52db6b4d84952
+  en: af1f11103331a2ba
+  zh: a58de4ca5f60b41b
 /defensive-patterns/why-these-rules:
-  en: 7c012071b5af8c98
-  zh: 298aaba83625c7a0
+  en: a295848a59f41b25
+  zh: 6a1b8e206914ae68

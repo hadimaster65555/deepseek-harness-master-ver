@@ -1,17 +1,17 @@
 /** Register the official plugin card body, its catalog-text Remote and its localized copy. */
 import { createElement } from 'react'
-import type { Context } from '@deepseek-ai/cordis'
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
-import type {} from '@deepseek-ai/dsh-api-remotes/client'
-import type {} from '@deepseek-ai/dsh-client-locale/client'
-import type {} from '@deepseek-ai/dsh-client-ui-plugin-manager/client'
-import type {} from '@deepseek-ai/dsh-client-ui-action-cards/client'
-import type {} from '@deepseek-ai/dsh-plugin-recommendations/remote'
-import type { TypertRemoteContribution } from '@deepseek-ai/dsh-typert-protocol'
+import type { Context } from '@master-harness/cordis'
+import { createSnapshotStore } from '@master-harness/client-store'
+import type {} from '@master-harness/api-remotes/client'
+import type {} from '@master-harness/client-locale/client'
+import type {} from '@master-harness/client-ui-plugin-manager/client'
+import type {} from '@master-harness/client-ui-action-cards/client'
+import type {} from '@master-harness/plugin-recommendations/remote'
+import type { TypertRemoteContribution } from '@master-harness/typert-protocol'
 import { PluginCardBody, type CatalogDetails, type PluginCardServices } from './Card.tsx'
 import { de, en, es, fr, ja, pt, ru, zh, type RecommendationKey } from './locales.ts'
 
-declare module '@deepseek-ai/dsh-client-ui-slots' {
+declare module '@master-harness/client-ui-slots' {
   interface LocaleNamespaceMap { pluginRecommendations: RecommendationKey }
 }
 

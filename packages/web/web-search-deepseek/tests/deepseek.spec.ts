@@ -2,26 +2,26 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { mkdtemp, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { Context } from '@deepseek-ai/cordis'
-import Loader from '@deepseek-ai/cordis-plugin-loader'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import { credentialRef } from '@deepseek-ai/dsh-credentials'
-import LocalCredentialProvider from '@deepseek-ai/dsh-credentials-local'
-import type { DeepSeekAccount } from '@deepseek-ai/dsh-deepseek-account'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
-import WebRuntime, { WebError, type WebSearchResult } from '@deepseek-ai/dsh-web'
+import { Context } from '@master-harness/cordis'
+import Loader from '@master-harness/cordis-plugin-loader'
+import AgentRegistry from '@master-harness/agent'
+import SessionProjectionRegistry from '@master-harness/session-projection'
+import type { Agent } from '@master-harness/agent'
+import { credentialRef } from '@master-harness/credentials'
+import LocalCredentialProvider from '@master-harness/credentials-local'
+import type { DeepSeekAccount } from '@master-harness/deepseek-account'
+import SessionStore, { SessionId } from '@master-harness/session'
+import WebRuntime, { WebError, type WebSearchResult } from '@master-harness/web'
 import {
   DeepSeekSearchProvider,
   DEEPSEEK_PROVIDER_ID,
-} from '@deepseek-ai/dsh-web-search-deepseek'
-import * as deepseekPlugin from '@deepseek-ai/dsh-web-search-deepseek'
+} from '@master-harness/web-search-deepseek'
+import * as deepseekPlugin from '@master-harness/web-search-deepseek'
 import { citationSnippets, mapAnthropicResponse } from '../src/provider.ts'
-import type { AnthropicResponse } from '@deepseek-ai/dsh-web-search-deepseek/src/types.ts'
+import type { AnthropicResponse } from '@master-harness/web-search-deepseek/src/types.ts'
 
 /** Construct the provider over a fixed options value; production passes a live thunk. */
-import type { DeepSeekSearchProviderOptions } from '@deepseek-ai/dsh-web-search-deepseek'
+import type { DeepSeekSearchProviderOptions } from '@master-harness/web-search-deepseek'
 
 const searchProvider = (options: DeepSeekSearchProviderOptions): DeepSeekSearchProvider =>
   new DeepSeekSearchProvider(() => options)
@@ -640,7 +640,7 @@ describe('web-search-deepseek plugin registration', () => {
   it('resolves the credential for each search so a stored or rotated key needs no restart', async () => {
     const previous = process.env.DEEPSEEK_API_KEY
     delete process.env.DEEPSEEK_API_KEY
-    const dir = await mkdtemp(join(tmpdir(), 'dsh-web-search-credentials-'))
+    const dir = await mkdtemp(join(tmpdir(), 'mh-web-search-credentials-'))
     const fetchMock = vi.fn(async (_input: RequestInfo | URL, _init?: RequestInit) => jsonResponse(searchResponse()))
     vi.stubGlobal('fetch', fetchMock)
     const ctx = new Context()
@@ -799,7 +799,7 @@ describe('web-search-deepseek search readiness', () => {
   })
 
   it('becomes ready once a search key is stored', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'dsh-web-search-ready-'))
+    const dir = await mkdtemp(join(tmpdir(), 'mh-web-search-ready-'))
     try {
       const ctx = await compose({ credentialsDir: dir })
       expect(await ctx.web.searchReady('deepseek-official')).toBe(false)
@@ -872,7 +872,7 @@ describe('web-search-deepseek search readiness', () => {
   })
 
   it('is not ready when the credential store cannot be read', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'dsh-web-search-store-'))
+    const dir = await mkdtemp(join(tmpdir(), 'mh-web-search-store-'))
     try {
       const ctx = await compose({ credentialsDir: dir })
       await ctx.credentials.set(credentialRef('DEEPSEEK_API_KEY'), 'stored-key')

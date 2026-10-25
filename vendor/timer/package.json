@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/cordis-plugin-timer",
+  "name": "@master-harness/cordis-plugin-timer",
   "description": "Timer service for cordis",
   "version": "1.1.7",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "vendor/timer"
   },
   "type": "module",
@@ -32,9 +32,9 @@
   "author": "Shigma <shigma10826@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~"
+    "@master-harness/cordis": "workspace:~"
   },
   "dependencies": {
-    "@deepseek-ai/cosmokit": "workspace:~"
+    "@master-harness/cosmokit": "workspace:~"
   }
 }

@@ -1,7 +1,7 @@
 /** Directory collaborator for consumer-only tests with structural Agent stubs. */
-import type { Context } from '@deepseek-ai/cordis'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import type { Session } from '@deepseek-ai/dsh-session'
+import type { Context } from '@master-harness/cordis'
+import type { Agent } from '@master-harness/agent'
+import type { Session } from '@master-harness/session'
 
 /**
  * Supply fixed directory values without filesystem checks or durable changes.

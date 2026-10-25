@@ -1,15 +1,15 @@
 import { describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import Loader from '@deepseek-ai/cordis-plugin-loader'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import type { Agent, AgentStatus } from '@deepseek-ai/dsh-agent'
-import CommandRuntime from '@deepseek-ai/dsh-commands'
-import GoalService from '@deepseek-ai/dsh-goal'
-import type { GoalRef } from '@deepseek-ai/dsh-goal'
-import SessionStore, { Session, SessionId, type SessionEvent } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import * as commandGoal from '@deepseek-ai/dsh-command-goal'
-import { unsupportedModel, createInboxStub } from '@deepseek-ai/dsh-agent-loop-testkit'
+import { Context } from '@master-harness/cordis'
+import Loader from '@master-harness/cordis-plugin-loader'
+import AgentRegistry from '@master-harness/agent'
+import type { Agent, AgentStatus } from '@master-harness/agent'
+import CommandRuntime from '@master-harness/commands'
+import GoalService from '@master-harness/goal'
+import type { GoalRef } from '@master-harness/goal'
+import SessionStore, { Session, SessionId, type SessionEvent } from '@master-harness/session'
+import SessionProjectionRegistry from '@master-harness/session-projection'
+import * as commandGoal from '@master-harness/command-goal'
+import { unsupportedModel, createInboxStub } from '@master-harness/agent-loop-testkit'
 
 interface Harness {
   readonly ctx: Context
@@ -89,7 +89,7 @@ function ref(goal: NonNullable<ReturnType<GoalService['get']>>): GoalRef {
   return { id: goal.id, revision: goal.revision }
 }
 
-describe('@deepseek-ai/dsh-command-goal registration', () => {
+describe('@master-harness/command-goal registration', () => {
   it('registers one global command with Loader-safe exports and disposes it', async () => {
     const test = await harness()
     expect(commandGoal.name).toBe('command-goal')
@@ -99,7 +99,7 @@ describe('@deepseek-ai/dsh-command-goal registration', () => {
     expect(loader.unwrapExports(commandGoal)).toBe(commandGoal)
 
     expect(test.ctx.commands.list(test.agent)).toContainEqual({
-      definitionId: '@deepseek-ai/dsh-command-goal',
+      definitionId: '@master-harness/command-goal',
       name: 'goal',
       description: 'Set or view the goal for a long-running task',
       input: { hint: '[<objective>|clear|edit <objective>|pause|resume]', attachments: true },

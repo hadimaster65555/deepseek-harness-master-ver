@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-api-gateway",
+  "name": "@master-harness/api-gateway",
   "description": "Typert Remote Host dispatcher and Client API endpoint",
   "version": "0.2.1-rc.3",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/api/gateway"
   },
   "type": "module",
@@ -36,11 +36,11 @@
     },
     "./locale/*.json": "./locale/*.json"
   },
-  "dsh": {
+  "mh": {
     "client": {
       "inject": [
-        "@deepseek-ai/dsh-typert-registry",
-        "@deepseek-ai/dsh-client-connection"
+        "@master-harness/typert-registry",
+        "@master-harness/client-connection"
       ],
       "platform": "web",
       "immediately": true
@@ -60,26 +60,26 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@deepseek-ai/dsh-deque": "workspace:*",
-    "@deepseek-ai/dsh-timeout": "workspace:*",
-    "@deepseek-ai/schemastery": "workspace:~",
+    "@master-harness/deque": "workspace:*",
+    "@master-harness/timeout": "workspace:*",
+    "@master-harness/schemastery": "workspace:~",
     "ws": "^8.21.3",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*"
+    "@master-harness/typert-protocol": "workspace:*"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~"
+    "@master-harness/cordis": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-api-remote-access": "workspace:*",
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/dsh-cmdline": "workspace:*",
-    "@deepseek-ai/dsh-client-connection": "workspace:*",
-    "@deepseek-ai/dsh-host-webserver": "workspace:*",
-    "@deepseek-ai/dsh-remote-mock": "workspace:*",
-    "@deepseek-ai/dsh-typert-registry": "workspace:*",
-    "@deepseek-ai/dsh-util-crypto": "workspace:*",
+    "@master-harness/api-remote-access": "workspace:*",
+    "@master-harness/brand": "workspace:*",
+    "@master-harness/cmdline": "workspace:*",
+    "@master-harness/client-connection": "workspace:*",
+    "@master-harness/host-webserver": "workspace:*",
+    "@master-harness/remote-mock": "workspace:*",
+    "@master-harness/typert-registry": "workspace:*",
+    "@master-harness/util-crypto": "workspace:*",
     "@types/ws": "^8.18.1",
-    "@deepseek-ai/cordis": "workspace:~",
+    "@master-harness/cordis": "workspace:~",
     "zod": "4.4.3"
   }
 }

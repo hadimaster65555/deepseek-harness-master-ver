@@ -1,13 +1,13 @@
 {
-  "name": "@deepseek-ai/dsh-agent-tool-presentation",
-  "description": "Deprecated tool presentation selector; use dsh-tool-executor-native or dsh-tool-executor-ptc directly",
+  "name": "@master-harness/agent-tool-presentation",
+  "description": "Deprecated tool presentation selector; use mh-tool-executor-native or mh-tool-executor-ptc directly",
   "version": "0.2.1-rc.3",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/core/agent-tool-presentation"
   },
   "type": "module",
@@ -29,21 +29,21 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@deepseek-ai/dsh-tool-executor-native": "workspace:*",
-    "@deepseek-ai/dsh-tool-executor-ptc": "workspace:*",
-    "@deepseek-ai/schemastery": "workspace:~"
+    "@master-harness/tool-executor-native": "workspace:*",
+    "@master-harness/tool-executor-ptc": "workspace:*",
+    "@master-harness/schemastery": "workspace:~"
   },
   "peerDependencies": {
-    "@deepseek-ai/dsh-tools": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@master-harness/tools": "workspace:*",
+    "@master-harness/cordis": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-ptc-runtime": "workspace:*",
-    "@deepseek-ai/dsh-scope": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-system-prompt": "workspace:*",
-    "@deepseek-ai/dsh-tools": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@master-harness/agent": "workspace:*",
+    "@master-harness/ptc-runtime": "workspace:*",
+    "@master-harness/scope": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/system-prompt": "workspace:*",
+    "@master-harness/tools": "workspace:*",
+    "@master-harness/cordis": "workspace:~"
   }
 }

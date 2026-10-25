@@ -1,18 +1,18 @@
 /** The optional permission namespace and existing page slots share one disposal lifetime. */
 import assert from 'node:assert/strict'
 import { setImmediate } from 'node:timers/promises'
-import { Context, Service } from '@deepseek-ai/cordis'
-import { LocaleRuntime } from '@deepseek-ai/dsh-client-locale/client'
-import { SlotRegistry } from '@deepseek-ai/dsh-client-ui-renderer/client'
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
-import { RemoteError, type RemoteResult, type TypertRemoteContribution } from '@deepseek-ai/dsh-typert-protocol'
+import { Context, Service } from '@master-harness/cordis'
+import { LocaleRuntime } from '@master-harness/client-locale/client'
+import { SlotRegistry } from '@master-harness/client-ui-renderer/client'
+import { createSnapshotStore } from '@master-harness/client-store'
+import { RemoteError, type RemoteResult, type TypertRemoteContribution } from '@master-harness/typert-protocol'
 import type { CuaApplicationState, CuaSystemPermissionState } from '../src/access-types.ts'
 import { expect, it, vi } from 'vitest'
 import type { PermissionFace } from '../src/client/controller.ts'
 import { mountCuaPermissions, inject } from '../src/client/mount.ts'
 import type { ApplicationApprovalProps } from '../src/client/ApplicationApproval.tsx'
 
-const contribution: TypertRemoteContribution = { package: '@deepseek-ai/dsh-cua', descriptors: [] }
+const contribution: TypertRemoteContribution = { package: '@master-harness/cua', descriptors: [] }
 const value: CuaApplicationState & { system: CuaSystemPermissionState } = {
   system: { accessibility: false, screenRecording: false, helper: { pid: 2 }, parent: { pid: 1 } },
   allowedApps: [], blockedApps: [], settingsNamespace: 'cua', persistentAvailable: true }
@@ -39,7 +39,7 @@ async function fixture(fail = false) {
   new Remote()
   const changes = createSnapshotStore(false)
   ctx.provide('pluginChanges', { bundle: (name) => {
-    expect(name).toBe('@deepseek-ai/dsh-cua-bundle')
+    expect(name).toBe('@master-harness/cua-bundle')
     return changes
   } })
   const setDefault = vi.fn(async () => true)

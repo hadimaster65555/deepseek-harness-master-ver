@@ -1,13 +1,13 @@
 {
-  "name": "@deepseek-ai/dsh-shell",
-  "description": "Abstract bash executor seam (ctx.shell) for the DeepSeek Harness",
+  "name": "@master-harness/shell",
+  "description": "Abstract bash executor seam (ctx.shell) for the Master Harness",
   "version": "0.2.1-rc.3",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/shell/shell"
   },
   "type": "module",
@@ -27,13 +27,13 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-subprocess": "workspace:*",
-    "@deepseek-ai/dsh-sandbox": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@master-harness/subprocess": "workspace:*",
+    "@master-harness/sandbox": "workspace:*",
+    "@master-harness/cordis": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-subprocess": "workspace:*",
-    "@deepseek-ai/dsh-sandbox": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@master-harness/subprocess": "workspace:*",
+    "@master-harness/sandbox": "workspace:*",
+    "@master-harness/cordis": "workspace:~"
   }
 }

@@ -10,18 +10,18 @@
   gap: 16px;
   font-size: 13px;
   line-height: 1.5;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
 }
 
 .hint {
   margin: 0;
   font-size: 12px;
   line-height: 1.5;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
 }
 
 .link {
-  color: var(--dsw-alias-link);
+  color: var(--mh-alias-link);
   text-decoration: none;
 }
 

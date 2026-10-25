@@ -1,13 +1,13 @@
 {
-  "name": "@deepseek-ai/dsh-web-search-deepseek",
-  "description": "DeepSeek-backed search provider (native web_search via the Anthropic-compatible API) for the DeepSeek Harness web capability seam (ctx.web)",
+  "name": "@master-harness/web-search-deepseek",
+  "description": "DeepSeek-backed search provider (native web_search via the Anthropic-compatible API) for the Master Harness web capability seam (ctx.web)",
   "version": "0.2.1-rc.3",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/web/web-search-deepseek"
   },
   "type": "module",
@@ -29,30 +29,30 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-credentials": "workspace:*",
-    "@deepseek-ai/dsh-deepseek-account": "workspace:*",
-    "@deepseek-ai/dsh-launch-environment": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-web": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@master-harness/agent": "workspace:*",
+    "@master-harness/credentials": "workspace:*",
+    "@master-harness/deepseek-account": "workspace:*",
+    "@master-harness/launch-environment": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/web": "workspace:*",
+    "@master-harness/cordis": "workspace:~"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:~"
+    "@master-harness/schemastery": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-credentials": "workspace:*",
-    "@deepseek-ai/dsh-credentials-local": "workspace:*",
-    "@deepseek-ai/dsh-deepseek-account": "workspace:*",
-    "@deepseek-ai/dsh-launch-environment": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-web": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-http-proxy": "workspace:*"
+    "@master-harness/agent": "workspace:*",
+    "@master-harness/credentials": "workspace:*",
+    "@master-harness/credentials-local": "workspace:*",
+    "@master-harness/deepseek-account": "workspace:*",
+    "@master-harness/launch-environment": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/web": "workspace:*",
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/http-proxy": "workspace:*"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-deepseek-account": {
+    "@master-harness/deepseek-account": {
       "optional": true
     }
   }

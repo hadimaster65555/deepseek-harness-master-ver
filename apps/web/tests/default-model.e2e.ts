@@ -16,7 +16,7 @@ import { join } from 'node:path'
 import type { Browser, Locator, Page } from 'playwright'
 import { chromium } from 'playwright'
 import { afterAll, beforeAll, describe, expect, it, onTestFailed } from 'vitest'
-import { SessionId } from '@deepseek-ai/dsh-session'
+import { SessionId } from '@master-harness/session'
 import { launchWebScaffold, watchConsole, captureStableAria, compareOrRefreshGolden, webSnapshotMode, type WebScaffold } from './scaffold.ts'
 import { ZH_BROWSER_LOCALE, connectFreshWorkspaceZh, saveFailureShot } from './support.ts'
 
@@ -506,7 +506,7 @@ describe('web e2e: the composer model switch is the default for later sessions',
     const searchStyle = await search.evaluate((input) => {
       const wrapper = input.parentElement!
       const caption = input.ownerDocument.createElement('span')
-      caption.style.color = 'var(--dsw-alias-label-caption)'
+      caption.style.color = 'var(--mh-alias-label-caption)'
       wrapper.append(caption)
       try {
         return {

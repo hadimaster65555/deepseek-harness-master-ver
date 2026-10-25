@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-client-connection",
+  "name": "@master-harness/client-connection",
   "description": "Authenticated RPC transport and generation lifecycle",
   "version": "0.2.1-rc.3",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/client/connection"
   },
   "type": "module",
@@ -28,7 +28,7 @@
     "./package.json": "./package.json",
     "./locale/*.json": "./locale/*.json"
   },
-  "dsh": {
+  "mh": {
     "client": {
       "inject": [],
       "platform": "web",
@@ -37,8 +37,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@deepseek-ai/dsh-credentials": "workspace:*",
-    "@deepseek-ai/schemastery": "workspace:~",
+    "@master-harness/credentials": "workspace:*",
+    "@master-harness/schemastery": "workspace:~",
     "zod": "4.4.3"
   },
   "files": [
@@ -49,17 +49,17 @@
     "lib/types/**/*.d.ts"
   ],
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-scope": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/scope": "workspace:*"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-attachment": "workspace:*",
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/dsh-host-webserver": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-scope": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/attachment": "workspace:*",
+    "@master-harness/brand": "workspace:*",
+    "@master-harness/host-webserver": "workspace:*",
+    "@master-harness/llm": "workspace:*",
+    "@master-harness/scope": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/typert-protocol": "workspace:*"
   }
 }

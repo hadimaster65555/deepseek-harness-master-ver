@@ -11,21 +11,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: max(24px, var(--dsh-frame-overlay-top, 24px)) 24px;
+  padding: max(24px, var(--mh-frame-overlay-top, 24px)) 24px;
 }
 
 /* Only paint excludes the native caption; the root still blocks background clicks. */
 .mask {
   position: absolute;
-  inset: var(--dsh-frame-chrome-top, 0px) 0 0;
-  backdrop-filter: var(--dsw-mask-blur);
+  inset: var(--mh-frame-chrome-top, 0px) 0 0;
+  backdrop-filter: var(--mh-mask-blur);
 }
 
 .mask::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--dsw-alias-bg-mask-1);
+  background: var(--mh-alias-bg-mask-1);
   animation: modalEnter var(--ds-transition-duration) var(--ds-ease-in-out);
 }
 
@@ -41,9 +41,9 @@
   padding: 0 0 24px;
   overflow: hidden;
   border: 0;
-  border-radius: var(--dsw-radius-panel);
-  background: var(--dsw-alias-bg-layer-2);
-  box-shadow: var(--dsw-elevation-prominent);
+  border-radius: var(--mh-radius-panel);
+  background: var(--mh-alias-bg-layer-2);
+  box-shadow: var(--mh-elevation-prominent);
   animation: modalEnter var(--ds-transition-duration) var(--ds-ease-in-out);
 }
 
@@ -81,7 +81,7 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 500; /* figma wt510, rendered 500 */
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
 }
 
 .close {
@@ -92,15 +92,15 @@
   width: 28px;
   height: 28px;
   border: none;
-  border-radius: var(--dsw-radius-sm);
+  border-radius: var(--mh-radius-sm);
   background: transparent;
   cursor: pointer;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
 }
 
 @media (hover: hover) {
   .close:hover {
-    background: var(--dsw-alias-interactive-bg-hover);
+    background: var(--mh-alias-interactive-bg-hover);
   }
 }
 
@@ -111,7 +111,7 @@
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
 }
 
 .body {

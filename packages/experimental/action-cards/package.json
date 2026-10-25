@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-action-cards",
+  "name": "@master-harness/action-cards",
   "description": "Optional action cards below answers: one shared proposal tool, card state, user actions and status notices",
   "version": "0.2.1-rc.3",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/experimental/action-cards"
   },
   "type": "module",
@@ -36,28 +36,28 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-tools": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/typert-protocol": "workspace:*",
+    "@master-harness/llm": "workspace:*",
+    "@master-harness/tools": "workspace:*",
+    "@master-harness/session": "workspace:*"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-tools": "workspace:*",
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-agent-loop": "workspace:*",
-    "@deepseek-ai/dsh-agent-loop-testkit": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-api-remote-access": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:*",
-    "@deepseek-ai/dsh-skill": "workspace:*",
-    "@deepseek-ai/dsh-tool-skill": "workspace:*",
-    "@deepseek-ai/dsh-tool-testkit": "workspace:*",
-    "@deepseek-ai/dsh-util-values": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/typert-protocol": "workspace:*",
+    "@master-harness/llm": "workspace:*",
+    "@master-harness/tools": "workspace:*",
+    "@master-harness/agent": "workspace:*",
+    "@master-harness/agent-loop": "workspace:*",
+    "@master-harness/agent-loop-testkit": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/session-projection": "workspace:*",
+    "@master-harness/api-remote-access": "workspace:*",
+    "@master-harness/sandbox-policy": "workspace:*",
+    "@master-harness/skill": "workspace:*",
+    "@master-harness/tool-skill": "workspace:*",
+    "@master-harness/tool-testkit": "workspace:*",
+    "@master-harness/util-values": "workspace:*"
   },
   "dependencies": {
     "zod": "4.4.3"

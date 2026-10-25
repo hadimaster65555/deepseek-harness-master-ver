@@ -1,10 +1,10 @@
-/** Client-safe question, answer, and event types. @module @deepseek-ai/dsh-user-questions/types */
+/** Client-safe question, answer, and event types. @module @master-harness/user-questions/types */
 
-import type { Scoped } from '@deepseek-ai/dsh-scope'
-import type { Agent } from '@deepseek-ai/dsh-agent/types'
-import type { ToolCallId } from '@deepseek-ai/dsh-llm/brand'
-import type {} from '@deepseek-ai/dsh-session/types'
-import type {} from '@deepseek-ai/dsh-session-projection/types'
+import type { Scoped } from '@master-harness/scope'
+import type { Agent } from '@master-harness/agent/types'
+import type { ToolCallId } from '@master-harness/llm/brand'
+import type {} from '@master-harness/session/types'
+import type {} from '@master-harness/session-projection/types'
 
 /** One selectable answer offered to the user. */
 export interface AskUserQuestionOption {
@@ -121,11 +121,11 @@ export interface UserQuestionProjectionView {
   readonly settled: readonly SettledUserQuestion[]
 }
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@master-harness/llm' {
   interface MessageSourceMap {
     /**
      * Late reply to a continued `ask_user_question` call, steered into the
-     * agent by `dsh-user-questions` as an answer batch. Closing a question
+     * agent by `mh-user-questions` as an answer batch. Closing a question
      * panel persists no reply. Readers preserve this message without the
      * producer; only the `userQuestions` projection reads the kind to close
      * the question and record its answers.
@@ -135,7 +135,7 @@ declare module '@deepseek-ai/dsh-llm' {
   }
 }
 
-declare module '@deepseek-ai/dsh-session-projection/types' {
+declare module '@master-harness/session-projection/types' {
   interface SessionProjectionMap {
     /** Timed questions that remain answerable in this Session, and the ones a late reply settled. */
     userQuestions: UserQuestionProjectionView
@@ -162,12 +162,12 @@ export interface AskUserQuestionRequestEvent {
   }
 }
 
-declare module '@deepseek-ai/cordis' {
+declare module '@master-harness/cordis' {
   interface Events {
     /**
      * Ask composed answerers for structured user input. Return an answer to
      * claim the request or call `next()` to delegate. Scope-filtered dispatch
-     * (`@deepseek-ai/dsh-scope`): agent-scoped listeners receive only that agent.
+     * (`@master-harness/scope`): agent-scoped listeners receive only that agent.
      * @param request - pending user-question request.
      * @mode waterfall
      */

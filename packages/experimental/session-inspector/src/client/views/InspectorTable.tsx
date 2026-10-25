@@ -2,10 +2,10 @@
 
 import { Fragment, memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { defaultRangeExtractor, useVirtualizer, type Range, type Virtualizer } from '@tanstack/react-virtual'
-import type { ConvViewProps } from '@deepseek-ai/dsh-client-ui-conversation/client'
-import type { ObservableSnapshot } from '@deepseek-ai/dsh-client-store'
-import type { InjectFace, PropsLocale } from '@deepseek-ai/dsh-client-ui-slots'
-import { Tooltip } from '@deepseek-ai/dsh-client-ui-primitives'
+import type { ConvViewProps } from '@master-harness/client-ui-conversation/client'
+import type { ObservableSnapshot } from '@master-harness/client-store'
+import type { InjectFace, PropsLocale } from '@master-harness/client-ui-slots'
+import { Tooltip } from '@master-harness/client-ui-primitives'
 import { InspectorTableHierarchy, inspectorRowCollapsed, type InspectorDisclosure, type InspectorRecord, type InspectorRow } from './table-model.ts'
 import { inspectorPreview } from './format.ts'
 import { inspectorJson } from './raw-json.ts'
@@ -77,7 +77,7 @@ const DataRow = memo(function DataRow({ row, selected, branch, collapsed, added,
     previousPulse.current = pulse
     if ((!flash && !navigated) || (!changed && !added && !navigated) || element.current === null
       || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const color = getComputedStyle(element.current).getPropertyValue('--dsw-specific-bubble-highlight')
+    const color = getComputedStyle(element.current).getPropertyValue('--mh-specific-bubble-highlight')
     const animation = element.current.animate([{ backgroundColor: color }, { backgroundColor: 'transparent' }], { duration: 700 })
     return () => { animation.cancel() }
   }, [record, added, flash, pulse])

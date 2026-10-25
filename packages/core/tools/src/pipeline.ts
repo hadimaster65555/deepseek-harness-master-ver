@@ -1,12 +1,12 @@
 /** Shared tool invocation policy, cancellation, and result settlement. @module */
-import type { Context } from '@deepseek-ai/cordis'
-import type { ScopeKey } from '@deepseek-ai/dsh-scope'
-import { scopeTarget } from '@deepseek-ai/dsh-scope'
-import type { ContentBlock } from '@deepseek-ai/dsh-llm'
-import { HarnessError } from '@deepseek-ai/dsh-llm'
-import type { UserMessage } from '@deepseek-ai/dsh-session'
-import type {} from '@deepseek-ai/dsh-user-approval'
-import { assertNever, deepFreeze, snapshotJsonValue, type JsonValue } from '@deepseek-ai/dsh-util-values'
+import type { Context } from '@master-harness/cordis'
+import type { ScopeKey } from '@master-harness/scope'
+import { scopeTarget } from '@master-harness/scope'
+import type { ContentBlock } from '@master-harness/llm'
+import { HarnessError } from '@master-harness/llm'
+import type { UserMessage } from '@master-harness/session'
+import type {} from '@master-harness/user-approval'
+import { assertNever, deepFreeze, snapshotJsonValue, type JsonValue } from '@master-harness/util-values'
 import { TOOL_ABORTED, TOOL_ABORTED_BEFORE_DISPATCH, ToolNotFoundError, ToolOutputError } from './contracts.ts'
 import { validateJsonSchemaValue } from './json-schema.ts'
 import type { ToolsService } from './index.ts'
@@ -689,7 +689,7 @@ function errorInfo(error: unknown): ToolErrorInfo | undefined {
 
 /** Mint a same-process correlation token whose identity is its value. */
 function createExecutionToken(): ToolExecutionToken {
-  return Symbol('dsh.tool.execution') as ToolExecutionToken
+  return Symbol('mh.tool.execution') as ToolExecutionToken
 }
 
 function toolErrorResult(error: unknown): ToolExecutionResult {

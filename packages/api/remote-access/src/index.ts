@@ -4,11 +4,11 @@
  * methods filter items through `allows()`; every Peer reads its own access
  * snapshot, first from the index and then from `follow()`. Business packages
  * register one policy per non-owner principal kind.
- * @module @deepseek-ai/dsh-api-remote-access
+ * @module @master-harness/api-remote-access
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type {} from '@deepseek-ai/dsh-host-webserver'
+import type { Context } from '@master-harness/cordis'
+import type {} from '@master-harness/host-webserver'
 import {
   Remote,
   TypertRemoteService,
@@ -16,7 +16,7 @@ import {
   type Principal,
   type PrincipalMap,
   type RemoteAccessResource,
-} from '@deepseek-ai/dsh-typert-protocol'
+} from '@master-harness/typert-protocol'
 import { REMOTE_ACCESS_SNAPSHOT_KEY } from './snapshot.ts'
 import type {
   RemoteAccessAction,
@@ -33,7 +33,7 @@ export { REMOTE_ACCESS_SNAPSHOT_KEY } from './snapshot.ts'
 /** The opening frame of a snapshot generation. */
 export type RemoteAccessBaseline = Extract<RemoteAccessFrame, { type: 'baseline' }>
 
-declare module '@deepseek-ai/cordis' {
+declare module '@master-harness/cordis' {
   interface Context {
     /** Host method-level access control for non-owner Peers. */
     remoteAccess: RemoteAccessService

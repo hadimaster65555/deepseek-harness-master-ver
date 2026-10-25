@@ -1,47 +1,47 @@
 /** Explicit exceptions and Host packages for the published dependency policy. */
 
-/** Packages treated as Client/Host packages without declaring `dsh.client`. */
+/** Packages treated as Client/Host packages without declaring `mh.client`. */
 const CLIENT_FACE_INCLUDE: readonly string[] = []
 
-/** Packages exempted from automatic Client/Host treatment despite declaring `dsh.client`. */
+/** Packages exempted from automatic Client/Host treatment despite declaring `mh.client`. */
 const CLIENT_FACE_EXCLUDE: readonly string[] = [
-  '@deepseek-ai/dsh-api-session-controller',
-  '@deepseek-ai/dsh-api-workspace-controller',
+  '@master-harness/api-session-controller',
+  '@master-harness/api-workspace-controller',
 ]
 
 /** Host-only packages whose peer relays are deliberately flattened. */
 const HOST_DEPENDENCY_PACKAGES: readonly string[] = [
-  '@deepseek-ai/dsh-llm',
-  '@deepseek-ai/dsh-session',
+  '@master-harness/llm',
+  '@master-harness/session',
 ]
 
 /** Required Cordis services whose Host imports are type-only. */
 const REQUIRED_SERVICE_PEERS = {
-  '@deepseek-ai/dsh-api-terminal-controller': ['@deepseek-ai/dsh-subprocess'],
+  '@master-harness/api-terminal-controller': ['@master-harness/subprocess'],
 } as const satisfies Readonly<Record<string, readonly string[]>>
 
 /** Development-only package relationships not represented by source imports. */
 const CONFIGURATION_ONLY_DEV_DEPENDENCIES = {
-  '@deepseek-ai/dsh-client-locale': ['@deepseek-ai/dsh-api-remotes'],
-  '@deepseek-ai/dsh-client-ui-conversation': [
-    '@deepseek-ai/dsh-api-remotes',
-    '@deepseek-ai/dsh-client-ui-workspace',
+  '@master-harness/client-locale': ['@master-harness/api-remotes'],
+  '@master-harness/client-ui-conversation': [
+    '@master-harness/api-remotes',
+    '@master-harness/client-ui-workspace',
   ],
-  '@deepseek-ai/dsh-client-ui-model-selection': ['@deepseek-ai/dsh-client-ui-input-trigger'],
-  '@deepseek-ai/dsh-client-ui-sidebar': ['@deepseek-ai/dsh-client-ui-workspace'],
-  '@deepseek-ai/dsh-client-ui-subagent': ['@deepseek-ai/dsh-client-ui-input-trigger'],
-  '@deepseek-ai/dsh-client-ui-theme': ['@deepseek-ai/dsh-api-remotes'],
-  '@deepseek-ai/dsh-client-ui-tool': ['@deepseek-ai/dsh-api-remotes'],
+  '@master-harness/client-ui-model-selection': ['@master-harness/client-ui-input-trigger'],
+  '@master-harness/client-ui-sidebar': ['@master-harness/client-ui-workspace'],
+  '@master-harness/client-ui-subagent': ['@master-harness/client-ui-input-trigger'],
+  '@master-harness/client-ui-theme': ['@master-harness/api-remotes'],
+  '@master-harness/client-ui-tool': ['@master-harness/api-remotes'],
 } as const satisfies Readonly<Record<string, readonly string[]>>
 
 /** Workspace packages whose complete runtime surface is safe across duplicate installations. */
 const DUPLICATE_SAFE_PACKAGES: readonly string[] = [
-  '@deepseek-ai/dsh-brand',
-  '@deepseek-ai/dsh-lazy-require',
-  '@deepseek-ai/dsh-typert-protocol',
-  '@deepseek-ai/dsh-util-code-language',
-  '@deepseek-ai/dsh-util-crypto',
-  '@deepseek-ai/dsh-util-values',
+  '@master-harness/brand',
+  '@master-harness/lazy-require',
+  '@master-harness/typert-protocol',
+  '@master-harness/util-code-language',
+  '@master-harness/util-crypto',
+  '@master-harness/util-values',
 ]
 
 /**
@@ -51,26 +51,26 @@ const DUPLICATE_SAFE_PACKAGES: readonly string[] = [
  * prominent heading in the pull request description.
  */
 const SAFE_HOST_DEPENDENCY_EXPORTS = {
-  '@deepseek-ai/dsh-atomic-write': ['withFileLock'],
-  '@deepseek-ai/dsh-computer-use/brand': ['ComputerUseProviderName'],
-  '@deepseek-ai/dsh-credentials': ['credentialKey'],
-  '@deepseek-ai/dsh-deque': ['Deque'],
-  '@deepseek-ai/dsh-llm': ['callConfigEquals'],
-  '@deepseek-ai/dsh-session-format': ['sessionFormatLogFilename'],
-  '@deepseek-ai/dsh-timeout': ['MAX_TIMER_DELAY_MS'],
-  '@deepseek-ai/schemastery': ['default'],
+  '@master-harness/atomic-write': ['withFileLock'],
+  '@master-harness/computer-use/brand': ['ComputerUseProviderName'],
+  '@master-harness/credentials': ['credentialKey'],
+  '@master-harness/deque': ['Deque'],
+  '@master-harness/llm': ['callConfigEquals'],
+  '@master-harness/session-format': ['sessionFormatLogFilename'],
+  '@master-harness/timeout': ['MAX_TIMER_DELAY_MS'],
+  '@master-harness/schemastery': ['default'],
 } as const satisfies HostDependencyExports
 
 /** Runtime exports that require every consumer to resolve the provider's shared peer instance. */
 const PEER_REQUIRED_HOST_EXPORTS = {
   // CUA checks UserQuestionError and preserves AttachmentError from image admission.
-  '@deepseek-ai/dsh-attachment': ['admitEncodedImages'],
-  '@deepseek-ai/dsh-user-questions': ['UserQuestionError'],
+  '@master-harness/attachment': ['admitEncodedImages'],
+  '@master-harness/user-questions': ['UserQuestionError'],
   // `instanceof` checks need the translator's own class instance.
-  '@deepseek-ai/dsh-experimental-translator': ['TranslationError'],
-  '@deepseek-ai/dsh-scope': ['carrierKeyOf', 'createScope', 'scopeOf', 'scopeTarget'],
-  '@deepseek-ai/dsh-session': ['SESSION_FORMAT_VERSION'],
-  '@deepseek-ai/dsh-session-persistence': ['SessionPersistenceNotFoundError'],
+  '@master-harness/experimental-translator': ['TranslationError'],
+  '@master-harness/scope': ['carrierKeyOf', 'createScope', 'scopeOf', 'scopeTarget'],
+  '@master-harness/session': ['SESSION_FORMAT_VERSION'],
+  '@master-harness/session-persistence': ['SessionPersistenceNotFoundError'],
 } as const satisfies HostDependencyExports
 
 /** Exact import specifier to reviewed runtime exports. */
@@ -105,6 +105,6 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 }
 
 /** Whether a package manifest declares a dynamically loaded Client entry. */
-export function hasClientDeclaration(dshField: unknown): boolean {
-  return isRecord(dshField) && Object.hasOwn(dshField, 'client')
+export function hasClientDeclaration(mhField: unknown): boolean {
+  return isRecord(mhField) && Object.hasOwn(mhField, 'client')
 }

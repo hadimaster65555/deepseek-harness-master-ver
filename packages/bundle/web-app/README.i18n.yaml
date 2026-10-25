@@ -3,71 +3,71 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write packages/bundle/web-app/README.md
 /:
-  en: af2e4e5296596e8f
-  zh: 70c0b5ac93209d00
-/deepseek-ai-dsh-web-app:
-  en: a85684740ecd278a
-  zh: 7c54099b9edccf01
-/deepseek-ai-dsh-web-app/summary:
-  en: 0a2a9876194543e5
-  zh: ff472776a44ae260
-/deepseek-ai-dsh-web-app/table-of-contents:
+  en: 40a4b1a256e0903d
+  zh: eae4eb39d97a9414
+/master-harness-web-app:
+  en: e03ec4107a865621
+  zh: 1e748e1047eab9e0
+/master-harness-web-app/summary:
+  en: 6f25c3354c32cd3a
+  zh: 63cf82820b3d68dc
+/master-harness-web-app/table-of-contents:
   en: d152484eb41ac6b4
   zh: 09388d293f9be9cb
-/deepseek-ai-dsh-web-app/use-this-package:
+/master-harness-web-app/use-this-package:
   en: 3bd37b85139d2fa7
   zh: ba86c807eb83866e
-/deepseek-ai-dsh-web-app/use-this-package/starting-the-web-gui:
-  en: e3cac911f080d8ef
-  zh: 60749e9f5c39c1bc
-/deepseek-ai-dsh-web-app/use-this-package/configuration:
-  en: b1787804544f2587
-  zh: ce09d2c248ffd999
-/deepseek-ai-dsh-web-app/use-this-package/listening-trust-and-public-deployments:
-  en: e6ddea1d2fc40501
-  zh: ff08b6fa3fc24136
-/deepseek-ai-dsh-web-app/use-this-package/running-over-ssh:
-  en: df205a26b6d49168
-  zh: e46ed7cf9e06248a
-/deepseek-ai-dsh-web-app/use-this-package/per-session-agent-setup:
-  en: fdf38cb6e1b24464
-  zh: c14a8bcac9d4e5cd
-/deepseek-ai-dsh-web-app/understand-the-implementation:
-  en: 323742a00cfe67b2
-  zh: eff5245a82fc16e7
-/deepseek-ai-dsh-web-app/understand-the-implementation/patch-semantics:
+/master-harness-web-app/use-this-package/starting-the-web-gui:
+  en: 7bcf34399d7a230a
+  zh: 2df7b6a3d55c4072
+/master-harness-web-app/use-this-package/configuration:
+  en: 41068017fc564e23
+  zh: 8d904a13db1c5bf1
+/master-harness-web-app/use-this-package/listening-trust-and-public-deployments:
+  en: bebce8c70f1b8ea4
+  zh: 47393748541ed877
+/master-harness-web-app/use-this-package/running-over-ssh:
+  en: 7d79f21b79a03de5
+  zh: 3e2c5e05f7f36494
+/master-harness-web-app/use-this-package/per-session-agent-setup:
+  en: ae3a14c27c2bc04c
+  zh: 73d5790e591fe884
+/master-harness-web-app/understand-the-implementation:
+  en: 0cb9583f6407111e
+  zh: 543c538e6d6d294f
+/master-harness-web-app/understand-the-implementation/patch-semantics:
   en: a6d126f30b1594d7
   zh: 7f0ccc8a55d6f743
-/deepseek-ai-dsh-web-app/understand-the-implementation/advertised-application-url:
-  en: 0b22e03e28d41420
-  zh: fd45a97dd4336c25
-/deepseek-ai-dsh-web-app/understand-the-implementation/readiness:
+/master-harness-web-app/understand-the-implementation/advertised-application-url:
+  en: b094bbb271edfb6f
+  zh: a50b5a3d54c2c956
+/master-harness-web-app/understand-the-implementation/readiness:
   en: 973128fd346869df
   zh: 54e6792f9f82a192
-/deepseek-ai-dsh-web-app/understand-the-implementation/source-map:
-  en: 58800b6f2142c34f
-  zh: 10bf512b16db1cb8
-/deepseek-ai-dsh-web-app/further-exploration:
-  en: f81694f7424e2988
-  zh: 6643f9227039e228
-/deepseek-ai-dsh-web-app/model-experience:
+/master-harness-web-app/understand-the-implementation/source-map:
+  en: e4b9da5c09da64e3
+  zh: 662bd5e1c495a48b
+/master-harness-web-app/further-exploration:
+  en: ed339379e4da7ae9
+  zh: 30eae5e80476c590
+/master-harness-web-app/model-experience:
   en: 215e7ba838619b7b
   zh: a311da3843709f90
-/deepseek-ai-dsh-web-app/model-experience/web-runtime-variable:
+/master-harness-web-app/model-experience/web-runtime-variable:
   en: 623bf8a0bf05599d
   zh: 398ded2e7b20c1ea
-/deepseek-ai-dsh-web-app/model-experience/web-runtime-variable/what-the-model-sees:
-  en: ebaddc153ad7a835
-  zh: 21aa60f73d14f26c
-/deepseek-ai-dsh-web-app/model-experience/web-runtime-variable/token-effect:
+/master-harness-web-app/model-experience/web-runtime-variable/what-the-model-sees:
+  en: 2b9125fef282cf82
+  zh: 11320308b0da7336
+/master-harness-web-app/model-experience/web-runtime-variable/token-effect:
   en: 449fbfa3986f98f0
   zh: a7d66333594ab2dd
-/deepseek-ai-dsh-web-app/model-experience/web-runtime-variable/kv-cache-effect:
+/master-harness-web-app/model-experience/web-runtime-variable/kv-cache-effect:
   en: 37542a8b81a744f5
   zh: c0048aaadecae296
-/deepseek-ai-dsh-web-app/known-limitations-and-deferred-work:
-  en: 635c1336e2f4e821
-  zh: caabdecb02e2df14
-/deepseek-ai-dsh-web-app/known-limitations-and-deferred-work/dev-note:
+/master-harness-web-app/known-limitations-and-deferred-work:
+  en: b8be479d258ef614
+  zh: 924f1654f7b5c8a5
+/master-harness-web-app/known-limitations-and-deferred-work/dev-note:
   en: 3f81b4f3beb74a0d
   zh: 2e377ca40822d093

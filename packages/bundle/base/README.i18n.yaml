@@ -3,56 +3,56 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write packages/bundle/base/README.md
 /:
-  en: 21c1b63e74134d34
-  zh: 78c69828d5930a86
-/deepseek-ai-dsh-base:
-  en: 501b1b61d4739d2a
-  zh: 5faba14f2480be3b
-/deepseek-ai-dsh-base/summary:
-  en: 5c15f68a65aadc7d
-  zh: 7ac9ace622e161ae
-/deepseek-ai-dsh-base/table-of-contents:
+  en: 69825ae3ec0899a0
+  zh: eccfdf4f87cb0eb7
+/master-harness-base:
+  en: e44f5d4fbfd72004
+  zh: 699f55e321dfa643
+/master-harness-base/summary:
+  en: 078a37fe410545de
+  zh: 7f4ca8a4b7d96a5d
+/master-harness-base/table-of-contents:
   en: d152484eb41ac6b4
   zh: 09388d293f9be9cb
-/deepseek-ai-dsh-base/use-this-package:
-  en: 4c0d7045f95ff79c
-  zh: 456bb24bd1d35db1
-/deepseek-ai-dsh-base/use-this-package/a-minimal-custom-profile:
-  en: 0f971f7ac7c09139
-  zh: ceb866da681c709c
-/deepseek-ai-dsh-base/use-this-package/what-you-get:
-  en: 2ef2653d55107eec
-  zh: 4936c0fff94b1984
-/deepseek-ai-dsh-base/use-this-package/shell-tools-per-platform:
+/master-harness-base/use-this-package:
+  en: 7f7d7a4422cedf37
+  zh: ac1be1d42c3dc243
+/master-harness-base/use-this-package/a-minimal-custom-profile:
+  en: 5710a02d3c8a3abe
+  zh: 7db8c391cdaa788c
+/master-harness-base/use-this-package/what-you-get:
+  en: e5371ab3b60e6ace
+  zh: e164237556c27835
+/master-harness-base/use-this-package/shell-tools-per-platform:
   en: 2dce12f82d6ee955
   zh: d4599eb899a3cd88
-/deepseek-ai-dsh-base/use-this-package/changing-the-defaults:
+/master-harness-base/use-this-package/changing-the-defaults:
   en: 96a55abd5f7007dd
   zh: d94f020708c38a17
-/deepseek-ai-dsh-base/understand-the-implementation:
+/master-harness-base/understand-the-implementation:
   en: 094cfca8e26a0042
   zh: de435e3e38420c01
-/deepseek-ai-dsh-base/understand-the-implementation/composition-mechanics:
+/master-harness-base/understand-the-implementation/composition-mechanics:
   en: fd37bc66e39ac5e7
   zh: 1a039afb8bf2d517
-/deepseek-ai-dsh-base/understand-the-implementation/platform-gating:
-  en: 8c2444fa7b237783
-  zh: 82002a8b9ddf5942
-/deepseek-ai-dsh-base/understand-the-implementation/source-map:
+/master-harness-base/understand-the-implementation/platform-gating:
+  en: 80978d82cbf9ee05
+  zh: 65f6e4b232fa6623
+/master-harness-base/understand-the-implementation/source-map:
   en: a8efda71d444155e
   zh: c8221593709fbb99
-/deepseek-ai-dsh-base/further-exploration:
-  en: 39701b25b209fb67
-  zh: 2b7ce98365f1ecfc
-/deepseek-ai-dsh-base/model-experience:
+/master-harness-base/further-exploration:
+  en: 09c300fb79ae491d
+  zh: 562c0bbff696c072
+/master-harness-base/model-experience:
   en: f6c4d2609b5f4bb6
   zh: 869a9565a133fb01
-/deepseek-ai-dsh-base/model-experience/kv-cache-effect:
+/master-harness-base/model-experience/kv-cache-effect:
   en: e6e907c99df7cd0a
   zh: f19f2f84a5f95177
-/deepseek-ai-dsh-base/known-limitations-and-deferred-work:
-  en: ce8558ab18184bf2
-  zh: 3b3fb98cf1bd4652
-/deepseek-ai-dsh-base/known-limitations-and-deferred-work/dev-note:
+/master-harness-base/known-limitations-and-deferred-work:
+  en: ae35531b6454c9fe
+  zh: 2feae28003338738
+/master-harness-base/known-limitations-and-deferred-work/dev-note:
   en: ca037cb236aa841a
   zh: e06f3899be43b572

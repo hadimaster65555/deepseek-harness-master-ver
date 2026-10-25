@@ -1,14 +1,14 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import AgentRegistry, { agentEvents, type Agent } from '@deepseek-ai/dsh-agent'
-import { CompactionId, compactCheckpointSource } from '@deepseek-ai/dsh-compaction'
-import LlmRuntime, { createDeveloperMessage, createMessage, createSystemMessage, createToolResultMessage, createUserMessage, LlmError, ToolCallId } from '@deepseek-ai/dsh-llm'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
-import SessionStore, { Session, SessionId, SessionSeq } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import SessionQueryEngine from '@deepseek-ai/dsh-session-query'
-import SessionTitleService from '@deepseek-ai/dsh-session-title'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
+import { Context } from '@master-harness/cordis'
+import AgentRegistry, { agentEvents, type Agent } from '@master-harness/agent'
+import { CompactionId, compactCheckpointSource } from '@master-harness/compaction'
+import LlmRuntime, { createDeveloperMessage, createMessage, createSystemMessage, createToolResultMessage, createUserMessage, LlmError, ToolCallId } from '@master-harness/llm'
+import type { ContextFormed } from '@master-harness/llm'
+import SessionStore, { Session, SessionId, SessionSeq } from '@master-harness/session'
+import SessionProjectionRegistry from '@master-harness/session-projection'
+import SessionQueryEngine from '@master-harness/session-query'
+import SessionTitleService from '@master-harness/session-title'
+import SystemPrompt from '@master-harness/system-prompt'
 import SessionReferenceResolver, {
   decodeSessionReferenceUri,
   encodeSessionReferenceUri,
@@ -16,11 +16,11 @@ import SessionReferenceResolver, {
   parseSessionReferenceText,
   type Config,
   type SessionReferenceErrorCode,
-} from '@deepseek-ai/dsh-session-reference'
+} from '@master-harness/session-reference'
 import { stringifyTagSafeJson } from '../src/serialization.ts'
-import { SpillLocator, SpillStore, type SaveTextSpill, type SpillRef } from '@deepseek-ai/dsh-spill'
+import { SpillLocator, SpillStore, type SaveTextSpill, type SpillRef } from '@master-harness/spill'
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@master-harness/llm' {
   interface MessageSourceMap {
     'test': { kind: 'test' } & ContextFormed
     'workspace': { kind: 'workspace' } & ContextFormed
@@ -278,23 +278,23 @@ describe('session reference URI and inline mentions', () => {
       { sessionId, label: sessionId },
     ])
 
-    expect(parseSessionReferenceText('what is a dsh-session: URI?')).toEqual({
-      text: 'what is a dsh-session: URI?',
+    expect(parseSessionReferenceText('what is a mh-session: URI?')).toEqual({
+      text: 'what is a mh-session: URI?',
       references: [],
     })
-    expect(parseSessionReferenceText('see dsh-session:%%%')).toEqual({
-      text: 'see dsh-session:%%%',
+    expect(parseSessionReferenceText('see mh-session:%%%')).toEqual({
+      text: 'see mh-session:%%%',
       references: [],
     })
   })
 
   it('rejects malformed explicit references and base64url-shaped bare candidates', () => {
     expect(() => decodeSessionReferenceUri('https://example.test')).toThrow(expectCode('SESSION_REFERENCE_INVALID_REFERENCE'))
-    expect(() => parseSessionReferenceText('see dsh-session:IiJ')).toThrow(expectCode('SESSION_REFERENCE_INVALID_REFERENCE'))
-    expect(() => parseSessionReferenceText('@[bad](dsh-session:%%%)')).toThrow(expectCode('SESSION_REFERENCE_INVALID_REFERENCE'))
-    const nonString = `dsh-session:${Buffer.from(JSON.stringify({ id: 'x' })).toString('base64url')}`
+    expect(() => parseSessionReferenceText('see mh-session:IiJ')).toThrow(expectCode('SESSION_REFERENCE_INVALID_REFERENCE'))
+    expect(() => parseSessionReferenceText('@[bad](mh-session:%%%)')).toThrow(expectCode('SESSION_REFERENCE_INVALID_REFERENCE'))
+    const nonString = `mh-session:${Buffer.from(JSON.stringify({ id: 'x' })).toString('base64url')}`
     expect(() => decodeSessionReferenceUri(nonString)).toThrow(expectCode('SESSION_REFERENCE_INVALID_REFERENCE'))
-    expect(() => decodeSessionReferenceUri('dsh-session:IiJ')).toThrow(expectCode('SESSION_REFERENCE_INVALID_REFERENCE'))
+    expect(() => decodeSessionReferenceUri('mh-session:IiJ')).toThrow(expectCode('SESSION_REFERENCE_INVALID_REFERENCE'))
   })
 })
 
@@ -907,7 +907,7 @@ describe('session reference discovery and preparation', () => {
     const target = ctx.sessions.create(SessionId('target'))
     const agent = fakeAgent(target)
     const malformed = createUserMessage({
-      content: [{ type: 'text', text: '@[bad](dsh-session:not-canonical)' }],
+      content: [{ type: 'text', text: '@[bad](mh-session:not-canonical)' }],
       source: { kind: 'user' },
     })
     const readSurface = vi.spyOn(ctx.sessionQuery, 'readSurface')

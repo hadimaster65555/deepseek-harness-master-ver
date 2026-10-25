@@ -1,13 +1,13 @@
 {
-  "name": "@deepseek-ai/dsh-client-modules",
-  "description": "Client module system, dual-face: node half composes the __DSH_BOOT__ entry graph (incremental dsh.client scan, bundle route, index tap, webPlugins service); browser half is the lazy-CJS module table the vendored cordis Loader consumes as its internal seam",
+  "name": "@master-harness/client-modules",
+  "description": "Client module system, dual-face: node half composes the __MH_BOOT__ entry graph (incremental mh.client scan, bundle route, index tap, webPlugins service); browser half is the lazy-CJS module table the vendored cordis Loader consumes as its internal seam",
   "version": "0.2.1-rc.3",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/client/modules"
   },
   "type": "module",
@@ -26,7 +26,7 @@
     "./package.json": "./package.json",
     "./locale/*.json": "./locale/*.json"
   },
-  "dsh": {
+  "mh": {
     "client": {
       "platform": "web",
       "inject": [],
@@ -39,11 +39,11 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@deepseek-ai/cordis-plugin-loader": "workspace:~",
-    "@deepseek-ai/dsh-host-webserver": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-package-manifest": "workspace:*",
-    "@deepseek-ai/dsh-client-store": "workspace:*"
+    "@master-harness/cordis-plugin-loader": "workspace:~",
+    "@master-harness/host-webserver": "workspace:*",
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/package-manifest": "workspace:*",
+    "@master-harness/client-store": "workspace:*"
   },
   "files": [
     "locale/*.json",
@@ -52,6 +52,6 @@
     "lib/types/**/*.d.ts"
   ],
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~"
+    "@master-harness/cordis": "workspace:~"
   }
 }

@@ -2,20 +2,20 @@
 
 import { hostname } from 'node:os'
 import { resolve } from 'node:path'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import type {} from '@deepseek-ai/dsh-fs'
-import { Context, Service } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { errorChain, ReasoningEffortId, type MessageSource } from '@deepseek-ai/dsh-llm'
-import type {} from '@deepseek-ai/dsh-client-file-upload'
-import { canOpenNativePath, nativeFileManager, nativeFileApplications, openNativeFileApplication, openNativeAssociatedPath, revealNativePath } from '@deepseek-ai/dsh-native-command'
-import type { SessionId } from '@deepseek-ai/dsh-session'
-import type {} from '@deepseek-ai/dsh-session-projection-cache'
-import { SessionQueryError, type SessionObservation } from '@deepseek-ai/dsh-session-query'
-import { Remote, RemoteError, TypertRemoteService, principalOf, type TypertResourceResolveInput } from '@deepseek-ai/dsh-typert-protocol'
-import { canonicalClientTimeZone } from '@deepseek-ai/dsh-util-time'
-import { assertNever } from '@deepseek-ai/dsh-util-values'
-import type {} from '@deepseek-ai/dsh-api-remote-access'
+import type { Agent } from '@master-harness/agent'
+import type {} from '@master-harness/fs'
+import { Context, Service } from '@master-harness/cordis'
+import z from '@master-harness/schemastery'
+import { errorChain, ReasoningEffortId, type MessageSource } from '@master-harness/llm'
+import type {} from '@master-harness/client-file-upload'
+import { canOpenNativePath, nativeFileManager, nativeFileApplications, openNativeFileApplication, openNativeAssociatedPath, revealNativePath } from '@master-harness/native-command'
+import type { SessionId } from '@master-harness/session'
+import type {} from '@master-harness/session-projection-cache'
+import { SessionQueryError, type SessionObservation } from '@master-harness/session-query'
+import { Remote, RemoteError, TypertRemoteService, principalOf, type TypertResourceResolveInput } from '@master-harness/typert-protocol'
+import { canonicalClientTimeZone } from '@master-harness/util-time'
+import { assertNever } from '@master-harness/util-values'
+import type {} from '@master-harness/api-remote-access'
 import {
   ApiSessionAgentController,
   type ApiSessionAgentResult,
@@ -70,7 +70,7 @@ export { ApiSessionNotFound } from './agent.ts'
 export { SessionFileReferences } from './file-references.ts'
 export { SessionSkillCatalog } from './skill-catalog.ts'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@master-harness/cordis' {
   interface Context {
     /** Host Session business API and Remote namespace owner. */
     sessionController: SessionController

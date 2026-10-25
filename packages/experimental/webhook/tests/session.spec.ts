@@ -1,5 +1,5 @@
-import type { Context } from '@deepseek-ai/cordis'
-import type { AgentOptions } from '@deepseek-ai/dsh-agent'
+import type { Context } from '@master-harness/cordis'
+import type { AgentOptions } from '@master-harness/agent'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import {
   WebhookDeliveryId,

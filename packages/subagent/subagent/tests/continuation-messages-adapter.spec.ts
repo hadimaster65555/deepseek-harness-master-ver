@@ -3,21 +3,21 @@ import { mkdtempSync, rmSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import type { AnonymousUserId } from '@deepseek-ai/dsh-anonymous-user-id'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import { mountAgentLoopTestDependencies } from '@deepseek-ai/dsh-agent-loop-testkit'
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
-import { DeepSeekAdapter, resolveAdapterOptions } from '@deepseek-ai/dsh-llm-deepseek'
-import { SessionId } from '@deepseek-ai/dsh-session'
-import * as JsonlSessionPersistence from '@deepseek-ai/dsh-session-persistence-jsonl'
-import * as SubagentSpawn from '@deepseek-ai/dsh-subagent-spawn-in-process'
+import { Context } from '@master-harness/cordis'
+import type { AnonymousUserId } from '@master-harness/anonymous-user-id'
+import AgentLoop from '@master-harness/agent-loop'
+import { mountAgentLoopTestDependencies } from '@master-harness/agent-loop-testkit'
+import { createUserMessage } from '@master-harness/llm'
+import { DeepSeekAdapter, resolveAdapterOptions } from '@master-harness/llm-deepseek'
+import { SessionId } from '@master-harness/session'
+import * as JsonlSessionPersistence from '@master-harness/session-persistence-jsonl'
+import * as SubagentSpawn from '@master-harness/subagent-spawn-in-process'
 import { end, MODEL, server, sse, start } from '../../../llm/llm-deepseek/tests/helpers.ts'
 import SubagentRuntime, { type SubagentRunEndInfo } from '../src/index.ts'
 import { loadStoredSession } from './persistence-helpers.ts'
 
 it('continues the parent through default Messages after a reasoning-bearing continuable child settles', async () => {
-  const root = mkdtempSync(join(tmpdir(), 'dsh-settlement-messages-'))
+  const root = mkdtempSync(join(tmpdir(), 'mh-settlement-messages-'))
   const ctx = new Context()
   let http: Awaited<ReturnType<typeof server>> | undefined
   try {

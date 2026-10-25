@@ -3,8 +3,8 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/architecture/2026-10-16-separate-instruction-chain-budgets.md
 /agent-note-separate-byte-budgets-for-the-user-global-and-project-instruction-chains:
-  en: 8ad05eb6bd0511b9
-  zh: bd0658fa58edc70d
+  en: 211fd34fbb5956d4
+  zh: fbe8d22be9faa414
 /agent-note-separate-byte-budgets-for-the-user-global-and-project-instruction-chains/problem:
   en: 77f3bb05053ce59f
   zh: 4a1759900b71cc44
@@ -15,5 +15,5 @@
   en: 157837c9fbc377cb
   zh: 32fb2d8427529772
 /agent-note-separate-byte-budgets-for-the-user-global-and-project-instruction-chains/consequences:
-  en: 186092d64376de0c
-  zh: 92fe504ff77cba71
+  en: 948fd96f4c214b1f
+  zh: f1b301f434d9d5b2

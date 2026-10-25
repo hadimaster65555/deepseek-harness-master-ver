@@ -1,8 +1,8 @@
 /** Permission refreshes preserve observations and join user actions before withdrawal. */
 import { setImmediate } from 'node:timers/promises'
-import type { Context } from '@deepseek-ai/cordis'
-import type {} from '@deepseek-ai/dsh-cua/remote'
-import { RemoteError } from '@deepseek-ai/dsh-typert-protocol'
+import type { Context } from '@master-harness/cordis'
+import type {} from '@master-harness/cua/remote'
+import { RemoteError } from '@master-harness/typert-protocol'
 import { expect, it, onTestFinished, vi } from 'vitest'
 import type { CuaApplicationId, CuaApplicationState, CuaSystemPermissionState } from '../src/access-types.ts'
 import { PermissionController } from '../src/client/controller.ts'

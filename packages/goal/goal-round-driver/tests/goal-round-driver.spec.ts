@@ -1,20 +1,20 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import type { Agent, PreStepDecision } from '@deepseek-ai/dsh-agent'
-import { agentEvents } from '@deepseek-ai/dsh-agent'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import { mountAgentLoopTestDependencies } from '@deepseek-ai/dsh-agent-loop-testkit'
-import GoalService, { GoalId } from '@deepseek-ai/dsh-goal'
-import type { GoalView } from '@deepseek-ai/dsh-goal'
-import { createUserMessage, LlmAdapter, LlmError  } from '@deepseek-ai/dsh-llm'
-import type { GenerateOptions, StreamChunk } from '@deepseek-ai/dsh-llm'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
-import { SessionId } from '@deepseek-ai/dsh-session'
-import type { UserMessage } from '@deepseek-ai/dsh-session'
-import type { SubagentRuntime } from '@deepseek-ai/dsh-subagent'
+import { Context } from '@master-harness/cordis'
+import type { Agent, PreStepDecision } from '@master-harness/agent'
+import { agentEvents } from '@master-harness/agent'
+import AgentLoop from '@master-harness/agent-loop'
+import { mountAgentLoopTestDependencies } from '@master-harness/agent-loop-testkit'
+import GoalService, { GoalId } from '@master-harness/goal'
+import type { GoalView } from '@master-harness/goal'
+import { createUserMessage, LlmAdapter, LlmError  } from '@master-harness/llm'
+import type { GenerateOptions, StreamChunk } from '@master-harness/llm'
+import type { ContextFormed } from '@master-harness/llm'
+import { SessionId } from '@master-harness/session'
+import type { UserMessage } from '@master-harness/session'
+import type { SubagentRuntime } from '@master-harness/subagent'
 import * as goalSession from '../src/index.ts'
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@master-harness/llm' {
   interface MessageSourceMap {
     'test': { kind: 'test' } & ContextFormed
   }

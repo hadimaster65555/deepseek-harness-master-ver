@@ -1,0 +1,22 @@
+# Bilingual-pair consistency record for maintaining-mh-code-review.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write docs/cookbook/maintaining-mh-code-review.md
+/maintaining-the-mh-code-review-skill:
+  en: 2739f499aaba3455
+  zh: 22854fa7d4293e26
+/maintaining-the-mh-code-review-skill/what-the-maintainer-receives:
+  en: 94c67a8ace05a99d
+  zh: 8516a88b8f46e634
+/maintaining-the-mh-code-review-skill/what-the-operator-does-with-a-candidate-diff:
+  en: 6803f5e23ee3aeab
+  zh: 239dcadda0f5b1ea
+/maintaining-the-mh-code-review-skill/when-a-run-produces-no-candidate:
+  en: feb6d261939d6c19
+  zh: 044d8238cd6537d3
+/maintaining-the-mh-code-review-skill/interruptions-and-handoff:
+  en: 27378080cd0b2cfb
+  zh: 3f3840d91ba10f89
+/maintaining-the-mh-code-review-skill/where-the-operator-s-private-setup-lives:
+  en: ae06145764738c16
+  zh: d527b944db8c52be

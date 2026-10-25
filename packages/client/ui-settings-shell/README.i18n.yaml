@@ -3,35 +3,35 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write packages/client/ui-settings-shell/README.md
 /:
-  en: f6377310e46f34e5
-  zh: 55f00c64a61fb235
-/deepseek-ai-dsh-client-ui-settings-shell:
-  en: d38072750be19799
-  zh: 8e2a7f9aacf2d61d
-/deepseek-ai-dsh-client-ui-settings-shell/summary:
+  en: e17c262b17a8cb14
+  zh: a9bafe3801aa9343
+/master-harness-client-ui-settings-shell:
+  en: 8d5c0ad97bf65dec
+  zh: 34762e05c3caee36
+/master-harness-client-ui-settings-shell/summary:
   en: 4a6764083793412e
   zh: f177136090ceee7e
-/deepseek-ai-dsh-client-ui-settings-shell/table-of-contents:
+/master-harness-client-ui-settings-shell/table-of-contents:
   en: d152484eb41ac6b4
   zh: 09388d293f9be9cb
-/deepseek-ai-dsh-client-ui-settings-shell/use-this-package:
+/master-harness-client-ui-settings-shell/use-this-package:
   en: caaab79a5e1a76f6
   zh: 31dbcaaef71d4a0e
-/deepseek-ai-dsh-client-ui-settings-shell/understand-the-implementation:
+/master-harness-client-ui-settings-shell/understand-the-implementation:
   en: 2c58855d6b1dfaa6
   zh: 6e5546f2edb07687
-/deepseek-ai-dsh-client-ui-settings-shell/further-exploration:
-  en: 89337b623b8bf2f5
-  zh: c73362e199061864
-/deepseek-ai-dsh-client-ui-settings-shell/model-experience:
+/master-harness-client-ui-settings-shell/further-exploration:
+  en: 69779be1d90a54ad
+  zh: 4d6673c5a50829e8
+/master-harness-client-ui-settings-shell/model-experience:
   en: 6b7c6f82ab6c8435
   zh: 4517689c899abcbe
-/deepseek-ai-dsh-client-ui-settings-shell/model-experience/kv-cache-effect:
+/master-harness-client-ui-settings-shell/model-experience/kv-cache-effect:
   en: ca75c51c89c2c9b0
   zh: 6e1c9a8fdde89577
-/deepseek-ai-dsh-client-ui-settings-shell/known-limitations-and-deferred-work:
+/master-harness-client-ui-settings-shell/known-limitations-and-deferred-work:
   en: 410d2fb3320329b5
   zh: 0ba9eebfdc6c9b10
-/deepseek-ai-dsh-client-ui-settings-shell/known-limitations-and-deferred-work/dev-note:
+/master-harness-client-ui-settings-shell/known-limitations-and-deferred-work/dev-note:
   en: e67f633dc6fe7773
   zh: e88aeb617ffb74ea

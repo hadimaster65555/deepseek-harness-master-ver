@@ -1,4 +1,4 @@
-import { executeToolFixture } from '@deepseek-ai/dsh-tool-testkit'
+import { executeToolFixture } from '@master-harness/tool-testkit'
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { createServer } from 'node:http'
 import type { AddressInfo } from 'node:net'
@@ -6,26 +6,26 @@ import { tmpdir } from 'node:os'
 import { pathToFileURL } from 'node:url'
 import { join, resolve } from 'node:path'
 import { afterEach, describe, expect, it, onTestFinished, vi } from 'vitest'
-import { Context, type Fiber } from '@deepseek-ai/cordis'
-import Loader from '@deepseek-ai/cordis-plugin-loader'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import { mountAgentLoopTestDependencies } from '@deepseek-ai/dsh-agent-loop-testkit'
-import CommandRuntime from '@deepseek-ai/dsh-commands'
-import LocalFileSystem from '@deepseek-ai/dsh-fs-local'
-import WorkingDirectory from '@deepseek-ai/dsh-working-directory'
-import { createAssistantMessage, createUserMessage, ToolCallId as ToolCallIdOf } from '@deepseek-ai/dsh-llm'
-import type { LlmResolvedModelInfo } from '@deepseek-ai/dsh-llm'
-import TokenMeter from '@deepseek-ai/dsh-token-meter'
-import type { ImageAttachmentRef } from '@deepseek-ai/dsh-attachment/types'
-import { scopeOf } from '@deepseek-ai/dsh-scope'
-import { SessionId, type SessionEvent } from '@deepseek-ai/dsh-session'
-import Storage from '@deepseek-ai/dsh-storage'
-import * as StorageDomain from '@deepseek-ai/dsh-storage-domain'
-import * as StorageJson from '@deepseek-ai/dsh-storage-json'
-import LocalSubprocessRuntime from '@deepseek-ai/dsh-subprocess-local'
-import { defineContentToolFixture } from '@deepseek-ai/dsh-tool-testkit'
-import UserQuestionService from '@deepseek-ai/dsh-user-questions'
+import { Context, type Fiber } from '@master-harness/cordis'
+import Loader from '@master-harness/cordis-plugin-loader'
+import type { Agent } from '@master-harness/agent'
+import AgentLoop from '@master-harness/agent-loop'
+import { mountAgentLoopTestDependencies } from '@master-harness/agent-loop-testkit'
+import CommandRuntime from '@master-harness/commands'
+import LocalFileSystem from '@master-harness/fs-local'
+import WorkingDirectory from '@master-harness/working-directory'
+import { createAssistantMessage, createUserMessage, ToolCallId as ToolCallIdOf } from '@master-harness/llm'
+import type { LlmResolvedModelInfo } from '@master-harness/llm'
+import TokenMeter from '@master-harness/token-meter'
+import type { ImageAttachmentRef } from '@master-harness/attachment/types'
+import { scopeOf } from '@master-harness/scope'
+import { SessionId, type SessionEvent } from '@master-harness/session'
+import Storage from '@master-harness/storage'
+import * as StorageDomain from '@master-harness/storage-domain'
+import * as StorageJson from '@master-harness/storage-json'
+import LocalSubprocessRuntime from '@master-harness/subprocess-local'
+import { defineContentToolFixture } from '@master-harness/tool-testkit'
+import UserQuestionService from '@master-harness/user-questions'
 import ClaudeCodeMods, { defineMod, MODS_API_VERSION, type Config, type ModPlugin, type ModRegister } from '../src/index.ts'
 import { MockAdapter, textResponse, toolCallResponse } from '../../../core/agent-loop/tests/mock-adapter.ts'
 
@@ -45,7 +45,7 @@ afterEach(async () => {
   for (const dir of dirs.splice(0)) rmSync(dir, { recursive: true, force: true })
 })
 
-function scratch(prefix = 'dsh-cc-mods-'): string {
+function scratch(prefix = 'mh-cc-mods-'): string {
   const dir = mkdtempSync(join(tmpdir(), prefix))
   dirs.push(dir)
   return dir
@@ -108,7 +108,7 @@ async function harness(
   await mountAgentLoopTestDependencies(ctx, { tools: options.tools ?? {} })
   await ctx.plugin(AgentLoop, { agents: [] })
   await ctx.plugin(CommandRuntime)
-  const workspace = scratch('dsh-cc-mods-ws-')
+  const workspace = scratch('mh-cc-mods-ws-')
   await options.services?.(ctx, workspace)
   if (ctx.get('fs') === undefined) await ctx.plugin(LocalFileSystem, { cwd: workspace })
   await ctx.plugin(WorkingDirectory, { defaultDirectory: workspace })

@@ -1,13 +1,13 @@
 {
-  "name": "@deepseek-ai/dsh-session-persistence",
-  "description": "Abstract durable session persistence seam (ctx.sessionPersistence) for the DeepSeek Harness",
+  "name": "@master-harness/session-persistence",
+  "description": "Abstract durable session persistence seam (ctx.sessionPersistence) for the Master Harness",
   "version": "0.2.1-rc.3",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/session/session-persistence"
   },
   "type": "module",
@@ -27,19 +27,19 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-timeout": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/brand": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/timeout": "workspace:*"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/dsh-scope": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-timeout": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/brand": "workspace:*",
+    "@master-harness/scope": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/timeout": "workspace:*"
   },
   "dependencies": {
-    "@deepseek-ai/dsh-util-values": "workspace:*"
+    "@master-harness/util-values": "workspace:*"
   }
 }

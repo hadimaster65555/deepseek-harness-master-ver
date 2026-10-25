@@ -1,17 +1,17 @@
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import { Context } from '@deepseek-ai/cordis'
+import AgentRegistry from '@master-harness/agent'
+import { Context } from '@master-harness/cordis'
 import { describe, expect, it, onTestFinished, vi } from 'vitest'
-import LlmRuntime, { createUserMessage, markAgentLoopRequest } from '@deepseek-ai/dsh-llm'
-import { deepFreeze } from '@deepseek-ai/dsh-util-values'
-import SessionStore, { SessionId, SessionSeq } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
+import LlmRuntime, { createUserMessage, markAgentLoopRequest } from '@master-harness/llm'
+import { deepFreeze } from '@master-harness/util-values'
+import SessionStore, { SessionId, SessionSeq } from '@master-harness/session'
+import SessionProjectionRegistry from '@master-harness/session-projection'
 import SessionTitleService, {
   SessionTitleProviderId,
   type SessionTitleProvider,
   type SessionTitleProviderRequest,
   type SessionTitleProviderResult,
   type SessionTitleSnapshot,
-} from '@deepseek-ai/dsh-session-title'
+} from '@master-harness/session-title'
 
 const CONFIG = {
   fallbackMaxWords: 5,

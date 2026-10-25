@@ -1,12 +1,12 @@
 /** Source-profile tool-dispatch evidence from the real Agent and Node module cache. */
 
 import { randomUUID } from 'node:crypto'
-import type { Context } from '@deepseek-ai/cordis'
-import type {} from '@deepseek-ai/cordis-plugin-loader'
-import type {} from '@deepseek-ai/dsh-agent'
-import type {} from '@deepseek-ai/dsh-cmdline'
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
-import { SessionId, type SessionEvent } from '@deepseek-ai/dsh-session'
+import type { Context } from '@master-harness/cordis'
+import type {} from '@master-harness/cordis-plugin-loader'
+import type {} from '@master-harness/agent'
+import type {} from '@master-harness/cmdline'
+import { createUserMessage } from '@master-harness/llm'
+import { SessionId, type SessionEvent } from '@master-harness/session'
 
 /** Observations from one isolated Agent's run through the shipped headless profile. */
 export interface SourceToolEvidence {
@@ -55,7 +55,7 @@ export function apply(ctx: Context, config: { cwd: string }): void {
         errors,
         events,
       }
-      process.stdout.write(`DSH_SOURCE_TOOL_RESULT ${JSON.stringify(evidence)}\n`)
+      process.stdout.write(`MH_SOURCE_TOOL_RESULT ${JSON.stringify(evidence)}\n`)
     } finally {
       await handle.dispose()
     }

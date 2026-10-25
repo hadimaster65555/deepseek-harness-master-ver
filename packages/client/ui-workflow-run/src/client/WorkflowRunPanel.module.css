@@ -12,20 +12,20 @@
   min-width: 0;
   height: 32px;
   padding: 0 8px;
-  border-radius: var(--dsw-radius-md);
-  background: var(--dsw-alias-bg-module-platform);
+  border-radius: var(--mh-radius-md);
+  background: var(--mh-alias-bg-module-platform);
 }
 
 .runHeader:focus-visible {
-  outline: var(--dsw-focus-ring-width) solid var(--dsw-focus-ring-color, var(--dsw-alias-state-business-primary));
+  outline: var(--mh-focus-ring-width) solid var(--mh-focus-ring-color, var(--mh-alias-state-business-primary));
   outline-offset: -2px;
 }
 
 .runLeading {
   display: inline-flex;
   flex: none;
-  width: calc(16px + var(--dsh-content-font-delta, 0px));
-  height: calc(16px + var(--dsh-content-font-delta, 0px));
+  width: calc(16px + var(--mh-content-font-delta, 0px));
+  height: calc(16px + var(--mh-content-font-delta, 0px));
   align-items: center;
   justify-content: center;
   margin-right: 0;
@@ -37,9 +37,9 @@
   flex: none;
   max-width: 42%;
   color: inherit;
-  font-size: var(--dsh-content-font-size-secondary, 13px);
+  font-size: var(--mh-content-font-size-secondary, 13px);
   font-weight: 510;
-  line-height: calc(24px + var(--dsh-content-font-delta, 0px));
+  line-height: calc(24px + var(--mh-content-font-delta, 0px));
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -49,8 +49,8 @@
   flex: 1;
   min-width: 0;
   color: inherit;
-  font-size: var(--dsh-content-font-size-secondary, 13px);
-  line-height: calc(18px + var(--dsh-content-font-delta-secondary, 0px));
+  font-size: var(--mh-content-font-size-secondary, 13px);
+  line-height: calc(18px + var(--mh-content-font-delta-secondary, 0px));
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -80,16 +80,16 @@
 }
 
 .phaseHeader:focus-visible {
-  outline: var(--dsw-focus-ring-width) solid var(--dsw-focus-ring-color, var(--dsw-alias-state-business-primary));
+  outline: var(--mh-focus-ring-width) solid var(--mh-focus-ring-color, var(--mh-alias-state-business-primary));
   outline-offset: -2px;
-  border-radius: var(--dsw-radius-md);
+  border-radius: var(--mh-radius-md);
 }
 
 .phaseLeading {
   display: inline-flex;
   flex: none;
-  width: calc(16px + var(--dsh-content-font-delta, 0px));
-  height: calc(16px + var(--dsh-content-font-delta, 0px));
+  width: calc(16px + var(--mh-content-font-delta, 0px));
+  height: calc(16px + var(--mh-content-font-delta, 0px));
   align-items: center;
   justify-content: center;
   margin-right: 0;
@@ -102,8 +102,8 @@
   min-width: 0;
   max-width: 42%;
   color: inherit;
-  font-size: var(--dsh-content-font-size-secondary, 13px);
-  line-height: calc(24px + var(--dsh-content-font-delta, 0px));
+  font-size: var(--mh-content-font-size-secondary, 13px);
+  line-height: calc(24px + var(--mh-content-font-delta, 0px));
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -113,8 +113,8 @@
   flex: 1;
   min-width: 0;
   color: inherit;
-  font-size: var(--dsh-content-font-size-secondary, 13px);
-  line-height: calc(20px + var(--dsh-content-font-delta-secondary, 0px));
+  font-size: var(--mh-content-font-size-secondary, 13px);
+  line-height: calc(20px + var(--mh-content-font-delta-secondary, 0px));
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -124,10 +124,10 @@
   flex: none;
   /* Column width scales with the text (~132/13 ≈ 10px per font-size px) so
      larger sizes keep the same status text visible instead of truncating. */
-  width: calc(132px + var(--dsh-content-font-delta-secondary, 0px) * 10);
+  width: calc(132px + var(--mh-content-font-delta-secondary, 0px) * 10);
   color: inherit;
-  font-size: var(--dsh-content-font-size-secondary, 13px);
-  line-height: calc(20px + var(--dsh-content-font-delta-secondary, 0px));
+  font-size: var(--mh-content-font-size-secondary, 13px);
+  line-height: calc(20px + var(--mh-content-font-delta-secondary, 0px));
   text-align: right;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -139,7 +139,7 @@
   height: 2px;
   border-radius: 50%;
   corner-shape: round;
-  background: var(--dsw-alias-label-tertiary);
+  background: var(--mh-alias-label-tertiary);
 }
 
 .phaseList {
@@ -169,12 +169,12 @@
   gap: 12px;
   width: 100%;
   min-width: 0;
-  min-height: calc(24px + var(--dsh-content-font-delta, 0px));
+  min-height: calc(24px + var(--mh-content-font-delta, 0px));
   padding: 0;
   border: 0;
-  border-radius: var(--dsw-radius-sm);
+  border-radius: var(--mh-radius-sm);
   background: transparent;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
   font: inherit;
   text-align: left;
 }
@@ -184,7 +184,7 @@
 }
 
 .memberButton .memberLabel {
-  color: var(--dsw-alias-link);
+  color: var(--mh-alias-link);
   font-weight: 500;
   text-decoration: none;
 }
@@ -205,7 +205,7 @@
   display: inline-flex;
   flex: none;
   width: 16px;
-  height: calc(24px + var(--dsh-content-font-delta, 0px));
+  height: calc(24px + var(--mh-content-font-delta, 0px));
   align-items: center;
   justify-content: center;
   overflow: hidden;
@@ -216,7 +216,7 @@
 }
 
 .memberButton:focus-visible .memberLabelWrap {
-  outline: var(--dsw-focus-ring-width) solid var(--dsw-focus-ring-color, var(--dsw-alias-state-business-primary));
+  outline: var(--mh-focus-ring-width) solid var(--mh-focus-ring-color, var(--mh-alias-state-business-primary));
   outline-offset: -1px;
 }
 
@@ -225,22 +225,22 @@
   overflow: hidden;
   flex: 1;
   min-width: 0;
-  height: calc(24px + var(--dsh-content-font-delta, 0px));
+  height: calc(24px + var(--mh-content-font-delta, 0px));
   align-items: center;
   padding: 0 2px;
-  border-radius: var(--dsw-radius-sm);
+  border-radius: var(--mh-radius-sm);
 }
 
 .memberLabel {
   overflow: hidden;
   flex: 1;
   min-width: 0;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
   /* Body size, not the secondary tier: the member label is the panel's
      content (an agent's task), while the run/phase headers, counts, and
      statuses around it are chrome one step down. */
-  font-size: var(--dsh-content-font-size, 14px);
-  line-height: calc(24px + var(--dsh-content-font-delta, 0px));
+  font-size: var(--mh-content-font-size, 14px);
+  line-height: calc(24px + var(--mh-content-font-delta, 0px));
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -249,18 +249,18 @@
   flex: none;
   overflow: hidden;
   width: 64px;
-  color: var(--dsw-alias-label-secondary);
-  font-size: var(--dsh-content-font-size-secondary, 13px);
-  line-height: calc(20px + var(--dsh-content-font-delta-secondary, 0px));
+  color: var(--mh-alias-label-secondary);
+  font-size: var(--mh-content-font-size-secondary, 13px);
+  line-height: calc(20px + var(--mh-content-font-delta-secondary, 0px));
   text-align: right;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .empty {
-  color: var(--dsw-alias-label-tertiary);
-  font-size: var(--dsh-content-font-size-secondary, 13px);
-  line-height: calc(20px + var(--dsh-content-font-delta-secondary, 0px));
+  color: var(--mh-alias-label-tertiary);
+  font-size: var(--mh-content-font-size-secondary, 13px);
+  line-height: calc(20px + var(--mh-content-font-delta-secondary, 0px));
   padding: 0;
 }
 

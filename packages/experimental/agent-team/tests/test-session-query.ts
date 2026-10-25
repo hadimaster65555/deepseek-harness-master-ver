@@ -1,9 +1,9 @@
 /** Minimal concrete Session query for Agent Team continuation tests. */
 
-import { SessionLogOffset } from '@deepseek-ai/dsh-session'
-import type { SessionEvent, SessionHeader, SessionId } from '@deepseek-ai/dsh-session'
-import SessionQueryEngine from '@deepseek-ai/dsh-session-query'
-import type { SessionObservation, SessionObservationOptions } from '@deepseek-ai/dsh-session-query'
+import { SessionLogOffset } from '@master-harness/session'
+import type { SessionEvent, SessionHeader, SessionId } from '@master-harness/session'
+import SessionQueryEngine from '@master-harness/session-query'
+import type { SessionObservation, SessionObservationOptions } from '@master-harness/session-query'
 
 /** Undisposable immutable cut over one session's header and events. */
 function cut(

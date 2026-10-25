@@ -1,13 +1,13 @@
 {
-  "name": "@deepseek-ai/dsh-jobs-local",
-  "description": "Process-local implementation of the DeepSeek Harness background job registry seam",
+  "name": "@master-harness/jobs-local",
+  "description": "Process-local implementation of the Master Harness background job registry seam",
   "version": "0.2.1-rc.3",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/jobs/jobs-local"
   },
   "type": "module",
@@ -29,25 +29,25 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-scope": "workspace:*",
-    "@deepseek-ai/dsh-jobs": "workspace:*",
-    "@deepseek-ai/dsh-timeout": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@master-harness/agent": "workspace:*",
+    "@master-harness/scope": "workspace:*",
+    "@master-harness/jobs": "workspace:*",
+    "@master-harness/timeout": "workspace:*",
+    "@master-harness/cordis": "workspace:~"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:~"
+    "@master-harness/schemastery": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis-plugin-include": "workspace:~",
-    "@deepseek-ai/cordis-plugin-loader": "workspace:~",
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-agent-loop-testkit": "workspace:*",
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/dsh-scope": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-jobs": "workspace:*",
-    "@deepseek-ai/dsh-timeout": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@master-harness/cordis-plugin-include": "workspace:~",
+    "@master-harness/cordis-plugin-loader": "workspace:~",
+    "@master-harness/agent": "workspace:*",
+    "@master-harness/agent-loop-testkit": "workspace:*",
+    "@master-harness/brand": "workspace:*",
+    "@master-harness/scope": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/jobs": "workspace:*",
+    "@master-harness/timeout": "workspace:*",
+    "@master-harness/cordis": "workspace:~"
   }
 }

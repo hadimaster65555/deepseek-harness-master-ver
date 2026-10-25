@@ -1,11 +1,11 @@
 /** Execution-time authority checks for the model-facing goal tools. */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import type { GoalView } from '@deepseek-ai/dsh-goal'
-import { HarnessError } from '@deepseek-ai/dsh-llm'
-import type { SessionEvent, SessionSeq } from '@deepseek-ai/dsh-session'
-import type { ToolRunContext } from '@deepseek-ai/dsh-tools'
+import type { Context } from '@master-harness/cordis'
+import type { Agent } from '@master-harness/agent'
+import type { GoalView } from '@master-harness/goal'
+import { HarnessError } from '@master-harness/llm'
+import type { SessionEvent, SessionSeq } from '@master-harness/session'
+import type { ToolRunContext } from '@master-harness/tools'
 
 /** The calling agent plus the immutable event cut and open-turn start seq used for authority checks. */
 export interface GoalToolExecution {

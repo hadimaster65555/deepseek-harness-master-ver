@@ -1,32 +1,32 @@
 - insert:
     - id: subagent-model-selection-settings
-      name: '@deepseek-ai/dsh-tool-subagent/model-selection-settings'
+      name: '@master-harness/tool-subagent/model-selection-settings'
     - id: agent-preset-registry
-      name: '@deepseek-ai/dsh-agent-preset-registry'
+      name: '@master-harness/agent-preset-registry'
       config:
         default: parent
     - id: preset-parent
-      name: '@deepseek-ai/dsh-agent-preset'
+      name: '@master-harness/agent-preset'
       config:
         id: parent
         name: Parent
         description: Headless parent tools.
         plugins: []
     - id: preset-reviewer
-      name: '@deepseek-ai/dsh-agent-preset'
+      name: '@master-harness/agent-preset'
       config:
         id: reviewer
         name: Reviewer
         description: File review.
         plugins:
           - id: persona
-            name: '@deepseek-ai/dsh-persona'
+            name: '@master-harness/persona'
             config:
               prefix: You are a file reviewer. Inspect the requested files and report your findings.
           - id: tool-fs
-            name: '@deepseek-ai/dsh-tool-fs'
+            name: '@master-harness/tool-fs'
           - id: tool-subagent
-            name: '@deepseek-ai/dsh-tool-subagent'
+            name: '@master-harness/tool-subagent'
             config:
               provider: spawn
               toolName: reviewer_delegate
@@ -35,7 +35,7 @@
       name: '../../../packages/test-support/session-snapshot/tests/fixtures/parent-agent-preset.ts'
 
 - id: tool-subagent
-  name: '@deepseek-ai/dsh-tool-subagent'
+  name: '@master-harness/tool-subagent'
   inject: [agentPresets]
   config:
     provider: spawn

@@ -1,20 +1,20 @@
-import * as NativeToolExecutor from '@deepseek-ai/dsh-tool-executor-native'
+import * as NativeToolExecutor from '@master-harness/tool-executor-native'
 import { mkdtemp, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { afterEach, describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import Loader from '@deepseek-ai/cordis-plugin-loader'
-import Include from '@deepseek-ai/cordis-plugin-include'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import LlmRuntime, { createUserMessage, LlmAdapter, LlmError, resolveRetryPolicy  } from '@deepseek-ai/dsh-llm'
-import type { GenerateOptions, ResolvedRetryPolicy, StreamChunk } from '@deepseek-ai/dsh-llm'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime from '@deepseek-ai/dsh-tools'
+import { Context } from '@master-harness/cordis'
+import Loader from '@master-harness/cordis-plugin-loader'
+import Include from '@master-harness/cordis-plugin-include'
+import AgentRegistry from '@master-harness/agent'
+import AgentLoop from '@master-harness/agent-loop'
+import LlmRuntime, { createUserMessage, LlmAdapter, LlmError, resolveRetryPolicy  } from '@master-harness/llm'
+import type { GenerateOptions, ResolvedRetryPolicy, StreamChunk } from '@master-harness/llm'
+import SessionStore, { SessionId } from '@master-harness/session'
+import SessionProjectionRegistry from '@master-harness/session-projection'
+import SystemPrompt from '@master-harness/system-prompt'
+import ToolRuntime from '@master-harness/tools'
 import * as retry from '../src/index.ts'
 
 let root: string | undefined
@@ -51,7 +51,7 @@ afterEach(async () => {
 })
 
 async function loadYaml(lines: readonly string[]): Promise<Context> {
-  root = await mkdtemp(join(tmpdir(), 'dsh-llm-retry-loader-'))
+  root = await mkdtemp(join(tmpdir(), 'mh-llm-retry-loader-'))
   const configPath = join(root, 'cordis.yml')
   await writeFile(configPath, [...lines, ''].join('\n'))
 
@@ -60,16 +60,16 @@ async function loadYaml(lines: readonly string[]): Promise<Context> {
   await context.plugin(Loader)
   context.loader.builtins.include = Include
   const modules = new Map<string, unknown>([
-    ['@deepseek-ai/dsh-llm', LlmRuntime],
-    ['@deepseek-ai/dsh-session', SessionStore],
-    ['@deepseek-ai/dsh-session-projection', SessionProjectionRegistry],
+    ['@master-harness/llm', LlmRuntime],
+    ['@master-harness/session', SessionStore],
+    ['@master-harness/session-projection', SessionProjectionRegistry],
 
-    ['@deepseek-ai/dsh-system-prompt', SystemPrompt],
-    ['@deepseek-ai/dsh-tools', ToolRuntime],
-    ['@deepseek-ai/dsh-tool-executor-native', NativeToolExecutor],
-    ['@deepseek-ai/dsh-agent', AgentRegistry],
-    ['@deepseek-ai/dsh-llm-retry', retry],
-    ['@deepseek-ai/dsh-agent-loop', AgentLoop],
+    ['@master-harness/system-prompt', SystemPrompt],
+    ['@master-harness/tools', ToolRuntime],
+    ['@master-harness/tool-executor-native', NativeToolExecutor],
+    ['@master-harness/agent', AgentRegistry],
+    ['@master-harness/llm-retry', retry],
+    ['@master-harness/agent-loop', AgentLoop],
   ])
   context.loader.internal = {
     version: 'v2',
@@ -92,15 +92,15 @@ describe('real Loader composition', () => {
   // to trip the default 5s budget on cold caches.
   it('loads provider-supplied policy and records recovery through the shipping loop', { timeout: 60_000 }, async () => {
     const loaded = await loadYaml([
-      "- name: '@deepseek-ai/dsh-llm'",
-      "- name: '@deepseek-ai/dsh-session'",
-      "- name: '@deepseek-ai/dsh-session-projection'",
-      "- name: '@deepseek-ai/dsh-system-prompt'",
-      "- name: '@deepseek-ai/dsh-tools'",
-      "- name: '@deepseek-ai/dsh-tool-executor-native'",
-      "- name: '@deepseek-ai/dsh-agent'",
-      "- name: '@deepseek-ai/dsh-llm-retry'",
-      "- name: '@deepseek-ai/dsh-agent-loop'",
+      "- name: '@master-harness/llm'",
+      "- name: '@master-harness/session'",
+      "- name: '@master-harness/session-projection'",
+      "- name: '@master-harness/system-prompt'",
+      "- name: '@master-harness/tools'",
+      "- name: '@master-harness/tool-executor-native'",
+      "- name: '@master-harness/agent'",
+      "- name: '@master-harness/llm-retry'",
+      "- name: '@master-harness/agent-loop'",
     ])
 
     const unloaded = [...loaded.loader.entries()]

@@ -3,14 +3,14 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/proposed/simplification/2026-09-19-shell-env-key-declarations.md
 /agent-note-keep-shell-environment-declarations-focused-on-key-ownership:
-  en: 45ac68010d497bfd
-  zh: 388e4f51893c4615
+  en: 6c5ad2bf72d53c76
+  zh: 8567ed3a81e3c368
 /agent-note-keep-shell-environment-declarations-focused-on-key-ownership/problem:
-  en: ff308f45fc6f5242
-  zh: 025b58883a3e175b
+  en: bfa6097d69173c5f
+  zh: 1ad68c956651f0a3
 /agent-note-keep-shell-environment-declarations-focused-on-key-ownership/proposal:
-  en: 38511c6da912406d
-  zh: 2ee9dcf7a611c57f
+  en: 97d784d5303d73ac
+  zh: d3925ae64a8daead
 /agent-note-keep-shell-environment-declarations-focused-on-key-ownership/alternatives-considered:
   en: 476de18c44f2ad86
   zh: a0a15da6c5e7fbf7

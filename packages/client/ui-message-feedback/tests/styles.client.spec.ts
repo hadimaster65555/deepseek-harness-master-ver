@@ -2,7 +2,7 @@
  * Feedback stylesheet contract, asserted against the CSS text on disk for the
  * message controls and the dialog.
  *
- * A `--dsw-*` name the theme never declares fails silently, and for the
+ * A `--mh-*` name the theme never declares fails silently, and for the
  * controls' sheet it failed loudly in the product: `border`, `background`, and
  * the primary button's fill and label each named a token that does not exist,
  * so every one of those declarations was invalid at computed-value time and
@@ -54,9 +54,9 @@ describe.each(SHEETS)('%s theme styles', (name) => {
     // has no fallback and does not inherit a usable value: the entire
     // declaration is thrown away, so the control renders as if the line had
     // never been written. Every theme-variable prefix the sheets actually use,
-    // not just `--dsw-`: a `--dsh-` name reads as a plausible sibling and would
+    // not just `--mh-`: a `--mh-` name reads as a plausible sibling and would
     // otherwise slip past into an invalid declaration.
-    const named = [...sheet.matchAll(/var\((--(?:dsw|dsh|ds)-[a-z0-9-]+)/g)].map(match => match[1])
+    const named = [...sheet.matchAll(/var\((--(?:mh|mh|ds)-[a-z0-9-]+)/g)].map(match => match[1])
     // Vacuity guard: the sheet has to actually name tokens, or the filter below
     // is satisfied by an empty list and this test proves nothing.
     expect(named.length).toBeGreaterThan(3)
@@ -67,7 +67,7 @@ describe.each(SHEETS)('%s theme styles', (name) => {
   it('never falls back to a literal colour', () => {
     // A token that resolves is never the problem; an undeclared one takes this
     // branch, and a literal here is a single colour for both themes.
-    expect(sheet).not.toMatch(/var\(--dsw-[a-z0-9-]+\s*,\s*(?:#|rgb|rgba|hsl|hsla)/)
+    expect(sheet).not.toMatch(/var\(--mh-[a-z0-9-]+\s*,\s*(?:#|rgb|rgba|hsl|hsla)/)
   })
 
   it('closes every block, so no rule is swallowed by the one above it', () => {
@@ -83,14 +83,14 @@ describe('MessageFeedbackActions row styles', () => {
     // These buttons render inside ui-chat's MessageIconActions row; a fixed
     // 28px would leave them undersized (or overflowing) once the Settings
     // font size moves the row.
-    expect(block('MessageFeedbackActions', '.action')).toMatch(/width:\s*calc\(28px \+ var\(--dsh-content-font-delta, 0px\)\)/)
-    expect(block('MessageFeedbackActions', '.action')).toMatch(/height:\s*calc\(28px \+ var\(--dsh-content-font-delta, 0px\)\)/)
-    expect(block('MessageFeedbackActions', '.action svg')).toMatch(/width:\s*calc\(15px \+ var\(--dsh-content-font-delta, 0px\)\)/)
+    expect(block('MessageFeedbackActions', '.action')).toMatch(/width:\s*calc\(28px \+ var\(--mh-content-font-delta, 0px\)\)/)
+    expect(block('MessageFeedbackActions', '.action')).toMatch(/height:\s*calc\(28px \+ var\(--mh-content-font-delta, 0px\)\)/)
+    expect(block('MessageFeedbackActions', '.action svg')).toMatch(/width:\s*calc\(15px \+ var\(--mh-content-font-delta, 0px\)\)/)
   })
 
   it('uses the tertiary label colour for recorded rating icons', () => {
     expect(block('MessageFeedbackActions', '.action[data-active]'))
-      .toMatch(/color:\s*var\(--dsw-alias-label-tertiary\)/)
+      .toMatch(/color:\s*var\(--mh-alias-label-tertiary\)/)
   })
 })
 
@@ -98,10 +98,10 @@ describe('FeedbackDialog layout styles', () => {
   it('uses the reviewed spacing, text colours, and submit-button geometry', () => {
     expect(block('FeedbackDialog', '.dialog.dialog')).toMatch(/gap:\s*38px/)
     expect(block('FeedbackDialog', '.categories')).toMatch(/margin-top:\s*-14px/)
-    expect(block('FeedbackDialog', '.chip')).toMatch(/color:\s*var\(--dsw-alias-label-primary\)/)
-    expect(block('FeedbackDialog', '.detail::placeholder')).toMatch(/color:\s*var\(--dsw-alias-label-caption\)/)
-    expect(block('FeedbackDialog', '.detail')).toContain('border-radius: var(--dsw-radius-lg)')
-    expect(block('FeedbackDialog', '.submit')).toContain('border-radius: var(--dsw-radius-lg)')
+    expect(block('FeedbackDialog', '.chip')).toMatch(/color:\s*var\(--mh-alias-label-primary\)/)
+    expect(block('FeedbackDialog', '.detail::placeholder')).toMatch(/color:\s*var\(--mh-alias-label-caption\)/)
+    expect(block('FeedbackDialog', '.detail')).toContain('border-radius: var(--mh-radius-lg)')
+    expect(block('FeedbackDialog', '.submit')).toContain('border-radius: var(--mh-radius-lg)')
     expect(block('FeedbackDialog', '.submit')).toMatch(/font-weight:\s*500/)
   })
 })

@@ -26,7 +26,7 @@ describe('pinned collapsible headers', () => {
       'position: sticky',
       'top: 0',
       'z-index: 1',
-      'background: var(--dsw-alias-bg-base)',
+      'background: var(--mh-alias-bg-base)',
     ]))
   })
 
@@ -42,7 +42,7 @@ describe('pinned collapsible headers', () => {
       // The opaque fill masks the prose only if the box has no rounded corners
       // for it to show through.
       'border-radius: 0',
-      'background: var(--dsw-alias-bg-base)',
+      'background: var(--mh-alias-bg-base)',
     ]))
   })
 
@@ -52,19 +52,19 @@ describe('pinned collapsible headers', () => {
     // keeps a code banner clear of it must never drift apart, and sticky gives
     // no error when they do.
     expect(declarationsFrom(css, '.compactionRow')).toEqual(expect.arrayContaining([
-      '--dsh-compaction-header-height: calc(24px + var(--dsh-content-font-delta, 0px))',
+      '--mh-compaction-header-height: calc(24px + var(--mh-content-font-delta, 0px))',
     ]))
     expect(declarationsFrom(css, '.compactionButton')).toEqual(expect.arrayContaining([
-      'height: var(--dsh-compaction-header-height)',
+      'height: var(--mh-compaction-header-height)',
     ]))
     expect(declarationsFrom(css, '.compactionBody :has(> [data-code-block-banner])')).toEqual(expect.arrayContaining([
-      'top: var(--dsh-compaction-header-height)',
+      'top: var(--mh-compaction-header-height)',
     ]))
   })
 
   it('keeps the pinned compaction header opaque under hover', () => {
     expect(
       declarationsFrom(read('MessageItem.module.css'), '.compactionRow:has(.compactionBody) .compactionButton:hover'),
-    ).toEqual(expect.arrayContaining(['background: var(--dsw-alias-interactive-bg-hover-solid)']))
+    ).toEqual(expect.arrayContaining(['background: var(--mh-alias-interactive-bg-hover-solid)']))
   })
 })

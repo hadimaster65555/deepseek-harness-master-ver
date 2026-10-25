@@ -5,7 +5,7 @@
    above the body's middle by the spacer below. The minimum height centres a
    short guide while allowing a tall guide to grow into the pane's scroller. */
 .guide {
-  --dsl-guide-entry-radius: var(--dsw-radius-xl);
+  --dsl-guide-entry-radius: var(--mh-radius-xl);
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -32,11 +32,11 @@
 .hero {
   display: flex;
   margin-bottom: 16px;
-  color: var(--dsw-static-neutral-200);
+  color: var(--mh-static-neutral-200);
 }
 
 :global(body[data-ds-dark-theme]) .hero {
-  color: var(--dsw-static-neutral-700);
+  color: var(--mh-static-neutral-700);
 }
 
 /* A filled pill, 380px wide by default, its icon and text anchored at the
@@ -53,18 +53,18 @@
   max-width: 100%;
   min-height: 56px;
   padding: 14px 20px;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
   font: inherit;
   text-align: left;
-  background: var(--dsw-alias-bg-layer-1);
-  border: 0.5px solid var(--dsw-alias-border-l3);
+  background: var(--mh-alias-bg-layer-1);
+  border: 0.5px solid var(--mh-alias-border-l3);
   border-radius: var(--dsl-guide-entry-radius);
   cursor: pointer;
 }
 
 @media (hover: hover) {
   .entry:hover {
-    background: var(--dsw-alias-interactive-bg-hover);
+    background: var(--mh-alias-interactive-bg-hover);
   }
 }
 
@@ -78,13 +78,13 @@
   justify-content: center;
   width: 26px;
   height: 26px;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
 }
 
 /* The capsule's placeholder cube on ink one step quieter than a registered
    glyph's, marking the unclaimed slot. */
 .placeholderInk {
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
 }
 
 /* The capsule's words in one column beside the glyph: the title, and the
@@ -108,7 +108,7 @@
 /* One line under the title on the quieter ink; it ellipsizes like the title. */
 .entryDescription {
   overflow: hidden;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   font-size: 11px;
   line-height: 1.4;
   white-space: nowrap;
@@ -119,7 +119,7 @@
    draws on currentColor, so this ink is the chip rendering's own. */
 .titleIcon {
   flex: none;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
 }
 
 .entryCell { width: 380px; max-width: 100%; }
@@ -127,6 +127,6 @@
 /* The More card keeps the capsule width inside the menu's anchor wrapper. */
 .moreAnchor { display: flex; width: 380px; max-width: 100%; }
 
-.moreAnchor .entry[aria-expanded='true'] { background: var(--dsw-alias-interactive-bg-hover); }
+.moreAnchor .entry[aria-expanded='true'] { background: var(--mh-alias-interactive-bg-hover); }
 
 .moreMenu { width: max-content; max-width: min(480px, calc(100vw - 24px)); }

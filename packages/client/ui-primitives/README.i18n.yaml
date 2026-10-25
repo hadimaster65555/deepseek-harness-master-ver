@@ -3,59 +3,59 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write packages/client/ui-primitives/README.md
 /:
-  en: 6da33cc935e210c4
-  zh: 752948e68a6e2c32
-/deepseek-ai-dsh-client-ui-primitives:
-  en: e39769cae26393b8
-  zh: 8743c8cf561fec35
-/deepseek-ai-dsh-client-ui-primitives/summary:
-  en: a05472dce901d64f
-  zh: 6747ad81824a5c0d
-/deepseek-ai-dsh-client-ui-primitives/table-of-contents:
+  en: 67325d3de34a494d
+  zh: e0363403ffaf17f6
+/master-harness-client-ui-primitives:
+  en: 9c95ebc4be75c385
+  zh: 22bbd5d5eb5a08e3
+/master-harness-client-ui-primitives/summary:
+  en: f87c5f4605c86ece
+  zh: 2d797a79ee0fa1fb
+/master-harness-client-ui-primitives/table-of-contents:
   en: d152484eb41ac6b4
   zh: 09388d293f9be9cb
-/deepseek-ai-dsh-client-ui-primitives/use-this-package:
-  en: 10be7f75a1576575
-  zh: abf2905d89b0da48
-/deepseek-ai-dsh-client-ui-primitives/use-this-package/component-catalog:
-  en: 3c79351ff2210ccb
-  zh: 4cbe07ded89bbaa1
-/deepseek-ai-dsh-client-ui-primitives/use-this-package/controls-and-icons:
-  en: b3744373b4b2c1fb
-  zh: 2dbde8ee0bfa5f28
-/deepseek-ai-dsh-client-ui-primitives/use-this-package/rendering-agent-output:
-  en: 31ed1a6239427512
-  zh: cb489d77de109d3f
-/deepseek-ai-dsh-client-ui-primitives/use-this-package/localizing-copy:
+/master-harness-client-ui-primitives/use-this-package:
+  en: 96ecdd26d8695c3c
+  zh: 455a918c0ff17c8e
+/master-harness-client-ui-primitives/use-this-package/component-catalog:
+  en: 4f26bfa48199ab51
+  zh: 1e6fcf2695552250
+/master-harness-client-ui-primitives/use-this-package/controls-and-icons:
+  en: 4b86fad87e2fa112
+  zh: 265c4d533f0af292
+/master-harness-client-ui-primitives/use-this-package/rendering-agent-output:
+  en: 625322180b8b3e4d
+  zh: f9a7fa97e990650b
+/master-harness-client-ui-primitives/use-this-package/localizing-copy:
   en: a943603b74080ef5
   zh: 43f7a0188aff271b
-/deepseek-ai-dsh-client-ui-primitives/understand-the-implementation:
-  en: 846ac0f563a53a64
-  zh: bb89d7647bdcc1ab
-/deepseek-ai-dsh-client-ui-primitives/understand-the-implementation/source-map:
+/master-harness-client-ui-primitives/understand-the-implementation:
+  en: 7093aff34cf3fbda
+  zh: d9647a8ddc43c12d
+/master-harness-client-ui-primitives/understand-the-implementation/source-map:
   en: fd510d34404eb090
   zh: d05b0890db929ae6
-/deepseek-ai-dsh-client-ui-primitives/understand-the-implementation/input-modality:
-  en: cb61e1a37d6c27e5
-  zh: 1f3fa79dd5ab2e45
-/deepseek-ai-dsh-client-ui-primitives/understand-the-implementation/streaming-markdown:
+/master-harness-client-ui-primitives/understand-the-implementation/input-modality:
+  en: 9214d962dfffa2a1
+  zh: 7ffbaca892d30a4b
+/master-harness-client-ui-primitives/understand-the-implementation/streaming-markdown:
   en: 8bbfa14c27f3bfd7
   zh: 88f7548ac3a114e1
-/deepseek-ai-dsh-client-ui-primitives/understand-the-implementation/geometry-and-overflow:
+/master-harness-client-ui-primitives/understand-the-implementation/geometry-and-overflow:
   en: 45f4cd1ef96bb6d2
   zh: f264d25b780ad1dc
-/deepseek-ai-dsh-client-ui-primitives/further-exploration:
-  en: abbbdbc9a7540743
-  zh: cf5bbeaedb3696d0
-/deepseek-ai-dsh-client-ui-primitives/model-experience:
+/master-harness-client-ui-primitives/further-exploration:
+  en: 92fb2f927017e790
+  zh: d9bec50c2a1cd82c
+/master-harness-client-ui-primitives/model-experience:
   en: 3120df665299c634
   zh: 1d9f365d091d0d2a
-/deepseek-ai-dsh-client-ui-primitives/model-experience/kv-cache-effect:
+/master-harness-client-ui-primitives/model-experience/kv-cache-effect:
   en: ca75c51c89c2c9b0
   zh: de54f3467ef3b9be
-/deepseek-ai-dsh-client-ui-primitives/known-limitations-and-deferred-work:
-  en: 9c5bc17e35af9d0b
-  zh: 4f1a142c7d56cf72
-/deepseek-ai-dsh-client-ui-primitives/known-limitations-and-deferred-work/dev-note:
+/master-harness-client-ui-primitives/known-limitations-and-deferred-work:
+  en: 4d58697cbb8ddf7e
+  zh: 8c106e58373c1cc5
+/master-harness-client-ui-primitives/known-limitations-and-deferred-work/dev-note:
   en: e67f633dc6fe7773
   zh: 3bb0c20c93f16f98

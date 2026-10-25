@@ -6,21 +6,21 @@
  */
 
 import { afterEach, describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import { agentPresetProjectionDefinition } from '@deepseek-ai/dsh-agent-preset-registry'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
-import type { SessionFollowFrame } from '@deepseek-ai/dsh-api-session-controller/types'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
+import { Context } from '@master-harness/cordis'
+import AgentRegistry from '@master-harness/agent'
+import { agentPresetProjectionDefinition } from '@master-harness/agent-preset-registry'
+import SessionStore, { SessionId } from '@master-harness/session'
+import type { SessionFollowFrame } from '@master-harness/api-session-controller/types'
+import SessionProjectionRegistry from '@master-harness/session-projection'
 import {
   apply as sessionStatsApply, inject as sessionStatsInject, name as sessionStatsName,
-} from '@deepseek-ai/dsh-session-stats'
+} from '@master-harness/session-stats'
 import {
   apply as turnOutlineApply, inject as turnOutlineInject, name as turnOutlineName,
-} from '@deepseek-ai/dsh-session-turn-outline'
+} from '@master-harness/session-turn-outline'
 import {
   apply as toolTodoApply, Config as toolTodoConfig, inject as toolTodoInject, name as toolTodoName,
-} from '@deepseek-ai/dsh-tool-todo'
+} from '@master-harness/tool-todo'
 import { createSessionTestRemote } from './test-remote.ts'
 
 const SUMMARY_EXCLUDED_KEYS = ['turnOutline', 'sessionStats', 'todos', 'imageLimits'] as const

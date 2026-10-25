@@ -3,20 +3,20 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write docs/subsystems/client-resources.md
 /client-resources:
-  en: a7972413b1780235
-  zh: 74d70a11d7e7f7e3
+  en: e2e66ea96d0c8b8b
+  zh: 7276850bc3f2ec37
 /client-resources/addresses:
-  en: 47da087087a3b0c5
-  zh: ddf0ffe347a1fe0c
+  en: 7ca6746970e7617d
+  zh: 24a3ca7bd24767b2
 /client-resources/registering-a-provider:
-  en: bfe0d08fb20a8f55
-  zh: a569b0e65a343943
+  en: 88d5ad762187d38e
+  zh: 0c6d68f5a9981982
 /client-resources/reading-a-resource:
-  en: d1c77f944148b976
-  zh: 882f95a6046ccc80
+  en: 083ea31f52fda55c
+  zh: 6d8d981b5d6262db
 /client-resources/holding-and-releasing:
-  en: 4b904d5298237dd3
-  zh: 6952e56fecf9de78
+  en: e75d33445db77be8
+  zh: 1f34603f4afc8c61
 /client-resources/limits:
   en: 0bb8c1e28d645c4a
   zh: 1c353afec3af2546

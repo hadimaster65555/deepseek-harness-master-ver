@@ -1,5 +1,5 @@
-import { executeToolFixture } from '@deepseek-ai/dsh-tool-testkit'
-import * as NativeToolExecutor from '@deepseek-ai/dsh-tool-executor-native'
+import { executeToolFixture } from '@master-harness/tool-testkit'
+import * as NativeToolExecutor from '@master-harness/tool-executor-native'
 import { execFile } from 'node:child_process'
 import { mkdir, mkdtemp, readFile, realpath, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -7,22 +7,22 @@ import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { promisify } from 'node:util'
 import { afterEach, describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import Loader from '@deepseek-ai/cordis-plugin-loader'
-import Include from '@deepseek-ai/cordis-plugin-include'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import LocalFileSystem from '@deepseek-ai/dsh-fs-local'
-import LlmRuntime, { ToolCallId } from '@deepseek-ai/dsh-llm'
-import LocalSandbox from '@deepseek-ai/dsh-sandbox-local'
-import SandboxPolicyService from '@deepseek-ai/dsh-sandbox-policy'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import LocalSubprocessRuntime from '@deepseek-ai/dsh-subprocess-local'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime from '@deepseek-ai/dsh-tools'
-import WorkingDirectoryService from '@deepseek-ai/dsh-working-directory'
-import WorktreeService from '@deepseek-ai/dsh-experimental-worktree'
+import { Context } from '@master-harness/cordis'
+import Loader from '@master-harness/cordis-plugin-loader'
+import Include from '@master-harness/cordis-plugin-include'
+import AgentRegistry from '@master-harness/agent'
+import AgentLoop from '@master-harness/agent-loop'
+import LocalFileSystem from '@master-harness/fs-local'
+import LlmRuntime, { ToolCallId } from '@master-harness/llm'
+import LocalSandbox from '@master-harness/sandbox-local'
+import SandboxPolicyService from '@master-harness/sandbox-policy'
+import SessionStore, { SessionId } from '@master-harness/session'
+import SessionProjectionRegistry from '@master-harness/session-projection'
+import LocalSubprocessRuntime from '@master-harness/subprocess-local'
+import SystemPrompt from '@master-harness/system-prompt'
+import ToolRuntime from '@master-harness/tools'
+import WorkingDirectoryService from '@master-harness/working-directory'
+import WorktreeService from '@master-harness/experimental-worktree'
 import * as ToolWorktree from '../src/index.ts'
 
 const exec = promisify(execFile)
@@ -38,7 +38,7 @@ afterEach(async () => {
 
 describe('worktree tool through real Loader composition', () => {
   it('creates and enters a new checkout, reports canonical fields, and unregisters on disposal', async () => {
-    root = await realpath(await mkdtemp(join(tmpdir(), 'dsh-worktree-loader-')))
+    root = await realpath(await mkdtemp(join(tmpdir(), 'mh-worktree-loader-')))
     const repository = join(root, 'repo')
     await mkdir(repository)
     const git = (...args: string[]) => exec('git', ['-c', 'core.hooksPath=/dev/null', ...args], {
@@ -53,27 +53,27 @@ describe('worktree tool through real Loader composition', () => {
     const baseCommit = (await git('rev-parse', 'HEAD')).stdout.trim()
 
     const modules = new Map<string, unknown>([
-      ['@deepseek-ai/dsh-agent', AgentRegistry],
-      ['@deepseek-ai/dsh-session', SessionStore],
-      ['@deepseek-ai/dsh-session-projection', SessionProjectionRegistry],
+      ['@master-harness/agent', AgentRegistry],
+      ['@master-harness/session', SessionStore],
+      ['@master-harness/session-projection', SessionProjectionRegistry],
 
-      ['@deepseek-ai/dsh-system-prompt', SystemPrompt],
-      ['@deepseek-ai/dsh-llm', LlmRuntime],
-      ['@deepseek-ai/dsh-tools', ToolRuntime],
-      ['@deepseek-ai/dsh-tool-executor-native', NativeToolExecutor],
-      ['@deepseek-ai/dsh-fs-local', LocalFileSystem],
-      ['@deepseek-ai/dsh-subprocess-local', LocalSubprocessRuntime],
-      ['@deepseek-ai/dsh-sandbox-local', LocalSandbox],
-      ['@deepseek-ai/dsh-sandbox-policy', SandboxPolicyService],
-      ['@deepseek-ai/dsh-working-directory', WorkingDirectoryService],
-      ['@deepseek-ai/dsh-experimental-worktree', WorktreeService],
-      ['@deepseek-ai/dsh-experimental-tool-worktree', ToolWorktree],
-      ['@deepseek-ai/dsh-agent-loop', AgentLoop],
+      ['@master-harness/system-prompt', SystemPrompt],
+      ['@master-harness/llm', LlmRuntime],
+      ['@master-harness/tools', ToolRuntime],
+      ['@master-harness/tool-executor-native', NativeToolExecutor],
+      ['@master-harness/fs-local', LocalFileSystem],
+      ['@master-harness/subprocess-local', LocalSubprocessRuntime],
+      ['@master-harness/sandbox-local', LocalSandbox],
+      ['@master-harness/sandbox-policy', SandboxPolicyService],
+      ['@master-harness/working-directory', WorkingDirectoryService],
+      ['@master-harness/experimental-worktree', WorktreeService],
+      ['@master-harness/experimental-tool-worktree', ToolWorktree],
+      ['@master-harness/agent-loop', AgentLoop],
     ])
     const config = [...modules.keys()].flatMap(name => [
       `- name: 'cordis:${name}'`,
-      ...name === '@deepseek-ai/dsh-sandbox-policy' ? ['  config:', '    mode: danger-full-access'] : [],
-      ...name === '@deepseek-ai/dsh-agent-loop' ? ['  config:', '    agents: []'] : [],
+      ...name === '@master-harness/sandbox-policy' ? ['  config:', '    mode: danger-full-access'] : [],
+      ...name === '@master-harness/agent-loop' ? ['  config:', '    agents: []'] : [],
     ]).join('\n') + '\n'
     const configPath = join(root, 'cordis.yml')
     await writeFile(configPath, config)
@@ -103,7 +103,7 @@ describe('worktree tool through real Loader composition', () => {
     expect(failure.isError).toBe(true)
     expect(failure.content.flatMap(block => block.type === 'text' ? [block.text] : []).join('\n')).toContain('requires a calling agent')
     expect(context.tools.get('create_worktree')!.presentCall!({ name: 'named' })).toEqual({ card: 'generic', title: 'create_worktree', rawInput: { name: 'named' } })
-    const entry = [...context.loader.entries()].find(candidate => candidate.options.name === 'cordis:@deepseek-ai/dsh-experimental-tool-worktree')
+    const entry = [...context.loader.entries()].find(candidate => candidate.options.name === 'cordis:@master-harness/experimental-tool-worktree')
     await entry!.fiber!.dispose()
     expect(context.tools.schemas().some(tool => tool.name === 'create_worktree')).toBe(false)
   })

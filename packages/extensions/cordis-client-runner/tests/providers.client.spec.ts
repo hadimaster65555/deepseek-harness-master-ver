@@ -1,7 +1,7 @@
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@master-harness/cordis'
 import { describe, expect, it } from 'vitest'
-import type { JsonValue } from '@deepseek-ai/dsh-util-values'
-import { SlotRegistry } from '@deepseek-ai/dsh-client-ui-renderer/client'
+import type { JsonValue } from '@master-harness/util-values'
+import { SlotRegistry } from '@master-harness/client-ui-renderer/client'
 import { clientInspectProviders } from '../src/client/providers.ts'
 
 const Component = () => null

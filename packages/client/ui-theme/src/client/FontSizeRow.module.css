@@ -7,7 +7,7 @@
   align-items: center;
   gap: 8px;
   padding: 16px 0;
-  border-bottom: 0.5px solid var(--dsw-alias-border-l2);
+  border-bottom: 0.5px solid var(--mh-alias-border-l2);
 }
 
 .rowText {
@@ -31,14 +31,14 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 22px;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
 }
 
 .desc {
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
 }
 
 /* Standard-size stepper with an always-visible arrow column and an external unit label. */
@@ -55,8 +55,8 @@
   justify-content: center;
   min-width: 72px;
   height: 36px;
-  border-radius: var(--dsw-radius-md);
-  background: var(--dsw-alias-bg-module-platform);
+  border-radius: var(--mh-radius-md);
+  background: var(--mh-alias-bg-module-platform);
 }
 
 .value {
@@ -65,13 +65,13 @@
   font-size: 14px;
   line-height: 22px;
   font-variant-numeric: tabular-nums;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
 }
 
 .unit {
   font-size: 14px;
   line-height: 22px;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
 }
 
 /* Arrow column: anchored right so the value stays pill-centered whether or
@@ -112,20 +112,20 @@
   height: 12px;
   padding: 0;
   border: none;
-  border-radius: var(--dsw-radius-xs);
-  background: color-mix(in srgb, var(--dsw-alias-bg-layer-1) 75%, transparent);
-  color: var(--dsw-alias-label-primary);
+  border-radius: var(--mh-radius-xs);
+  background: color-mix(in srgb, var(--mh-alias-bg-layer-1) 75%, transparent);
+  color: var(--mh-alias-label-primary);
   cursor: pointer;
 }
 
 @media (hover: hover) {
   .arrow:hover:not(:disabled) {
-    background: var(--dsw-alias-bg-layer-1);
+    background: var(--mh-alias-bg-layer-1);
   }
 }
 
 .arrow:disabled {
-  color: var(--dsw-alias-label-caption);
+  color: var(--mh-alias-label-caption);
   cursor: default;
 }
 
@@ -138,15 +138,15 @@
   height: 24px;
   padding: 0;
   border: none;
-  border-radius: var(--dsw-radius-xs);
+  border-radius: var(--mh-radius-xs);
   background: transparent;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   cursor: pointer;
 }
 
 @media (hover: hover) {
   .expander:hover {
-    background: var(--dsw-alias-interactive-bg-hover);
+    background: var(--mh-alias-interactive-bg-hover);
   }
 }
 

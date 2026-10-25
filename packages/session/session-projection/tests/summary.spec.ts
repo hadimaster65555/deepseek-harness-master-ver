@@ -7,17 +7,17 @@
  */
 
 import { describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@master-harness/cordis'
 import { z } from 'zod'
-import SessionStore, { SessionId, SessionSeq } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
+import SessionStore, { SessionId, SessionSeq } from '@master-harness/session'
+import SessionProjectionRegistry from '@master-harness/session-projection'
 import type {
   ProjectionCheckpoint,
   ProjectionDefinition,
-} from '@deepseek-ai/dsh-session-projection'
-import type { SessionProjectionSummaryExcluded } from '@deepseek-ai/dsh-session-projection/types'
+} from '@master-harness/session-projection'
+import type { SessionProjectionSummaryExcluded } from '@master-harness/session-projection/types'
 
-declare module '@deepseek-ai/dsh-session-projection/types' {
+declare module '@master-harness/session-projection/types' {
   interface SessionProjectionMap {
     'test/summary-kept': { text: string } | null
     'test/summary-excluded': SessionProjectionSummaryExcluded<number>

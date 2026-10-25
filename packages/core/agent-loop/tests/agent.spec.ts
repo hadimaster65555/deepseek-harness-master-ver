@@ -1,19 +1,19 @@
-import * as NativeToolExecutor from '@deepseek-ai/dsh-tool-executor-native'
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
+import * as NativeToolExecutor from '@master-harness/tool-executor-native'
+import { createUserMessage } from '@master-harness/llm'
 import { describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import AgentRegistry, { type Agent } from '@deepseek-ai/dsh-agent'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import LlmRuntime from '@deepseek-ai/dsh-llm'
-import type { MessageSource } from '@deepseek-ai/dsh-llm'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime from '@deepseek-ai/dsh-tools'
+import { Context } from '@master-harness/cordis'
+import AgentRegistry, { type Agent } from '@master-harness/agent'
+import AgentLoop from '@master-harness/agent-loop'
+import SessionProjectionRegistry from '@master-harness/session-projection'
+import LlmRuntime from '@master-harness/llm'
+import type { MessageSource } from '@master-harness/llm'
+import type { ContextFormed } from '@master-harness/llm'
+import SessionStore, { SessionId } from '@master-harness/session'
+import SystemPrompt from '@master-harness/system-prompt'
+import ToolRuntime from '@master-harness/tools'
 import { MockAdapter, textResponse } from './mock-adapter.ts'
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@master-harness/llm' {
   interface MessageSourceMap {
     'p': { kind: 'p' } & ContextFormed
     'test': { kind: 'test' } & ContextFormed

@@ -1,12 +1,12 @@
-import { executeToolFixture, executeModelToolFixture } from '@deepseek-ai/dsh-tool-testkit'
-import * as NativeToolExecutor from '@deepseek-ai/dsh-tool-executor-native'
+import { executeToolFixture, executeModelToolFixture } from '@master-harness/tool-testkit'
+import * as NativeToolExecutor from '@master-harness/tool-executor-native'
 import { externalTestParent } from '../../../subagent/subagent/tests/external-activation-helpers.ts'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { provideWorkingDirectoryFixture } from '@deepseek-ai/dsh-agent-loop-testkit'
-import { Context, FiberState } from '@deepseek-ai/cordis'
-import AgentRegistry, { type Agent } from '@deepseek-ai/dsh-agent'
-import type {} from '@deepseek-ai/dsh-agent-instructions'
-import { compactCheckpointSource, CompactionId } from '@deepseek-ai/dsh-compaction'
+import { provideWorkingDirectoryFixture } from '@master-harness/agent-loop-testkit'
+import { Context, FiberState } from '@master-harness/cordis'
+import AgentRegistry, { type Agent } from '@master-harness/agent'
+import type {} from '@master-harness/agent-instructions'
+import { compactCheckpointSource, CompactionId } from '@master-harness/compaction'
 import LlmRuntime, {
   createMessage,
   createSystemMessage,
@@ -18,30 +18,30 @@ import LlmRuntime, {
   type GenerateOptions,
   type StreamChunk,
   type ToolSchema,
-} from '@deepseek-ai/dsh-llm'
+} from '@master-harness/llm'
 import PermissionPresetService, {
   AUTO_PRESET,
   type Config as PermissionConfig,
-} from '@deepseek-ai/dsh-permission-presets'
+} from '@master-harness/permission-presets'
 import SessionStore, {
   SessionId,
   SessionLogOffset,
   type Session,
   type SessionEvent,
-} from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
+} from '@master-harness/session'
+import SessionProjectionRegistry from '@master-harness/session-projection'
 import SubagentRuntime, {
   NO_START_CAPABILITIES,
   SUBAGENT_DESCRIPTOR_VERSION,
   type SubagentStartRequest,
-} from '@deepseek-ai/dsh-subagent'
-import type {} from '@deepseek-ai/dsh-shell'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import * as ToolSubagent from '@deepseek-ai/dsh-tool-subagent'
-import ToolRuntime, { RUN_CODE_NAME, TOOL_ABORTED_BEFORE_DISPATCH, type PreToolDecision, type ToolExecutionToken } from '@deepseek-ai/dsh-tools'
-import { defineContentToolFixture } from '@deepseek-ai/dsh-tool-testkit'
-import ApprovalService, { setApprovalPolicy, type ApprovalOutcome } from '@deepseek-ai/dsh-user-approval'
-import * as AutoReview from '@deepseek-ai/dsh-experimental-auto-review'
+} from '@master-harness/subagent'
+import type {} from '@master-harness/shell'
+import SystemPrompt from '@master-harness/system-prompt'
+import * as ToolSubagent from '@master-harness/tool-subagent'
+import ToolRuntime, { RUN_CODE_NAME, TOOL_ABORTED_BEFORE_DISPATCH, type PreToolDecision, type ToolExecutionToken } from '@master-harness/tools'
+import { defineContentToolFixture } from '@master-harness/tool-testkit'
+import ApprovalService, { setApprovalPolicy, type ApprovalOutcome } from '@master-harness/user-approval'
+import * as AutoReview from '@master-harness/experimental-auto-review'
 
 const EXPECTED_REVIEW_POLICY = `REVIEW_POLICY
 You are the final authorization reviewer for exactly one pending tool call. Your decision replaces human approval for this call. If you allow it, the call executes immediately with full host access and no later confirmation.

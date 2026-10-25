@@ -5,7 +5,7 @@
   flex-direction: column;
   gap: 12px;
   max-width: 760px;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
 }
 
 .heading {
@@ -17,14 +17,14 @@
 .intro {
   margin: 0;
   font-size: 13px;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
 }
 
 .tabs {
   display: flex;
   align-items: flex-end;
   gap: 22px;
-  border-bottom: 0.5px solid var(--dsw-alias-border-l2);
+  border-bottom: 0.5px solid var(--mh-alias-border-l2);
   margin-top: 2px;
 }
 
@@ -33,7 +33,7 @@
   border: 0;
   padding: 7px 1px 9px;
   background: transparent;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   font: inherit;
   font-size: 13px;
   line-height: 20px;
@@ -41,12 +41,12 @@
 }
 
 .tab[data-active='true'] {
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
 }
 
 @media (hover: hover) {
   .tab:hover {
-    color: var(--dsw-alias-label-primary);
+    color: var(--mh-alias-label-primary);
   }
 }
 
@@ -58,15 +58,15 @@
   left: 0;
   height: 2px;
   border-radius: 2px 2px 0 0;
-  background: var(--dsw-alias-label-primary);
+  background: var(--mh-alias-label-primary);
   content: '';
 }
 
 .tab:focus-visible {
-  outline: var(--dsw-focus-ring-width) solid var(--dsw-focus-ring-color, var(--dsw-alias-state-business-primary));
+  outline: var(--mh-focus-ring-width) solid var(--mh-focus-ring-color, var(--mh-alias-state-business-primary));
   outline-offset: 2px;
   border-radius: 2px;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
 }
 
 .panel {
@@ -86,7 +86,7 @@
 .empty {
   margin: 0;
   font-size: 13px;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
 }
 
 /* Configurable tab: the card list. */

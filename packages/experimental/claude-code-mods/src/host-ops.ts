@@ -8,24 +8,24 @@
  * @module
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type { Agent } from '@deepseek-ai/dsh-agent'
+import type { Context } from '@master-harness/cordis'
+import type { Agent } from '@master-harness/agent'
 // Type-only: activate the `ctx.get('subprocess')` Context declaration.
-import type {} from '@deepseek-ai/dsh-subprocess'
-import type { CommandDefinition } from '@deepseek-ai/dsh-commands'
-import type { FileSystem, FsTarget } from '@deepseek-ai/dsh-fs'
-import { createUserMessage, ToolCallId } from '@deepseek-ai/dsh-llm'
-import type { ContentBlock, Message } from '@deepseek-ai/dsh-llm'
-import { scopeOf } from '@deepseek-ai/dsh-scope'
-import type { WorkingDirectoryService } from '@deepseek-ai/dsh-working-directory'
-import type {} from '@deepseek-ai/dsh-token-meter'
-import { defineDomain, domainTable } from '@deepseek-ai/dsh-storage-domain'
-import type { Domain } from '@deepseek-ai/dsh-storage-domain'
-import { assertObjectJsonSchema } from '@deepseek-ai/dsh-tools'
-import type { ToolDefinition, ToolExecutionResult } from '@deepseek-ai/dsh-tools'
-import type { AskUserQuestionOption } from '@deepseek-ai/dsh-user-questions'
-import { randomUUID } from '@deepseek-ai/dsh-util-crypto'
-import type { JsonValue } from '@deepseek-ai/dsh-util-values'
+import type {} from '@master-harness/subprocess'
+import type { CommandDefinition } from '@master-harness/commands'
+import type { FileSystem, FsTarget } from '@master-harness/fs'
+import { createUserMessage, ToolCallId } from '@master-harness/llm'
+import type { ContentBlock, Message } from '@master-harness/llm'
+import { scopeOf } from '@master-harness/scope'
+import type { WorkingDirectoryService } from '@master-harness/working-directory'
+import type {} from '@master-harness/token-meter'
+import { defineDomain, domainTable } from '@master-harness/storage-domain'
+import type { Domain } from '@master-harness/storage-domain'
+import { assertObjectJsonSchema } from '@master-harness/tools'
+import type { ToolDefinition, ToolExecutionResult } from '@master-harness/tools'
+import type { AskUserQuestionOption } from '@master-harness/user-questions'
+import { randomUUID } from '@master-harness/util-crypto'
+import type { JsonValue } from '@master-harness/util-values'
 import { record, requireString, stringify } from './values.ts'
 import { z as zod } from 'zod'
 import type { LoadedMod } from './chain.ts'
@@ -42,7 +42,7 @@ export interface AgentBinding {
 }
 
 /** The mods API version string `$.session.version()` reports. */
-export const MODS_API_VERSION: SessionVersion = Object.freeze({ version: 'claude-code-mods/0.1', engine: 'deepseek-harness' })
+export const MODS_API_VERSION: SessionVersion = Object.freeze({ version: 'claude-code-mods/0.1', engine: 'master-harness' })
 
 /** Largest file `$.fs.read` returns and `$.fs.write` accepts, Claude Code's own limit. */
 export const FS_MAX_BYTES = 4 * 1024 * 1024
@@ -168,7 +168,7 @@ export function createHostOps(options: HostOpsOptions): OpTable<AgentBinding> {
   function store(): Promise<Domain<typeof storeDomainSpec>> {
     if (storeDomain !== undefined) return storeDomain
     const domains = ctx.get('storageDomain')
-    if (domains === undefined) throw new Error('$.store needs a storage domain service (dsh-storage-domain), which this deployment did not compose')
+    if (domains === undefined) throw new Error('$.store needs a storage domain service (mh-storage-domain), which this deployment did not compose')
     const opened = domains.open(storeDomainSpec)
     storeDomain = opened
     ctx.effect(() => () => opened.then(domain => domain.close()), 'claude-code-mods: close store domain')
@@ -182,7 +182,7 @@ export function createHostOps(options: HostOpsOptions): OpTable<AgentBinding> {
 
   function directories(): WorkingDirectoryService {
     const service = ctx.get('workingDirectory')
-    if (service === undefined) throw new Error('$.session.cwd and session-owned operations need dsh-working-directory, which this deployment did not compose')
+    if (service === undefined) throw new Error('$.session.cwd and session-owned operations need mh-working-directory, which this deployment did not compose')
     return service
   }
 
@@ -192,7 +192,7 @@ export function createHostOps(options: HostOpsOptions): OpTable<AgentBinding> {
 
   function fs(): FileSystem {
     const service = ctx.get('fs')
-    if (service === undefined) throw new Error('$.fs needs a filesystem service (dsh-fs), which this deployment did not compose')
+    if (service === undefined) throw new Error('$.fs needs a filesystem service (mh-fs), which this deployment did not compose')
     return service
   }
 
@@ -245,7 +245,7 @@ export function createHostOps(options: HostOpsOptions): OpTable<AgentBinding> {
     'ui.ask': async (input, context) => {
       const agent = requireAgent(context, 'ui.ask')
       const questions = ctx.get('userQuestions')
-      if (questions === undefined) throw new Error('$.ui.ask needs a user-questions service (dsh-user-questions), which this deployment did not compose')
+      if (questions === undefined) throw new Error('$.ui.ask needs a user-questions service (mh-user-questions), which this deployment did not compose')
       const { question, options: labels, header, multiSelect } = record(input)
       const choices: AskUserQuestionOption[] | undefined = Array.isArray(labels)
         ? labels.map(label => ({ label: requireString(label, '$.ui.ask option') }))
@@ -273,7 +273,7 @@ export function createHostOps(options: HostOpsOptions): OpTable<AgentBinding> {
       if (!REGISTERED_NAME.test(name)) throw new Error(`"/${name}" refused: command names are letters, digits, "_" and "-", up to 64 characters`)
       const description = requireString(spec.description, '$.command.register description')
       const registry = (binding.agent?.ctx ?? ctx).get('commands')
-      if (registry === undefined) throw new Error('$.command.register needs a command registry (dsh-commands), which this deployment did not compose')
+      if (registry === undefined) throw new Error('$.command.register needs a command registry (mh-commands), which this deployment did not compose')
       const lowered = name.toLowerCase()
       const definition: CommandDefinition = {
         name: lowered,
@@ -296,7 +296,7 @@ export function createHostOps(options: HostOpsOptions): OpTable<AgentBinding> {
     'command.run': async (input, context) => {
       const agent = requireAgent(context, 'command.run')
       const registry = ctx.get('commands')
-      if (registry === undefined) throw new Error('$.command.run needs a command registry (dsh-commands), which this deployment did not compose')
+      if (registry === undefined) throw new Error('$.command.run needs a command registry (mh-commands), which this deployment did not compose')
       const { command, args } = record(input)
       const name = requireString(command, '$.command.run command')
       const line = typeof args === 'string' && args.length > 0 ? `/${name} ${args}` : `/${name}`
@@ -327,7 +327,7 @@ export function createHostOps(options: HostOpsOptions): OpTable<AgentBinding> {
       // The schema reaches the model, so an unsupported keyword fails this call, not a later request.
       assertObjectJsonSchema(inputSchema)
       const registry = (binding.agent?.ctx ?? ctx).get('tools')
-      if (registry === undefined) throw new Error('$.tool.register needs a tool registry (dsh-tools), which this deployment did not compose')
+      if (registry === undefined) throw new Error('$.tool.register needs a tool registry (mh-tools), which this deployment did not compose')
       const fullName = modToolName(mod.name, name)
       const definition: ToolDefinition = {
         name: fullName,
@@ -348,7 +348,7 @@ export function createHostOps(options: HostOpsOptions): OpTable<AgentBinding> {
     'tool.call': async (input, context) => {
       const agent = context.binding.agent
       const registry = ctx.get('tools')
-      if (registry === undefined) throw new Error('$.tool.call needs a tool registry (dsh-tools), which this deployment did not compose')
+      if (registry === undefined) throw new Error('$.tool.call needs a tool registry (mh-tools), which this deployment did not compose')
       const { tool, tool_use_id: _ignored, agentId: _agent, ...args } = record(input)
       const callId = ToolCallId(`mod-${randomUUID()}`)
       // The pipeline raises `tool.call` for this call from the calling mod, so only earlier mods see it.
@@ -491,7 +491,7 @@ export function createHostOps(options: HostOpsOptions): OpTable<AgentBinding> {
     // ---- processes: argv, no shell, collected output ----
     'process.run': async (input, context) => {
       const subprocess = ctx.get('subprocess')
-      if (subprocess === undefined) throw new Error('$.process.run needs a subprocess service (dsh-subprocess), which this deployment did not compose')
+      if (subprocess === undefined) throw new Error('$.process.run needs a subprocess service (mh-subprocess), which this deployment did not compose')
       const { argv, init } = record(input)
       if (!Array.isArray(argv) || argv.length === 0 || !argv.every(item => typeof item === 'string')) {
         throw new TypeError('$.process.run needs a non-empty argv list of strings')

@@ -3,11 +3,11 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { act, cleanup, fireEvent, render, screen, within } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { makeTranslate } from '@deepseek-ai/dsh-client-test-runtime'
-import type { SessionSnapshot } from '@deepseek-ai/dsh-api-session-controller/client'
-import type { ScheduleRecord } from '@deepseek-ai/dsh-schedule/client'
-import { ScheduleId } from '@deepseek-ai/dsh-schedule'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
+import { makeTranslate } from '@master-harness/client-test-runtime'
+import type { SessionSnapshot } from '@master-harness/api-session-controller/client'
+import type { ScheduleRecord } from '@master-harness/schedule/client'
+import { ScheduleId } from '@master-harness/schedule'
+import type { SessionId } from '@master-harness/session/types'
 import {
   formatScheduleAbsolute,
   formatScheduleFrequency,

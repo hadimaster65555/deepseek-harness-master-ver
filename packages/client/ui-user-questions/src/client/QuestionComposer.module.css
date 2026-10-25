@@ -4,7 +4,7 @@
 .frame {
   display: flex;
   justify-content: center;
-  padding: 6px calc(var(--dsh-composer-side-clearance) + 16px) 10px;
+  padding: 6px calc(var(--mh-composer-side-clearance) + 16px) 10px;
 }
 
 /* Figma Input 973:36348 body over the 1019:36938 header: no banner strip —
@@ -13,26 +13,26 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: var(--dsh-chat-content-width);
+  max-width: var(--mh-chat-content-width);
   /* Composer seat sits in a fixed-height conversation column (overflow
      hidden): cap the card against the viewport and scroll the option list
      so header and footer actions stay reachable on long batches. */
   max-height: min(60vh, 520px);
   padding: 0 0 10px;
   border: 0;
-  --dsw-elevation-stroke-color: var(--dsw-alias-border-l2-darkmode-thin);
-  border-radius: var(--dsw-radius-xl);
-  background: var(--dsw-specific-input-major);
-  box-shadow: var(--dsw-elevation-panel);
-  color: var(--dsw-alias-label-primary);
+  --mh-elevation-stroke-color: var(--mh-alias-border-l2-darkmode-thin);
+  border-radius: var(--mh-radius-xl);
+  background: var(--mh-specific-input-major);
+  box-shadow: var(--mh-elevation-panel);
+  color: var(--mh-alias-label-primary);
   overflow: hidden;
   /* Elevated surface in dark, same as the menus: the body inside scrolls
      once the card hits the cap above, so the thumb takes the l2 pair. Declared
      on the card because the elevation belongs to the surface, and the custom
      properties inherit down to `.body` (see ui-theme styles/scrollbar.css
      for the rebinding contract). */
-  --dsh-scrollbar-thumb: var(--dsw-alias-scrollbar-bg-l2);
-  --dsh-scrollbar-thumb-hover: var(--dsw-alias-scrollbar-hover-l2);
+  --mh-scrollbar-thumb: var(--mh-alias-scrollbar-bg-l2);
+  --mh-scrollbar-thumb-hover: var(--mh-alias-scrollbar-hover-l2);
 }
 
 .card,
@@ -68,7 +68,7 @@
 }
 
 .waitStatus {
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
   font-size: 12px;
   line-height: 24px;
   white-space: nowrap;
@@ -93,7 +93,7 @@
 .eyebrow {
   /* Eyebrow-to-title gap widened from the figma 2px (user-tuned). */
   margin-bottom: 5px;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   font-size: 11px;
   line-height: 16px;
 }
@@ -187,7 +187,7 @@
 
 .progress {
   padding: 0 4px;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
   font-size: 14px;
   line-height: 24px;
   font-weight: 500;
@@ -206,19 +206,19 @@
   border-radius: 999px;
   corner-shape: round;
   background: transparent;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   cursor: pointer;
 }
 
 @media (hover: hover) {
   .iconButton:hover:not(:disabled) {
-    background: var(--dsw-alias-interactive-bg-hover);
-    color: var(--dsw-alias-label-primary);
+    background: var(--mh-alias-interactive-bg-hover);
+    color: var(--mh-alias-label-primary);
   }
 }
 
 .iconButton:disabled {
-  color: var(--dsw-alias-label-dimmed);
+  color: var(--mh-alias-label-dimmed);
   cursor: default;
 }
 
@@ -245,7 +245,7 @@
   min-height: 40px;
   flex-shrink: 0;
   border: 0.5px solid transparent;
-  border-radius: var(--dsw-radius-md);
+  border-radius: var(--mh-radius-md);
   background: transparent;
   transition: background-color 120ms ease, border-color 120ms ease;
   timeline-scope: --description-copy;
@@ -268,17 +268,17 @@
 }
 
 .optionSelected {
-  background: var(--dsw-alias-interactive-bg-hover);
+  background: var(--mh-alias-interactive-bg-hover);
 }
 
 @media (hover: hover) {
   .optionRowInteractive:hover {
-    background: var(--dsw-alias-interactive-bg-hover);
+    background: var(--mh-alias-interactive-bg-hover);
   }
 }
 
 .optionSelected {
-  border-color: var(--dsw-alias-border-l2);
+  border-color: var(--mh-alias-border-l2);
 }
 
 .option:disabled {
@@ -297,9 +297,9 @@
   /* (24px first-line box − 20px indicator) / 2: centers the indicator against
      the first text line under the row's flex-start alignment. */
   margin-top: 2px;
-  border-radius: var(--dsw-radius-xs);
-  background: var(--dsw-alias-bg-overlay);
-  color: var(--dsw-alias-label-secondary);
+  border-radius: var(--mh-radius-xs);
+  background: var(--mh-alias-bg-overlay);
+  color: var(--mh-alias-label-secondary);
   font-size: 12px;
   font-weight: 500;
   line-height: 18px;
@@ -323,8 +323,8 @@
   grid-area: 1 / 1;
   width: 14px;
   height: 14px;
-  border: 0.5px solid var(--dsw-alias-border-l4);
-  border-radius: var(--dsw-radius-xs);
+  border: 0.5px solid var(--mh-alias-border-l4);
+  border-radius: var(--mh-radius-xs);
   transition: background-color 120ms ease, border-color 120ms ease;
 }
 
@@ -335,12 +335,12 @@
 /* Checked: label-primary fill with a primary-foreground check — the pair
    inverts with the theme (dark fill in light mode, light fill in dark mode). */
 .checkboxChecked {
-  color: var(--dsw-alias-label-primary-foreground);
+  color: var(--mh-alias-label-primary-foreground);
 }
 
 .checkboxChecked::before {
-  border-color: var(--dsw-alias-label-primary);
-  background: var(--dsw-alias-label-primary);
+  border-color: var(--mh-alias-label-primary);
+  background: var(--mh-alias-label-primary);
 }
 
 .optionCopy {
@@ -368,9 +368,9 @@
 
 .badge {
   padding: 0 4px;
-  border-radius: var(--dsw-radius-xs);
-  background: var(--dsw-specific-sidebar-nav-item-active-accent);
-  color: var(--dsw-alias-button-info-fill);
+  border-radius: var(--mh-radius-xs);
+  background: var(--mh-specific-sidebar-nav-item-active-accent);
+  color: var(--mh-alias-button-info-fill);
   font-size: 11px;
   line-height: 18px;
   font-weight: 600;
@@ -387,7 +387,7 @@
   overflow: hidden;
   overflow-wrap: anywhere;
   white-space: pre-wrap;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   font-size: 13px;
   line-height: 20px;
   font-weight: 400;
@@ -462,7 +462,7 @@
 .reviewNote {
   margin: 0;
   padding: 8px 12px;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   font-size: 14px;
   line-height: 24px;
 }
@@ -484,24 +484,24 @@
   flex-shrink: 0;
   padding: 8px 12px 8px 8px;
   border: 0.5px solid transparent;
-  border-radius: var(--dsw-radius-md);
+  border-radius: var(--mh-radius-md);
   transition: background-color 120ms ease, border-color 120ms ease;
 }
 
 .customRow:focus-within:not(.customRowYielded),
 .customRowActive {
-  background: var(--dsw-alias-interactive-bg-hover);
+  background: var(--mh-alias-interactive-bg-hover);
 }
 
 @media (hover: hover) {
   .customRow:hover {
-    background: var(--dsw-alias-interactive-bg-hover);
+    background: var(--mh-alias-interactive-bg-hover);
   }
 }
 
 .customRow:focus-within:not(.customRowYielded),
 .customRowActive {
-  border-color: var(--dsw-alias-border-l2);
+  border-color: var(--mh-alias-border-l2);
 }
 
 /* Auto-growing free-text answer (see AnswerField): mirror and textarea share
@@ -511,13 +511,13 @@
 .field {
   display: grid;
   min-width: 0;
-  --dsh-answer-field-padding: 0;
+  --mh-answer-field-padding: 0;
 }
 
 .field > * {
   grid-area: 1 / 1;
   min-width: 0;
-  padding: var(--dsh-answer-field-padding);
+  padding: var(--mh-answer-field-padding);
   font: inherit;
   font-size: 14px;
   line-height: 24px;
@@ -550,12 +550,12 @@
   border: none;
   outline: none;
   background: transparent;
-  color: var(--dsw-alias-label-primary);
-  caret-color: var(--dsw-alias-state-business-primary);
+  color: var(--mh-alias-label-primary);
+  caret-color: var(--mh-alias-state-business-primary);
 }
 
 .fieldInput::placeholder {
-  color: var(--dsw-alias-label-caption);
+  color: var(--mh-alias-label-caption);
 }
 
 /* Inline variant: the custom row's copy column, borrowing the row's chrome. */
@@ -571,14 +571,14 @@
   min-height: 64px;
   flex-shrink: 0;
   margin: 0 12px;
-  border: 0.5px solid var(--dsw-alias-border-l4);
-  border-radius: var(--dsw-radius-lg);
-  background: var(--dsw-alias-bg-module-platform);
-  --dsh-answer-field-padding: 8px 12px;
+  border: 0.5px solid var(--mh-alias-border-l4);
+  border-radius: var(--mh-radius-lg);
+  background: var(--mh-alias-bg-module-platform);
+  --mh-answer-field-padding: 8px 12px;
 }
 
 .customBlock:focus-within {
-  border-color: var(--dsw-alias-state-business-primary);
+  border-color: var(--mh-alias-state-business-primary);
 }
 
 .footer {
@@ -594,7 +594,7 @@
 .feedback {
   flex: 1;
   min-height: 16px;
-  color: var(--dsw-alias-state-error-primary);
+  color: var(--mh-alias-state-error-primary);
   font-size: 11px;
   line-height: 16px;
   text-align: right;
@@ -602,7 +602,7 @@
 
 @media (max-width: 720px) {
   .card {
-    border-radius: var(--dsw-radius-xl);
+    border-radius: var(--mh-radius-xl);
   }
 
   .header {

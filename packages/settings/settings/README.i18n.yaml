@@ -5,33 +5,33 @@
 /:
   en: 51da5e07db469e4d
   zh: fbacb8b1ea8d70ca
-/deepseek-ai-dsh-settings:
-  en: a80f54f8a1e0474f
-  zh: 9e54e2442f1597a4
-/deepseek-ai-dsh-settings/summary:
+/master-harness-settings:
+  en: 0981d06ec70e7074
+  zh: 143556d845eaa999
+/master-harness-settings/summary:
   en: a5e84db91656bc73
   zh: 3fabc5eb76ae228f
-/deepseek-ai-dsh-settings/table-of-contents:
+/master-harness-settings/table-of-contents:
   en: 23386452a66b2fbd
   zh: 70bba862b949b652
-/deepseek-ai-dsh-settings/use-this-package:
-  en: e0f5e49cf8137839
-  zh: bdd8aff9b7773e5a
-/deepseek-ai-dsh-settings/understand-the-implementation:
+/master-harness-settings/use-this-package:
+  en: aebf1dcd5e2a9ddf
+  zh: 3e3e26da58400750
+/master-harness-settings/understand-the-implementation:
   en: d8eae17e891ff44e
   zh: 05189989b2786002
-/deepseek-ai-dsh-settings/further-exploration:
-  en: 468f217123040420
-  zh: d7f753033d9f07b4
-/deepseek-ai-dsh-settings/model-experience:
+/master-harness-settings/further-exploration:
+  en: e5c028f136e37a0b
+  zh: e4a5b13eb9ac8c12
+/master-harness-settings/model-experience:
   en: 358d1a5b1d9f2fde
   zh: a40c6e95f39032e8
-/deepseek-ai-dsh-settings/model-experience/kv-cache-effect:
+/master-harness-settings/model-experience/kv-cache-effect:
   en: f49cb624cd503dd1
   zh: 9944f21ab3458e4b
-/deepseek-ai-dsh-settings/known-limitations-and-deferred-work:
+/master-harness-settings/known-limitations-and-deferred-work:
   en: 4ae53522f8a7d66d
   zh: ee55c14ebd4575db
-/deepseek-ai-dsh-settings/known-limitations-and-deferred-work/dev-note:
+/master-harness-settings/known-limitations-and-deferred-work/dev-note:
   en: e67f633dc6fe7773
   zh: e88aeb617ffb74ea

@@ -7,10 +7,10 @@
  * through the Workspace registry's archive-admission events.
  */
 
-import type { Context, Plugin } from '@deepseek-ai/cordis'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import type { SessionId } from '@deepseek-ai/dsh-session'
-import type {} from '@deepseek-ai/dsh-workspace'
+import type { Context, Plugin } from '@master-harness/cordis'
+import type { Agent } from '@master-harness/agent'
+import type { SessionId } from '@master-harness/session'
+import type {} from '@master-harness/workspace'
 
 /**
  * The gate as a plugin for `ctx.plugin(...)`: it loads once the Agent

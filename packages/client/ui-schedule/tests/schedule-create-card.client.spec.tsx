@@ -3,11 +3,11 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { makeTranslate } from '@deepseek-ai/dsh-client-test-runtime'
-import type { ToolCallViewProps } from '@deepseek-ai/dsh-client-ui-tool/client'
-import type { ScheduleCatalogEntry, ScheduleId } from '@deepseek-ai/dsh-schedule/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import { PartialArguments } from '@deepseek-ai/dsh-util-values'
+import { makeTranslate } from '@master-harness/client-test-runtime'
+import type { ToolCallViewProps } from '@master-harness/client-ui-tool/client'
+import type { ScheduleCatalogEntry, ScheduleId } from '@master-harness/schedule/client'
+import type { SessionId } from '@master-harness/session/types'
+import { PartialArguments } from '@master-harness/util-values'
 import { ScheduleCreateCard, type ScheduleCreateCardProps } from '../src/client/ScheduleCreateCard.tsx'
 import { narrowScheduleRecord, scheduleCreateCardModel } from '../src/client/schedule-create-card.ts'
 import { zoneLabel } from '../src/client/schedule-format.ts'
@@ -281,12 +281,12 @@ describe('ScheduleCreateCard', () => {
     const stylesheet = readFileSync(resolve(import.meta.dirname, '../src/client/ScheduleCreateCard.module.css'), 'utf8')
     expect(stylesheet).toMatch(/\.title\s*\{[^}]*font-size:\s*13px;[^}]*line-height:\s*20px;[^}]*font-weight:\s*500;/)
     const frequency = /\.frequency\s*\{([^}]*)\}/.exec(stylesheet)?.[1] ?? ''
-    expect(frequency).toMatch(/color:\s*var\(--dsw-alias-label-tertiary\);/)
+    expect(frequency).toMatch(/color:\s*var\(--mh-alias-label-tertiary\);/)
     expect(frequency).toMatch(/font-size:\s*10px;/)
     expect(frequency).toMatch(/line-height:\s*16px;/)
     const card = /\.card\s*\{([^}]*)\}/.exec(stylesheet)?.[1] ?? ''
     expect(card).toMatch(/padding:\s*8px 10px;/)
-    expect(card).toMatch(/border-radius:\s*var\(--dsw-radius-lg\);/)
+    expect(card).toMatch(/border-radius:\s*var\(--mh-radius-lg\);/)
     expect(card).toMatch(/background:\s*var\(--card-fill\);/)
     expect(stylesheet).toMatch(/\.card:has\(\.cardOpen\):hover\s*\{[^}]*background:\s*var\(--card-hover\);/)
     expect(stylesheet).toMatch(/\.row\s*\{[^}]*min-height:\s*44px;/)

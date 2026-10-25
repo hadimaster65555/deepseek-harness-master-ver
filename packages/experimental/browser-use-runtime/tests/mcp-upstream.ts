@@ -1,6 +1,6 @@
 /** Real upstream MCP browser checks against private loopback pages and disposable Chromium. */
-import { executeToolFixture } from '@deepseek-ai/dsh-tool-testkit'
-import * as NativeToolExecutor from '@deepseek-ai/dsh-tool-executor-native'
+import { executeToolFixture } from '@master-harness/tool-testkit'
+import * as NativeToolExecutor from '@master-harness/tool-executor-native'
 import { spawn } from 'node:child_process'
 import { once } from 'node:events'
 import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
@@ -8,21 +8,21 @@ import { createServer } from 'node:http'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
-import { Context } from '@deepseek-ai/cordis'
-import type { Plugin } from '@deepseek-ai/cordis'
-import Loader from '@deepseek-ai/cordis-plugin-loader'
-import Include from '@deepseek-ai/cordis-plugin-include'
-import BrowserUse from '@deepseek-ai/dsh-browser-use'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import Tools from '@deepseek-ai/dsh-tools'
-import Llm from '@deepseek-ai/dsh-llm'
-import { ToolCallId } from '@deepseek-ai/dsh-llm'
-import Sessions, { SessionId } from '@deepseek-ai/dsh-session'
-import Agents from '@deepseek-ai/dsh-agent'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import Projections from '@deepseek-ai/dsh-session-projection'
-import LocalFileSystem from '@deepseek-ai/dsh-fs-local'
-import WorkingDirectory from '@deepseek-ai/dsh-working-directory'
+import { Context } from '@master-harness/cordis'
+import type { Plugin } from '@master-harness/cordis'
+import Loader from '@master-harness/cordis-plugin-loader'
+import Include from '@master-harness/cordis-plugin-include'
+import BrowserUse from '@master-harness/browser-use'
+import SystemPrompt from '@master-harness/system-prompt'
+import Tools from '@master-harness/tools'
+import Llm from '@master-harness/llm'
+import { ToolCallId } from '@master-harness/llm'
+import Sessions, { SessionId } from '@master-harness/session'
+import Agents from '@master-harness/agent'
+import AgentLoop from '@master-harness/agent-loop'
+import Projections from '@master-harness/session-projection'
+import LocalFileSystem from '@master-harness/fs-local'
+import WorkingDirectory from '@master-harness/working-directory'
 import { expect, vi } from 'vitest'
 import type { BrowserMcpConfig } from '../src/mcp.ts'
 
@@ -32,13 +32,13 @@ export async function verifyMcpBrowser(
   navigate: { name: string; arguments(url: string): Record<string, unknown> },
   mode: 'launch' | 'attach',
 ): Promise<void> {
-  const executable = process.env.DSH_BROWSER_EXECUTABLE!
-  const root = await mkdtemp(join(tmpdir(), 'dsh-browser-upstream-'))
+  const executable = process.env.MH_BROWSER_EXECUTABLE!
+  const root = await mkdtemp(join(tmpdir(), 'mh-browser-upstream-'))
   const observed = new Set<string>()
   const server = createServer((request, response) => {
     observed.add(request.url!)
     response.writeHead(200, { 'Content-Type': 'text/html' })
-    response.end('<!doctype html><title>DSH browser fixture</title><h1>Browser integration works</h1>')
+    response.end('<!doctype html><title>MH browser fixture</title><h1>Browser integration works</h1>')
   })
   const ctx = new Context()
   let external: ReturnType<typeof spawn> | undefined

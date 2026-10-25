@@ -1,30 +1,30 @@
-import { ToolExecutionPipeline } from '@deepseek-ai/dsh-tools/pipeline'
-import { executeToolFixture } from '@deepseek-ai/dsh-tool-testkit'
-import * as NativeToolExecutor from '@deepseek-ai/dsh-tool-executor-native'
+import { ToolExecutionPipeline } from '@master-harness/tools/pipeline'
+import { executeToolFixture } from '@master-harness/tool-testkit'
+import * as NativeToolExecutor from '@master-harness/tool-executor-native'
 import { describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import Loader from '@deepseek-ai/cordis-plugin-loader'
-import AgentRegistry, { agentEvents } from '@deepseek-ai/dsh-agent'
-import type { Agent, AgentStatus, Inbox } from '@deepseek-ai/dsh-agent'
-import GoalService, { GoalId } from '@deepseek-ai/dsh-goal'
-import type { GoalRef } from '@deepseek-ai/dsh-goal'
-import { createUserMessage, ToolCallId } from '@deepseek-ai/dsh-llm'
-import type { MessageSource } from '@deepseek-ai/dsh-llm'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
+import { Context } from '@master-harness/cordis'
+import Loader from '@master-harness/cordis-plugin-loader'
+import AgentRegistry, { agentEvents } from '@master-harness/agent'
+import type { Agent, AgentStatus, Inbox } from '@master-harness/agent'
+import GoalService, { GoalId } from '@master-harness/goal'
+import type { GoalRef } from '@master-harness/goal'
+import { createUserMessage, ToolCallId } from '@master-harness/llm'
+import type { MessageSource } from '@master-harness/llm'
+import type { ContextFormed } from '@master-harness/llm'
 import SessionStore, {
   SESSION_FORMAT_VERSION,
   Session,
   SessionId,
   SessionLogOffset,
-} from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime from '@deepseek-ai/dsh-tools'
-import type { ToolExecutionResult } from '@deepseek-ai/dsh-tools'
-import * as toolGoal from '@deepseek-ai/dsh-tool-goal'
-import { unsupportedModel, createInboxStub } from '@deepseek-ai/dsh-agent-loop-testkit'
+} from '@master-harness/session'
+import SessionProjectionRegistry from '@master-harness/session-projection'
+import SystemPrompt from '@master-harness/system-prompt'
+import ToolRuntime from '@master-harness/tools'
+import type { ToolExecutionResult } from '@master-harness/tools'
+import * as toolGoal from '@master-harness/tool-goal'
+import { unsupportedModel, createInboxStub } from '@master-harness/agent-loop-testkit'
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@master-harness/llm' {
   interface MessageSourceMap {
     'test': { kind: 'test' } & ContextFormed
   }

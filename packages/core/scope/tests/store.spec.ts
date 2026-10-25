@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@master-harness/cordis'
 import {
   AnonymousEntries,
   createScope,
@@ -8,7 +8,7 @@ import {
   type Scope,
   type ScopeKey,
   type ScopeLayer,
-} from '@deepseek-ai/dsh-scope'
+} from '@master-harness/scope'
 
 class TestLayer implements ScopeLayer {
   readonly named: NamedEntries<number>

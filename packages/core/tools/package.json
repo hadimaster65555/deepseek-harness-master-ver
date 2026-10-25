@@ -1,13 +1,13 @@
 {
-  "name": "@deepseek-ai/dsh-tools",
-  "description": "Tool registry and execution pipeline for the DeepSeek Harness",
+  "name": "@master-harness/tools",
+  "description": "Tool registry and execution pipeline for the Master Harness",
   "version": "0.2.1-rc.3",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/core/tools"
   },
   "type": "module",
@@ -40,30 +40,30 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-scope": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-system-prompt": "workspace:*",
-    "@deepseek-ai/dsh-user-approval": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/agent": "workspace:*",
+    "@master-harness/llm": "workspace:*",
+    "@master-harness/scope": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/system-prompt": "workspace:*",
+    "@master-harness/user-approval": "workspace:*"
   },
   "dependencies": {
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/dsh-util-values": "workspace:*",
-    "@deepseek-ai/schemastery": "workspace:~"
+    "@master-harness/brand": "workspace:*",
+    "@master-harness/util-values": "workspace:*",
+    "@master-harness/schemastery": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-scope": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-system-prompt": "workspace:*",
-    "@deepseek-ai/dsh-tool-executor-native": "workspace:*",
-    "@deepseek-ai/dsh-tool-testkit": "workspace:*",
-    "@deepseek-ai/dsh-user-approval": "workspace:*",
-    "@deepseek-ai/dsh-agent-loop-testkit": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/agent": "workspace:*",
+    "@master-harness/llm": "workspace:*",
+    "@master-harness/scope": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/session-projection": "workspace:*",
+    "@master-harness/system-prompt": "workspace:*",
+    "@master-harness/tool-executor-native": "workspace:*",
+    "@master-harness/tool-testkit": "workspace:*",
+    "@master-harness/user-approval": "workspace:*",
+    "@master-harness/agent-loop-testkit": "workspace:*"
   }
 }

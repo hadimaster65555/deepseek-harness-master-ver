@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-plugin-recommendations",
+  "name": "@master-harness/plugin-recommendations",
   "description": "Official plugin suggestions with explicit user activation and persistent conversation decisions",
   "version": "0.2.1-rc.3",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/experimental/plugin-recommendations"
   },
   "type": "module",
@@ -37,27 +37,27 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-skill": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/typert-protocol": "workspace:*",
+    "@master-harness/llm": "workspace:*",
+    "@master-harness/skill": "workspace:*"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-plugin-manager": "workspace:*",
-    "@deepseek-ai/dsh-package-manifest": "workspace:*",
-    "@deepseek-ai/dsh-api-remote-access": "workspace:*",
-    "@deepseek-ai/dsh-skill": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/typert-protocol": "workspace:*",
+    "@master-harness/llm": "workspace:*",
+    "@master-harness/agent": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/plugin-manager": "workspace:*",
+    "@master-harness/package-manifest": "workspace:*",
+    "@master-harness/api-remote-access": "workspace:*",
+    "@master-harness/skill": "workspace:*"
   },
   "dependencies": {
     "zod": "4.4.3",
-    "@deepseek-ai/dsh-client-ui-plugin-recommendations": "workspace:*",
-    "@deepseek-ai/dsh-action-cards": "workspace:*",
-    "@deepseek-ai/dsh-client-ui-action-cards": "workspace:*"
+    "@master-harness/client-ui-plugin-recommendations": "workspace:*",
+    "@master-harness/action-cards": "workspace:*",
+    "@master-harness/client-ui-action-cards": "workspace:*"
   },
   "files": [
     "icon.svg",

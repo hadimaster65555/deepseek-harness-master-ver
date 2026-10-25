@@ -1,6 +1,6 @@
 /**
- * Resolve the public SDK launch configuration to one dsh subprocess.
- * @module @deepseek-ai/dsh-sdk-client/launch
+ * Resolve the public SDK launch configuration to one mh subprocess.
+ * @module @master-harness/sdk-client/launch
  */
 
 import { existsSync, readFileSync } from 'node:fs'
@@ -26,8 +26,8 @@ export interface RuntimeProcessOptions {
   disposeGraceMs?: number
 }
 
-/** Node argv plus internal profile patches required by one resolved dsh entry. */
-export interface DshNodeLaunch {
+/** Node argv plus internal profile patches required by one resolved mh entry. */
+export interface MhNodeLaunch {
   /** Arguments before the profile selector. */
   nodeArgs: string[]
   /** Internal patches applied below caller-supplied patches. */
@@ -47,57 +47,57 @@ function manifest(url: string): PackageManifest {
 }
 
 /**
- * Resolve and version-check a dsh executable from package manifests.
- * @param dshManifestUrl - resolved URL of the dsh package manifest.
+ * Resolve and version-check a mh executable from package manifests.
+ * @param mhManifestUrl - resolved URL of the mh package manifest.
  * @param clientManifestUrl - resolved URL of the SDK client manifest.
- * @returns the absolute dsh executable path.
+ * @returns the absolute mh executable path.
  */
-export function resolveDshBinFromManifests(dshManifestUrl: string, clientManifestUrl: string): string {
-  const dshManifest = manifest(dshManifestUrl)
+export function resolveMhBinFromManifests(mhManifestUrl: string, clientManifestUrl: string): string {
+  const mhManifest = manifest(mhManifestUrl)
   const clientManifest = manifest(clientManifestUrl)
-  if (typeof dshManifest.version !== 'string' || dshManifest.version !== clientManifest.version) {
-    throw new Error(`dsh SDK client ${String(clientManifest.version)} requires the same dsh version, got ${String(dshManifest.version)}`)
+  if (typeof mhManifest.version !== 'string' || mhManifest.version !== clientManifest.version) {
+    throw new Error(`mh SDK client ${String(clientManifest.version)} requires the same mh version, got ${String(mhManifest.version)}`)
   }
-  const bin = typeof dshManifest.bin === 'object' && dshManifest.bin !== null
-    ? (dshManifest.bin as Record<string, unknown>).dsh
-    : dshManifest.bin
-  if (typeof bin !== 'string' || bin === '') throw new Error('@deepseek-ai/dsh declares no dsh executable')
-  return resolve(dirname(fileURLToPath(dshManifestUrl)), bin)
+  const bin = typeof mhManifest.bin === 'object' && mhManifest.bin !== null
+    ? (mhManifest.bin as Record<string, unknown>).mh
+    : mhManifest.bin
+  if (typeof bin !== 'string' || bin === '') throw new Error('@master-harness/mh declares no mh executable')
+  return resolve(dirname(fileURLToPath(mhManifestUrl)), bin)
 }
 
 /**
- * Resolve and version-check the built dsh executable installed with this SDK.
+ * Resolve and version-check the built mh executable installed with this SDK.
  * @returns the absolute built executable path, whether or not it exists in a source checkout.
  */
-export function installedDshBin(): string {
-  return resolveDshBinFromManifests(
-    import.meta.resolve('@deepseek-ai/dsh/package.json'),
+export function installedMhBin(): string {
+  return resolveMhBinFromManifests(
+    import.meta.resolve('@master-harness/mh/package.json'),
     new URL('../package.json', import.meta.url).href,
   )
 }
 
 /**
- * Resolve the Node launch for one same-version dsh package.
- * @param dshManifestUrl - resolved URL of the dsh package manifest.
+ * Resolve the Node launch for one same-version mh package.
+ * @param mhManifestUrl - resolved URL of the mh package manifest.
  * @param clientManifestUrl - resolved URL of the SDK client manifest.
  * @param sourceLoaderUrl - optional absolute tsx loader URL for deterministic tests.
  * @returns built output, or the source entry plus its compatibility patch and tsx environment.
  */
-export function resolveDshNodeLaunchFromManifests(
-  dshManifestUrl: string,
+export function resolveMhNodeLaunchFromManifests(
+  mhManifestUrl: string,
   clientManifestUrl: string,
   sourceLoaderUrl?: string,
-): DshNodeLaunch {
-  const bin = resolveDshBinFromManifests(dshManifestUrl, clientManifestUrl)
+): MhNodeLaunch {
+  const bin = resolveMhBinFromManifests(mhManifestUrl, clientManifestUrl)
   if (existsSync(bin)) return { nodeArgs: [bin], patches: [], environment: {} }
 
-  const packageDir = dirname(fileURLToPath(dshManifestUrl))
+  const packageDir = dirname(fileURLToPath(mhManifestUrl))
   const sourceBin = resolve(packageDir, 'src/bin.ts')
   const sourcePatch = resolve(packageDir, 'src/sdk-source.cordis.patch.yml')
   const sourceTsconfig = resolve(packageDir, 'tsconfig.json')
   if (!existsSync(sourceBin) || !existsSync(sourcePatch) || !existsSync(sourceTsconfig)) {
     throw new Error(
-      `@deepseek-ai/dsh is missing its built executable ${bin} and complete source launch files ${sourceBin}, ${sourcePatch}, ${sourceTsconfig}`,
+      `@master-harness/mh is missing its built executable ${bin} and complete source launch files ${sourceBin}, ${sourcePatch}, ${sourceTsconfig}`,
     )
   }
   const loader = sourceLoaderUrl ?? import.meta.resolve('tsx/esm')
@@ -109,45 +109,45 @@ export function resolveDshNodeLaunchFromManifests(
 }
 
 /**
- * Resolve the installed dsh package to a built or source Node launch.
+ * Resolve the installed mh package to a built or source Node launch.
  * @returns the launch descriptor for the current checkout or installed package.
  */
-function installedDshNodeLaunch(): DshNodeLaunch {
-  return resolveDshNodeLaunchFromManifests(
-    import.meta.resolve('@deepseek-ai/dsh/package.json'),
+function installedMhNodeLaunch(): MhNodeLaunch {
+  return resolveMhNodeLaunchFromManifests(
+    import.meta.resolve('@master-harness/mh/package.json'),
     new URL('../package.json', import.meta.url).href,
   )
 }
 
 /**
- * Resolve caller-relative filesystem inputs and construct canonical dsh argv.
+ * Resolve caller-relative filesystem inputs and construct canonical mh argv.
  * @param options - public SDK launch options.
  * @param callerCwd - parent-process directory used for lexical resolution.
  * @returns one generic subprocess spec for the JSON-RPC transport.
  */
-export function resolveDshLaunch(
+export function resolveMhLaunch(
   options: HarnessClientOptions = {},
   callerCwd: string = process.cwd(),
 ): RuntimeProcessOptions {
   const profile = options.profile ?? 'sdk'
-  const dshLaunch = options.dshBin === undefined
-    ? installedDshNodeLaunch()
-    : { nodeArgs: [resolve(callerCwd, options.dshBin)], patches: [], environment: {} }
+  const mhLaunch = options.mhBin === undefined
+    ? installedMhNodeLaunch()
+    : { nodeArgs: [resolve(callerCwd, options.mhBin)], patches: [], environment: {} }
   const patches = [
-    ...dshLaunch.patches,
+    ...mhLaunch.patches,
     ...(options.patches ?? []).map(path => resolve(callerCwd, path)),
   ]
-  const dshHome = options.dshHome === undefined ? undefined : resolve(callerCwd, options.dshHome)
+  const mhHome = options.mhHome === undefined ? undefined : resolve(callerCwd, options.mhHome)
   return {
     command: process.execPath,
-    args: [...dshLaunch.nodeArgs, '--profile', profile, ...patches.flatMap(path => ['--patch', path])],
+    args: [...mhLaunch.nodeArgs, '--profile', profile, ...patches.flatMap(path => ['--patch', path])],
     ...options.processCwd === undefined ? {} : { cwd: resolve(callerCwd, options.processCwd) },
     environment: () => ({
       ...(options.env ?? process.env),
-      ...dshLaunch.environment,
-      ...dshHome === undefined ? {} : { DSH_HOME: dshHome },
+      ...mhLaunch.environment,
+      ...mhHome === undefined ? {} : { MH_HOME: mhHome },
     }),
-    description: `dsh profile ${JSON.stringify(profile)}`,
+    description: `mh profile ${JSON.stringify(profile)}`,
     initializeTimeoutMs: options.initializeTimeoutMs ?? DEFAULT_INITIALIZE_TIMEOUT_MS,
     ...options.requestTimeoutMs === undefined ? {} : { requestTimeoutMs: options.requestTimeoutMs },
     ...options.shutdownTimeoutMs === undefined ? {} : { shutdownTimeoutMs: options.shutdownTimeoutMs },

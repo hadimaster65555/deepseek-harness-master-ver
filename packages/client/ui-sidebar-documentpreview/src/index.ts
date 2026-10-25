@@ -1,6 +1,6 @@
 /** Host configuration for browser document previews. */
-import type { Context } from '@deepseek-ai/cordis'
-import type {} from '@deepseek-ai/dsh-host-webserver'
+import type { Context } from '@master-harness/cordis'
+import type {} from '@master-harness/host-webserver'
 import type { Config } from './config.ts'
 
 export { Config } from './config.ts'
@@ -12,6 +12,6 @@ export { Config } from './config.ts'
  */
 export function apply(ctx: Context, config: Config): void {
   ctx.on('webserver/index-inject', (table) => {
-    table.push({ kind: 'global', name: '__DSH_DOCUMENT_PREVIEW_CONFIG__', value: config })
+    table.push({ kind: 'global', name: '__MH_DOCUMENT_PREVIEW_CONFIG__', value: config })
   })
 }

@@ -3,35 +3,35 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write packages/util/package-manifest/README.md
 /:
-  en: 8cffb2f57844db66
-  zh: 20b158511886ac50
-/deepseek-ai-dsh-package-manifest:
-  en: 90fdf4daddb42135
-  zh: 42350a2d78d2bd81
-/deepseek-ai-dsh-package-manifest/summary:
-  en: f68bfdd934eb4af6
-  zh: 41a873a9f251c814
-/deepseek-ai-dsh-package-manifest/table-of-contents:
+  en: 953c3ee0dcc4acd8
+  zh: f4bae2c590c2635b
+/master-harness-package-manifest:
+  en: b64d272fabcce909
+  zh: 712136febf9e8c01
+/master-harness-package-manifest/summary:
+  en: 5fd1de62d068c777
+  zh: d0834e42961009a1
+/master-harness-package-manifest/table-of-contents:
   en: d152484eb41ac6b4
   zh: 1db86285abf6c499
-/deepseek-ai-dsh-package-manifest/use-this-package:
-  en: 270c9e6748774e8e
-  zh: 04390150f5a54caa
-/deepseek-ai-dsh-package-manifest/understand-the-implementation:
+/master-harness-package-manifest/use-this-package:
+  en: bf51c62db07264bd
+  zh: b23f80611c102198
+/master-harness-package-manifest/understand-the-implementation:
   en: 41ec449dee927f04
   zh: ec1b583bd9025d84
-/deepseek-ai-dsh-package-manifest/further-exploration:
-  en: f2352ec5d94ac3bd
-  zh: c2eb0889554f1a7f
-/deepseek-ai-dsh-package-manifest/model-experience:
+/master-harness-package-manifest/further-exploration:
+  en: d7e2056d33d16f1d
+  zh: a6ac879a571fa3e9
+/master-harness-package-manifest/model-experience:
   en: 0b5aaa4787068a57
   zh: bdb5dabe0b33ff9d
-/deepseek-ai-dsh-package-manifest/model-experience/kv-cache-effect:
+/master-harness-package-manifest/model-experience/kv-cache-effect:
   en: 2ed74a2a33958543
   zh: 7d63c3a3801bef13
-/deepseek-ai-dsh-package-manifest/known-limitations-and-deferred-work:
-  en: e64464780f3e36b6
-  zh: fec64944da4710ce
-/deepseek-ai-dsh-package-manifest/known-limitations-and-deferred-work/dev-note:
+/master-harness-package-manifest/known-limitations-and-deferred-work:
+  en: a87ff98e37aa9f18
+  zh: 1922b8623edd9402
+/master-harness-package-manifest/known-limitations-and-deferred-work/dev-note:
   en: e67f633dc6fe7773
   zh: 3bb0c20c93f16f98

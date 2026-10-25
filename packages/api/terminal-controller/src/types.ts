@@ -1,8 +1,8 @@
 /** Browser terminal identities, metadata and screen-stream frames. */
-import type { Branded } from '@deepseek-ai/dsh-brand'
-import type { RemoteUplinkWindow } from '@deepseek-ai/dsh-typert-protocol'
+import type { Branded } from '@master-harness/brand'
+import type { RemoteUplinkWindow } from '@master-harness/typert-protocol'
 
-declare module '@deepseek-ai/dsh-typert-protocol' {
+declare module '@master-harness/typert-protocol' {
   interface RemoteErrorDetailsMap {
     /** The terminal identity is missing or has begun process cleanup. */
     'terminal/unavailable': Record<string, never>

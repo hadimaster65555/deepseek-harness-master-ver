@@ -3,7 +3,7 @@ description: "Complete V3-to-V4 Session conversion and native admission: tool-ro
 kind: "package-library"
 ---
 
-# @deepseek-ai/dsh-session-format-v3-to-v4
+# @master-harness/session-format-v3-to-v4
 
 English | [中文](README.zh.md)
 
@@ -123,9 +123,9 @@ A plugin source requires a string `plugin`, including the empty string. Conversi
 |---|---|
 | `compact` | `compact-checkpoint` |
 | `tools-code-mode`, `tools-ptc` | `ptc-mode` |
-| `dsh-compaction-basic` | `compact-basic` |
-| `@deepseek-ai/dsh-system-prompt`, on a system-role message | `system-prompt` |
-| `@deepseek-ai/dsh-system-prompt`, on another role | `runtime-context` |
+| `mh-compaction-basic` | `compact-basic` |
+| `@master-harness/system-prompt`, on a system-role message | `system-prompt` |
+| `@master-harness/system-prompt`, on another role | `runtime-context` |
 | Same-name first-party producers listed below | The exact plugin string |
 | Any other plugin name | `plugin:` followed by the complete original name |
 

@@ -1,12 +1,12 @@
 /** Replay persisted user input carrying assistant-only content through Messages. */
 import assert from 'node:assert/strict'
-import type { Context } from '@deepseek-ai/cordis'
-import type {} from '@deepseek-ai/dsh-agent'
-import { createUserMessage, ToolCallId } from '@deepseek-ai/dsh-llm'
+import type { Context } from '@master-harness/cordis'
+import type {} from '@master-harness/agent'
+import { createUserMessage, ToolCallId } from '@master-harness/llm'
 import { resolveAdapterOptions } from '../../src/config.ts'
 import { serialize } from '../../src/serialize.ts'
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@master-harness/llm' {
   interface MessageSourceMap {
     'plugin:messages-input-history-snapshot': { kind: 'plugin:messages-input-history-snapshot' }
   }

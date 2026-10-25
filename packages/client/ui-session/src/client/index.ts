@@ -1,5 +1,5 @@
 /** Session Controller adapter for React selector hooks and Slot scope data. */
-import { Service, type Context } from '@deepseek-ai/cordis'
+import { Service, type Context } from '@master-harness/cordis'
 import type {
   ISessions,
   SessionBinding,
@@ -9,13 +9,13 @@ import type {
   SessionSnapshot,
   SessionSummary,
   UseProjection,
-} from '@deepseek-ai/dsh-api-session-controller/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import type {} from '@deepseek-ai/dsh-api-remotes/client'
-import type { AccessEffect, RemoteEndpoint } from '@deepseek-ai/dsh-api-remote-access/client'
-import { notifySubscribers } from '@deepseek-ai/dsh-client-store'
-import { WeakMapWithValues } from '@deepseek-ai/dsh-util-values'
-import { standardHookPropName } from '@deepseek-ai/dsh-client-ui-slots'
+} from '@master-harness/api-session-controller/client'
+import type { SessionId } from '@master-harness/session/types'
+import type {} from '@master-harness/api-remotes/client'
+import type { AccessEffect, RemoteEndpoint } from '@master-harness/api-remote-access/client'
+import { notifySubscribers } from '@master-harness/client-store'
+import { WeakMapWithValues } from '@master-harness/util-values'
+import { standardHookPropName } from '@master-harness/client-ui-slots'
 import type {
   HostObservable,
   KeyedStandardSource,
@@ -25,9 +25,9 @@ import type {
   SlotScopeAdapter,
   SnapshotSelectorHook,
   StandardSourceBinding,
-} from '@deepseek-ai/dsh-client-ui-slots'
+} from '@master-harness/client-ui-slots'
 // Type-only service merge for ctx.slots.
-import type {} from '@deepseek-ai/dsh-client-ui-renderer/client'
+import type {} from '@master-harness/client-ui-renderer/client'
 import { renderSessionArea } from './session-provider.tsx'
 
 /** Selector hook over the Session Controller list and current selection. */
@@ -149,7 +149,7 @@ class PendingInteractionDomain<T extends SessionPendingInteractionBase> {
   }
 }
 
-declare module '@deepseek-ai/dsh-client-ui-slots' {
+declare module '@master-harness/client-ui-slots' {
   interface SlotScopeTargetMap {
     session: SessionReference
   }
@@ -186,13 +186,13 @@ declare module '@deepseek-ai/dsh-client-ui-slots' {
   }
 }
 
-declare module '@deepseek-ai/dsh-api-session-controller/client' {
+declare module '@master-harness/api-session-controller/client' {
   interface SessionReferenceSourceMap {
     mainView: unknown
   }
 }
 
-declare module '@deepseek-ai/cordis' {
+declare module '@master-harness/cordis' {
   interface Context {
     /** Session Controller adapter and session-scoped source registry. */
     uiSession: UiSession

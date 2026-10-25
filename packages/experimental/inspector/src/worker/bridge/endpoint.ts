@@ -105,7 +105,7 @@ export class InspectorEndpoint {
     }
     if (pathname === '/json/version') {
       this.json(response, {
-        Browser: 'dsh-experimental-inspector/0',
+        Browser: 'mh-experimental-inspector/0',
         'Protocol-Version': '1.3',
         webSocketDebuggerUrl: this.cdpUrl(),
       })
@@ -153,7 +153,7 @@ export class InspectorEndpoint {
       },
       close: () => { socket.close(1008, 'invalid CDP request') },
     }
-    const target = { targetId: this.config.targetId, title: 'DeepSeek Harness Host' }
+    const target = { targetId: this.config.targetId, title: 'Master Harness Host' }
     const session = new CdpSession(
       transport,
       target,
@@ -236,9 +236,9 @@ export class InspectorEndpoint {
     return {
       id: this.config.targetId,
       type: 'page',
-      title: 'DeepSeek Harness Host',
+      title: 'Master Harness Host',
       description: 'Experimental cross-realm Inspector target',
-      url: 'dsh://host',
+      url: 'mh://host',
       webSocketDebuggerUrl: this.cdpUrl(),
       devtoolsFrontendUrl: `devtools://devtools/bundled/devtools_app.html?ws=${this.config.host}:${this.boundPort()}/devtools/page/${this.config.targetId}&panel=elements&noJavaScriptCompletion=true`,
     }

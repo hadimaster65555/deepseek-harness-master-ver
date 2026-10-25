@@ -1,21 +1,21 @@
 import { mountWorkingDirectoryFixture } from '../../../subagent/subagent/tests/working-directory-fixture.ts'
 /** SDK task completion retains live failures that have no durable terminal outcome. */
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@master-harness/cordis'
 import { mkdtemp, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { describe, expect, it, vi } from 'vitest'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import { mountAgentLoopTestDependencies } from '@deepseek-ai/dsh-agent-loop-testkit'
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
-import { SessionId } from '@deepseek-ai/dsh-session'
-import * as JsonlSessionPersistence from '@deepseek-ai/dsh-session-persistence-jsonl'
-import SubagentRuntime, { NO_START_CAPABILITIES } from '@deepseek-ai/dsh-subagent'
+import AgentLoop from '@master-harness/agent-loop'
+import { mountAgentLoopTestDependencies } from '@master-harness/agent-loop-testkit'
+import { createUserMessage } from '@master-harness/llm'
+import { SessionId } from '@master-harness/session'
+import * as JsonlSessionPersistence from '@master-harness/session-persistence-jsonl'
+import SubagentRuntime, { NO_START_CAPABILITIES } from '@master-harness/subagent'
 import { MockAdapter, textResponse } from '../../../core/agent-loop/tests/mock-adapter.ts'
 import { HarnessSdkJsonRpcServer } from '../src/server.ts'
 
 async function setup(beforeServer?: (ctx: Context) => void) {
-  const root = await mkdtemp(join(tmpdir(), 'dsh-sdk-wait-'))
+  const root = await mkdtemp(join(tmpdir(), 'mh-sdk-wait-'))
   const ctx = new Context()
   await mountAgentLoopTestDependencies(ctx)
   await ctx.plugin(AgentLoop, { agents: [] })

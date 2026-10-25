@@ -1,11 +1,11 @@
 /** Shared Host wiring for the DeepSeek protocol adapter. */
-import type { Context } from '@deepseek-ai/cordis'
-import type {} from '@deepseek-ai/dsh-settings'
-import type {} from '@deepseek-ai/cordis-plugin-loader'
-import type {} from '@deepseek-ai/dsh-fs'
-import { resolveImageAttachmentAccess } from '@deepseek-ai/dsh-llm'
-import { getOrCreateAnonymousUserId, type AnonymousUserId } from '@deepseek-ai/dsh-anonymous-user-id'
-import { deepEqualJson } from '@deepseek-ai/dsh-util-values'
+import type { Context } from '@master-harness/cordis'
+import type {} from '@master-harness/settings'
+import type {} from '@master-harness/cordis-plugin-loader'
+import type {} from '@master-harness/fs'
+import { resolveImageAttachmentAccess } from '@master-harness/llm'
+import { getOrCreateAnonymousUserId, type AnonymousUserId } from '@master-harness/anonymous-user-id'
+import { deepEqualJson } from '@master-harness/util-values'
 import { DeepSeekAdapter } from './adapter.ts'
 import type { DeepSeekAdapterOptions, DeepSeekConnectionOptions } from './types.ts'
 

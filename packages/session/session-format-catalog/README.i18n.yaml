@@ -5,48 +5,48 @@
 /:
   en: 89c9b992aff39650
   zh: 94d371a24dedeec1
-/deepseek-ai-dsh-session-format-catalog:
-  en: f3d8ff5a8c114032
-  zh: 9c44f1a7d6992f73
-/deepseek-ai-dsh-session-format-catalog/summary:
-  en: 9ba3c445056b28ed
-  zh: 267ba018514b5e12
-/deepseek-ai-dsh-session-format-catalog/table-of-contents:
+/master-harness-session-format-catalog:
+  en: 6e89a67a5c959e3e
+  zh: 7ae0f51c52f67420
+/master-harness-session-format-catalog/summary:
+  en: 6031145d1c8f2327
+  zh: 9816f495fbbfba9b
+/master-harness-session-format-catalog/table-of-contents:
   en: d152484eb41ac6b4
   zh: 09388d293f9be9cb
-/deepseek-ai-dsh-session-format-catalog/use-this-package:
+/master-harness-session-format-catalog/use-this-package:
   en: bbff250eba0f1b89
   zh: 0a618f05cc88ee2b
-/deepseek-ai-dsh-session-format-catalog/use-this-package/when-to-use-it:
+/master-harness-session-format-catalog/use-this-package/when-to-use-it:
   en: 896dc92060e0eaa4
   zh: 93bf0af6ee266b99
-/deepseek-ai-dsh-session-format-catalog/use-this-package/entry-point:
-  en: f955b2fb458cf64d
-  zh: 0e0b6f025be928a7
-/deepseek-ai-dsh-session-format-catalog/understand-the-implementation:
+/master-harness-session-format-catalog/use-this-package/entry-point:
+  en: 0cc4f858bb9da959
+  zh: ae8e5091512efd3c
+/master-harness-session-format-catalog/understand-the-implementation:
   en: cac81936d7b06de4
   zh: 6ec5b5af0c115464
-/deepseek-ai-dsh-session-format-catalog/further-exploration:
-  en: 48df998c195e1fc9
-  zh: 4213cc5c7c19a73c
-/deepseek-ai-dsh-session-format-catalog/model-experience:
+/master-harness-session-format-catalog/further-exploration:
+  en: a17bf84bd5dec3ef
+  zh: 656880619af006e0
+/master-harness-session-format-catalog/model-experience:
   en: 215e7ba838619b7b
   zh: a311da3843709f90
-/deepseek-ai-dsh-session-format-catalog/model-experience/catalog-dispatch:
+/master-harness-session-format-catalog/model-experience/catalog-dispatch:
   en: 370b9bf19d575dbd
   zh: e08724fcf4189634
-/deepseek-ai-dsh-session-format-catalog/model-experience/catalog-dispatch/what-the-model-sees:
+/master-harness-session-format-catalog/model-experience/catalog-dispatch/what-the-model-sees:
   en: 53fa22f9082ca037
   zh: 81c5ebd439d9afdf
-/deepseek-ai-dsh-session-format-catalog/model-experience/catalog-dispatch/token-effect:
+/master-harness-session-format-catalog/model-experience/catalog-dispatch/token-effect:
   en: f7d1eb359afe1932
   zh: 5fc82f0403c52d19
-/deepseek-ai-dsh-session-format-catalog/model-experience/catalog-dispatch/kv-cache-effect:
+/master-harness-session-format-catalog/model-experience/catalog-dispatch/kv-cache-effect:
   en: 3796ca9965965a66
   zh: a6f655fa0d6e7aa4
-/deepseek-ai-dsh-session-format-catalog/known-limitations-and-deferred-work:
+/master-harness-session-format-catalog/known-limitations-and-deferred-work:
   en: 9f86bd4bcaa5f43d
   zh: aef8d58f4d1e0370
-/deepseek-ai-dsh-session-format-catalog/known-limitations-and-deferred-work/dev-note:
+/master-harness-session-format-catalog/known-limitations-and-deferred-work/dev-note:
   en: e67f633dc6fe7773
   zh: 3bb0c20c93f16f98

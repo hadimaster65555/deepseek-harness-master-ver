@@ -70,13 +70,13 @@ describe('built-in plugin inventory touch rules', () => {
     // An expanded card shows the same surface as a hovered one, and it must hold on
     // a touch client: it belongs outside the hover fence, not inside it.
     expect(ruleBody(".card[data-open='true'] > .cardContent"))
-      .toContain('background: var(--dsw-alias-interactive-bg-hover)')
+      .toContain('background: var(--mh-alias-interactive-bg-hover)')
     expect(hoverBlock()).not.toContain('data-open')
   })
 
   it('gives touch clients a press state where the hover state is fenced off', () => {
-    expect(ruleBody('.cardContent:active')).toContain('background: var(--dsw-alias-interactive-bg-active)')
-    expect(ruleBody('.switcher:active')).toContain('background: var(--dsw-alias-interactive-bg-active)')
+    expect(ruleBody('.cardContent:active')).toContain('background: var(--mh-alias-interactive-bg-active)')
+    expect(ruleBody('.switcher:active')).toContain('background: var(--mh-alias-interactive-bg-active)')
   })
 
   it('keeps the focused search field at 16px under a coarse pointer', () => {

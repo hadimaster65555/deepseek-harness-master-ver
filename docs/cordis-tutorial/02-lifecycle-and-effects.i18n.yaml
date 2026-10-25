@@ -3,14 +3,14 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write docs/cordis-tutorial/02-lifecycle-and-effects.md
 /2-lifecycle-and-effects:
-  en: d8936e9239303f91
-  zh: ee5a15bead15f7fa
+  en: 4f9ff3965cab3f8f
+  zh: 4b2358b7b6adea47
 /2-lifecycle-and-effects/effects:
   en: 2405133f23696f0e
   zh: 30bcd69cba560176
 /2-lifecycle-and-effects/the-fiber-state-machine:
-  en: fe65d99ee289a273
-  zh: ee5cc95f67a2bc4c
+  en: d4b9f43d7b53a673
+  zh: 7c27f38f058f23fc
 /2-lifecycle-and-effects/what-is-already-an-effect:
-  en: e986a639aac5eaff
-  zh: 8f907581f5725119
+  en: cc8f0ffcbabafa95
+  zh: 31a35803bfeab3bd

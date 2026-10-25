@@ -1,13 +1,13 @@
 {
-  "name": "@deepseek-ai/dsh-fs-local",
-  "description": "Local-filesystem implementation of the DeepSeek Harness filesystem seam (ctx.fs)",
+  "name": "@master-harness/fs-local",
+  "description": "Local-filesystem implementation of the Master Harness filesystem seam (ctx.fs)",
   "version": "0.2.1-rc.3",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/fs/fs-local"
   },
   "type": "module",
@@ -29,17 +29,17 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-fs": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@master-harness/fs": "workspace:*",
+    "@master-harness/cordis": "workspace:~"
   },
   "dependencies": {
     "chokidar": "5.0.0",
     "koffi": "3.1.1",
-    "@deepseek-ai/schemastery": "workspace:~"
+    "@master-harness/schemastery": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-fs": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@master-harness/fs": "workspace:*",
+    "@master-harness/llm": "workspace:*",
+    "@master-harness/cordis": "workspace:~"
   }
 }

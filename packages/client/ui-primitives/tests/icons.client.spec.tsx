@@ -1,11 +1,11 @@
 // @vitest-environment jsdom
 import { cleanup, render } from '@testing-library/react'
 import { afterEach, describe, expect, it } from 'vitest'
-import * as primitives from '@deepseek-ai/dsh-client-ui-primitives'
+import * as primitives from '@master-harness/client-ui-primitives'
 import {
   IconAlarmClockOutlineRegular, IconApiOutlineRegular, IconArchiveOutlineRegular, IconFolderCloseRegular,
   IconAppsAddOutlineMedium, IconGoalOutlineRegular, IconSendOutlineRegular,
-} from '@deepseek-ai/dsh-client-ui-primitives'
+} from '@master-harness/client-ui-primitives'
 import { ICON_ARTWORK, type IconGlyph, type IconWeight } from '../src/icons/artwork.ts'
 import {
   BrowseOutlineArtwork, ChatLinesOutlineArtwork, CodeBracketsArtwork, FolderCloseArtwork, GlobeOutlineArtwork,
@@ -81,7 +81,7 @@ describe('product icon set', () => {
 
   it('publishes one default symbol per glyph weight', () => {
     expect(Object.keys(primitives.ICON_SYMBOLS)).toHaveLength(2 * glyphs.length)
-    expect(primitives.ICON_SYMBOLS['dsw-icon-search-outline-medium']).toBe(ICON_ARTWORK['search-outline'].svg(primitives.ICON_MEDIUM_STROKE))
+    expect(primitives.ICON_SYMBOLS['mh-icon-search-outline-medium']).toBe(ICON_ARTWORK['search-outline'].svg(primitives.ICON_MEDIUM_STROKE))
   })
 
   it('keeps element ids unique across the default symbols', () => {
@@ -93,7 +93,7 @@ describe('product icon set', () => {
     const weight = name.endsWith('Regular') ? 'regular' : 'medium'
     const glyph = name.slice('Icon'.length, -weight.length).replace(/(?<!^)(?=[A-Z])/g, '-').toLowerCase()
     const Icon = icons[name]!
-    expect(render(<Icon />).container.querySelector('svg')!.getAttribute('data-icon')).toBe(`dsw-icon-${glyph}-${weight}`)
+    expect(render(<Icon />).container.querySelector('svg')!.getAttribute('data-icon')).toBe(`mh-icon-${glyph}-${weight}`)
   })
 
   it.each([
@@ -186,17 +186,17 @@ describe('product icon set', () => {
     expect(tiles('apps-add-outline')).toEqual({ result: ['2.25,2.25', '2.25,9.75', '9.75,9.75'], plus: 'M11.75 1.75v5M9.25 4.25h5' })
     expect(tiles('apps-add-compact-outline')).toEqual({ result: ['2.75,2.75', '2.75,9.25', '9.25,9.25'], plus: 'M11.25 2.25v5M8.75 4.75h5' })
     const glyphOf = (compact: boolean) => render(<IconAppsAddOutlineMedium compact={compact} />).container.querySelector('svg')!.getAttribute('data-icon')
-    expect([glyphOf(false), glyphOf(true)]).toEqual(['dsw-icon-apps-add-outline-medium', 'dsw-icon-apps-add-compact-outline-medium'])
+    expect([glyphOf(false), glyphOf(true)]).toEqual(['mh-icon-apps-add-outline-medium', 'mh-icon-apps-add-compact-outline-medium'])
   })
 })
 
-describe('FishLogo', () => {
-  it('renders the fish path in currentColor at the native ratio', () => {
-    const { container } = render(<primitives.FishLogo />)
+describe('BrandMark', () => {
+  it('renders the monogram in currentColor as a square', () => {
+    const { container } = render(<primitives.BrandMark />)
     const svg = container.querySelector('svg')!
     expect(svg.getAttribute('width')).toBe('24')
-    expect(Number(svg.getAttribute('height'))).toBeCloseTo(17.66, 1)
-    expect(svg.getAttribute('viewBox')).toBe('0 0 23.16 17.04')
+    expect(svg.getAttribute('height')).toBe('24')
+    expect(svg.getAttribute('viewBox')).toBe('0 0 20 20')
     expect(container.querySelectorAll('path')).toHaveLength(1)
     expect(container.innerHTML).toContain('currentColor')
     expect(container.innerHTML).not.toContain('M0 0L23.16')
@@ -209,6 +209,7 @@ describe('BrandWordmark', () => {
     const svg = view.container.querySelector('svg')!
     expect(svg.getAttribute('width')).toBe('182')
     expect(svg.getAttribute('viewBox')).toBe('0 0 182 24')
+    expect(svg.textContent).toBe('Master Harness')
 
     view.rerender(<primitives.BrandWordmark includeMark={false} />)
     expect(svg.getAttribute('width')).toBe('156')

@@ -2,15 +2,15 @@
 import { mkdtemp, rm, writeFile, mkdir, realpath, unlink } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { LocalFileSystem } from '@deepseek-ai/dsh-fs-local'
-import { WorkspaceFiles } from '@deepseek-ai/dsh-api-workspace-files'
-import { Context } from '@deepseek-ai/cordis'
-import { HostConnectionService } from '@deepseek-ai/dsh-client-connection'
-import type { BrowserAuth } from '@deepseek-ai/dsh-client-connection/src/browser-auth.ts'
-import { SessionId } from '@deepseek-ai/dsh-session'
-import { SessionQueryError } from '@deepseek-ai/dsh-session-query'
-import type { SessionEventReadRequest } from '@deepseek-ai/dsh-session-query'
-import type { WorkspaceChangedFile, WorkspaceChangesSummary, WorkspaceFileDiff } from '@deepseek-ai/dsh-workspace-changes/types'
+import { LocalFileSystem } from '@master-harness/fs-local'
+import { WorkspaceFiles } from '@master-harness/api-workspace-files'
+import { Context } from '@master-harness/cordis'
+import { HostConnectionService } from '@master-harness/client-connection'
+import type { BrowserAuth } from '@master-harness/client-connection/src/browser-auth.ts'
+import { SessionId } from '@master-harness/session'
+import { SessionQueryError } from '@master-harness/session-query'
+import type { SessionEventReadRequest } from '@master-harness/session-query'
+import type { WorkspaceChangedFile, WorkspaceChangesSummary, WorkspaceFileDiff } from '@master-harness/workspace-changes/types'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import * as deliverables from '../src/index.ts'
 import {
@@ -28,7 +28,7 @@ afterEach(async () => {
 const changed = (path: string, display = path): WorkspaceChangedFile => ({ path, display, added: 1, deleted: 0 })
 
 async function fixture() {
-  const root = await mkdtemp(join(tmpdir(), 'dsh-changes-open-'))
+  const root = await mkdtemp(join(tmpdir(), 'mh-changes-open-'))
   cleanups.push(() => rm(root, { recursive: true, force: true }))
   const cwd = join(root, 'workspace')
   await mkdir(join(cwd, 'src', 'lib'), { recursive: true })

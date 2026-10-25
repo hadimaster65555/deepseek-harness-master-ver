@@ -2,36 +2,36 @@
 # section, a hash of its English and Chinese blocks outside code blocks and generated regions.
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write docs/architecture.md
-/deepseek-harness-architecture:
-  en: 20678ed3f962afba
-  zh: 87a2b81675d93346
-/deepseek-harness-architecture/cordis:
-  en: da5060e577578ea7
-  zh: 2e77d570e32d8938
-/deepseek-harness-architecture/profiles-and-bundles:
-  en: 21423f481b18b0be
-  zh: 5343bd7ea0fae5bc
-/deepseek-harness-architecture/application-launch:
-  en: 334b4f390b6e376b
-  zh: ce094f24c6162be3
-/deepseek-harness-architecture/desktop-application:
-  en: b9eeb18645121a8b
-  zh: 70d87a12c43e042a
-/deepseek-harness-architecture/core-packages:
-  en: 20ef882e44b06a10
-  zh: c10c3934ed5570e9
-/deepseek-harness-architecture/events:
-  en: 693407efb233f961
-  zh: 37b9dd0677d4405c
-/deepseek-harness-architecture/turn-flow:
-  en: 1a79a70b62c04cdb
-  zh: c86d765e21430405
-/deepseek-harness-architecture/session-log:
-  en: 8a7f19b95d426c99
-  zh: d5bb0538404e20ea
-/deepseek-harness-architecture/capability-seams:
-  en: a5bc20c3f2a1b370
-  zh: 91773a281410b2f4
-/deepseek-harness-architecture/where-new-behavior-goes:
-  en: ee73b1861378b099
-  zh: 9a182be609485f67
+/master-harness-architecture:
+  en: 45ce8a5c30843055
+  zh: 4ec039729c621b64
+/master-harness-architecture/cordis:
+  en: 73792bb3f2775d0c
+  zh: 76592b7155dde922
+/master-harness-architecture/profiles-and-bundles:
+  en: e8a9c2e6653f765f
+  zh: c26b571d6cb34c97
+/master-harness-architecture/application-launch:
+  en: 0c90c1ae9ff62092
+  zh: 42aaccc6364f912c
+/master-harness-architecture/desktop-application:
+  en: 1986c0b5963b5914
+  zh: 3f872cc9dd236355
+/master-harness-architecture/core-packages:
+  en: ba7979b63939f79b
+  zh: 9324eec5c58db1ec
+/master-harness-architecture/events:
+  en: c873f6671ef52d0a
+  zh: aebcbdddcbda38ce
+/master-harness-architecture/turn-flow:
+  en: 16ea749394747475
+  zh: 205fe1003e3aa75e
+/master-harness-architecture/session-log:
+  en: 6d9a5f05e34da65a
+  zh: a1e8f2e05403de6f
+/master-harness-architecture/capability-seams:
+  en: 7683a3f22abe0339
+  zh: 038bf4c9beb26104
+/master-harness-architecture/where-new-behavior-goes:
+  en: a1f3d79db62d8589
+  zh: 82bd174f2f13ea0d

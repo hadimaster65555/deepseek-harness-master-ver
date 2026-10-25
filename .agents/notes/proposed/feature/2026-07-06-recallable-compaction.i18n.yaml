@@ -3,8 +3,8 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/proposed/feature/2026-07-06-recallable-compaction.md
 /agent-note-recallable-compaction-index-checkpoints-a-state-checkpoint-and-in-session-history-recall:
-  en: 597e215825c64eb9
-  zh: 1986c2ec32437386
+  en: 232770b120646f85
+  zh: 84cd64effd386ff3
 /agent-note-recallable-compaction-index-checkpoints-a-state-checkpoint-and-in-session-history-recall/problem:
   en: 98419c56fc9d4f6f
   zh: 30271b2ad21dc596
@@ -21,8 +21,8 @@
   en: 0bbddf585af7054d
   zh: 6a1d4cb86fe1609a
 /agent-note-recallable-compaction-index-checkpoints-a-state-checkpoint-and-in-session-history-recall/proposal/the-recall-tools:
-  en: 650caf9087704463
-  zh: 8b1ba814af60e92e
+  en: a4c0d7abe95ebbbe
+  zh: 8248a28035cbb34e
 /agent-note-recallable-compaction-index-checkpoints-a-state-checkpoint-and-in-session-history-recall/proposal/cache-and-cost:
   en: 5478157a8990200d
   zh: 248d5a948cd980bf
@@ -36,8 +36,8 @@
   en: ddef3c8ee8af0a71
   zh: 4d242940dbb34e50
 /agent-note-recallable-compaction-index-checkpoints-a-state-checkpoint-and-in-session-history-recall/alternatives-considered:
-  en: 927ef2505cfd6596
-  zh: 9c84668ec8e7cbdd
+  en: 1957a2562bccc199
+  zh: 3fc0caa56a228320
 /agent-note-recallable-compaction-index-checkpoints-a-state-checkpoint-and-in-session-history-recall/acceptance-criteria:
   en: 05c76d5a5decad92
   zh: dd7f5d352e08942e

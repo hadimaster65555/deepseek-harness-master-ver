@@ -1,17 +1,17 @@
 import { readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@master-harness/cordis'
 import {
   fixtureContext,
   normalizeSessionSnapshot,
   normalizeSessionSnapshots,
   type NormalizeContext,
-} from '@deepseek-ai/dsh-session-snapshot'
-import { LOADER_SMOKE_TEST_TIMEOUT_MS, runLoaderSmoke } from '@deepseek-ai/dsh-loader-smoke'
-import { createUserMessage, ToolCallId, createMessage } from '@deepseek-ai/dsh-llm'
-import { SessionSeq, SESSION_FORMAT_VERSION, SessionId, type SessionEvent, type SessionHeader } from '@deepseek-ai/dsh-session'
-import * as JsonlSessionPersistence from '@deepseek-ai/dsh-session-persistence-jsonl'
+} from '@master-harness/session-snapshot'
+import { LOADER_SMOKE_TEST_TIMEOUT_MS, runLoaderSmoke } from '@master-harness/loader-smoke'
+import { createUserMessage, ToolCallId, createMessage } from '@master-harness/llm'
+import { SessionSeq, SESSION_FORMAT_VERSION, SessionId, type SessionEvent, type SessionHeader } from '@master-harness/session'
+import * as JsonlSessionPersistence from '@master-harness/session-persistence-jsonl'
 import { logPath } from '../../../../../../packages/session/session-persistence-jsonl/src/format.ts'
 import { describe, expect, it } from 'vitest'
 
@@ -23,7 +23,7 @@ const configPath = fileURLToPath(new URL('../semantic-checkpoint-snapshot.patch.
 const binScript = fileURLToPath(new URL('../../../../../../packages/test-support/loader-smoke/tests/fixtures/headless-driver.ts', import.meta.url))
 const tsconfigPath = fileURLToPath(new URL('../../../../../../tsconfig.json', import.meta.url))
 const sessionId = SessionId('semantic-checkpoint-unknown-outcome')
-const refreshing = process.env.DSH_SNAPSHOT === 'refresh'
+const refreshing = process.env.MH_SNAPSHOT === 'refresh'
 const task = 'Continue safely from the interrupted operation.'
 
 /** Compare one current normalized Session with its generation-aware committed fixture. */
@@ -106,15 +106,15 @@ describe('semantic checkpoint recovery snapshot', () => {
     let sessionPath = ''
     const result = await runLoaderSmoke({
       label: 'semantic checkpoint headless stream-json snapshot',
-      tempDirPrefix: 'dsh-semantic-snapshot-',
+      tempDirPrefix: 'mh-semantic-snapshot-',
       binScript,
       libBinScript: binScript,
       configPath,
       binArgs: [configPath, task],
       tsconfigPath,
       env: {
-        DSH_SNAPSHOT_FILE: replayFixture,
-        DSH_SNAPSHOT_OVERRIDE: replayOverride,
+        MH_SNAPSHOT_FILE: replayFixture,
+        MH_SNAPSHOT_OVERRIDE: replayOverride,
       },
       prepare: async (runCwd) => {
         cwd = runCwd

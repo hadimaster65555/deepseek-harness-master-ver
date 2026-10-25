@@ -3,15 +3,15 @@
  * providers read one credential, so every case runs for both operations.
  */
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import type { DeepSeekAccount } from '@deepseek-ai/dsh-deepseek-account'
-import { DSH_LAUNCH_ENVIRONMENT_KEY, createLaunchEnvironmentSnapshot } from '@deepseek-ai/dsh-launch-environment'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import WebRuntime from '@deepseek-ai/dsh-web'
-import * as webApiPlugin from '@deepseek-ai/dsh-web-deepseek-api'
+import { Context } from '@master-harness/cordis'
+import AgentRegistry from '@master-harness/agent'
+import type { Agent } from '@master-harness/agent'
+import type { DeepSeekAccount } from '@master-harness/deepseek-account'
+import { MH_LAUNCH_ENVIRONMENT_KEY, createLaunchEnvironmentSnapshot } from '@master-harness/launch-environment'
+import SessionStore, { SessionId } from '@master-harness/session'
+import SessionProjectionRegistry from '@master-harness/session-projection'
+import WebRuntime from '@master-harness/web'
+import * as webApiPlugin from '@master-harness/web-deepseek-api'
 
 type Operation = 'search' | 'fetch'
 
@@ -43,7 +43,7 @@ interface Setup {
 async function mount(setup: Setup): Promise<Context> {
   const ctx = new Context()
   mounted.push(ctx)
-  ctx.provide(DSH_LAUNCH_ENVIRONMENT_KEY, createLaunchEnvironmentSnapshot([{ source: 'process', values: setup.environment ?? {} }]))
+  ctx.provide(MH_LAUNCH_ENVIRONMENT_KEY, createLaunchEnvironmentSnapshot([{ source: 'process', values: setup.environment ?? {} }]))
   if (setup.credentials !== undefined) ctx.provide('credentials', setup.credentials as never)
   if (setup.account !== undefined) ctx.provide('deepseekAccount', setup.account as DeepSeekAccount)
   await ctx.plugin(SessionStore)
@@ -107,7 +107,7 @@ describe.each(OPERATIONS)('%s readiness', (operation) => {
   it.each<[string, Setup, boolean]>([
     ['the DeepSeek key', { environment: { DEEPSEEK_API_KEY: 'chat-key' } }, true],
     ['a literal key', { config: { apiKey: 'own-key' } }, true],
-    ['their own key reference', { config: { apiKeyEnv: 'DSH_WEB_API_KEY' }, environment: { DSH_WEB_API_KEY: 'own-key' } }, true],
+    ['their own key reference', { config: { apiKeyEnv: 'MH_WEB_API_KEY' }, environment: { MH_WEB_API_KEY: 'own-key' } }, true],
     ['no key', {}, false],
   ])('answers on another provider\'s route, as on any route, when the APIs have %s', async (_label, setup, expected) => {
     const ctx = await mount(setup)

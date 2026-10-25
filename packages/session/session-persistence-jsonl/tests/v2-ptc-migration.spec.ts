@@ -1,9 +1,9 @@
 /** Real JSONL publication and provider-neutral message preservation across the V2 PTC rename. */
 
-import { Context } from '@deepseek-ai/cordis'
-import { SESSION_FORMAT_VERSION, Session, SessionId } from '@deepseek-ai/dsh-session'
-import type { SessionFormatEvent } from '@deepseek-ai/dsh-session-format'
-import * as JsonlSessionPersistence from '@deepseek-ai/dsh-session-persistence-jsonl'
+import { Context } from '@master-harness/cordis'
+import { SESSION_FORMAT_VERSION, Session, SessionId } from '@master-harness/session'
+import type { SessionFormatEvent } from '@master-harness/session-format'
+import * as JsonlSessionPersistence from '@master-harness/session-persistence-jsonl'
 import { createHash } from 'node:crypto'
 import { mkdir, mkdtemp, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -109,7 +109,7 @@ describe('JSONL V2 PTC publication and restore', () => {
   let ctx: Context | undefined
 
   beforeEach(async () => {
-    root = await mkdtemp(join(tmpdir(), 'dsh-jsonl-v2-ptc-'))
+    root = await mkdtemp(join(tmpdir(), 'mh-jsonl-v2-ptc-'))
     ctx = new Context()
     await ctx.plugin(JsonlSessionPersistence, { root, compression: 'none' })
   })

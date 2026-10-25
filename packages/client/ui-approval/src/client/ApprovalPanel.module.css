@@ -2,19 +2,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 8px calc(var(--dsh-composer-side-clearance) + 16px) 12px;
+  padding: 8px calc(var(--mh-composer-side-clearance) + 16px) 12px;
 }
 
 .card {
   overflow: hidden;
   width: 100%;
-  max-width: var(--dsh-chat-content-width);
-  border: 1px solid var(--dsw-alias-state-warn-secondary);
-  border-radius: var(--dsw-radius-xl);
-  background: var(--dsw-specific-input-major);
-  box-shadow: var(--dsw-shadow-lv2);
-  --dsh-scrollbar-thumb: var(--dsw-alias-scrollbar-bg-l2);
-  --dsh-scrollbar-thumb-hover: var(--dsw-alias-scrollbar-hover-l2);
+  max-width: var(--mh-chat-content-width);
+  border: 1px solid var(--mh-alias-state-warn-secondary);
+  border-radius: var(--mh-radius-xl);
+  background: var(--mh-specific-input-major);
+  box-shadow: var(--mh-shadow-lv2);
+  --mh-scrollbar-thumb: var(--mh-alias-scrollbar-bg-l2);
+  --mh-scrollbar-thumb-hover: var(--mh-alias-scrollbar-hover-l2);
 }
 
 .strip {
@@ -22,8 +22,8 @@
   align-items: center;
   gap: 8px;
   padding: 10px 16px;
-  background: var(--dsw-alias-state-warn-tertiary);
-  color: var(--dsw-alias-state-warn-primary);
+  background: var(--mh-alias-state-warn-tertiary);
+  color: var(--mh-alias-state-warn-primary);
   font-size: 13px;
   line-height: 18px;
 }
@@ -33,20 +33,20 @@
   flex-direction: column;
   gap: 6px;
   box-sizing: border-box;
-  max-height: var(--dsh-composer-text-max-height);
+  max-height: var(--mh-composer-text-max-height);
   overflow-y: auto;
   padding: 12px 16px 0;
 }
 
 .headline {
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
   font-size: 15px;
   font-weight: 500;
   line-height: 24px;
 }
 
 .command {
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   font-family: var(--ds-font-family-code);
   font-size: 13px;
   line-height: 20px;
@@ -62,9 +62,9 @@
 
 @media (hover: hover) {
   .reject:hover:not(:disabled) {
-    background: var(--dsw-alias-interactive-bg-hover-danger);
-    color: var(--dsw-alias-state-error-primary);
-    --dsh-button-outline-color: transparent;
+    background: var(--mh-alias-interactive-bg-hover-danger);
+    color: var(--mh-alias-state-error-primary);
+    --mh-button-outline-color: transparent;
   }
 }
 
@@ -72,7 +72,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
   font-size: 16px;
 }
 
@@ -83,7 +83,7 @@
 
 .description {
   margin: 0;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
   font-size: 13px;
   line-height: 20px;
 }

@@ -1,12 +1,14 @@
-# DeepSeek Harness Brand Asset Usage Guidelines
+# Master Harness Brand Usage Guidelines
 
 English | [中文](BRAND_GUIDELINES.zh.md)
 
-To maintain the long\-term healthy development of the DeepSeek Harness ecosystem, avoid user confusion, and facilitate the retrieval and identification of related resources, we have established these specifications and hope that everyone will adhere to them:
+These guidelines keep the Master Harness ecosystem clear and help users identify projects that build on it:
 
-- In your project's descriptive text, you may use "DeepSeek Harness" to truthfully and accurately describe your project's relationship with DeepSeek Harness, for example, "built on DeepSeek Harness" or "compatible with DeepSeek Harness\." Such descriptions comply with license requirements and help users understand your project's positioning\.
-- If you wish your project name to reflect its association with the DeepSeek Harness ecosystem, we recommend using the abbreviated "DSH" designation for naming, which is both clear and facilitates communication within the community\.
-- When naming your project, please avoid using the full "DeepSeek Harness" trademark directly\. "DeepSeek Harness" is a registered trademark of DeepSeek\. Unauthorized use in project names can easily lead to user misunderstanding and confusion, thereby affecting the clarity of the entire ecosystem\. It may also involve trademark infringement\.
-- Additionally, please avoid using official brand materials in your promotions or presentations in a way that could cause misunderstanding, so as not to give users the false impression of official endorsement, cooperation, or authorization\.
+- In descriptive text, you may use "Master Harness" to state your project's relationship with it, for example "built on Master Harness" or "compatible with Master Harness". Such descriptions comply with the license and help users understand your project's positioning.
+- If your project name should reflect that relationship, use the abbreviated "MH" designation.
+- Avoid using the full "Master Harness" name as your own product or company name in a way that implies official endorsement, cooperation, or authorization.
+- Avoid presenting official brand material as if it were your own or as if it signified endorsement.
 
-We believe that a clear and orderly community environment will make every developer's efforts more visible and more readily recognized\. For the few cases that do not comply with the above specifications, we may contact the relevant parties to make appropriate adjustments in order to maintain the overall order of the ecosystem\. Thank you for your understanding and support—let us work together to build a more friendly and sustainable open\-source community\.
+Master Harness is an independent fork inspired by [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness). DeepSeek and DeepSeek Harness are trademarks of DeepSeek AI; Master Harness claims no rights in those marks, and references to DeepSeek Harness identify the upstream project.
+
+We may contact maintainers about uses that conflict with these guidelines. Thank you for keeping the ecosystem clear and welcoming.

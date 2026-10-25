@@ -2,16 +2,16 @@
 // plus the shared estimator's pricing branches.
 
 import { afterEach, describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { createMessage, createSystemMessage, createUserMessage } from '@deepseek-ai/dsh-llm'
-import type { ContentBlock, ToolSchema } from '@deepseek-ai/dsh-llm'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
-import SessionStore, { SessionLogOffset, SessionSeq } from '@deepseek-ai/dsh-session'
-import type { Session, SessionEvent, SessionSeq as SessionSeqType } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import TokenMeter from '@deepseek-ai/dsh-token-meter'
-import type { ContextBreakdownProjection } from '@deepseek-ai/dsh-token-meter/client'
-import { CompactionId } from '@deepseek-ai/dsh-compaction'
+import { Context } from '@master-harness/cordis'
+import { createMessage, createSystemMessage, createUserMessage } from '@master-harness/llm'
+import type { ContentBlock, ToolSchema } from '@master-harness/llm'
+import type { ContextFormed } from '@master-harness/llm'
+import SessionStore, { SessionLogOffset, SessionSeq } from '@master-harness/session'
+import type { Session, SessionEvent, SessionSeq as SessionSeqType } from '@master-harness/session'
+import SessionProjectionRegistry from '@master-harness/session-projection'
+import TokenMeter from '@master-harness/token-meter'
+import type { ContextBreakdownProjection } from '@master-harness/token-meter/client'
+import { CompactionId } from '@master-harness/compaction'
 import { contextBreakdownProjectionDefinition } from '../src/breakdown-projection.ts'
 import {
   estimateContent,
@@ -20,7 +20,7 @@ import {
   estimateToolsTokens,
 } from '../src/estimate.ts'
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@master-harness/llm' {
   interface MessageSourceMap {
     'test': { kind: 'test' } & ContextFormed
   }

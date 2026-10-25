@@ -1,13 +1,13 @@
 /** Covers fail-closed per-call classification and model-schema isolation. */
-import { ToolExecutionPipeline } from '@deepseek-ai/dsh-tools/pipeline'
+import { ToolExecutionPipeline } from '@master-harness/tools/pipeline'
 
-import * as NativeToolExecutor from '@deepseek-ai/dsh-tool-executor-native'
+import * as NativeToolExecutor from '@master-harness/tool-executor-native'
 import { describe, expect, expectTypeOf, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { ToolCallId } from '@deepseek-ai/dsh-llm'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime, { type ToolDefinition, type ToolExecutionInput, type ToolExecutionMode } from '@deepseek-ai/dsh-tools'
-import { defineContentToolFixture } from '@deepseek-ai/dsh-tool-testkit'
+import { Context } from '@master-harness/cordis'
+import { ToolCallId } from '@master-harness/llm'
+import SystemPrompt from '@master-harness/system-prompt'
+import ToolRuntime, { type ToolDefinition, type ToolExecutionInput, type ToolExecutionMode } from '@master-harness/tools'
+import { defineContentToolFixture } from '@master-harness/tool-testkit'
 
 const testToolSignal = new AbortController().signal
 

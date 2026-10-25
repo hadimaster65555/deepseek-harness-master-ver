@@ -1,28 +1,28 @@
 // @vitest-environment jsdom
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
-import type { GlobalStandardProps } from '@deepseek-ai/dsh-client-ui-slots'
-import { Context } from '@deepseek-ai/cordis'
+import { createSnapshotStore } from '@master-harness/client-store'
+import type { GlobalStandardProps } from '@master-harness/client-ui-slots'
+import { Context } from '@master-harness/cordis'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import {
   ConversationNodeAssembler, UiConversation,
-} from '@deepseek-ai/dsh-client-ui-conversation/client'
+} from '@master-harness/client-ui-conversation/client'
 import type {
   ConversationMatch, ConversationNodeDefinition, ConversationStartMatch,
   ConversationViewDefinition,
-} from '@deepseek-ai/dsh-client-ui-conversation/client'
-import type { ChatConversationViewNode } from '@deepseek-ai/dsh-client-ui-chat/client'
-import { SlotRegistry } from '@deepseek-ai/dsh-client-ui-renderer/client'
+} from '@master-harness/client-ui-conversation/client'
+import type { ChatConversationViewNode } from '@master-harness/client-ui-chat/client'
+import { SlotRegistry } from '@master-harness/client-ui-renderer/client'
 import type {
   SessionListState, SessionLiveEventEntry,
-} from '@deepseek-ai/dsh-api-session-controller/client'
-import type { SessionEvent, SessionId } from '@deepseek-ai/dsh-session/types'
-import { SessionSeq } from '@deepseek-ai/dsh-session'
-import { apply as applyLocale, inject as localeInject } from '@deepseek-ai/dsh-client-locale/client'
+} from '@master-harness/api-session-controller/client'
+import type { SessionEvent, SessionId } from '@master-harness/session/types'
+import { SessionSeq } from '@master-harness/session'
+import { apply as applyLocale, inject as localeInject } from '@master-harness/client-locale/client'
 import {
   allowAllAccess, chatSnapshot as emptyChatSnapshot, conversationSnapshot, makeTranslate, sessionSnapshot,
   stubConfigForm, TestSessions, workspaceSnapshot,
-} from '@deepseek-ai/dsh-client-test-runtime'
+} from '@master-harness/client-test-runtime'
 import {
   WorkflowRunPanel, type WorkflowRunInjected, type WorkflowRunPanelProps,
 } from '../src/client/WorkflowRunPanel.tsx'

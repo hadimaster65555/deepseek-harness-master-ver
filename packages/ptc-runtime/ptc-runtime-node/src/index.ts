@@ -2,15 +2,15 @@
 import { AsyncLocalStorage } from 'node:async_hooks'
 import { stripTypeScriptTypes } from 'node:module'
 import { isAbsolute } from 'node:path'
-import { Context } from '@deepseek-ai/cordis'
-import { PtcRuntime } from '@deepseek-ai/dsh-ptc-runtime'
-import type { PtcBindingNamespace, PtcJsonValue, PtcRunFailure, PtcRunRequest, PtcRunResult, PtcRunSandbox, PtcRunSpec } from '@deepseek-ai/dsh-ptc-runtime'
-import { clampTimeout } from '@deepseek-ai/dsh-timeout'
-import { SandboxUnavailableError, classifyRunnerFailure, isRunnerSpawnFailure } from '@deepseek-ai/dsh-sandbox'
-import type { ConfinedArgv, SandboxExecutionPolicy, SandboxMode } from '@deepseek-ai/dsh-sandbox'
-import type { SubprocessHandle, SubprocessOutcome } from '@deepseek-ai/dsh-subprocess'
-import type {} from '@deepseek-ai/dsh-sandbox-policy'
-import type {} from '@deepseek-ai/dsh-fs'
+import { Context } from '@master-harness/cordis'
+import { PtcRuntime } from '@master-harness/ptc-runtime'
+import type { PtcBindingNamespace, PtcJsonValue, PtcRunFailure, PtcRunRequest, PtcRunResult, PtcRunSandbox, PtcRunSpec } from '@master-harness/ptc-runtime'
+import { clampTimeout } from '@master-harness/timeout'
+import { SandboxUnavailableError, classifyRunnerFailure, isRunnerSpawnFailure } from '@master-harness/sandbox'
+import type { ConfinedArgv, SandboxExecutionPolicy, SandboxMode } from '@master-harness/sandbox'
+import type { SubprocessHandle, SubprocessOutcome } from '@master-harness/subprocess'
+import type {} from '@master-harness/sandbox-policy'
+import type {} from '@master-harness/fs'
 import type { BirpcReturn } from 'birpc'
 import { invokeBinding, validateBindings } from './bindings.ts'
 import { createProcessRpc } from './rpc.ts'
@@ -28,7 +28,7 @@ import { decodePtcJsonWire } from './json-wire.ts'
 import { readProgramResult, type ProgramBootData, type ProgramMethods, type HostMethods } from './protocol.ts'
 
 interface LiveRun { controller: AbortController; finished: Promise<void> }
-const STRIP_PREFIX = 'async function __dsh_program__() {\n'
+const STRIP_PREFIX = 'async function __mh_program__() {\n'
 const STRIP_SUFFIX = '\n}'
 
 function messageOf(error: unknown): string { return error instanceof Error ? error.message : String(error) }
@@ -225,7 +225,7 @@ export class NodePtcRuntime extends PtcRuntime {
         .filter(key => !STARTUP_ENVIRONMENT_NAMES.has(key.toUpperCase()) && key.toUpperCase() !== 'ELECTRON_RUN_AS_NODE')
         .map(key => [key, undefined]))
       if (packaged) {
-        env.DSH_PTC_RUNTIME_NODE = '1'
+        env.MH_PTC_RUNTIME_NODE = '1'
         env.NODE_OPTIONS = heapFlag
       }
       handle = this.ctx.subprocess.spawn({ argv: confined?.argv ?? argv, cwd: spec.cwd, env, stdio: { stdin: 'ignore', stdout: 'pipe', stderr: 'pipe', control: 'pipe' }, graceMs: this.config.graceMs, signal })

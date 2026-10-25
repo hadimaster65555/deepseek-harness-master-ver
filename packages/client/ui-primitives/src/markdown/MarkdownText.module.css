@@ -5,8 +5,8 @@
 .markdown {
   min-width: 0;
   overflow-wrap: anywhere;
-  font: var(--dsw-font-markdown-base);
-  color: var(--dsw-alias-label-primary);
+  font: var(--mh-font-markdown-base);
+  color: var(--mh-alias-label-primary);
 }
 
 .markdown strong {
@@ -14,27 +14,27 @@
 }
 
 .markdown h1 {
-  font: var(--dsw-font-markdown-h1);
+  font: var(--mh-font-markdown-h1);
   margin: 32px 0 16px;
 }
 
 .markdown h2 {
-  font: var(--dsw-font-markdown-h2);
+  font: var(--mh-font-markdown-h2);
   margin: 32px 0 16px;
 }
 
 .markdown h3 {
-  font: var(--dsw-font-markdown-h3);
+  font: var(--mh-font-markdown-h3);
   margin: 32px 0 16px;
 }
 
 .markdown h4 {
-  font: var(--dsw-font-markdown-h4);
+  font: var(--mh-font-markdown-h4);
   margin: 16px 0;
 }
 
 .markdown :where(h5, h6) {
-  font: var(--dsw-font-markdown-base-strong);
+  font: var(--mh-font-markdown-base-strong);
   margin: 16px 0;
 }
 
@@ -60,7 +60,7 @@
   /* deepsuite markdown.css uses brand-text (blue in newDesign); this sheet
      keeps design-platform brand-text as near-black, so links use the
      dedicated link alias instead. */
-  color: var(--dsw-alias-link);
+  color: var(--mh-alias-link);
   font-weight: 500;
   transition: box-shadow var(--ds-transition-duration) var(--ds-ease-in-out);
   position: relative;
@@ -76,21 +76,21 @@
 
 .markdown a:focus {
   outline: none;
-  text-decoration: underline dotted var(--dsw-alias-link);
+  text-decoration: underline dotted var(--mh-alias-link);
   text-underline-offset: 3px;
 }
 
 @media (hover: hover) {
   .markdown a:hover {
     outline: none;
-    text-decoration: underline dotted var(--dsw-alias-link);
+    text-decoration: underline dotted var(--mh-alias-link);
     text-underline-offset: 3px;
   }
 }
 
 .markdown a:focus-visible,
 .fileMention:focus-visible {
-  box-shadow: 0 0 0 2px var(--dsw-focus-ring-color, var(--dsw-alias-state-business-primary));
+  box-shadow: 0 0 0 2px var(--mh-focus-ring-color, var(--mh-alias-state-business-primary));
 }
 
 /* Leading link-category glyph inside anchors, file mentions, and
@@ -121,7 +121,7 @@
 
 .markdown li::marker {
   line-height: 24px;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
 }
 
 /* Nested ol under ul/ol: markers inside (models sometimes emit this shape). */
@@ -152,11 +152,11 @@
   border: none;
   height: 0.5px;
   margin: 32px 0;
-  background: var(--dsw-alias-border-l2);
+  background: var(--mh-alias-border-l2);
 }
 
 .markdown blockquote {
-  border-left: 2px solid var(--dsw-alias-label-caption);
+  border-left: 2px solid var(--mh-alias-label-caption);
   margin: 16px 0 0;
   padding-left: 14px;
 }
@@ -171,12 +171,12 @@
   display: inline-flex;
   align-items: center;
   box-sizing: border-box;
-  font: var(--dsw-font-markdown-code);
+  font: var(--mh-font-markdown-code);
   font-family: var(--ds-font-family-code);
   font-size: 0.875em !important;
-  background-color: var(--dsw-alias-markdown-inline-code);
-  border: 0.5px solid var(--dsw-alias-border-l1);
-  border-radius: var(--dsw-radius-sm);
+  background-color: var(--mh-alias-markdown-inline-code);
+  border: 0.5px solid var(--mh-alias-border-l1);
+  border-radius: var(--mh-radius-sm);
   padding: 0 5px;
 }
 
@@ -193,7 +193,7 @@
 
 .markdown input[type='checkbox'] {
   margin: 0 8px 0 0;
-  accent-color: var(--dsw-alias-label-secondary);
+  accent-color: var(--mh-alias-label-secondary);
 }
 
 .tableScroll {
@@ -220,7 +220,7 @@
 @media (hover: hover) {
   .tableScroll:global(.md-table-wide) {
     overflow-x: hidden;
-    padding-bottom: var(--dsh-scrollbar-width, 5px);
+    padding-bottom: var(--mh-scrollbar-width, 5px);
   }
 
   .tableScroll:global(.md-table-wide):hover {
@@ -233,7 +233,7 @@
    the sheet's link focus color. */
 .tableScroll:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px var(--dsw-focus-ring-color, var(--dsw-alias-state-business-primary));
+  box-shadow: 0 0 0 2px var(--mh-focus-ring-color, var(--mh-alias-state-business-primary));
 }
 
 /* Many-column tables (the renderer's `md-table-wide` hook) keep their
@@ -257,9 +257,9 @@
 .tableScroll th {
   text-align: start;
   padding: 10px 16px;
-  border-bottom: 0.5px solid var(--dsw-alias-border-l3);
+  border-bottom: 0.5px solid var(--mh-alias-border-l3);
   border-top: none;
-  font: var(--dsw-font-markdown-table-head);
+  font: var(--mh-font-markdown-table-head);
   max-width: 320px;
   max-width: min(30vw, 320px);
   min-width: 100px;
@@ -267,8 +267,8 @@
 
 .tableScroll td {
   padding: 10px 16px;
-  border-bottom: 0.5px solid var(--dsw-alias-border-l2);
-  font: var(--dsw-font-markdown-table);
+  border-bottom: 0.5px solid var(--mh-alias-border-l2);
+  font: var(--mh-font-markdown-table);
   max-width: 320px;
   max-width: min(30vw, 320px);
   min-width: 100px;
@@ -298,7 +298,7 @@
 }
 
 .imageAlt {
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   font-style: italic;
 }
 
@@ -308,8 +308,8 @@
   max-width: 100%;
   height: auto;
   margin: 0;
-  border-radius: var(--dsw-radius-md);
-  background: var(--dsw-alias-bg-base);
+  border-radius: var(--mh-radius-md);
+  background: var(--mh-alias-bg-base);
   object-fit: contain;
 }
 
@@ -324,7 +324,7 @@
   background: none;
   font: inherit;
   font-weight: 500;
-  color: var(--dsw-alias-link);
+  color: var(--mh-alias-link);
   text-decoration: none;
   cursor: pointer;
 }
@@ -336,23 +336,23 @@
 
 .fileMention:focus {
   outline: none;
-  text-decoration: underline dotted var(--dsw-alias-link);
+  text-decoration: underline dotted var(--mh-alias-link);
   text-underline-offset: 3px;
 }
 
 @media (hover: hover) {
   .fileMention:hover {
     outline: none;
-    text-decoration: underline dotted var(--dsw-alias-link);
+    text-decoration: underline dotted var(--mh-alias-link);
     text-underline-offset: 3px;
   }
 }
 
 .compact {
   max-width: 100%;
-  font-size: var(--dsh-content-font-size-secondary, 13px);
-  line-height: calc(20px + var(--dsh-content-font-delta-secondary, 0px));
-  color: var(--dsw-alias-label-tertiary);
+  font-size: var(--mh-content-font-size-secondary, 13px);
+  line-height: calc(20px + var(--mh-content-font-delta-secondary, 0px));
+  color: var(--mh-alias-label-tertiary);
 }
 
 .compact :is(h1, h2, h3, h4, h5, h6) {
@@ -411,7 +411,7 @@
   font: inherit;
   font-family: var(--ds-font-family-code);
   font-size: 1em !important;
-  border-radius: var(--dsw-radius-xs);
+  border-radius: var(--mh-radius-xs);
   padding: 0 3px;
   box-decoration-break: clone;
 }
@@ -473,20 +473,20 @@
   max-width: 100%;
   padding: 0;
   border: 0;
-  border-radius: var(--dsw-radius-sm);
+  border-radius: var(--mh-radius-sm);
   background: transparent;
   vertical-align: middle;
   cursor: zoom-in;
 }
 .imageButton .image { max-width: min(100%, 640px); max-height: 360px; }
-.imageButton:focus-visible { outline: var(--dsw-focus-ring-width) solid var(--dsw-focus-ring-color, var(--dsw-alias-state-business-primary)); outline-offset: 3px; }
+.imageButton:focus-visible { outline: var(--mh-focus-ring-width) solid var(--mh-focus-ring-color, var(--mh-alias-state-business-primary)); outline-offset: 3px; }
 .previewName {
   display: block;
   margin-top: 8px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
   font-size: 12px;
   line-height: 18px;
 }

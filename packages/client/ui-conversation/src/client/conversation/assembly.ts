@@ -1,14 +1,14 @@
 /** Per-Session target-neutral Conversation assembly. */
-import { Service, type Context } from '@deepseek-ai/cordis'
-import type { ImageAttachmentRef } from '@deepseek-ai/dsh-attachment'
+import { Service, type Context } from '@master-harness/cordis'
+import type { ImageAttachmentRef } from '@master-harness/attachment'
 import type {
   ISessions, SessionBinding, SessionEventSource, SessionEventWindow,
-} from '@deepseek-ai/dsh-api-session-controller/client'
-import type { SessionEvent, SessionId } from '@deepseek-ai/dsh-session/types'
-import { WeakMapWithValues } from '@deepseek-ai/dsh-util-values'
+} from '@master-harness/api-session-controller/client'
+import type { SessionEvent, SessionId } from '@master-harness/session/types'
+import { WeakMapWithValues } from '@master-harness/util-values'
 import {
   createSnapshotStore, type ObservableSnapshot, type SnapshotStore,
-} from '@deepseek-ai/dsh-client-store'
+} from '@master-harness/client-store'
 import type {
   ConversationPublication, ConversationViewSnapshotMap,
   ConversationViewSnapshotStore,

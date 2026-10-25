@@ -50,6 +50,6 @@
     - status
     - switch "启用 @fixture/bundle"
   - listitem:
-    - button "查看 dsh-web-scaffold-defaults": dsh-web-scaffold-defaults
+    - button "查看 mh-web-scaffold-defaults": mh-web-scaffold-defaults
     - status
-    - switch "启用 dsh-web-scaffold-defaults" [checked]
+    - switch "启用 mh-web-scaffold-defaults" [checked]

@@ -2,12 +2,12 @@
  * Anonymous HTTP(S) `WebFetchProvider` plugin. It contributes to the
  * `ctx.web` registry without owning the service.
  *
- * @module @deepseek-ai/dsh-web-fetch-http
+ * @module @master-harness/web-fetch-http
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import type {} from '@deepseek-ai/dsh-web'
+import type { Context } from '@master-harness/cordis'
+import z from '@master-harness/schemastery'
+import type {} from '@master-harness/web'
 import { HttpFetchProvider } from './provider.ts'
 import type { HttpFetchLimits } from './provider.ts'
 
@@ -20,7 +20,7 @@ export {
 export type { HttpFetchLimits } from './provider.ts'
 
 /** Default `User-Agent`: an explicit product agent, never a browser disguise. */
-export const DEFAULT_USER_AGENT = 'deepseek-harness/0.0.1 (+https://github.com/deepseek-ai)'
+export const DEFAULT_USER_AGENT = 'master-harness/0.0.1 (+https://github.com/deepseek-ai)'
 
 /** Cordis plugin name used by loader diagnostics. */
 export const name = 'web-fetch-http'

@@ -10,21 +10,21 @@
  * `plan-review` intent as the plan decision card and every other request as
  * the generic question flow. Both use the same carrier and composer seat.
  */
-import type { Context as ClientContext } from '@deepseek-ai/cordis'
-import type { InboxWireState } from '@deepseek-ai/dsh-agent/types'
-import type {} from '@deepseek-ai/dsh-api-remotes/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import type {} from '@deepseek-ai/dsh-client-ui-chat/client'
-import type { ComposerChainProps } from '@deepseek-ai/dsh-client-ui-conversation/client'
-import type {} from '@deepseek-ai/dsh-client-ui-renderer/client'
-import type { PendingInteractionPublisher } from '@deepseek-ai/dsh-client-ui-session/client'
-import type { TypertClientEventListener } from '@deepseek-ai/dsh-typert-protocol'
-import type { AskUserQuestionItem, PendingUserQuestion, UserQuestionProjectionView } from '@deepseek-ai/dsh-user-questions/types'
+import type { Context as ClientContext } from '@master-harness/cordis'
+import type { InboxWireState } from '@master-harness/agent/types'
+import type {} from '@master-harness/api-remotes/client'
+import type { SessionId } from '@master-harness/session/types'
+import type {} from '@master-harness/client-ui-chat/client'
+import type { ComposerChainProps } from '@master-harness/client-ui-conversation/client'
+import type {} from '@master-harness/client-ui-renderer/client'
+import type { PendingInteractionPublisher } from '@master-harness/client-ui-session/client'
+import type { TypertClientEventListener } from '@master-harness/typert-protocol'
+import type { AskUserQuestionItem, PendingUserQuestion, UserQuestionProjectionView } from '@master-harness/user-questions/types'
 // Type-only: pulls the locale plugin's Context merge (ctx.locale).
-import type {} from '@deepseek-ai/dsh-client-locale/client'
-import type { UserQuestionPanels, UserQuestionRecord } from '@deepseek-ai/dsh-client-ui-tool/client'
-import type { ToolCallId } from '@deepseek-ai/dsh-llm'
-import { brandString } from '@deepseek-ai/dsh-brand'
+import type {} from '@master-harness/client-locale/client'
+import type { UserQuestionPanels, UserQuestionRecord } from '@master-harness/client-ui-tool/client'
+import type { ToolCallId } from '@master-harness/llm'
+import { brandString } from '@master-harness/brand'
 import { createWaterfallRequest, PendingQuestion, type QuestionRpcChannel } from './contract/slots.ts'
 import { createQuestionDraftStore } from './draft-store.ts'
 import { QuestionComposer } from './QuestionComposer.tsx'
@@ -37,7 +37,7 @@ export type {
 } from './contract/slots.ts'
 export type { QuestionKey } from './locales.ts'
 
-declare module '@deepseek-ai/dsh-client-ui-slots' {
+declare module '@master-harness/client-ui-slots' {
   interface LocaleNamespaceMap {
     /** The question composer's copy. */
     question: QuestionKey

@@ -1,8 +1,8 @@
 /** Durable Host-wide Schedule tasks, independently of Session activation. */
 import { z } from 'zod'
-import { SessionId } from '@deepseek-ai/dsh-session'
-import { MessageId } from '@deepseek-ai/dsh-llm/brand'
-import { defineDomain, domainTable } from '@deepseek-ai/dsh-storage-domain'
+import { SessionId } from '@master-harness/session'
+import { MessageId } from '@master-harness/llm/brand'
+import { defineDomain, domainTable } from '@master-harness/storage-domain'
 import { decodeScheduleRecord } from './domain.ts'
 import type { ScheduleId, ScheduleRecord } from './types.ts'
 

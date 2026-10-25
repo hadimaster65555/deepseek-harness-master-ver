@@ -3,18 +3,18 @@ import { afterEach, describe, expect, it } from 'vitest'
 import { mkdtemp, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { Context } from '@deepseek-ai/cordis'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import * as JsonlSessionPersistence from '@deepseek-ai/dsh-session-persistence-jsonl'
-import { mountAgentLoopTestDependencies } from '@deepseek-ai/dsh-agent-loop-testkit'
-import { SessionId } from '@deepseek-ai/dsh-session'
-import LocalFileReference from '@deepseek-ai/dsh-file-reference-local'
-import Selection from '@deepseek-ai/dsh-tool-subagent/model-selection-settings'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
+import { Context } from '@master-harness/cordis'
+import AgentLoop from '@master-harness/agent-loop'
+import * as JsonlSessionPersistence from '@master-harness/session-persistence-jsonl'
+import { mountAgentLoopTestDependencies } from '@master-harness/agent-loop-testkit'
+import { SessionId } from '@master-harness/session'
+import LocalFileReference from '@master-harness/file-reference-local'
+import Selection from '@master-harness/tool-subagent/model-selection-settings'
+import type { Agent } from '@master-harness/agent'
+import { createUserMessage } from '@master-harness/llm'
+import type { ContextFormed } from '@master-harness/llm'
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@master-harness/llm' {
   interface MessageSourceMap {
     'due-work': { kind: 'due-work'; plugin: string } & ContextFormed
   }
@@ -109,7 +109,7 @@ describe('serial creation listener integrations', () => {
   })
 
   it('starts due plugin work only after every creation listener finishes', async () => {
-    const root = await mkdtemp(join(tmpdir(), 'dsh-serial-due-'))
+    const root = await mkdtemp(join(tmpdir(), 'mh-serial-due-'))
     roots.push(root)
     const ctx = await core(root)
     const sessionId = SessionId('review-due-work')

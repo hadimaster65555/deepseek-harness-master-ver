@@ -1,10 +1,10 @@
 /** Host-owned opt-in setting for model-selectable subagent delegation. */
-import type { Volatile } from '@deepseek-ai/cordis'
+import type { Volatile } from '@master-harness/cordis'
 
-import { Context, Service } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { SessionSeq } from '@deepseek-ai/dsh-session'
-import type {} from '@deepseek-ai/dsh-agent'
+import { Context, Service } from '@master-harness/cordis'
+import z from '@master-harness/schemastery'
+import { SessionSeq } from '@master-harness/session'
+import type {} from '@master-harness/agent'
 import {
   subagentModelSelectionPolicy,
   subagentModelSelectionProjectionDefinition,
@@ -15,7 +15,7 @@ import {
   type AllowedModelRoute,
 } from './model-selection.ts'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@master-harness/cordis' {
   interface Context {
     /** User preference sampled during Agent creation. */
     subagentModelSelection: SubagentModelSelectionConfig

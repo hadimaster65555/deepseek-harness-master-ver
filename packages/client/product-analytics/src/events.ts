@@ -1,6 +1,6 @@
 /** Desktop analytics fields selected by product event owners. */
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import type { MessageId } from '@deepseek-ai/dsh-llm/brand'
+import type { SessionId } from '@master-harness/session/types'
+import type { MessageId } from '@master-harness/llm/brand'
 
 /** Event names and their selected product attributes. */
 export interface ProductEventMap {
