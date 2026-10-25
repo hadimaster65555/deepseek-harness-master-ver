@@ -2,13 +2,13 @@
  * Public request, value, and failure vocabulary for per-message feedback.
  * This module contains types only so generated Remote clients can consume it
  * without importing Host runtime code.
- * @module @deepseek-ai/dsh-message-feedback/types
+ * @module @master-harness/message-feedback/types
  */
 
-import type { Branded } from '@deepseek-ai/dsh-brand'
-import type { MessageId } from '@deepseek-ai/dsh-llm/brand'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import type { FeedbackCategory } from '@deepseek-ai/dsh-command-feedback/types'
+import type { Branded } from '@master-harness/brand'
+import type { MessageId } from '@master-harness/llm/brand'
+import type { SessionId } from '@master-harness/session/types'
+import type { FeedbackCategory } from '@master-harness/command-feedback/types'
 
 /** Opaque compare-and-set token for one exact feedback item revision. */
 export type MessageFeedbackVersion = Branded<'MessageFeedbackVersion'>
@@ -50,7 +50,7 @@ export interface MessageFeedbackDelete {
   readonly messageId: MessageId
 }
 
-declare module '@deepseek-ai/dsh-session/types' {
+declare module '@master-harness/session/types' {
   interface SessionEventMap {
     /** Log-only human feedback; never enters model history. */
     'feedback/message-put': MessageFeedbackPut

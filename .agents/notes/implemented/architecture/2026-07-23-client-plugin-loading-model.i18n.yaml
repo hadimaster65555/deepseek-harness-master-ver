@@ -3,8 +3,8 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/architecture/2026-07-23-client-plugin-loading-model.md
 /agent-note-client-plugin-loading-lazy-factories-cordis-lifecycle-and-hot-reload:
-  en: 44c4ef732c381264
-  zh: ce375eb5efd6ce2d
+  en: 08936e1498bf314d
+  zh: d91e1cb977ec4beb
 /agent-note-client-plugin-loading-lazy-factories-cordis-lifecycle-and-hot-reload/problem:
   en: 46c4b208707e024e
   zh: b6f86a6374b251da
@@ -12,8 +12,8 @@
   en: a15c7c13f167e5ac
   zh: a15c7c13f167e5ac
 /agent-note-client-plugin-loading-lazy-factories-cordis-lifecycle-and-hot-reload/decision/package-membership-and-module-requests:
-  en: 6af228b03e5e533f
-  zh: 276a522af6be5d7a
+  en: 0ef5076003c1c527
+  zh: 82cdb7c3735a54be
 /agent-note-client-plugin-loading-lazy-factories-cordis-lifecycle-and-hot-reload/decision/one-module-system-one-plugin-governor:
   en: 575aad62490f32e9
   zh: a6c18eb63965fc1e
@@ -21,17 +21,17 @@
   en: 0a4240d88cca240a
   zh: 8f5f1527caf571cd
 /agent-note-client-plugin-loading-lazy-factories-cordis-lifecycle-and-hot-reload/decision/the-loading-flow-end-to-end:
-  en: 15fb56befd328339
-  zh: 0ffb10ada7e52805
+  en: 41f8943f28594e6b
+  zh: 433ebe69f0229cb6
 /agent-note-client-plugin-loading-lazy-factories-cordis-lifecycle-and-hot-reload/decision/live-graph-reconciliation:
   en: 37e2fa1fe5cb2b95
   zh: 80e513db87709cb4
 /agent-note-client-plugin-loading-lazy-factories-cordis-lifecycle-and-hot-reload/decision/hot-reload-one-driver-plugin-self-watched-bundles:
-  en: c1fdcb3e6f074a7a
-  zh: b08c7b1ff25acb09
+  en: 6d5ac66b230b99d3
+  zh: 31b0f1e08bbf8c7c
 /agent-note-client-plugin-loading-lazy-factories-cordis-lifecycle-and-hot-reload/package-ownership:
-  en: 94ca0d09e6fd1e3a
-  zh: d5949a2bdec795ba
+  en: 65cdaee197ae95e0
+  zh: 92355f58d2a40ecd
 /agent-note-client-plugin-loading-lazy-factories-cordis-lifecycle-and-hot-reload/consequences:
   en: 16e1f2467c559315
   zh: a714ec6ff2722cf1

@@ -3,23 +3,23 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/architecture/2026-09-08-desktop-bundled-runtime-and-external-plugins.md
 /agent-note-bundle-the-desktop-runtime-and-retain-external-plugins:
-  en: 6a87387a952b6d28
-  zh: 5fd41d2dd5545637
+  en: ebb079a5a35322fc
+  zh: 8bd321c89ccd5f15
 /agent-note-bundle-the-desktop-runtime-and-retain-external-plugins/problem:
   en: fe97fe6ba33cb23a
   zh: c83a1f023c4e352d
 /agent-note-bundle-the-desktop-runtime-and-retain-external-plugins/decision:
-  en: e01df5ba880c2972
-  zh: e62074a6a9ba5685
+  en: 567ed91b339d1b2f
+  zh: f990845163879288
 /agent-note-bundle-the-desktop-runtime-and-retain-external-plugins/package-ownership:
-  en: f683605bf4655db8
-  zh: de09d610ee1d4193
+  en: e804d6b8ba6cbf6c
+  zh: 986fce37e0a4bf9f
 /agent-note-bundle-the-desktop-runtime-and-retain-external-plugins/transactions-and-upgrades:
-  en: 53d48f71fcc1c52e
-  zh: 7d61923484dbec1c
+  en: 107ba0e5b6432c5e
+  zh: 48a67d9ec0c92101
 /agent-note-bundle-the-desktop-runtime-and-retain-external-plugins/alternatives-considered:
-  en: 67b3ba2b37e92f88
-  zh: 785083e5de098af8
+  en: 64ca71d0b012dbed
+  zh: d405e34fb8666a09
 /agent-note-bundle-the-desktop-runtime-and-retain-external-plugins/consequences:
-  en: 6dfa581ec6879c5b
-  zh: f6c735ad6a00b2b3
+  en: 74fe04af5a8564f8
+  zh: 489eec4d61bb594f

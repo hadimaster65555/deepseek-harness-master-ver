@@ -1,7 +1,7 @@
 /** Cancellation and settlement of complete PTC calls, including nested tools. */
-import type { Context } from '@deepseek-ai/cordis'
-import type { SessionId } from '@deepseek-ai/dsh-session'
-import type { SandboxMode } from '@deepseek-ai/dsh-sandbox'
+import type { Context } from '@master-harness/cordis'
+import type { SessionId } from '@master-harness/session'
+import type { SandboxMode } from '@master-harness/sandbox'
 
 interface Call {
   mode: SandboxMode

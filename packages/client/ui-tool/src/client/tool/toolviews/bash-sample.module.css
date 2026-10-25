@@ -13,12 +13,12 @@
    pinned; 224px = the 260px card cap minus the ~36px banner); the margin
    replaces the primitive's standalone vertical margin with the flow's. */
 .terminal {
-  --dsl-terminal-font: var(--dsw-font-markdown-code-block-small);
+  --dsl-terminal-font: var(--mh-font-markdown-code-block-small);
   --dsl-terminal-line-height: 18px;
   --dsl-terminal-output-max-height: 224px;
   --dsl-terminal-command-whitespace: pre-wrap;
   margin: 4px 0 4px 4px;
-  border: 0.5px solid var(--dsw-alias-border-l1);
+  border: 0.5px solid var(--mh-alias-border-l1);
 }
 
 /* A bash execution error can settle without terminal-card material (for
@@ -28,10 +28,10 @@
   display: flex;
   flex-direction: column;
   margin: 4px 0 4px 4px;
-  border: 0.5px solid var(--dsw-alias-border-l1);
-  border-radius: var(--dsw-radius-lg);
-  background: var(--dsw-alias-markdown-code-block);
-  font: var(--dsw-font-markdown-code-block-small);
+  border: 0.5px solid var(--mh-alias-border-l1);
+  border-radius: var(--mh-radius-lg);
+  background: var(--mh-alias-markdown-code-block);
+  font: var(--mh-font-markdown-code-block-small);
 }
 
 .ioSection {
@@ -47,7 +47,7 @@
 .ioSection::-webkit-scrollbar-thumb {
   border: 2px solid transparent;
   background-clip: padding-box;
-  border-radius: var(--dsw-radius-sm);
+  border-radius: var(--mh-radius-sm);
 }
 
 .ioSection::-webkit-scrollbar-track {
@@ -58,29 +58,29 @@
   position: sticky;
   top: 0;
   align-self: start;
-  color: var(--dsw-alias-label-caption);
+  color: var(--mh-alias-label-caption);
 }
 
 .ioDivider {
   flex: none;
   height: 0.5px;
-  background: var(--dsw-alias-border-l2);
+  background: var(--mh-alias-border-l2);
 }
 
 .ioText {
   min-width: 0;
   white-space: pre-wrap;
   word-break: break-word;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
 }
 
 .ioText[data-error] {
-  color: var(--dsw-alias-state-error-primary);
+  color: var(--mh-alias-state-error-primary);
 }
 
 .commandInput {
   --dsl-command-whitespace: pre-wrap;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
 }
 
 /* ToolRow's unified expand interaction, replicated per the registrant
@@ -93,15 +93,15 @@
 .root {
   display: flex;
   align-items: center;
-  height: calc(24px + var(--dsh-content-font-delta, 0px));
+  height: calc(24px + var(--mh-content-font-delta, 0px));
   min-width: 0;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   transition: color 100ms ease;
 }
 
 @media (hover: hover) {
   .root:hover {
-    color: var(--dsw-alias-label-secondary);
+    color: var(--mh-alias-label-secondary);
   }
 }
 
@@ -114,8 +114,8 @@
 .leading {
   position: relative; /* .chevronHover overlay anchor */
   flex: none;
-  width: calc(16px + var(--dsh-content-font-delta, 0px));
-  height: calc(16px + var(--dsh-content-font-delta, 0px));
+  width: calc(16px + var(--mh-content-font-delta, 0px));
+  height: calc(16px + var(--mh-content-font-delta, 0px));
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -130,8 +130,8 @@
    .compactionLeading, and MessageIconActions); migrating the bash row onto
    the shared DisclosureRow would collapse them to one. */
 .leading svg:not([data-state]) {
-  width: calc(14px + var(--dsh-content-font-delta, 0px));
-  height: calc(14px + var(--dsh-content-font-delta, 0px));
+  width: calc(14px + var(--mh-content-font-delta, 0px));
+  height: calc(14px + var(--mh-content-font-delta, 0px));
 }
 
 .chevron {
@@ -166,8 +166,8 @@
 
 .title {
   flex: none;
-  font-size: var(--dsh-content-font-size-secondary, 13px);
-  line-height: calc(24px + var(--dsh-content-font-delta, 0px));
+  font-size: var(--mh-content-font-size-secondary, 13px);
+  line-height: calc(24px + var(--mh-content-font-delta, 0px));
 }
 
 .sep {
@@ -176,7 +176,7 @@
   height: 2px;
   border-radius: 1px;
   margin: 0 8px;
-  background: var(--dsw-alias-label-caption);
+  background: var(--mh-alias-label-caption);
 }
 
 .summary {
@@ -185,17 +185,17 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: var(--dsh-content-font-size-secondary, 13px);
-  line-height: calc(24px + var(--dsh-content-font-delta, 0px));
+  font-size: var(--mh-content-font-size-secondary, 13px);
+  line-height: calc(24px + var(--mh-content-font-delta, 0px));
 }
 
 /* Error row's collapsed summary: the failure's first line in the error color. */
 .errorSummary {
-  color: var(--dsw-alias-state-error-primary);
+  color: var(--mh-alias-state-error-primary);
 }
 
 .stoppedSummary {
-  color: var(--dsw-alias-state-warn-label);
+  color: var(--mh-alias-state-warn-label);
 }
 
 /* Hover-revealed Inspect pill under the expanded terminal's bottom-left —
@@ -214,12 +214,12 @@
   gap: 4px;
   margin: 4px 0 2px 4px;
   padding: 2px 8px;
-  border: 0.5px solid var(--dsw-alias-border-l4);
+  border: 0.5px solid var(--mh-alias-border-l4);
   border-radius: 999px;
   corner-shape: round;
   /* Base background, not bg-overlay: the overlay token reads too heavy. */
-  background: var(--dsw-alias-bg-base);
-  color: var(--dsw-alias-label-secondary);
+  background: var(--mh-alias-bg-base);
+  color: var(--mh-alias-label-secondary);
   font-size: 11px;
   line-height: 16px;
   cursor: pointer;
@@ -241,8 +241,8 @@
    hover token would let the text underneath bleed through. */
 @media (hover: hover) {
   .inspectButton:hover {
-    background: var(--dsw-alias-interactive-bg-hover-solid);
-    color: var(--dsw-alias-label-primary);
+    background: var(--mh-alias-interactive-bg-hover-solid);
+    color: var(--mh-alias-label-primary);
   }
 }
 

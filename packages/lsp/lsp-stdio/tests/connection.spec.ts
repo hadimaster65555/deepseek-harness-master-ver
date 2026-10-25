@@ -1,9 +1,9 @@
 import { afterEach, describe, expect, it } from 'vitest'
 import { fileURLToPath } from 'node:url'
-import { LspConnection } from '@deepseek-ai/dsh-lsp-stdio'
-import type { ConnectionWriter } from '@deepseek-ai/dsh-lsp-stdio/src/connection.ts'
-import { scrubbedParentEnv } from '@deepseek-ai/dsh-subprocess'
-import { spawnSubprocess } from '@deepseek-ai/dsh-subprocess-local/src/spawn.ts'
+import { LspConnection } from '@master-harness/lsp-stdio'
+import type { ConnectionWriter } from '@master-harness/lsp-stdio/src/connection.ts'
+import { scrubbedParentEnv } from '@master-harness/subprocess'
+import { spawnSubprocess } from '@master-harness/subprocess-local/src/spawn.ts'
 
 const fixtureServer = fileURLToPath(new URL('./fixture-server.ts', import.meta.url))
 
@@ -50,11 +50,11 @@ describe('LspConnection', () => {
     expect(result).toMatchObject({ capabilities: { hoverProvider: true } })
   })
 
-  it('forwards explicit DSH_* env entries to the child', async () => {
-    // A configured DSH_* fact must reach the child: the seam scrubs only the
+  it('forwards explicit MH_* env entries to the child', async () => {
+    // A configured MH_* fact must reach the child: the seam scrubs only the
     // ambient namespace, and the explicit entry merges after that scrub. The
     // fixture echoes the named variable back as hover text.
-    const conn = connect({ LSP_FAKE_ECHO_ENV: 'DSH_LSP_TEST_FACT', DSH_LSP_TEST_FACT: 'managed' })
+    const conn = connect({ LSP_FAKE_ECHO_ENV: 'MH_LSP_TEST_FACT', MH_LSP_TEST_FACT: 'managed' })
     await conn.request('initialize', { capabilities: {} })
     expect(await conn.request('textDocument/hover', {})).toEqual({ contents: 'managed' })
   })

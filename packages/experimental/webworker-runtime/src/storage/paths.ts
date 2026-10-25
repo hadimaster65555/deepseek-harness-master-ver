@@ -5,19 +5,19 @@
  */
 
 /** Virtual filesystem root; `process.cwd()` and every absolute path start here. */
-export const DSH_ROOT = '/dsh'
+export const MH_ROOT = '/mh'
 
-/** `$DSH_HOME`: durable-state directory inside the image. */
-export const DSH_HOME = `${DSH_ROOT}/home`
+/** `$MH_HOME`: durable-state directory inside the image. */
+export const MH_HOME = `${MH_ROOT}/home`
 
 /** Flat, symlink-free package tree resolved by the worker module loader. */
-export const DSH_NODE_MODULES = `${DSH_ROOT}/node_modules`
+export const MH_NODE_MODULES = `${MH_ROOT}/node_modules`
 
 /** Image configuration directory: the VFS manifest and the shipped agent presets. */
-export const DSH_CONFIG = `${DSH_ROOT}/config`
+export const MH_CONFIG = `${MH_ROOT}/config`
 
 /** Default (empty) workspace directory. */
-export const DSH_WORKSPACE = `${DSH_ROOT}/workspace`
+export const MH_WORKSPACE = `${MH_ROOT}/workspace`
 
 /** Temporary directory reported by `os.tmpdir()`. */
-export const DSH_TMP = `${DSH_ROOT}/tmp`
+export const MH_TMP = `${MH_ROOT}/tmp`

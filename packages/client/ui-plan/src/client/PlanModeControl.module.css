@@ -14,9 +14,9 @@
   min-width: 34px;
   padding: 0 8px;
   border: none;
-  border-radius: var(--dsw-radius-sm);
-  background: var(--dsw-alias-state-business-tertiary);
-  color: var(--dsw-alias-state-business-primary);
+  border-radius: var(--mh-radius-sm);
+  background: var(--mh-alias-state-business-tertiary);
+  color: var(--mh-alias-state-business-primary);
   font-size: 13px;
   font-weight: 500;
   line-height: 20px;
@@ -27,14 +27,14 @@
   .chip:hover:not(:disabled) {
     background: color-mix(
       in srgb,
-      var(--dsw-alias-state-business-tertiary),
-      var(--dsw-alias-state-business-primary) 6%
+      var(--mh-alias-state-business-tertiary),
+      var(--mh-alias-state-business-primary) 6%
     );
   }
 }
 
 .chip:focus-visible {
-  outline: var(--dsw-focus-ring-width) solid var(--dsw-focus-ring-color, var(--dsw-alias-state-business-primary));
+  outline: var(--mh-focus-ring-width) solid var(--mh-focus-ring-color, var(--mh-alias-state-business-primary));
   outline-offset: 2px;
 }
 
@@ -76,7 +76,7 @@
 }
 
 .error {
-  color: var(--dsw-alias-state-error-primary);
+  color: var(--mh-alias-state-error-primary);
   font-size: 12px;
   line-height: 18px;
 }

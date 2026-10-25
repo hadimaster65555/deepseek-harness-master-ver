@@ -1,34 +1,34 @@
 /**
  * Profile discovery, initialization, and patch-layer composition for the
- * `dsh --profile` launcher family.
+ * `mh --profile` launcher family.
  *
- * A profile is a directory under `$DSH_HOME/profiles/<name>` holding a
+ * A profile is a directory under `$MH_HOME/profiles/<name>` holding a
  * `package.json` (out-of-tree plugin dependencies plus the profile manifest
- * `dsh.profile` with its ordered `bundles` list) and a `cordis.patch.yml`
+ * `mh.profile` with its ordered `bundles` list) and a `cordis.patch.yml`
  * (the user's own patch layer, applied after every bundle layer). Bundles are
  * npm packages whose manifest declares
- * `"dsh": { "bundle": { "patch": "./cordis.patch.yml" } }` (one file, or an
+ * `"mh": { "bundle": { "patch": "./cordis.patch.yml" } }` (one file, or an
  * ordered list of files); the tree is composed by applying each bundle's patch
- * lists in `dsh.profile.bundles` order over an empty entry list, then the
+ * lists in `mh.profile.bundles` order over an empty entry list, then the
  * profile's own patches, then any launcher layers (`--patch` files and
  * flag-derived patches).
  *
  * Module resolution is two-anchor by construction: a bundle name resolves
- * first from the dsh installation (the launcher's own package), then from the
+ * first from the mh installation (the launcher's own package), then from the
  * profile directory. Pnpm-managed entries in the profile's `node_modules`
  * resolve first. The runtime resolution supplies packages carried by the
  * installation and selected bundles to Node's ESM and CommonJS resolvers.
- * @module @deepseek-ai/dsh-app-boot/profile
+ * @module @master-harness/app-boot/profile
  */
 
 import { createRequire } from 'node:module'
 import { existsSync, mkdirSync, readdirSync, readFileSync, readlinkSync, realpathSync, rmSync, statSync, unlinkSync, writeFileSync } from 'node:fs'
 import { basename, dirname, join, relative, resolve, sep } from 'node:path'
-import type { EntryOptions } from '@deepseek-ai/cordis-plugin-loader'
-import { applyEntryPatches, type PatchOptions } from '@deepseek-ai/cordis-plugin-include'
-import { resolveDshHome } from '@deepseek-ai/dsh-home-paths'
-import type { DshBundleManifest, DshPackageManifest } from '@deepseek-ai/dsh-package-manifest'
-import { INSTALLATION_OWNED_PROFILE_TUPLES, PROFILE_TEMPLATES, RETIRED_BUNDLES } from '@deepseek-ai/dsh-official-bundles'
+import type { EntryOptions } from '@master-harness/cordis-plugin-loader'
+import { applyEntryPatches, type PatchOptions } from '@master-harness/cordis-plugin-include'
+import { resolveMhHome } from '@master-harness/home-paths'
+import type { MhBundleManifest, MhPackageManifest } from '@master-harness/package-manifest'
+import { INSTALLATION_OWNED_PROFILE_TUPLES, PROFILE_TEMPLATES, RETIRED_BUNDLES } from '@master-harness/official-bundles'
 import { evaluatePluginCompatibility, pluginCompatibilityWarning } from './plugin-compatibility.ts'
 import { readProfileVersionExemptions } from './profile-compatibility.ts'
 import { loadOverlayPatches } from './index.ts'
@@ -41,19 +41,19 @@ export const PROFILES_DIR = 'profiles'
 export const PROFILE_PATCH_FILENAME = 'cordis.patch.yml'
 
 /** Package metadata accepted by the profile reader; local profiles need no published identity. */
-export type ProfileManifest = Partial<DshPackageManifest>
+export type ProfileManifest = Partial<MhPackageManifest>
 
 /**
  * The patch files a bundle declares, as written: one file for a string
  * `patch`, the listed files in order for an array.
- * @param bundle - the bundle's `dsh.bundle` declaration, as read from package.json.
+ * @param bundle - the bundle's `mh.bundle` declaration, as read from package.json.
  * @returns the package-relative patch file paths in application order.
  * @throws {Error} when `patch` is neither a string nor a list of strings.
  */
-export function bundlePatchFiles(bundle: DshBundleManifest): string[] {
+export function bundlePatchFiles(bundle: MhBundleManifest): string[] {
   const declared = typeof bundle.patch === 'string' ? [bundle.patch] : bundle.patch
   if (!Array.isArray(declared) || !declared.every(file => typeof file === 'string')) {
-    throw new Error('dsh.bundle.patch must be a file path or a list of file paths')
+    throw new Error('mh.bundle.patch must be a file path or a list of file paths')
   }
   return declared
 }
@@ -61,17 +61,17 @@ export function bundlePatchFiles(bundle: DshBundleManifest): string[] {
 /**
  * Resolve a bundle declaration to its ordered absolute patch files.
  * @param packageDir - absolute directory of the bundle package.
- * @param bundle - the bundle's `dsh.bundle` declaration, as read from package.json.
+ * @param bundle - the bundle's `mh.bundle` declaration, as read from package.json.
  * @returns the absolute patch file paths in application order.
  * @throws {Error} when `patch` is neither a string nor a list of strings.
  */
-export function bundlePatchPaths(packageDir: string, bundle: DshBundleManifest): string[] {
+export function bundlePatchPaths(packageDir: string, bundle: MhBundleManifest): string[] {
   return bundlePatchFiles(bundle).map(file => join(packageDir, file))
 }
 
 /** One resolved bundle layer of a profile. */
 export interface ProfileLayer {
-  /** The bundle's package name, as listed in `dsh.profile.bundles`. */
+  /** The bundle's package name, as listed in `mh.profile.bundles`. */
   packageName: string
   /** Absolute directory of the resolved bundle package. */
   packageDir: string
@@ -87,19 +87,19 @@ export interface Profile {
   name: string
   /** Absolute profile directory. */
   dir: string
-  /** Bundle layers in `dsh.profile.bundles` order. */
+  /** Bundle layers in `mh.profile.bundles` order. */
   layers: ProfileLayer[]
   /** Absolute path of the profile's own patch file. */
   patchPath: string
   /** The profile's own patches; empty when the file is absent. */
   patches: PatchOptions[]
-  /** Selected bundles that contributed no layer, in `dsh.profile.bundles` order, with why. */
+  /** Selected bundles that contributed no layer, in `mh.profile.bundles` order, with why. */
   skippedBundles: SkippedBundle[]
 }
 
-/** A selected bundle the profile could not load, or whose own DSH requirements the profile does not exempt. */
+/** A selected bundle the profile could not load, or whose own MH requirements the profile does not exempt. */
 export interface SkippedBundle {
-  /** The bundle's package name from `dsh.profile.bundles`. */
+  /** The bundle's package name from `mh.profile.bundles`. */
   packageName: string
   /** The resolution, manifest, compatibility, or patch-loading failure. */
   reason: string
@@ -157,20 +157,20 @@ export interface RuntimeResolution {
 
 /**
  * Resolve a profile's directory under the Harness home.
- * @param name - the profile name (`dsh --profile <name>`).
- * @param home - the Harness home; defaults to {@link resolveDshHome}.
+ * @param name - the profile name (`mh --profile <name>`).
+ * @param home - the Harness home; defaults to {@link resolveMhHome}.
  * @returns the absolute profile directory (which may not exist yet).
  */
-export function resolveProfileDir(name: string, home: string = resolveDshHome()): string {
+export function resolveProfileDir(name: string, home: string = resolveMhHome()): string {
   if (name === '' || name.includes('/') || name.includes('\\') || name === '.' || name === '..'
     // Node reserves this name for dependency lookup.
     || name === 'node_modules') {
-    throw new Error(`dsh: invalid profile name ${JSON.stringify(name)}`)
+    throw new Error(`mh: invalid profile name ${JSON.stringify(name)}`)
   }
   return join(home, PROFILES_DIR, name)
 }
 
-const PROFILE_PATCH_TEMPLATE = `# Your patch layer for this dsh profile, applied after every bundle layer:
+const PROFILE_PATCH_TEMPLATE = `# Your patch layer for this mh profile, applied after every bundle layer:
 # a top-level YAML array of loader patch entries (id-targeted config
 # overrides, disables, and insert lists; \`!!js\` expressions allowed).
 []
@@ -192,7 +192,7 @@ autoInstallPeers: false
  * pnpm settings out-of-tree plugins need. Existing files are never touched,
  * so re-running is a no-op on an initialized profile.
  * @param dir - the profile directory from {@link resolveProfileDir}.
- * @param bundles - the initial `dsh.profile.bundles` layer list.
+ * @param bundles - the initial `mh.profile.bundles` layer list.
  */
 export function initProfile(
   dir: string,
@@ -202,10 +202,10 @@ export function initProfile(
   const manifestPath = join(dir, 'package.json')
   if (!existsSync(manifestPath)) {
     const manifest: ProfileManifest & { private: boolean } = {
-      name: `dsh-profile-${basename(dir)}`,
+      name: `mh-profile-${basename(dir)}`,
       private: true,
       dependencies: {},
-      dsh: { profile: { bundles: [...bundles] } },
+      mh: { profile: { bundles: [...bundles] } },
     }
     writeFileSync(manifestPath, JSON.stringify(manifest, undefined, 2) + '\n')
   }
@@ -215,13 +215,13 @@ export function initProfile(
   if (!existsSync(workspacePath)) writeFileSync(workspacePath, PROFILE_PNPM_WORKSPACE)
 }
 
-/** Directory where the link backend of the dsh 0.1.5 releases projected bundle-carried packages into a profile. */
-const LINK_PROJECTION_DIR = '.dsh-module-fallback'
+/** Directory where the link backend of the mh 0.1.5 releases projected bundle-carried packages into a profile. */
+const LINK_PROJECTION_DIR = '.mh-module-fallback'
 
 /**
  * Remove the package projections a link-backend launch left in a profile.
  * Only symlinks under the profile's `node_modules` whose target lies inside
- * `<profile>/.dsh-module-fallback/node_modules` are unlinked, then that directory is removed;
+ * `<profile>/.mh-module-fallback/node_modules` are unlinked, then that directory is removed;
  * pnpm-installed packages and every other symlink stay. A profile without the directory is untouched.
  * @param dir - the profile directory.
  */
@@ -340,8 +340,8 @@ function collectInstallationScopePackages(
   // map itself (first resolution wins, matching Node's own nearest-wins).
   const queue: { anchor: string; manifest: ProfileManifest }[] = [{ anchor: canonicalAnchor, manifest: appManifest }]
   for (let next = queue.shift(); next !== undefined; next = queue.shift()) {
-    // Peer dependencies participate: Service Definition packages (dsh-subprocess,
-    // dsh-compaction, ...) are peers of their implementations, never plain
+    // Peer dependencies participate: Service Definition packages (mh-subprocess,
+    // mh-compaction, ...) are peers of their implementations, never plain
     // dependencies, yet out-of-tree plugins import them directly.
     /* v8 ignore next -- a real app manifest always declares dependencies */
     for (const dep of profileDependencyNames(next.manifest)) {
@@ -353,7 +353,7 @@ function collectInstallationScopePackages(
       const manifestPath = join(realModuleDirectory(dir), 'package.json')
       let manifest: ProfileManifest
       try {
-        manifest = skippedBundles.has(dep) ? readProfileManifest('dsh', dir) : readPackageManifest(manifestPath)
+        manifest = skippedBundles.has(dep) ? readProfileManifest('mh', dir) : readPackageManifest(manifestPath)
       } catch (error) {
         if (!skippedBundles.has(dep)) throw error
         continue
@@ -369,11 +369,11 @@ function collectInstallationScopePackages(
 
 /** Inputs for {@link createRuntimeResolution}. */
 export interface RuntimeResolutionOptions {
-  /** Absolute package.json path of the running dsh installation. */
+  /** Absolute package.json path of the running mh installation. */
   installAnchor: string
   /** Loaded profile whose selected bundles may carry profile-local plugins. */
   profile?: Profile
-  /** Harness home; defaults to {@link resolveDshHome}. */
+  /** Harness home; defaults to {@link resolveMhHome}. */
   home?: string
 }
 
@@ -385,7 +385,7 @@ export interface RuntimeResolutionOptions {
 export async function createRuntimeResolution(
   options: RuntimeResolutionOptions,
 ): Promise<ProfileRuntimeResolution> {
-  const { installAnchor, profile, home = resolveDshHome() } = options
+  const { installAnchor, profile, home = resolveMhHome() } = options
   const profilesDir = join(home, PROFILES_DIR)
   const manifest = readOptionalProfileManifest(profile)
   const { packageNames, packageDirs, declarers, versions } = collectInstallationScopePackages(
@@ -460,7 +460,7 @@ export class ProfileRuntimeResolution implements RuntimeResolution {
     const { installAnchor, home, profileDir } = this.#source
     return createRuntimeResolution({
       installAnchor, home,
-      ...profileDir === undefined ? {} : { profile: loadProfileDirectory('dsh', profileDir, installAnchor) },
+      ...profileDir === undefined ? {} : { profile: loadProfileDirectory('mh', profileDir, installAnchor) },
     })
   }
 }
@@ -574,14 +574,14 @@ function sameBundles(left: readonly string[], right: readonly string[]): boolean
   return left.length === right.length && left.every((value, index) => value === right[index])
 }
 
-/** Return `manifest` with `dsh.profile.bundles` replaced, preserving all other fields. */
+/** Return `manifest` with `mh.profile.bundles` replaced, preserving all other fields. */
 function withBundles(manifest: ProfileManifest, bundles: readonly string[]): ProfileManifest {
   return {
     ...manifest,
-    dsh: {
-      ...manifest.dsh,
+    mh: {
+      ...manifest.mh,
       profile: {
-        ...manifest.dsh?.profile,
+        ...manifest.mh?.profile,
         bundles: [...bundles],
       },
     },
@@ -595,7 +595,7 @@ function withBundles(manifest: ProfileManifest, bundles: readonly string[]): Pro
 function normalizeShippedProfile(name: string, dir: string, manifest: ProfileManifest): ProfileManifest {
   const installationOwned = INSTALLATION_OWNED_PROFILE_TUPLES[name]
   const template = PROFILE_TEMPLATES[name]
-  const bundles = manifest.dsh?.profile?.bundles
+  const bundles = manifest.mh?.profile?.bundles
   if (template === undefined || bundles === undefined) return manifest
   const isRetiredTuple = installationOwned !== undefined && sameBundles(bundles, installationOwned)
   if (!isRetiredTuple) return manifest
@@ -609,7 +609,7 @@ function normalizeShippedProfile(name: string, dir: string, manifest: ProfileMan
  * manifest back only when it listed one.
  */
 function dropRetiredBundles(dir: string, manifest: ProfileManifest): ProfileManifest {
-  const bundles = manifest.dsh?.profile?.bundles ?? []
+  const bundles = manifest.mh?.profile?.bundles ?? []
   const kept = bundles.filter(bundle => !RETIRED_BUNDLES.has(bundle))
   if (kept.length === bundles.length) return manifest
   const normalized = withBundles(manifest, kept)
@@ -638,12 +638,12 @@ function packageDirFromAnchor(anchor: string, packageName: string): string | und
 /**
  * Resolve one bundle package's directory: installation anchor first, then the
  * profile directory. The installation-first order is the contract that
- * `@deepseek-ai/dsh-base` (and every other in-box bundle) always comes from
- * the same installation as the running dsh, never from a profile-local copy.
+ * `@master-harness/base` (and every other in-box bundle) always comes from
+ * the same installation as the running mh, never from a profile-local copy.
  * Resolution does not require the package to export `./package.json`.
  * @param binName - the diagnostic prefix on the thrown error.
- * @param packageName - the bundle's package name from `dsh.profile.bundles`.
- * @param installAnchor - absolute path of a file inside the dsh app package (its package.json).
+ * @param packageName - the bundle's package name from `mh.profile.bundles`.
+ * @param installAnchor - absolute path of a file inside the mh app package (its package.json).
  * @param profileDir - the profile directory (second anchor).
  * @returns the bundle package's absolute directory.
  */
@@ -655,8 +655,8 @@ export function resolveBundleDir(
     if (dir !== undefined) return dir
   }
   throw new Error(
-    `${binName}: cannot resolve profile bundle ${JSON.stringify(packageName)} from the dsh installation or ${profileDir}; `
-    + `run 'dsh plugin --profile ${basename(profileDir)} install' if its dependency is not installed`,
+    `${binName}: cannot resolve profile bundle ${JSON.stringify(packageName)} from the mh installation or ${profileDir}; `
+    + `run 'mh plugin --profile ${basename(profileDir)} install' if its dependency is not installed`,
   )
 }
 
@@ -665,11 +665,11 @@ export function resolveBundleDir(
  * the shared Harness home. This is used by application-owned profiles whose
  * package project and lifecycle belong to that application.
  * Retired bundles are removed from the stored bundle list first, rewriting the
- * manifest when it listed one. Unreadable bundles, and bundles whose own dsh requirements the profile does not exempt, are skipped
+ * manifest when it listed one. Unreadable bundles, and bundles whose own mh requirements the profile does not exempt, are skipped
  * without changing the manifest and listed in `skippedBundles`; nothing is printed.
  * @param binName - the diagnostic prefix on thrown errors.
  * @param dir - absolute profile package directory.
- * @param installAnchor - absolute path of the owning dsh app's package.json.
+ * @param installAnchor - absolute path of the owning mh app's package.json.
  * @param options - `userLayer: false` skips reading `cordis.patch.yml`.
  * @returns the successfully loaded bundle layers and optional user patch layer.
  */
@@ -680,7 +680,7 @@ export function loadProfileDirectory(
   options: { userLayer?: boolean } = {},
 ): Profile {
   const manifest = dropRetiredBundles(dir, readProfileManifest(binName, dir))
-  const bundles = manifest.dsh?.profile?.bundles ?? []
+  const bundles = manifest.mh?.profile?.bundles ?? []
   const layers: ProfileLayer[] = []
   const skippedBundles: SkippedBundle[] = []
   const exemptions = bundles.length === 0 ? {} : readProfileVersionExemptions(dir)
@@ -688,11 +688,11 @@ export function loadProfileDirectory(
     try {
       const packageDir = resolveBundleDir(binName, packageName, installAnchor, dir)
       const bundleManifest = readProfileManifest(binName, packageDir)
-      const bundle = bundleManifest.dsh?.bundle
+      const bundle = bundleManifest.mh?.bundle
       if (bundle === undefined) {
-        throw new Error(`${binName}: profile bundle ${JSON.stringify(packageName)} declares no dsh.bundle in its package.json`)
+        throw new Error(`${binName}: profile bundle ${JSON.stringify(packageName)} declares no mh.bundle in its package.json`)
       }
-      // A bundle is not a plugin row, so row admission never reads its own dsh requirements.
+      // A bundle is not a plugin row, so row admission never reads its own mh requirements.
       const issue = evaluatePluginCompatibility(bundleManifest, exemptions)
       if (issue !== undefined && !issue.exempted) throw new Error(pluginCompatibilityWarning(issue))
       const patchPaths = bundlePatchPaths(packageDir, bundle)
@@ -710,20 +710,20 @@ export function loadProfileDirectory(
 }
 
 /**
- * Load a profile: resolve every `dsh.profile.bundles` entry to its patch
+ * Load a profile: resolve every `mh.profile.bundles` entry to its patch
  * layer and parse the profile's own patch file. Unreadable or incompatible bundles
  * are skipped and listed in `skippedBundles`; profile manifest and user patch errors still throw.
  * @param binName - the diagnostic prefix on thrown errors.
  * @param name - the profile name.
- * @param installAnchor - absolute path of the dsh app's package.json (first resolution anchor).
- * @param home - the Harness home; defaults to {@link resolveDshHome}.
+ * @param installAnchor - absolute path of the mh app's package.json (first resolution anchor).
+ * @param home - the Harness home; defaults to {@link resolveMhHome}.
  * @param options - `userLayer: false` skips reading `cordis.patch.yml`, so a
  * bundles-only consumer (`--dump-default-config`, a recovery diagnostic)
  * cannot fail on a broken user layer.
  * @returns the loaded profile (empty `patches` when the user layer is skipped).
  */
 export function loadProfile(
-  binName: string, name: string, installAnchor: string, home: string = resolveDshHome(),
+  binName: string, name: string, installAnchor: string, home: string = resolveMhHome(),
   options: { userLayer?: boolean } = {},
 ): Profile {
   const dir = resolveProfileDir(name, home)
@@ -731,7 +731,7 @@ export function loadProfile(
     const template = PROFILE_TEMPLATES[name]
     if (template === undefined) {
       throw new Error(
-        `${binName}: profile ${JSON.stringify(name)} does not exist; create it with 'dsh plugin --profile ${name} add <package>'`,
+        `${binName}: profile ${JSON.stringify(name)} does not exist; create it with 'mh plugin --profile ${name} add <package>'`,
       )
     }
     initProfile(dir, template.bundles)

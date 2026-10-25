@@ -1,13 +1,13 @@
 {
-  "name": "@deepseek-ai/dsh-session-title-all-prompts-llm",
-  "description": "All-user-messages LLM provider plugin for DeepSeek Harness session titles",
+  "name": "@master-harness/session-title-all-prompts-llm",
+  "description": "All-user-messages LLM provider plugin for Master Harness session titles",
   "version": "0.2.1-rc.3",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/experimental/session-title-all-prompts-llm"
   },
   "type": "module",
@@ -24,23 +24,23 @@
   "files": ["locale/*.json", "lib/index.js", "lib/types/**/*.d.ts"],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-title": "workspace:*",
-    "@deepseek-ai/dsh-session-title-llm": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@master-harness/llm": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/session-title": "workspace:*",
+    "@master-harness/session-title-llm": "workspace:*",
+    "@master-harness/cordis": "workspace:~"
   },
   "dependencies": {
-    "@deepseek-ai/dsh-util-values": "workspace:*",
-    "@deepseek-ai/schemastery": "workspace:~"
+    "@master-harness/util-values": "workspace:*",
+    "@master-harness/schemastery": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-title": "workspace:*",
-    "@deepseek-ai/dsh-session-title-llm": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-agent-loop": "workspace:*"
+    "@master-harness/llm": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/session-title": "workspace:*",
+    "@master-harness/session-title-llm": "workspace:*",
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/session-projection": "workspace:*",
+    "@master-harness/agent-loop": "workspace:*"
   }
 }

@@ -1,13 +1,13 @@
 {
-  "name": "@deepseek-ai/dsh-sdk-app",
-  "description": "The dsh SDK profile bundle: stdio JSON-RPC serving and process lifecycle over dsh-base",
+  "name": "@master-harness/sdk-app",
+  "description": "The mh SDK profile bundle: stdio JSON-RPC serving and process lifecycle over mh-base",
   "version": "0.2.1-rc.3",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/bundle/sdk-app"
   },
   "type": "module",
@@ -30,34 +30,34 @@
     "lib/types/**/*.d.ts"
   ],
   "license": "MIT",
-  "dsh": {
+  "mh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
     }
   },
   "dependencies": {
-    "@deepseek-ai/dsh-cmdline": "workspace:*",
-    "@deepseek-ai/dsh-sdk-jsonrpc-server": "workspace:*",
-    "@deepseek-ai/schemastery": "workspace:~",
+    "@master-harness/cmdline": "workspace:*",
+    "@master-harness/sdk-jsonrpc-server": "workspace:*",
+    "@master-harness/schemastery": "workspace:~",
     "commander": "^15.0.0",
-    "@deepseek-ai/dsh-skill-office": "workspace:*",
-    "@deepseek-ai/dsh-tool-workspace-dependencies": "workspace:*",
-    "@deepseek-ai/dsh-client-connection": "workspace:*",
-    "@deepseek-ai/dsh-client-file-upload": "workspace:*",
-    "@deepseek-ai/dsh-workspace": "workspace:*",
-    "@deepseek-ai/dsh-schedule": "workspace:*",
-    "@deepseek-ai/dsh-time-context": "workspace:*",
-    "@deepseek-ai/dsh-tool-schedule": "workspace:*",
-    "@deepseek-ai/dsh-tool-ask-user": "workspace:*",
-    "@deepseek-ai/dsh-tool-present": "workspace:*",
-    "@deepseek-ai/dsh-file-reference-local": "workspace:*",
-    "@deepseek-ai/dsh-deliverable-file-references": "workspace:*"
+    "@master-harness/skill-office": "workspace:*",
+    "@master-harness/tool-workspace-dependencies": "workspace:*",
+    "@master-harness/client-connection": "workspace:*",
+    "@master-harness/client-file-upload": "workspace:*",
+    "@master-harness/workspace": "workspace:*",
+    "@master-harness/schedule": "workspace:*",
+    "@master-harness/time-context": "workspace:*",
+    "@master-harness/tool-schedule": "workspace:*",
+    "@master-harness/tool-ask-user": "workspace:*",
+    "@master-harness/tool-present": "workspace:*",
+    "@master-harness/file-reference-local": "workspace:*",
+    "@master-harness/deliverable-file-references": "workspace:*"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~"
+    "@master-harness/cordis": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis-plugin-include": "workspace:~",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@master-harness/cordis-plugin-include": "workspace:~",
+    "@master-harness/cordis": "workspace:~"
   }
 }

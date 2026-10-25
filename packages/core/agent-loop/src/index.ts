@@ -2,14 +2,14 @@
  * Concrete agent-loop plugin: creates scoped ReactLoopAgents, publishes them
  * through the agent/session registries, and owns their ordered teardown.
  *
- * @module @deepseek-ai/dsh-agent-loop
+ * @module @master-harness/agent-loop
  */
-import type { Volatile } from '@deepseek-ai/cosmokit'
+import type { Volatile } from '@master-harness/cosmokit'
 
-import { Context, FiberState, Service } from '@deepseek-ai/cordis'
+import { Context, FiberState, Service } from '@master-harness/cordis'
 import { randomUUID } from 'node:crypto'
-import z from '@deepseek-ai/schemastery'
-import { brandString } from '@deepseek-ai/dsh-brand'
+import z from '@master-harness/schemastery'
+import { brandString } from '@master-harness/brand'
 import type {
   Agent,
   AgentFactory,
@@ -22,16 +22,16 @@ import type {
   ModelSelection,
   ModelSelectionProjectionState,
   InboxState,
-} from '@deepseek-ai/dsh-agent'
-import { modelSelectionProjectionDefinition } from '@deepseek-ai/dsh-agent'
-import { errorChain, ReasoningEffortId } from '@deepseek-ai/dsh-llm'
-import { interruptedTurnClosers, SessionLogOffset, SessionPreparation } from '@deepseek-ai/dsh-session'
-import type { Session, SessionHeader, SessionId } from '@deepseek-ai/dsh-session'
-import type {} from '@deepseek-ai/dsh-system-prompt'
-import type {} from '@deepseek-ai/dsh-tools'
-import type { ProjectionHandle } from '@deepseek-ai/dsh-session-projection'
-import { SessionPersistenceNotFoundError } from '@deepseek-ai/dsh-session-persistence'
-import type { SessionHandle, SessionPersistence } from '@deepseek-ai/dsh-session-persistence'
+} from '@master-harness/agent'
+import { modelSelectionProjectionDefinition } from '@master-harness/agent'
+import { errorChain, ReasoningEffortId } from '@master-harness/llm'
+import { interruptedTurnClosers, SessionLogOffset, SessionPreparation } from '@master-harness/session'
+import type { Session, SessionHeader, SessionId } from '@master-harness/session'
+import type {} from '@master-harness/system-prompt'
+import type {} from '@master-harness/tools'
+import type { ProjectionHandle } from '@master-harness/session-projection'
+import { SessionPersistenceNotFoundError } from '@master-harness/session-persistence'
+import type { SessionHandle, SessionPersistence } from '@master-harness/session-persistence'
 import { ReactLoopAgent } from './agent.ts'
 import { inboxProjectionDefinition } from './inbox.ts'
 import { DEFAULT_MAX_PARALLEL_TOOL_CALLS } from './constants.ts'
@@ -173,7 +173,7 @@ interface AgentInitializationOptions {
   readonly parentAgent?: Agent | undefined
 }
 
-declare module '@deepseek-ai/cordis' {
+declare module '@master-harness/cordis' {
   interface Context {
     agentLoop: AgentLoop
     /**
@@ -753,7 +753,7 @@ export class AgentLoop extends Service implements AgentFactory {
   async resume(ownerCtx: Context, options: ResumeAgentOptions): Promise<AgentHandle> {
     const persistence = this.runtime.ctx.get('sessionPersistence')
     if (persistence === undefined) {
-      throw new Error('cannot resume: session persistence is not configured (load a dsh-session-persistence backend)')
+      throw new Error('cannot resume: session persistence is not configured (load a mh-session-persistence backend)')
     }
     return this.resumeWith(ownerCtx, persistence, options)
   }

@@ -13,19 +13,19 @@
   overflow: hidden;
   /* Elevated surface: the scrollbar thumb takes the l2 elevation tokens
      (see ui-theme styles/scrollbar.css for the rebinding contract). */
-  --dsh-scrollbar-thumb: var(--dsw-alias-scrollbar-bg-l2);
-  --dsh-scrollbar-thumb-hover: var(--dsw-alias-scrollbar-hover-l2);
+  --mh-scrollbar-thumb: var(--mh-alias-scrollbar-bg-l2);
+  --mh-scrollbar-thumb-hover: var(--mh-alias-scrollbar-hover-l2);
   /* A 6px draggable rail carries a quiet 2px thumb, inset from the card's
      rounded ends. ui-theme's global scrollbar sheet renders these values. */
-  --dsh-scrollbar-width: 6px;
-  --dsh-scrollbar-thumb-border: 2px;
-  --dsh-scrollbar-track-margin: 12px;
+  --mh-scrollbar-width: 6px;
+  --mh-scrollbar-thumb-border: 2px;
+  --mh-scrollbar-track-margin: 12px;
   padding: 4px;
   display: flex;
   flex-direction: column;
   border: 0;
-  --dsw-elevation-stroke-color: var(--dsw-alias-border-l1);
-  box-shadow: var(--dsw-elevation-prominent);
+  --mh-elevation-stroke-color: var(--mh-alias-border-l1);
+  box-shadow: var(--mh-elevation-prominent);
 }
 
 /* The hint covers content, not the scrollbar rail, and disappears once the
@@ -37,7 +37,7 @@
   bottom: 4px;
   left: 4px;
   height: 16px;
-  background: linear-gradient(to bottom, transparent, var(--dsw-specific-menu));
+  background: linear-gradient(to bottom, transparent, var(--mh-specific-menu));
   pointer-events: none;
 }
 
@@ -56,26 +56,26 @@
   min-height: 34px;
   padding: 6px 8px;
   border: none;
-  border-radius: var(--dsw-radius-md);
+  border-radius: var(--mh-radius-md);
   background: transparent;
   cursor: pointer;
   font-size: 13px;
   line-height: 20px;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
   text-align: left;
 }
 
 /* One shared highlight: pointer motion parks it here through the hover event,
    so there is no separate :hover tint competing with the keyboard's. */
 .item.active {
-  background: var(--dsw-alias-interactive-bg-hover);
+  background: var(--mh-alias-interactive-bg-hover);
 }
 
 .sectionTitle {
   flex: none;
   min-height: 23px;
   padding: 5px 8px 2px;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   font-size: 11px;
   font-weight: 500;
   line-height: 16px;
@@ -92,7 +92,7 @@
   height: 14px;
   align-items: center;
   justify-content: center;
-  color: var(--dsw-alias-menu-icon);
+  color: var(--mh-alias-menu-icon);
 }
 
 .itemIcon svg {
@@ -116,7 +116,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   font-size: 12px;
   line-height: 18px;
 }
@@ -130,7 +130,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   text-align: right;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   font-size: 12px;
   line-height: 18px;
 }
@@ -150,7 +150,7 @@
    quiet. */
 .drillHintText {
   display: none;
-  color: var(--dsw-alias-label-caption);
+  color: var(--mh-alias-label-caption);
   font-size: 10px;
   line-height: 16px;
   white-space: nowrap;
@@ -159,9 +159,9 @@
 .drillHint {
   display: none;
   padding: 0 4px;
-  border-radius: var(--dsw-radius-xs);
-  background: var(--dsw-alias-interactive-bg-hover);
-  color: var(--dsw-alias-label-caption);
+  border-radius: var(--mh-radius-xs);
+  background: var(--mh-alias-interactive-bg-hover);
+  color: var(--mh-alias-label-caption);
   font-family: inherit;
   font-size: 10px;
   line-height: 16px;
@@ -180,14 +180,14 @@
   place-items: center;
   width: 18px;
   height: 18px;
-  border-radius: var(--dsw-radius-xs);
-  color: var(--dsw-alias-menu-icon);
+  border-radius: var(--mh-radius-xs);
+  color: var(--mh-alias-menu-icon);
 }
 
 @media (hover: hover) {
   .drill:hover {
-    background: var(--dsw-alias-interactive-bg-hover);
-    color: var(--dsw-alias-label-primary);
+    background: var(--mh-alias-interactive-bg-hover);
+    color: var(--mh-alias-label-primary);
   }
 }
 
@@ -197,7 +197,7 @@
   padding: 6px 8px;
   font-size: 11px;
   line-height: 15px;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
 }
 
 /* Pending-source skeleton rows: item cell metrics around a breathing bar
@@ -214,12 +214,12 @@
 
 .skeletonBar {
   height: 18px;
-  border-radius: var(--dsw-radius-xs);
-  background: var(--dsw-alias-bg-skeleton);
-  animation: dsh-menu-skeleton 2s cubic-bezier(0.36, 0, 0.64, 1) infinite;
+  border-radius: var(--mh-radius-xs);
+  background: var(--mh-alias-bg-skeleton);
+  animation: mh-menu-skeleton 2s cubic-bezier(0.36, 0, 0.64, 1) infinite;
 }
 
-@keyframes dsh-menu-skeleton {
+@keyframes mh-menu-skeleton {
   0% { opacity: 1; }
   40% { opacity: 0.6; }
   80%, 100% { opacity: 1; }
@@ -238,7 +238,7 @@
   margin-bottom: 2px;
   /* l1, not border-inverted (the menu frame's dark-only stroke): the divider
      needs to survive light mode too; in dark both resolve to white/0.06. */
-  border-bottom: 0.5px solid var(--dsw-alias-border-l1);
+  border-bottom: 0.5px solid var(--mh-alias-border-l1);
 }
 /* Crumbs sit outside the listbox and take no keyboard highlight, so unlike
    .item they carry their own :hover tint with nothing to compete with. */
@@ -248,9 +248,9 @@
   overflow: hidden;
   padding: 2px 5px;
   border: none;
-  border-radius: var(--dsw-radius-sm);
+  border-radius: var(--mh-radius-sm);
   background: transparent;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   cursor: pointer;
   font-family: inherit;
   font-size: 11px;
@@ -260,26 +260,26 @@
 }
 @media (hover: hover) {
   .crumb:hover {
-    background: var(--dsw-alias-interactive-bg-hover);
-    color: var(--dsw-alias-label-primary);
+    background: var(--mh-alias-interactive-bg-hover);
+    color: var(--mh-alias-label-primary);
   }
 }
 /* The step the list is already showing reads as a label, not an action. */
 .crumbCurrent {
   background: transparent;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
   cursor: default;
 }
 
 @media (hover: hover) {
   .crumbCurrent:hover {
     background: transparent;
-    color: var(--dsw-alias-label-primary);
+    color: var(--mh-alias-label-primary);
     cursor: default;
   }
 }
 .crumbSeparator {
   flex: none;
   display: inline-flex;
-  color: var(--dsw-alias-menu-icon);
+  color: var(--mh-alias-menu-icon);
 }

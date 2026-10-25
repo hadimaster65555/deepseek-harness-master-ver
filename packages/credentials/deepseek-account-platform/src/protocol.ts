@@ -1,6 +1,6 @@
 /** Validated platform HTTP messages and restricted browser destinations. */
 import { z } from 'zod'
-import type { AccountBonusOrderId, SignInErrorCode } from '@deepseek-ai/dsh-deepseek-account/types'
+import type { AccountBonusOrderId, SignInErrorCode } from '@master-harness/deepseek-account/types'
 
 /** Protocol errors expose a stable code, never a response body or authorization URL. */
 export class PlatformAuthError extends Error {
@@ -92,7 +92,7 @@ export const exchange = z.object({ token: z.string().regex(/^[\x21-\x7e]+$/), au
  */
 export async function requestPlatform(origin: string, method: string, body: unknown,
   signal: AbortSignal, headers: Record<string, string>): Promise<unknown> {
-  return platformRequest(`${origin}/auth-api/v0/dsh/${method}`, {
+  return platformRequest(`${origin}/auth-api/v0/mh/${method}`, {
     method: 'POST', headers: { ...headers, 'content-type': 'application/json' }, body: JSON.stringify(body),
   }, signal)
 }

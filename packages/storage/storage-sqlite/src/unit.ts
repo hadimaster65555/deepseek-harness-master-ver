@@ -5,12 +5,12 @@
  * SQLite's per-statement atomicity applies; a batch delete runs its deletes in
  * one explicit transaction. There is no write queue — write ordering is the
  * caller's responsibility per the KV contract.
- * @module @deepseek-ai/dsh-storage-sqlite/unit
+ * @module @master-harness/storage-sqlite/unit
  */
 
 import type { DatabaseSync, StatementSync } from 'node:sqlite'
-import { StorageError } from '@deepseek-ai/dsh-storage'
-import type { KvUnit, KvUnitDescriptor } from '@deepseek-ai/dsh-storage'
+import { StorageError } from '@master-harness/storage'
+import type { KvUnit, KvUnitDescriptor } from '@master-harness/storage'
 import { recordTableName } from './schema.ts'
 
 /** Prepared statements for one declared table. */

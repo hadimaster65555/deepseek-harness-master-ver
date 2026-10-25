@@ -3,14 +3,14 @@
  * subagent descendants of a Session are still inside a turn, and how they
  * stop when the Session is archived with its work.
  *
- * @module @deepseek-ai/dsh-subagent
+ * @module @master-harness/subagent
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import type { SessionId } from '@deepseek-ai/dsh-session'
-import type {} from '@deepseek-ai/dsh-session-query'
-import type { SessionActivity, SessionActivityItem } from '@deepseek-ai/dsh-workspace'
+import type { Context } from '@master-harness/cordis'
+import type { Agent } from '@master-harness/agent'
+import type { SessionId } from '@master-harness/session'
+import type {} from '@master-harness/session-query'
+import type { SessionActivity, SessionActivityItem } from '@master-harness/workspace'
 import { foldSubagentDescriptor } from './descriptor.ts'
 
 /**

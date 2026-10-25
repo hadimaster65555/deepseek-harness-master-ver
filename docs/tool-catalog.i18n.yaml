@@ -6,338 +6,338 @@
   en: 0be8ffbf23193557
   zh: ce2c69aa86875171
 /tool-schema-catalog:
-  en: 6cc2cd9ced70bb09
-  zh: 1c0e6cb4ba2ed637
+  en: ce502e41f18f63f8
+  zh: 6e14eedad881ed42
 /tool-schema-catalog/tool-package-map:
-  en: 4d42222acd39d083
-  zh: 8153a5065bf2ebd6
-/tool-schema-catalog/deepseek-ai-dsh-plugin-manager:
-  en: e0143916bb634762
-  zh: e0143916bb634762
-/tool-schema-catalog/deepseek-ai-dsh-plugin-manager/plugin-manager:
-  en: 2fbe2e5b88e81a54
-  zh: a9de46c13bda53d8
-/tool-schema-catalog/deepseek-ai-dsh-plugin-market:
-  en: 1ec7b4cbc3d98e28
-  zh: 1ec7b4cbc3d98e28
-/tool-schema-catalog/deepseek-ai-dsh-plugin-market/plugin-market:
-  en: ecb8ee73c7bc68b8
-  zh: 59af75c81d7d529d
-/tool-schema-catalog/deepseek-ai-dsh-mcp-resources:
-  en: dd78bd55ec83a539
-  zh: dd78bd55ec83a539
-/tool-schema-catalog/deepseek-ai-dsh-mcp-resources/list-mcp-resource-templates:
+  en: 612ac0e20dae0eb1
+  zh: 412664f8f9b5d9fc
+/tool-schema-catalog/master-harness-plugin-manager:
+  en: c9a15b1cbebbef1e
+  zh: c9a15b1cbebbef1e
+/tool-schema-catalog/master-harness-plugin-manager/plugin-manager:
+  en: ad70f34a006f03da
+  zh: b037f7746b9d000f
+/tool-schema-catalog/master-harness-plugin-market:
+  en: 5a8539fdc3b52d93
+  zh: 5a8539fdc3b52d93
+/tool-schema-catalog/master-harness-plugin-market/plugin-market:
+  en: eda6ea5d822cd564
+  zh: c84d255de83a21ac
+/tool-schema-catalog/master-harness-mcp-resources:
+  en: dfbb15b42daebcd1
+  zh: dfbb15b42daebcd1
+/tool-schema-catalog/master-harness-mcp-resources/list-mcp-resource-templates:
   en: 96275ece9d040944
   zh: 1fa9744642601ece
-/tool-schema-catalog/deepseek-ai-dsh-mcp-resources/list-mcp-resources:
+/tool-schema-catalog/master-harness-mcp-resources/list-mcp-resources:
   en: bf4236607199d61e
   zh: 82f4f749dcabc89f
-/tool-schema-catalog/deepseek-ai-dsh-mcp-resources/read-mcp-resource:
-  en: 5d92c07fa062734f
-  zh: 2d6f0cb8116cf567
-/tool-schema-catalog/deepseek-ai-dsh-experimental-browser-use-stagehand-native:
-  en: 19e7df8d692b4375
-  zh: 19e7df8d692b4375
-/tool-schema-catalog/deepseek-ai-dsh-experimental-browser-use-stagehand-native/stagehand-act:
+/tool-schema-catalog/master-harness-mcp-resources/read-mcp-resource:
+  en: 010a6c76992ceb80
+  zh: e3cce1f5f40c5f94
+/tool-schema-catalog/master-harness-experimental-browser-use-stagehand-native:
+  en: a2f22e1056be8af2
+  zh: a2f22e1056be8af2
+/tool-schema-catalog/master-harness-experimental-browser-use-stagehand-native/stagehand-act:
   en: c4b27bf62c534dcc
   zh: 70c53824ed57ac23
-/tool-schema-catalog/deepseek-ai-dsh-experimental-browser-use-stagehand-native/stagehand-extract:
+/tool-schema-catalog/master-harness-experimental-browser-use-stagehand-native/stagehand-extract:
   en: ec7462ab99848155
   zh: 632fe0249040708e
-/tool-schema-catalog/deepseek-ai-dsh-experimental-browser-use-stagehand-native/stagehand-navigate:
+/tool-schema-catalog/master-harness-experimental-browser-use-stagehand-native/stagehand-navigate:
   en: ef97f063a037a006
   zh: 27727ccc908e007f
-/tool-schema-catalog/deepseek-ai-dsh-experimental-browser-use-stagehand-native/stagehand-observe:
+/tool-schema-catalog/master-harness-experimental-browser-use-stagehand-native/stagehand-observe:
   en: 2068f1baa0a59e1b
   zh: 5743c7b33e2c5ccb
-/tool-schema-catalog/deepseek-ai-dsh-experimental-browser-use-stagehand-native/stagehand-screenshot:
+/tool-schema-catalog/master-harness-experimental-browser-use-stagehand-native/stagehand-screenshot:
   en: 4910ab327694ee97
   zh: 17e79e4366cb636d
-/tool-schema-catalog/deepseek-ai-dsh-experimental-browser-use-stagehand-native/stagehand-tabs:
-  en: a0d5b9b891358120
-  zh: 25793a62709770b5
-/tool-schema-catalog/deepseek-ai-dsh-action-cards:
-  en: 60c9df6ffda98a1d
-  zh: 60c9df6ffda98a1d
-/tool-schema-catalog/deepseek-ai-dsh-action-cards/propose-action:
-  en: 633c32b6df889830
-  zh: b88ea00b2033c11b
-/tool-schema-catalog/deepseek-ai-dsh-tool-ask-user:
-  en: e713a4a11a15d13c
-  zh: e713a4a11a15d13c
-/tool-schema-catalog/deepseek-ai-dsh-tool-ask-user/ask-user-question:
-  en: 2f86adf8ae823afb
-  zh: a5dad3d821e75e55
-/tool-schema-catalog/deepseek-ai-dsh-tool-executor-ptc:
-  en: 8c8643ef46fd075f
-  zh: 8c8643ef46fd075f
-/tool-schema-catalog/deepseek-ai-dsh-tool-executor-ptc/run-code:
-  en: a5d49232a604a2fb
-  zh: 720040d11a3e31c2
-/tool-schema-catalog/deepseek-ai-dsh-plan-mode:
-  en: b500b530845e26a9
-  zh: b500b530845e26a9
-/tool-schema-catalog/deepseek-ai-dsh-plan-mode/exit-plan-mode:
-  en: b410483c2bd0c1a1
-  zh: a07ceea6abf1dda3
-/tool-schema-catalog/deepseek-ai-dsh-tool-bash:
-  en: 408ff0a5189bd7ec
-  zh: 408ff0a5189bd7ec
-/tool-schema-catalog/deepseek-ai-dsh-tool-bash/bash:
-  en: 5efe055aae48993c
-  zh: e0653e51ef1344ce
-/tool-schema-catalog/deepseek-ai-dsh-tool-present:
-  en: f656575e6df094f6
-  zh: f656575e6df094f6
-/tool-schema-catalog/deepseek-ai-dsh-tool-present/present:
-  en: c3ab3e71f3c5fd20
-  zh: d6afeb62bac77a24
-/tool-schema-catalog/deepseek-ai-dsh-tool-pwsh:
-  en: b222fc05f3f8ee4a
-  zh: b222fc05f3f8ee4a
-/tool-schema-catalog/deepseek-ai-dsh-tool-pwsh/pwsh:
-  en: 00489572a7e8cb3e
-  zh: c0ecb3909392ee89
-/tool-schema-catalog/deepseek-ai-dsh-tool-cordis:
-  en: 76c7c62f9029b6f5
-  zh: 76c7c62f9029b6f5
-/tool-schema-catalog/deepseek-ai-dsh-tool-cordis/cordis-inspect-list:
+/tool-schema-catalog/master-harness-experimental-browser-use-stagehand-native/stagehand-tabs:
+  en: b3c9951b95b7693d
+  zh: 500ef7d233082307
+/tool-schema-catalog/master-harness-action-cards:
+  en: ba24794c43432de2
+  zh: ba24794c43432de2
+/tool-schema-catalog/master-harness-action-cards/propose-action:
+  en: 21bac49fd9d24e87
+  zh: 8acb21996267103d
+/tool-schema-catalog/master-harness-tool-ask-user:
+  en: 66bc7b2a00c45db0
+  zh: 66bc7b2a00c45db0
+/tool-schema-catalog/master-harness-tool-ask-user/ask-user-question:
+  en: 335846aff9bd3cce
+  zh: 07374b511b0fd1f2
+/tool-schema-catalog/master-harness-tool-executor-ptc:
+  en: 0ea8a61c89ea194b
+  zh: 0ea8a61c89ea194b
+/tool-schema-catalog/master-harness-tool-executor-ptc/run-code:
+  en: 5a595ea379044057
+  zh: 63d5e1a2c77bb695
+/tool-schema-catalog/master-harness-plan-mode:
+  en: 9e2339755f27138e
+  zh: 9e2339755f27138e
+/tool-schema-catalog/master-harness-plan-mode/exit-plan-mode:
+  en: f33d6a7cdeadedd0
+  zh: 056c8e81a4ad2b1b
+/tool-schema-catalog/master-harness-tool-bash:
+  en: e9e2d37f3c520bd8
+  zh: e9e2d37f3c520bd8
+/tool-schema-catalog/master-harness-tool-bash/bash:
+  en: c0ddd77cae2834cf
+  zh: 21c8954f1b32411b
+/tool-schema-catalog/master-harness-tool-present:
+  en: 3f27dfa4a39a8ae6
+  zh: 3f27dfa4a39a8ae6
+/tool-schema-catalog/master-harness-tool-present/present:
+  en: 03d9e5b25fde9aa8
+  zh: 74699f03773b8284
+/tool-schema-catalog/master-harness-tool-pwsh:
+  en: be595fb6a2bb60ee
+  zh: be595fb6a2bb60ee
+/tool-schema-catalog/master-harness-tool-pwsh/pwsh:
+  en: 07321337df2395d8
+  zh: b90f7c1dba3cdf06
+/tool-schema-catalog/master-harness-tool-cordis:
+  en: b0cffb0963a289ee
+  zh: b0cffb0963a289ee
+/tool-schema-catalog/master-harness-tool-cordis/cordis-inspect-list:
   en: 594e5b42047969cc
   zh: 72189ca21345c210
-/tool-schema-catalog/deepseek-ai-dsh-tool-cordis/cordis-inspect-query:
-  en: 42a647ba98527f9e
-  zh: c53ade6a47ea523f
-/tool-schema-catalog/deepseek-ai-dsh-tool-bash-persistent:
-  en: bdd9e88c49029e05
-  zh: bdd9e88c49029e05
-/tool-schema-catalog/deepseek-ai-dsh-tool-bash-persistent/bash:
-  en: 86421501a9d65ccc
-  zh: d1dc400507952331
-/tool-schema-catalog/deepseek-ai-dsh-tool-pwsh-persistent:
-  en: 40a053607298a4c5
-  zh: 40a053607298a4c5
-/tool-schema-catalog/deepseek-ai-dsh-tool-pwsh-persistent/pwsh:
-  en: 214866b3419c8e12
-  zh: c23368fc61772d52
-/tool-schema-catalog/deepseek-ai-dsh-tool-str-replace-editor:
-  en: 591f6e54dbbc38fe
-  zh: 591f6e54dbbc38fe
-/tool-schema-catalog/deepseek-ai-dsh-tool-str-replace-editor/str-replace-editor:
-  en: 3d11196a13e69228
-  zh: 56019c74cf0633cd
-/tool-schema-catalog/deepseek-ai-dsh-tool-fs:
-  en: 07d595ce1f1a5184
-  zh: 07d595ce1f1a5184
-/tool-schema-catalog/deepseek-ai-dsh-tool-fs/edit:
+/tool-schema-catalog/master-harness-tool-cordis/cordis-inspect-query:
+  en: c1a51266e74a1c71
+  zh: 2bd7070082af4cc1
+/tool-schema-catalog/master-harness-tool-bash-persistent:
+  en: 880a207c724f4db7
+  zh: 880a207c724f4db7
+/tool-schema-catalog/master-harness-tool-bash-persistent/bash:
+  en: 72b8807dc955e273
+  zh: e6edd91336c3545d
+/tool-schema-catalog/master-harness-tool-pwsh-persistent:
+  en: 120bd8ec0a5c5d0a
+  zh: 120bd8ec0a5c5d0a
+/tool-schema-catalog/master-harness-tool-pwsh-persistent/pwsh:
+  en: 44116f9cad0b8297
+  zh: d615e1af51ab8256
+/tool-schema-catalog/master-harness-tool-str-replace-editor:
+  en: 5f3e3a4b007e30c6
+  zh: 5f3e3a4b007e30c6
+/tool-schema-catalog/master-harness-tool-str-replace-editor/str-replace-editor:
+  en: 832903d13e4a80c6
+  zh: 579a632e14d7754f
+/tool-schema-catalog/master-harness-tool-fs:
+  en: 21659428c5b2b843
+  zh: 21659428c5b2b843
+/tool-schema-catalog/master-harness-tool-fs/edit:
   en: 5b6a252adde51af6
   zh: 7aa172a5d8b9cbd2
-/tool-schema-catalog/deepseek-ai-dsh-tool-fs/read:
+/tool-schema-catalog/master-harness-tool-fs/read:
   en: 94bfc5b03c63baef
   zh: 339338a0e74696c3
-/tool-schema-catalog/deepseek-ai-dsh-tool-fs/read-image:
+/tool-schema-catalog/master-harness-tool-fs/read-image:
   en: f6f7a1140066ce04
   zh: d528e01a0939795a
-/tool-schema-catalog/deepseek-ai-dsh-tool-fs/write:
-  en: f80700c5d57e8d87
-  zh: fb7cccbba0d8d486
-/tool-schema-catalog/deepseek-ai-dsh-tool-fs-search:
-  en: 703fea005ce84c50
-  zh: 703fea005ce84c50
-/tool-schema-catalog/deepseek-ai-dsh-tool-fs-search/glob:
+/tool-schema-catalog/master-harness-tool-fs/write:
+  en: e6899e32aa62e911
+  zh: dbfc45aae0e85f24
+/tool-schema-catalog/master-harness-tool-fs-search:
+  en: 8f3e70910d543cd9
+  zh: 8f3e70910d543cd9
+/tool-schema-catalog/master-harness-tool-fs-search/glob:
   en: 3ba734ba7852cdd5
   zh: c6ce31ff2c195520
-/tool-schema-catalog/deepseek-ai-dsh-tool-fs-search/grep:
-  en: 6e1f7da62cc9a35b
-  zh: 594817b0befeea86
-/tool-schema-catalog/deepseek-ai-dsh-tool-terminal:
-  en: 77501c1b592b6a88
-  zh: 77501c1b592b6a88
-/tool-schema-catalog/deepseek-ai-dsh-tool-terminal/terminal-close:
+/tool-schema-catalog/master-harness-tool-fs-search/grep:
+  en: f15b09a1a841db55
+  zh: f2b8fab2d236a5a8
+/tool-schema-catalog/master-harness-tool-terminal:
+  en: d60ce32ae451179c
+  zh: d60ce32ae451179c
+/tool-schema-catalog/master-harness-tool-terminal/terminal-close:
   en: 4da73ab1c95aadc6
   zh: 998471bc4f5af00a
-/tool-schema-catalog/deepseek-ai-dsh-tool-terminal/terminal-list:
+/tool-schema-catalog/master-harness-tool-terminal/terminal-list:
   en: 4cde2b1d38f93e04
   zh: 2c93f43d54ec9da2
-/tool-schema-catalog/deepseek-ai-dsh-tool-terminal/terminal-open:
+/tool-schema-catalog/master-harness-tool-terminal/terminal-open:
   en: 7051c20587ae426d
   zh: 39a6aad70d643fbc
-/tool-schema-catalog/deepseek-ai-dsh-tool-terminal/terminal-read:
+/tool-schema-catalog/master-harness-tool-terminal/terminal-read:
   en: 833b47cca9b00b9d
   zh: 24b3db5b48f0446a
-/tool-schema-catalog/deepseek-ai-dsh-tool-terminal/terminal-send:
+/tool-schema-catalog/master-harness-tool-terminal/terminal-send:
   en: 60a8805611533884
   zh: 50e4ac6e7f7b9b0a
-/tool-schema-catalog/deepseek-ai-dsh-tool-terminal/terminal-signal:
-  en: 0191964f5be70426
-  zh: 501c2769633a2a0b
-/tool-schema-catalog/deepseek-ai-dsh-tool-goal:
-  en: 74fff3741e7c13de
-  zh: 74fff3741e7c13de
-/tool-schema-catalog/deepseek-ai-dsh-tool-goal/create-goal:
+/tool-schema-catalog/master-harness-tool-terminal/terminal-signal:
+  en: ee0e7c5d381529b3
+  zh: 950bf5c9774969da
+/tool-schema-catalog/master-harness-tool-goal:
+  en: dbfc9d5cc49d250f
+  zh: dbfc9d5cc49d250f
+/tool-schema-catalog/master-harness-tool-goal/create-goal:
   en: 9ae877cdf8a641a3
   zh: f83c3c09e80e4190
-/tool-schema-catalog/deepseek-ai-dsh-tool-goal/get-goal:
+/tool-schema-catalog/master-harness-tool-goal/get-goal:
   en: 0b517f13dfde11fe
   zh: b7ee7482e8ecde56
-/tool-schema-catalog/deepseek-ai-dsh-tool-goal/update-goal:
-  en: 5f8a1d6e44e57d09
-  zh: d757489fdacde22d
-/tool-schema-catalog/deepseek-ai-dsh-tool-schedule:
-  en: 9fd2eccb1ee51372
-  zh: 9fd2eccb1ee51372
-/tool-schema-catalog/deepseek-ai-dsh-tool-schedule/schedule-create:
+/tool-schema-catalog/master-harness-tool-goal/update-goal:
+  en: 7fc2bcc552bc9681
+  zh: b9c0100fe99b9135
+/tool-schema-catalog/master-harness-tool-schedule:
+  en: e48eefcf82609431
+  zh: e48eefcf82609431
+/tool-schema-catalog/master-harness-tool-schedule/schedule-create:
   en: 606fc2b8d62ba044
   zh: 7523e106168c2ab2
-/tool-schema-catalog/deepseek-ai-dsh-tool-schedule/schedule-delete:
+/tool-schema-catalog/master-harness-tool-schedule/schedule-delete:
   en: 5fc994535c95cd6b
   zh: 1910b545d7b92379
-/tool-schema-catalog/deepseek-ai-dsh-tool-schedule/schedule-list:
+/tool-schema-catalog/master-harness-tool-schedule/schedule-list:
   en: 5bcfc051e364df29
   zh: b77e60c123800eb1
-/tool-schema-catalog/deepseek-ai-dsh-tool-schedule/schedule-update:
-  en: b9f4691532157a1d
-  zh: 8a0597790dc5f999
-/tool-schema-catalog/deepseek-ai-dsh-tool-lsp:
-  en: 32982123b1f0e5bc
-  zh: 32982123b1f0e5bc
-/tool-schema-catalog/deepseek-ai-dsh-tool-lsp/lsp:
-  en: 877f1dc0f69e2038
-  zh: 5dda8001fb614315
-/tool-schema-catalog/deepseek-ai-dsh-tool-ralph:
-  en: 45bd083870e2c92d
-  zh: 45bd083870e2c92d
-/tool-schema-catalog/deepseek-ai-dsh-tool-ralph/ralph:
-  en: e97552156225cf10
-  zh: 9ea32b8485e950ec
-/tool-schema-catalog/deepseek-ai-dsh-tool-skill:
-  en: 927a5ac0974b7642
-  zh: 927a5ac0974b7642
-/tool-schema-catalog/deepseek-ai-dsh-tool-skill/skill:
-  en: 9b159d5831855afb
-  zh: 275ee82af0e0f59a
-/tool-schema-catalog/deepseek-ai-dsh-tool-session-query:
-  en: eac1dff4b6d9e195
-  zh: eac1dff4b6d9e195
-/tool-schema-catalog/deepseek-ai-dsh-tool-session-query/session-event-read:
+/tool-schema-catalog/master-harness-tool-schedule/schedule-update:
+  en: 4f9fec57b104aca3
+  zh: f09ae0d812eab8ad
+/tool-schema-catalog/master-harness-tool-lsp:
+  en: 4f1aee44a167f830
+  zh: 4f1aee44a167f830
+/tool-schema-catalog/master-harness-tool-lsp/lsp:
+  en: d50a9b7e023e628d
+  zh: b89278f14dd9b425
+/tool-schema-catalog/master-harness-tool-ralph:
+  en: fa2aaf0ff501725a
+  zh: fa2aaf0ff501725a
+/tool-schema-catalog/master-harness-tool-ralph/ralph:
+  en: ae920084470494fa
+  zh: c4aa19cd8abd3495
+/tool-schema-catalog/master-harness-tool-skill:
+  en: 7ff6075e49880ff9
+  zh: 7ff6075e49880ff9
+/tool-schema-catalog/master-harness-tool-skill/skill:
+  en: 26f81b3352d362e5
+  zh: 6f48de3ef7414bb4
+/tool-schema-catalog/master-harness-tool-session-query:
+  en: 52f0a222b54c3043
+  zh: 52f0a222b54c3043
+/tool-schema-catalog/master-harness-tool-session-query/session-event-read:
   en: 285bab0bd6b50949
   zh: 9c839e05237a7226
-/tool-schema-catalog/deepseek-ai-dsh-tool-session-query/session-event-search:
+/tool-schema-catalog/master-harness-tool-session-query/session-event-search:
   en: 5cd9f05b83f5797e
   zh: dc6880566b0c5138
-/tool-schema-catalog/deepseek-ai-dsh-tool-session-query/session-event-trace:
+/tool-schema-catalog/master-harness-tool-session-query/session-event-trace:
   en: de64e837459d7313
   zh: 60bfcb3691ab862c
-/tool-schema-catalog/deepseek-ai-dsh-tool-session-query/session-search:
+/tool-schema-catalog/master-harness-tool-session-query/session-search:
   en: c7bc2ee2892bf0e9
   zh: 1cd6a5d6f7494ca1
-/tool-schema-catalog/deepseek-ai-dsh-tool-session-query/session-trace:
-  en: 73d2146c02eaa16a
-  zh: 34caad3065de7148
-/tool-schema-catalog/deepseek-ai-dsh-experimental-tool-subagent-oar:
-  en: 8daafae6faf7898e
-  zh: 8daafae6faf7898e
-/tool-schema-catalog/deepseek-ai-dsh-experimental-tool-subagent-oar/subagent-oar:
-  en: 6283c3023d6ea436
-  zh: 9c018b8c12a3f1e7
-/tool-schema-catalog/deepseek-ai-dsh-tool-subagent:
-  en: 841abe0dd5913ea7
-  zh: 841abe0dd5913ea7
-/tool-schema-catalog/deepseek-ai-dsh-tool-subagent/list-subagent-models:
+/tool-schema-catalog/master-harness-tool-session-query/session-trace:
+  en: eaa5c151c233bc07
+  zh: 00e497d6d75e8c4f
+/tool-schema-catalog/master-harness-experimental-tool-subagent-oar:
+  en: ceeae7ba13e551ac
+  zh: ceeae7ba13e551ac
+/tool-schema-catalog/master-harness-experimental-tool-subagent-oar/subagent-oar:
+  en: 7b905a3860fc669a
+  zh: 5875d9a62029f6c6
+/tool-schema-catalog/master-harness-tool-subagent:
+  en: 7de81cec19a18f66
+  zh: 7de81cec19a18f66
+/tool-schema-catalog/master-harness-tool-subagent/list-subagent-models:
   en: 207228068bc61885
   zh: 36e9344ee1af8869
-/tool-schema-catalog/deepseek-ai-dsh-tool-subagent/subagent:
-  en: 140c965c2b04d02f
-  zh: 95495dad5c77046d
-/tool-schema-catalog/deepseek-ai-dsh-tool-subagent-control:
-  en: ab82e130c3413f04
-  zh: ab82e130c3413f04
-/tool-schema-catalog/deepseek-ai-dsh-tool-subagent-control/interrupt-agent:
+/tool-schema-catalog/master-harness-tool-subagent/subagent:
+  en: a7778d46fdd7566e
+  zh: f982a03c1a97b7f8
+/tool-schema-catalog/master-harness-tool-subagent-control:
+  en: e8fd0635e8e90100
+  zh: e8fd0635e8e90100
+/tool-schema-catalog/master-harness-tool-subagent-control/interrupt-agent:
   en: 9190a32df5e10ddd
   zh: 48e1b05956d63e26
-/tool-schema-catalog/deepseek-ai-dsh-tool-subagent-control/list-agents:
+/tool-schema-catalog/master-harness-tool-subagent-control/list-agents:
   en: ae22e8543d123c39
   zh: 0991a73ef49bcdea
-/tool-schema-catalog/deepseek-ai-dsh-tool-subagent-control/send-message:
-  en: 9d180d8811903366
-  zh: d63f94cffcb952d1
-/tool-schema-catalog/deepseek-ai-dsh-tool-jobs:
-  en: 9be673b1604d0114
-  zh: 9be673b1604d0114
-/tool-schema-catalog/deepseek-ai-dsh-tool-jobs/job-kill:
+/tool-schema-catalog/master-harness-tool-subagent-control/send-message:
+  en: 7f5ccf779e980feb
+  zh: d153ddc15a68a2c1
+/tool-schema-catalog/master-harness-tool-jobs:
+  en: 86408df03a4aeaaa
+  zh: 86408df03a4aeaaa
+/tool-schema-catalog/master-harness-tool-jobs/job-kill:
   en: 14294cc1988ae768
   zh: 80a9152bdc02723f
-/tool-schema-catalog/deepseek-ai-dsh-tool-jobs/job-list:
+/tool-schema-catalog/master-harness-tool-jobs/job-list:
   en: 0c37fb1fed979d72
   zh: 5ea9d07f5a4a8a6c
-/tool-schema-catalog/deepseek-ai-dsh-tool-jobs/job-output:
-  en: 1e084359a8cd42b3
-  zh: 3f6c245dbbb2b920
-/tool-schema-catalog/deepseek-ai-dsh-experimental-tool-agent-team:
-  en: 6b1106f417b50db6
-  zh: 6b1106f417b50db6
-/tool-schema-catalog/deepseek-ai-dsh-experimental-tool-agent-team/interrupt-agent:
+/tool-schema-catalog/master-harness-tool-jobs/job-output:
+  en: 1d8c512d3165d350
+  zh: 57fc88f7b9795c7c
+/tool-schema-catalog/master-harness-experimental-tool-agent-team:
+  en: 06507ced85bf83a6
+  zh: 06507ced85bf83a6
+/tool-schema-catalog/master-harness-experimental-tool-agent-team/interrupt-agent:
   en: c3c7af05ceb9f8c9
   zh: ec379e0b42110c6a
-/tool-schema-catalog/deepseek-ai-dsh-experimental-tool-agent-team/list-agents:
+/tool-schema-catalog/master-harness-experimental-tool-agent-team/list-agents:
   en: f9457f033f75f00a
   zh: a2d60ec44118c34c
-/tool-schema-catalog/deepseek-ai-dsh-experimental-tool-agent-team/send-message:
+/tool-schema-catalog/master-harness-experimental-tool-agent-team/send-message:
   en: ec50e6a0b86aecc6
   zh: 29c8728536a5adf1
-/tool-schema-catalog/deepseek-ai-dsh-experimental-tool-agent-team/spawn-teammate:
+/tool-schema-catalog/master-harness-experimental-tool-agent-team/spawn-teammate:
   en: 02d6cc746e234b99
   zh: 49bc60ac098bca48
-/tool-schema-catalog/deepseek-ai-dsh-experimental-tool-agent-team/team-task-create:
+/tool-schema-catalog/master-harness-experimental-tool-agent-team/team-task-create:
   en: 91e84febe063c3bd
   zh: 550555d0f44f603b
-/tool-schema-catalog/deepseek-ai-dsh-experimental-tool-agent-team/team-task-get:
+/tool-schema-catalog/master-harness-experimental-tool-agent-team/team-task-get:
   en: 1c6ae0aba0b8041d
   zh: f8d634387b74121d
-/tool-schema-catalog/deepseek-ai-dsh-experimental-tool-agent-team/team-task-list:
+/tool-schema-catalog/master-harness-experimental-tool-agent-team/team-task-list:
   en: 2084d494aae8798a
   zh: e4c136c91028a7b1
-/tool-schema-catalog/deepseek-ai-dsh-experimental-tool-agent-team/team-task-update:
+/tool-schema-catalog/master-harness-experimental-tool-agent-team/team-task-update:
   en: 2eac7360ba68b1bd
   zh: b5d676bf288c245e
-/tool-schema-catalog/deepseek-ai-dsh-experimental-tool-agent-team/wait-agent:
-  en: e70c77a45832bb28
-  zh: 7d03bec294b65452
-/tool-schema-catalog/deepseek-ai-dsh-tool-todo:
-  en: dea62d26fb18ff68
-  zh: dea62d26fb18ff68
-/tool-schema-catalog/deepseek-ai-dsh-tool-todo/todo-write:
-  en: f252137b940b38d1
-  zh: 25bd9c6b1ce783d8
-/tool-schema-catalog/deepseek-ai-dsh-tool-working-directory:
-  en: 1bdc4627ca4fff29
-  zh: 1bdc4627ca4fff29
-/tool-schema-catalog/deepseek-ai-dsh-tool-working-directory/working-directory:
-  en: ac1944f6035b8b50
-  zh: f5fc005c13185211
-/tool-schema-catalog/deepseek-ai-dsh-experimental-tool-worktree:
-  en: d5f5679abe86e316
-  zh: d5f5679abe86e316
-/tool-schema-catalog/deepseek-ai-dsh-experimental-tool-worktree/create-worktree:
-  en: 3cf89e31f011ae9b
-  zh: 28e78b4fae2d075b
-/tool-schema-catalog/deepseek-ai-dsh-tool-workflow:
-  en: bb38a9d29f46563c
-  zh: bb38a9d29f46563c
-/tool-schema-catalog/deepseek-ai-dsh-tool-workflow/workflow:
-  en: fdd667cfe21481e8
-  zh: 88864d3b958398a4
-/tool-schema-catalog/deepseek-ai-dsh-tool-workspace-dependencies:
-  en: 96bffc40b80df4b8
-  zh: 96bffc40b80df4b8
-/tool-schema-catalog/deepseek-ai-dsh-tool-workspace-dependencies/load-workspace-dependencies:
-  en: 77b88764ff3464e9
-  zh: a9ca7eeb15ada747
-/tool-schema-catalog/deepseek-ai-dsh-tool-web:
-  en: 4b9918342d3aa931
-  zh: 4b9918342d3aa931
-/tool-schema-catalog/deepseek-ai-dsh-tool-web/web-fetch:
+/tool-schema-catalog/master-harness-experimental-tool-agent-team/wait-agent:
+  en: 04ffd9de242a9dae
+  zh: 5c66fc4bd564724e
+/tool-schema-catalog/master-harness-tool-todo:
+  en: f644aaa54521ff3b
+  zh: f644aaa54521ff3b
+/tool-schema-catalog/master-harness-tool-todo/todo-write:
+  en: faa7a3ba16f8d6e4
+  zh: 24480cecfe112f1e
+/tool-schema-catalog/master-harness-tool-working-directory:
+  en: c18a6db9acf4abdb
+  zh: c18a6db9acf4abdb
+/tool-schema-catalog/master-harness-tool-working-directory/working-directory:
+  en: c609162e6520fabf
+  zh: a2e269def6c2cbee
+/tool-schema-catalog/master-harness-experimental-tool-worktree:
+  en: 03289c646c04b94c
+  zh: 03289c646c04b94c
+/tool-schema-catalog/master-harness-experimental-tool-worktree/create-worktree:
+  en: aefd72a283e98026
+  zh: 50f746434bb9963c
+/tool-schema-catalog/master-harness-tool-workflow:
+  en: d12c360ca4b848b3
+  zh: d12c360ca4b848b3
+/tool-schema-catalog/master-harness-tool-workflow/workflow:
+  en: 25c7f7ba98b027dd
+  zh: 9e55ae6440cdb792
+/tool-schema-catalog/master-harness-tool-workspace-dependencies:
+  en: beac86b1f8aec3bf
+  zh: beac86b1f8aec3bf
+/tool-schema-catalog/master-harness-tool-workspace-dependencies/load-workspace-dependencies:
+  en: d833787352e7d970
+  zh: 057e4fd06b5a9684
+/tool-schema-catalog/master-harness-tool-web:
+  en: 0c8ff83f84e6d35a
+  zh: 0c8ff83f84e6d35a
+/tool-schema-catalog/master-harness-tool-web/web-fetch:
   en: 8673f203aea9bdf2
   zh: 4e17783ffdf34c83
-/tool-schema-catalog/deepseek-ai-dsh-tool-web/web-search:
+/tool-schema-catalog/master-harness-tool-web/web-search:
   en: cc1ad38bf0006710
   zh: 324eacb827a09e93

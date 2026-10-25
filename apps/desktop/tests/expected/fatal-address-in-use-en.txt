@@ -1,5 +1,5 @@
-DeepSeek Harness is unavailable
+Master Harness is unavailable
 The application could not start or stopped unexpectedly.
-Another DSH instance (such as dsh web or the desktop app) is running. They cannot start at the same time. Quit the other running DSH instance, then restart.
+Another MH instance (such as mh web or the desktop app) is running. They cannot start at the same time. Quit the other running MH instance, then restart.
 Exit
 Restart

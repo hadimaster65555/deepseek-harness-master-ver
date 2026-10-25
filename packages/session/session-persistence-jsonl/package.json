@@ -1,13 +1,13 @@
 {
-  "name": "@deepseek-ai/dsh-session-persistence-jsonl",
-  "description": "JSONL durable session persistence backend for the DeepSeek Harness",
+  "name": "@master-harness/session-persistence-jsonl",
+  "description": "JSONL durable session persistence backend for the Master Harness",
   "version": "0.2.1-rc.3",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/session/session-persistence-jsonl"
   },
   "type": "module",
@@ -30,24 +30,24 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-persistence": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@master-harness/session": "workspace:*",
+    "@master-harness/session-persistence": "workspace:*",
+    "@master-harness/cordis": "workspace:~"
   },
   "dependencies": {
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-session-format": "workspace:*",
-    "@deepseek-ai/dsh-session-format-catalog": "workspace:*",
-    "@deepseek-ai/dsh-session-format-v3-to-v4": "workspace:*",
-    "@deepseek-ai/node-addon-system": "workspace:~",
-    "@deepseek-ai/schemastery": "workspace:~",
+    "@master-harness/llm": "workspace:*",
+    "@master-harness/session-format": "workspace:*",
+    "@master-harness/session-format-catalog": "workspace:*",
+    "@master-harness/session-format-v3-to-v4": "workspace:*",
+    "@master-harness/node-addon-system": "workspace:~",
+    "@master-harness/schemastery": "workspace:~",
     "koffi": "3.1.1",
     "p-limit": "7.3.3"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-format-v0-to-v1": "workspace:*",
-    "@deepseek-ai/dsh-session-persistence": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@master-harness/session": "workspace:*",
+    "@master-harness/session-format-v0-to-v1": "workspace:*",
+    "@master-harness/session-persistence": "workspace:*",
+    "@master-harness/cordis": "workspace:~"
   }
 }

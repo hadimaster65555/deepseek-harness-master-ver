@@ -2,10 +2,13 @@
 import { createServer } from 'node:http'
 import type { IncomingMessage, Server, ServerResponse } from 'node:http'
 import { afterEach, describe, expect, it } from 'vitest'
-import { APP_IDENTITY } from '@deepseek-ai/dsh-llm'
-import { deadline } from '@deepseek-ai/dsh-timeout'
+import { APP_IDENTITY } from '@master-harness/llm'
+import { deadline } from '@master-harness/timeout'
 import { LISTING_TIMEOUT, parseModelListing, requestModelListing } from '../src/listing.ts'
 import type { ListedCapabilities } from '../src/listing.ts'
+
+/** Upstream catalog key for harness requirements; it is not the local User-Agent product. */
+const DEEPSEEK_CLIENT_PRODUCT = 'deepseek-harness'
 
 /** The listing the service returned to an account token on 2026-09-24. */
 const LISTING = {
@@ -62,12 +65,12 @@ describe('parseModelListing', () => {
   it.each([
     [undefined, { kind: 'none' }],
     [{ other: { min_version: '9.0.0' } }, { kind: 'none' }],
-    [{ [APP_IDENTITY.product]: {} }, { kind: 'none' }],
-    [{ [APP_IDENTITY.product]: { min_version: '0.2.0-alpha.1' } }, { kind: 'min-version', version: '0.2.0-alpha.1' }],
+    [{ [DEEPSEEK_CLIENT_PRODUCT]: {} }, { kind: 'none' }],
+    [{ [DEEPSEEK_CLIENT_PRODUCT]: { min_version: '0.2.0-alpha.1' } }, { kind: 'min-version', version: '0.2.0-alpha.1' }],
     ['0.2.0', { kind: 'invalid' }],
-    [{ [APP_IDENTITY.product]: '0.2.0' }, { kind: 'invalid' }],
-    [{ [APP_IDENTITY.product]: { min_version: 2 } }, { kind: 'invalid' }],
-    [{ [APP_IDENTITY.product]: { min_version: '' } }, { kind: 'invalid' }],
+    [{ [DEEPSEEK_CLIENT_PRODUCT]: '0.2.0' }, { kind: 'invalid' }],
+    [{ [DEEPSEEK_CLIENT_PRODUCT]: { min_version: 2 } }, { kind: 'invalid' }],
+    [{ [DEEPSEEK_CLIENT_PRODUCT]: { min_version: '' } }, { kind: 'invalid' }],
   ])('reads client requirements %j', (requirements, expected) => {
     expect(only({ ...MESSAGES, ...requirements === undefined ? {} : { client_requirements: requirements } })?.requirement).toEqual(expected)
   })
@@ -77,8 +80,8 @@ describe('parseModelListing', () => {
     [{ api_capabilities: { anthropic_messages: 'yes' } }, 'declares no api_capabilities.anthropic_messages'],
     [{ ...MESSAGES, output_modalities: ['image'] }, 'declares no text output'],
     [{ ...MESSAGES, output_modalities: 'text' }, 'declares no text output'],
-    [{ ...MESSAGES, input_modalities: ['audio'] }, 'declares no input modality DeepSeek Harness supports'],
-    [{ ...MESSAGES, input_modalities: 'text' }, 'declares no input modality DeepSeek Harness supports'],
+    [{ ...MESSAGES, input_modalities: ['audio'] }, 'declares no input modality Master Harness supports'],
+    [{ ...MESSAGES, input_modalities: 'text' }, 'declares no input modality Master Harness supports'],
     [{ ...MESSAGES, context_window: 0 }, 'declares an invalid context_window or max_output_tokens'],
     [{ ...MESSAGES, max_output_tokens: 1.5 }, 'declares an invalid context_window or max_output_tokens'],
   ])('marks %j unusable', (row, reason) => {

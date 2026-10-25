@@ -2,12 +2,12 @@
  * Browser-facing subagent prompt and interrupt request validation plus the
  * stable prompt failure codes returned by the Remote surface.
  *
- * @module @deepseek-ai/dsh-subagent
+ * @module @master-harness/subagent
  */
 
-import { AttachmentError } from '@deepseek-ai/dsh-attachment'
-import type { SessionId } from '@deepseek-ai/dsh-session'
-import { RemoteError } from '@deepseek-ai/dsh-typert-protocol'
+import { AttachmentError } from '@master-harness/attachment'
+import type { SessionId } from '@master-harness/session'
+import { RemoteError } from '@master-harness/typert-protocol'
 import { z } from 'zod'
 import { SubagentError } from './error.ts'
 

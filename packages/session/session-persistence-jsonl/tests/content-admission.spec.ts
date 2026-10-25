@@ -1,10 +1,10 @@
 /** V2 content admission refuses entire generations without publishing a valid prefix. */
 
-import { Context } from '@deepseek-ai/cordis'
-import { SESSION_FORMAT_VERSION, SessionId } from '@deepseek-ai/dsh-session'
-import type { SessionFormatJsonObject } from '@deepseek-ai/dsh-session-format'
-import { SessionFormatUnsupportedError } from '@deepseek-ai/dsh-session-persistence'
-import * as JsonlSessionPersistence from '@deepseek-ai/dsh-session-persistence-jsonl'
+import { Context } from '@master-harness/cordis'
+import { SESSION_FORMAT_VERSION, SessionId } from '@master-harness/session'
+import type { SessionFormatJsonObject } from '@master-harness/session-format'
+import { SessionFormatUnsupportedError } from '@master-harness/session-persistence'
+import * as JsonlSessionPersistence from '@master-harness/session-persistence-jsonl'
 import { mkdir, mkdtemp, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { basename, dirname, join } from 'node:path'
@@ -114,7 +114,7 @@ let root: string | undefined
 const contexts: Context[] = []
 
 beforeEach(async () => {
-  root = await mkdtemp(join(tmpdir(), 'dsh-content-admission-'))
+  root = await mkdtemp(join(tmpdir(), 'mh-content-admission-'))
 })
 
 afterEach(async () => {

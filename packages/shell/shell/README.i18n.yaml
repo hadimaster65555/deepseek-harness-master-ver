@@ -5,63 +5,63 @@
 /:
   en: 4a173bf52227a3b6
   zh: 76bb85595252765c
-/deepseek-ai-dsh-shell:
-  en: 607578ed1d9dbabe
-  zh: e6c674aad094f056
-/deepseek-ai-dsh-shell/summary:
+/master-harness-shell:
+  en: 163811489f42b1e2
+  zh: 56a2637be99825b6
+/master-harness-shell/summary:
   en: bb40932744bc4b80
   zh: 22e2af1327b2f835
-/deepseek-ai-dsh-shell/table-of-contents:
+/master-harness-shell/table-of-contents:
   en: d152484eb41ac6b4
   zh: 09388d293f9be9cb
-/deepseek-ai-dsh-shell/use-this-package:
+/master-harness-shell/use-this-package:
   en: b81fffe9eb713a49
   zh: ac37478e7f1f7499
-/deepseek-ai-dsh-shell/use-this-package/foreground-commands:
+/master-harness-shell/use-this-package/foreground-commands:
   en: cf38f6bc0e150602
   zh: 2ff6cfb0ce48a7b8
-/deepseek-ai-dsh-shell/use-this-package/background-processes:
+/master-harness-shell/use-this-package/background-processes:
   en: 277c543917453017
   zh: d2c100e37944f151
-/deepseek-ai-dsh-shell/use-this-package/deadlines-and-bounded-waits:
+/master-harness-shell/use-this-package/deadlines-and-bounded-waits:
   en: 719b0708bf3cf1cf
   zh: 044f53d543960f42
-/deepseek-ai-dsh-shell/use-this-package/requests-and-resolved-specs:
-  en: e104e13a7dae9491
-  zh: 1b219491fabf780b
-/deepseek-ai-dsh-shell/use-this-package/choosing-and-composing-an-executor:
-  en: ddcf8a0c7a45e8d3
-  zh: e4ee99e2e27234fe
-/deepseek-ai-dsh-shell/use-this-package/the-shared-exit-status-contract:
+/master-harness-shell/use-this-package/requests-and-resolved-specs:
+  en: 13a36b429407829e
+  zh: 3a657fa0942b832f
+/master-harness-shell/use-this-package/choosing-and-composing-an-executor:
+  en: 4c647553ef3de7cf
+  zh: 8820090262b4bd08
+/master-harness-shell/use-this-package/the-shared-exit-status-contract:
   en: f4125282c1deab36
   zh: 46b8ee789ae68a9a
-/deepseek-ai-dsh-shell/understand-the-implementation:
+/master-harness-shell/understand-the-implementation:
   en: d2192b68c2faf92b
   zh: 7678a2fd356d8587
-/deepseek-ai-dsh-shell/understand-the-implementation/design-philosophy:
-  en: a6467114855249e8
-  zh: 65b53a2839cb411e
-/deepseek-ai-dsh-shell/understand-the-implementation/source-map:
+/master-harness-shell/understand-the-implementation/design-philosophy:
+  en: ca931318dbf597cd
+  zh: f464cdc27a915088
+/master-harness-shell/understand-the-implementation/source-map:
   en: 1e9231bae2662059
   zh: 2bac2b8e8fc08eb9
-/deepseek-ai-dsh-shell/understand-the-implementation/settings-namespace:
+/master-harness-shell/understand-the-implementation/settings-namespace:
   en: a5b81ecee7fe9938
   zh: 25fcf060b48e14cf
-/deepseek-ai-dsh-shell/understand-the-implementation/background-lifecycle-and-ownership:
+/master-harness-shell/understand-the-implementation/background-lifecycle-and-ownership:
   en: 63853c610719e1bb
   zh: 09668e6fd34c9161
-/deepseek-ai-dsh-shell/further-exploration:
-  en: e1653edf9807c768
-  zh: bac6f0001ca214d6
-/deepseek-ai-dsh-shell/model-experience:
-  en: 7dec7effc0b15288
-  zh: 6ac73faa9ae252ed
-/deepseek-ai-dsh-shell/model-experience/kv-cache-effect:
+/master-harness-shell/further-exploration:
+  en: c4f8433a4a992be4
+  zh: de857c95d6ab50a3
+/master-harness-shell/model-experience:
+  en: 823065a838f6f168
+  zh: 1d7b7cd9fc1dbb68
+/master-harness-shell/model-experience/kv-cache-effect:
   en: 40294c1c31b74824
   zh: 788a4799b1d65a8b
-/deepseek-ai-dsh-shell/known-limitations-and-deferred-work:
-  en: d45d58f3ac323b73
-  zh: a4a4fe86a4f9f15c
-/deepseek-ai-dsh-shell/known-limitations-and-deferred-work/dev-note:
+/master-harness-shell/known-limitations-and-deferred-work:
+  en: f77a320fe1f0b134
+  zh: 15b7eb5458473b44
+/master-harness-shell/known-limitations-and-deferred-work/dev-note:
   en: e67f633dc6fe7773
   zh: 3c8bbe93d71a3377

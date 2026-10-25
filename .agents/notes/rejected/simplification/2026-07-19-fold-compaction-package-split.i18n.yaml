@@ -3,14 +3,14 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/rejected/simplification/2026-07-19-fold-compaction-package-split.md
 /agent-note-fold-the-single-compaction-backend-into-its-service-package:
-  en: 22e69a4c9159be12
-  zh: c68cd8f8f536dc03
+  en: 8cc132ceafa6cc67
+  zh: 2cbc9a4b792ec690
 /agent-note-fold-the-single-compaction-backend-into-its-service-package/problem:
-  en: c83a7bcd45d82228
-  zh: 13b4a0f635017335
+  en: 2198af6d00c0b326
+  zh: b2162570acfa6165
 /agent-note-fold-the-single-compaction-backend-into-its-service-package/proposal:
-  en: 4db8bc2ee4039e44
-  zh: e1a8c9714d1c4de0
+  en: 676c94a28224a752
+  zh: b6d44039afda3a26
 /agent-note-fold-the-single-compaction-backend-into-its-service-package/alternatives-considered:
   en: 0c7f4bd4b7745c96
   zh: 9bf5a98dd485dbbd

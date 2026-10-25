@@ -22,20 +22,20 @@ describe('StateDot.module.css', () => {
   })
 
   it('uses success green for done', () => {
-    expect(css).toMatch(/\.dot\[data-state='done'\][^{]*\{[^}]*--dsw-alias-state-success-primary/su)
+    expect(css).toMatch(/\.dot\[data-state='done'\][^{]*\{[^}]*--mh-alias-state-success-primary/su)
   })
 
   it('uses the neutral state token for idle', () => {
-    expect(css).toMatch(/\.dot\[data-state='idle'\][^{]*\{[^}]*--dsw-alias-state-idle-primary/su)
+    expect(css).toMatch(/\.dot\[data-state='idle'\][^{]*\{[^}]*--mh-alias-state-idle-primary/su)
   })
 
   it('keeps ongoing on the rotating spinner rather than a solid-dot rule', () => {
     expect(css).not.toContain(".dot[data-state='ongoing']")
     expect(css).toContain('.spinnerTrack')
     expect(css).toContain('.spinnerArc')
-    expect(css).toContain('@keyframes dsh-state-dot-spin')
-    expect(css).toContain('@keyframes dsh-state-dot-dash')
-    expect(css).toMatch(/\.spinnerMotion[^{]*\{[^}]*animation: dsh-state-dot-spin 1\.5s linear infinite/su)
+    expect(css).toContain('@keyframes mh-state-dot-spin')
+    expect(css).toContain('@keyframes mh-state-dot-dash')
+    expect(css).toMatch(/\.spinnerMotion[^{]*\{[^}]*animation: mh-state-dot-spin 1\.5s linear infinite/su)
     expect(css).not.toMatch(/\.spinner\s*\{[^}]*animation:/su)
     expect(css).toContain('stroke-dasharray: 12 150')
     expect(css).toContain('stroke-dasharray: 24 150')

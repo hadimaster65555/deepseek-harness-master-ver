@@ -1,11 +1,11 @@
 import { existsSync } from 'node:fs'
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@master-harness/cordis'
 import { afterEach, expect, it, vi } from 'vitest'
-import { mountSessionMcp } from '@deepseek-ai/dsh-experimental-browser-use-runtime/mcp'
+import { mountSessionMcp } from '@master-harness/experimental-browser-use-runtime/mcp'
 import * as Provider from '../src/index.ts'
 
-vi.mock('@deepseek-ai/dsh-experimental-browser-use-runtime/mcp', async importOriginal => ({
-  ...await importOriginal<typeof import('@deepseek-ai/dsh-experimental-browser-use-runtime/mcp')>(),
+vi.mock('@master-harness/experimental-browser-use-runtime/mcp', async importOriginal => ({
+  ...await importOriginal<typeof import('@master-harness/experimental-browser-use-runtime/mcp')>(),
   mountSessionMcp: vi.fn(),
 }))
 afterEach(() => vi.clearAllMocks())

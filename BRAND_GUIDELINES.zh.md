@@ -1,12 +1,14 @@
-# DeepSeek Harness 品牌素材使用规范
+# Master Harness 品牌使用规范
 
 [English](BRAND_GUIDELINES.md) | 中文
 
-为了维护 DeepSeek Harness 生态的长期健康发展，避免用户混淆，方便用户对相关资源进行检索和识别，我们特别制定本规范，希望大家共同遵守：
+本规范旨在保持 Master Harness 生态的清晰，并帮助用户识别基于它构建的项目：
 
-- 在项目的描述性文字中，您可以使用“DeepSeek Harness”真实、准确地说明您的项目与 DeepSeek Harness 的关系，例如“基于 DeepSeek Harness 构建”或“兼容 DeepSeek Harness”等。这类说明符合许可证的要求，也有助于用户理解项目的定位。
-- 如果您希望项目名称能体现与 DeepSeek Harness 生态的关联，我们建议使用缩写的 **“DSH”** 标识来命名，这样既清晰又便于社区内的交流。
-- 在项目命名时，请避免直接使用完整的 **“DeepSeek Harness”** 商标。**“DeepSeek Harness”** 是深度求索公司的注册商标，未经授权用于项目名，容易引发用户的误解和混淆，从而影响整个生态的清晰度。同时，也可能涉及商标侵权行为。
-- 此外，请您避免在宣传或展示时，以容易引起误解的方式使用官方品牌素材，以免让用户产生官方背书、合作或授权等不实印象。
+- 在描述性文字中，您可以使用“Master Harness”说明您的项目与它的关系，例如“基于 Master Harness 构建”或“兼容 Master Harness”。这类说明符合许可证要求，也有助于用户理解项目的定位。
+- 如果项目名称需要体现这种关系，请使用缩写的 **“MH”** 标识。
+- 请避免将完整的 **“Master Harness”** 用作您自己的产品名或公司名，以免暗示官方背书、合作或授权。
+- 请避免把官方品牌素材呈现为自己的素材，或用来暗示官方背书。
 
-我们相信，一个清晰、有序的社区环境，能让每一位开发者的努力都更容易被看见和认可。对于少数不符合上述规范的情况，我们可能会联系相关方进行适当的调整，以维护生态整体的秩序。感谢大家的理解与支持，让我们一起构建一个更友好、更可持续发展的开源社区。
+Master Harness 是一个受 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 启发的独立分叉。DeepSeek 与 DeepSeek Harness 是 DeepSeek AI 的商标；Master Harness 不主张对这些商标的任何权利，对 DeepSeek Harness 的引用仅用于指明上游项目。
+
+对于与上述规范冲突的使用方式，我们可能会联系维护者。感谢您共同维护一个清晰、友好的生态。

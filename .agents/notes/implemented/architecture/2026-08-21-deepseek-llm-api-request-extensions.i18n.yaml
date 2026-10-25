@@ -3,17 +3,17 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/architecture/2026-08-21-deepseek-llm-api-request-extensions.md
 /agent-note-deepseek-llm-api-request-extensions-for-session-logs-and-plugin-packages:
-  en: bbb93b705960a21b
-  zh: 0fc6fc150215f08f
+  en: 04d2a8f111adcdba
+  zh: ccb0bc79be913ff5
 /agent-note-deepseek-llm-api-request-extensions-for-session-logs-and-plugin-packages/problem:
   en: 4945ce54f66df55c
   zh: 9fbd833c1d8122a7
 /agent-note-deepseek-llm-api-request-extensions-for-session-logs-and-plugin-packages/decision:
-  en: d2452e4a39db0b6b
-  zh: 87f7e0be1f613285
+  en: fa0232e2bd8b989e
+  zh: afe16850b4da3973
 /agent-note-deepseek-llm-api-request-extensions-for-session-logs-and-plugin-packages/incremental-session-log-field:
-  en: 4e3138fbdd94259b
-  zh: 8fda801522045b88
+  en: cc2fc2f7eaf2320f
+  zh: ba94f956aadbd328
 /agent-note-deepseek-llm-api-request-extensions-for-session-logs-and-plugin-packages/plugin-package-field:
   en: 0e51b8d8a1bd60fc
   zh: dd18fd176c3f101f
@@ -33,5 +33,5 @@
   en: b6eff63f49220dcc
   zh: 8e4a6c785ed2256a
 /agent-note-deepseek-llm-api-request-extensions-for-session-logs-and-plugin-packages/consequences:
-  en: fed545acefb91f2a
-  zh: c474a94bb956bbf6
+  en: 11ee1366624418a8
+  zh: b76c2d4bb00b90f6

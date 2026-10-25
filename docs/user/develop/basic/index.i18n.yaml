@@ -3,8 +3,8 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write docs/user/develop/basic/index.md
 /your-first-plugin:
-  en: 66684c875e13acbb
-  zh: 48b5444386cf714c
+  en: cec46e85b3567f22
+  zh: 46c70bc3841c24ad
 /your-first-plugin/create-a-local-project:
   en: 2a9ff85da3a6ea8b
   zh: 9ac5daf1dd3e3b95
@@ -15,8 +15,8 @@
   en: 80e4e9f139d4773e
   zh: c045d63ec04a2f3d
 /your-first-plugin/register-it-in-cordis-yml:
-  en: 216e79287d237f2a
-  zh: 16e5e8ad2b1b9263
+  en: 826d7eb0214460fc
+  zh: 079a4b18e969a9aa
 /your-first-plugin/automatic-cleanup:
   en: 0a1486714b9d67d7
   zh: 544df97baa7a8c59
@@ -30,8 +30,8 @@
   en: d674c416f5b0fd14
   zh: a2224f5fe6ceae73
 /your-first-plugin/three-plugin-forms/class-form:
-  en: 130f504f9ebacebd
-  zh: 4e91d3fa2555390d
+  en: 2d37818a5672f401
+  zh: 83c104cc272ec28c
 /your-first-plugin/next-steps:
-  en: 9836e246d8279c8b
-  zh: 681475e2251ba006
+  en: 99fec8724f2a1d47
+  zh: 823b952d6caf25f0

@@ -10,7 +10,7 @@
 }
 
 .chevron {
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
 }
 
 /* Separator and producer name beside the role title: ToolRow's summary geometry,
@@ -21,16 +21,16 @@
   height: 2px;
   margin: 0 8px;
   border-radius: 1px;
-  background: var(--dsw-alias-label-caption);
+  background: var(--mh-alias-label-caption);
 }
 
 .source {
   flex: none;
   min-width: 0;
   overflow: hidden;
-  color: var(--dsw-alias-label-tertiary);
-  font-size: var(--dsh-content-font-size-secondary, 13px);
-  line-height: calc(24px + var(--dsh-content-font-delta, 0px));
+  color: var(--mh-alias-label-tertiary);
+  font-size: var(--mh-content-font-size-secondary, 13px);
+  line-height: calc(24px + var(--mh-content-font-delta, 0px));
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -40,9 +40,9 @@
   flex: 1 1 auto;
   min-width: 0;
   overflow: hidden;
-  color: var(--dsw-alias-label-tertiary);
-  font-size: var(--dsh-content-font-size-secondary, 13px);
-  line-height: calc(24px + var(--dsh-content-font-delta, 0px));
+  color: var(--mh-alias-label-tertiary);
+  font-size: var(--mh-content-font-size-secondary, 13px);
+  line-height: calc(24px + var(--mh-content-font-delta, 0px));
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -50,15 +50,15 @@
 .body {
   box-sizing: border-box;
   /* Indent under the title, which starts at leading (16 + delta) + gap 6. */
-  width: calc(100% - 22px - var(--dsh-content-font-delta, 0px));
+  width: calc(100% - 22px - var(--mh-content-font-delta, 0px));
   max-height: 141px;
-  margin: 4px 0 0 calc(22px + var(--dsh-content-font-delta, 0px));
+  margin: 4px 0 0 calc(22px + var(--mh-content-font-delta, 0px));
   overflow: auto;
   padding: 10px 16px 12px 12px;
   border: none;
-  border-radius: var(--dsw-radius-md);
-  background: var(--dsw-alias-markdown-code-block);
-  color: var(--dsw-alias-label-tertiary);
+  border-radius: var(--mh-radius-md);
+  background: var(--mh-alias-markdown-code-block);
+  color: var(--mh-alias-label-tertiary);
   /* Figma 10:2482 code text: the form bodies inherit it from the scrollport. */
   font: 400 11px/16px var(--ds-font-family-code);
 }

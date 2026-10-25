@@ -3,11 +3,11 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/proposed/architecture/2026-07-24-domain-kv-storage-and-workspace.md
 /agent-note-domain-kv-storage-capability-seam-and-the-workspace-entity:
-  en: e1792a25ca5d684d
-  zh: ddb20d72b56eebf8
+  en: dbaec5ac39ee5c8a
+  zh: af12dc0976d02430
 /agent-note-domain-kv-storage-capability-seam-and-the-workspace-entity/problem:
-  en: 22a80335f54b17e9
-  zh: 6c0d695a4dba7f0d
+  en: f4810b5d7465d4e1
+  zh: 4debac61675ee630
 /agent-note-domain-kv-storage-capability-seam-and-the-workspace-entity/proposal:
   en: 34e5bde1535a2bb1
   zh: 559deb25b2ec50ba
@@ -27,8 +27,8 @@
   en: a3824326587b6539
   zh: 9736e3060bd57651
 /agent-note-domain-kv-storage-capability-seam-and-the-workspace-entity/proposal/dsh-workspace:
-  en: 13e68c6072cbfc98
-  zh: 5f111dd13038b535
+  en: f330d651b4c38867
+  zh: 45c446a7e892ddfd
 /agent-note-domain-kv-storage-capability-seam-and-the-workspace-entity/proposal/reuse-and-the-session-backend-migration-outlook:
   en: e586acdb16085b91
   zh: 4fae53c5b9e4fd5b

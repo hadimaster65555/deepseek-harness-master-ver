@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
+import { createSnapshotStore } from '@master-harness/client-store'
 /**
  * Local DOM snapshots of the sidebar shell through the real assembly path:
  * SlotTestRuntime mounts the package apply on its own fiber, the auto frame
@@ -11,20 +11,20 @@ import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { act, cleanup, waitFor } from '@testing-library/react'
-import { SlotTestRuntime, usePinnedBrowserLanguages } from '@deepseek-ai/dsh-client-test-runtime'
-import { LocaleRuntime } from '@deepseek-ai/dsh-client-locale/client'
-import { en as commonEn } from '@deepseek-ai/dsh-client-locale/src/locales/en.ts'
-import { zh as commonZh } from '@deepseek-ai/dsh-client-locale/src/locales/zh.ts'
-import { apply, inject } from '@deepseek-ai/dsh-client-ui-sidebar/client'
+import { SlotTestRuntime, usePinnedBrowserLanguages } from '@master-harness/client-test-runtime'
+import { LocaleRuntime } from '@master-harness/client-locale/client'
+import { en as commonEn } from '@master-harness/client-locale/src/locales/en.ts'
+import { zh as commonZh } from '@master-harness/client-locale/src/locales/zh.ts'
+import { apply, inject } from '@master-harness/client-ui-sidebar/client'
 
 // The service reads its initial locale from the browser; these specs assert
 // the shipped Chinese copy, so they state the browser they assume.
 usePinnedBrowserLanguages('zh-CN')
 
 beforeEach(() => {
-  vi.stubEnv('DSH_CLIENT_COMMIT_HASH', 'abc1234')
-  vi.stubEnv('DSH_CLIENT_GIT_DIRTY', 'true')
-  vi.stubEnv('DSH_CLIENT_VERSION', '1.2.3-rc.4')
+  vi.stubEnv('MH_CLIENT_COMMIT_HASH', 'abc1234')
+  vi.stubEnv('MH_CLIENT_GIT_DIRTY', 'true')
+  vi.stubEnv('MH_CLIENT_VERSION', '1.2.3-rc.4')
 })
 
 afterEach(() => {

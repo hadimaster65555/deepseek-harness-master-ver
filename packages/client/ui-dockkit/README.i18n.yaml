@@ -3,38 +3,38 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write packages/client/ui-dockkit/README.md
 /:
-  en: 93fc2e9e86fc50f8
-  zh: 61c7c38a66935ad6
-/deepseek-ai-dsh-client-ui-dockkit:
-  en: 9d34bd85fc9e76b4
-  zh: 615d1d2eab451c87
-/deepseek-ai-dsh-client-ui-dockkit/summary:
+  en: c5e4e2f163b10250
+  zh: 9acccf6e05a6b2cc
+/master-harness-client-ui-dockkit:
+  en: 3ee7f81c449fdbff
+  zh: 7746d1ff60b30f3e
+/master-harness-client-ui-dockkit/summary:
   en: 3ee4584a73215ef4
   zh: 051170a6d0993fa5
-/deepseek-ai-dsh-client-ui-dockkit/table-of-contents:
+/master-harness-client-ui-dockkit/table-of-contents:
   en: 42038fdc402b9c2a
   zh: 99890f8f908624ce
-/deepseek-ai-dsh-client-ui-dockkit/the-two-layers:
+/master-harness-client-ui-dockkit/the-two-layers:
   en: 718f52cfce426009
   zh: e8282e2e3713d242
-/deepseek-ai-dsh-client-ui-dockkit/embedding-it:
+/master-harness-client-ui-dockkit/embedding-it:
   en: c4ba08038bfa6f30
   zh: 95db30618b52babe
-/deepseek-ai-dsh-client-ui-dockkit/interaction-rules-worth-keeping:
-  en: cf2d00ce2b7d5719
-  zh: 5510420f8872e23a
-/deepseek-ai-dsh-client-ui-dockkit/build-shape:
+/master-harness-client-ui-dockkit/interaction-rules-worth-keeping:
+  en: f4d21822a8c8b299
+  zh: 405f1990e86c9cb3
+/master-harness-client-ui-dockkit/build-shape:
   en: 21216ba5798d7f5f
   zh: ac505fdcd5c114d4
-/deepseek-ai-dsh-client-ui-dockkit/model-experience:
+/master-harness-client-ui-dockkit/model-experience:
   en: cdebb91645623401
   zh: fe262db316714fa8
-/deepseek-ai-dsh-client-ui-dockkit/model-experience/kv-cache-effect:
+/master-harness-client-ui-dockkit/model-experience/kv-cache-effect:
   en: ca75c51c89c2c9b0
   zh: f57cc48a1b5cbfa9
-/deepseek-ai-dsh-client-ui-dockkit/known-limitations-and-deferred-work:
-  en: 4323810ca5a87e6c
-  zh: 3a24af2ea4467ab7
-/deepseek-ai-dsh-client-ui-dockkit/known-limitations-and-deferred-work/dev-note:
-  en: 45680a19e42f401a
-  zh: 5500de88331c8a59
+/master-harness-client-ui-dockkit/known-limitations-and-deferred-work:
+  en: e774bd0b7552f151
+  zh: 73a0c6ba5ff994e7
+/master-harness-client-ui-dockkit/known-limitations-and-deferred-work/dev-note:
+  en: 64eda96db0870bc8
+  zh: 4ac46259e455ac48

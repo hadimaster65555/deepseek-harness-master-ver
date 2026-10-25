@@ -5,15 +5,15 @@
   padding: 8px 0;
   font-size: 13px;
   line-height: 22px;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
 }
 
 .card,
 .balanceCard {
   padding: 12px 16px;
-  border: 0.5px solid var(--dsw-alias-settings-card-stroke);
-  border-radius: var(--dsw-radius-xl);
-  background: var(--dsw-alias-settings-card-fill);
+  border: 0.5px solid var(--mh-alias-settings-card-stroke);
+  border-radius: var(--mh-radius-xl);
+  background: var(--mh-alias-settings-card-fill);
 }
 
 .card,
@@ -41,8 +41,8 @@
   height: 32px;
   border-radius: 50%;
   corner-shape: round;
-  color: var(--dsw-alias-label-tertiary);
-  background: var(--dsw-alias-bg-skeleton);
+  color: var(--mh-alias-label-tertiary);
+  background: var(--mh-alias-bg-skeleton);
 }
 
 .identityCopy {
@@ -59,7 +59,7 @@
 .status,
 .secondary,
 .unavailable {
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
 }
 
 .balanceCard {
@@ -75,7 +75,7 @@
 }
 
 .divider {
-  border-top: 0.5px solid var(--dsw-alias-border-l2);
+  border-top: 0.5px solid var(--mh-alias-border-l2);
 }
 
 .links,
@@ -96,8 +96,8 @@
   height: 36px;
   min-width: 58px;
   padding: 0 14px;
-  border: 0.5px solid var(--dsw-alias-border-l3);
-  border-radius: var(--dsw-radius-md);
+  border: 0.5px solid var(--mh-alias-border-l3);
+  border-radius: var(--mh-radius-md);
   font-size: 14px;
   line-height: 22px;
   text-decoration: none;
@@ -105,51 +105,51 @@
 }
 
 .linkButton {
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
   background: transparent;
 }
 
 @media (hover: hover) {
   .linkButton:hover {
-    background: var(--dsw-alias-interactive-bg-hover);
+    background: var(--mh-alias-interactive-bg-hover);
   }
 }
 
 .linkButton:focus-visible {
-  outline: var(--dsw-focus-ring-width) solid var(--dsw-focus-ring-color, var(--dsw-alias-state-business-primary));
+  outline: var(--mh-focus-ring-width) solid var(--mh-focus-ring-color, var(--mh-alias-state-business-primary));
   outline-offset: 2px;
 }
 
 /* A failed wallet read keeps its muted copy, but as a link: the user can still
    inspect the balance on Platform through the same destination as Usage. */
 .unavailableLink {
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 @media (hover: hover) {
   .unavailableLink:hover {
-    color: var(--dsw-alias-label-primary);
+    color: var(--mh-alias-label-primary);
   }
 }
 
 .unavailableLink:focus-visible {
-  outline: 2px solid var(--dsw-focus-ring-color, var(--dsw-alias-state-business-primary));
+  outline: 2px solid var(--mh-focus-ring-color, var(--mh-alias-state-business-primary));
   outline-offset: 2px;
   border-radius: 4px;
 }
 
 .primary {
-  color: var(--dsw-alias-label-primary-foreground);
-  background: var(--dsw-alias-button-primary-fill);
+  color: var(--mh-alias-label-primary-foreground);
+  background: var(--mh-alias-button-primary-fill);
   font-weight: 500;
   border-color: transparent;
 }
 
 @media (hover: hover) {
   .primary:hover {
-    background: var(--dsw-alias-button-primary-hover);
+    background: var(--mh-alias-button-primary-hover);
   }
 }
 
@@ -162,7 +162,7 @@
   margin-bottom: -16px;
   padding-bottom: 8px;
   box-sizing: border-box;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
 }
 
 .signedOutContent {
@@ -190,7 +190,7 @@
 }
 
 .signedOutDescription {
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   font-size: 12px;
   line-height: 18px;
 }
@@ -214,7 +214,7 @@
   white-space: pre;
 }
 
-.accountInfo { display: inline-flex; align-items: center; gap: 2px; flex: none; color: var(--dsw-alias-label-primary); font-size: 13px; line-height: 22px; text-decoration: none; }
+.accountInfo { display: inline-flex; align-items: center; gap: 2px; flex: none; color: var(--mh-alias-label-primary); font-size: 13px; line-height: 22px; text-decoration: none; }
 
 .bonusValue {
   display: flex;

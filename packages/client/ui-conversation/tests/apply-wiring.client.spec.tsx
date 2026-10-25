@@ -2,11 +2,11 @@
 import { describe, expect, it, vi } from 'vitest'
 import {
   SlotTestRuntime, stubConfigForm, usePinnedBrowserLanguages,
-} from '@deepseek-ai/dsh-client-test-runtime'
-import { LocaleRuntime } from '@deepseek-ai/dsh-client-locale/client'
-import { createSnapshotStore, type ObservableSnapshot } from '@deepseek-ai/dsh-client-store'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import { apply, inject, type ViewTab } from '@deepseek-ai/dsh-client-ui-conversation/client'
+} from '@master-harness/client-test-runtime'
+import { LocaleRuntime } from '@master-harness/client-locale/client'
+import { createSnapshotStore, type ObservableSnapshot } from '@master-harness/client-store'
+import type { SessionId } from '@master-harness/session/types'
+import { apply, inject, type ViewTab } from '@master-harness/client-ui-conversation/client'
 
 usePinnedBrowserLanguages('zh-CN')
 
@@ -45,7 +45,7 @@ function entry(
 
 describe('target-neutral Conversation apply wiring', () => {
   it('hands every Session header the same in-memory View pins without restoring saved choices', async () => {
-    localStorage.setItem('dsh.slot.manual-order.conversation.view.v1', JSON.stringify({ unpinned: ['trajectory'] }))
+    localStorage.setItem('mh.slot.manual-order.conversation.view.v1', JSON.stringify({ unpinned: ['trajectory'] }))
     try {
       const b = await bench()
       const header = b.runtime.slots.entries('conversation.session.header')[0]!

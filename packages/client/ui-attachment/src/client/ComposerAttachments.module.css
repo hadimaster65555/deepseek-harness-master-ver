@@ -17,9 +17,9 @@
   height: 64px;
   padding: 0;
   overflow: hidden;
-  border: 0.5px solid var(--dsw-alias-border-l2-darkmode-thin);
-  border-radius: var(--dsw-radius-xl);
-  background: var(--dsw-alias-interactive-bg-hover);
+  border: 0.5px solid var(--mh-alias-border-l2-darkmode-thin);
+  border-radius: var(--mh-radius-xl);
+  background: var(--mh-alias-interactive-bg-hover);
   cursor: zoom-in;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .thumbnailFailed {
-  border-color: var(--dsw-alias-state-error-primary, #d54941);
+  border-color: var(--mh-alias-state-error-primary, #d54941);
   cursor: pointer;
 }
 
@@ -48,7 +48,7 @@
   inset: 0;
   display: grid;
   place-items: center;
-  color: var(--dsw-alias-state-error-primary, #d54941);
+  color: var(--mh-alias-state-error-primary, #d54941);
 }
 
 .progressTrack {
@@ -59,7 +59,7 @@
   overflow: hidden;
   height: 2px;
   border-radius: 1px;
-  background: var(--dsw-alias-fill-tertiary, rgba(0, 0, 0, 0.08));
+  background: var(--mh-alias-fill-tertiary, rgba(0, 0, 0, 0.08));
   pointer-events: none;
 }
 
@@ -68,7 +68,7 @@
   width: 35%;
   height: 100%;
   border-radius: inherit;
-  background: var(--dsw-alias-brand-primary, #4d6bfe);
+  background: var(--mh-alias-brand-primary, #4d6bfe);
   animation: image-upload-progress 1.2s ease-in-out infinite alternate;
 }
 
@@ -94,8 +94,8 @@
   border: none;
   border-radius: 50%;
   corner-shape: round;
-  background: var(--dsw-alias-button-contrast-fill);
-  color: var(--dsw-alias-label-primary-inverted);
+  background: var(--mh-alias-button-contrast-fill);
+  color: var(--mh-alias-label-primary-inverted);
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.2s ease-in-out;

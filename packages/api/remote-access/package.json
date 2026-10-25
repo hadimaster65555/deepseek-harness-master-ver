@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-api-remote-access",
+  "name": "@master-harness/api-remote-access",
   "description": "Method-level Remote access control for non-owner Peers and the per-Peer access snapshot",
   "version": "0.2.1-rc.3",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/api/remote-access"
   },
   "type": "module",
@@ -38,14 +38,14 @@
     "./locale/*.json": "./locale/*.json",
     "./package.json": "./package.json"
   },
-  "dsh": {
+  "mh": {
     "client": {
       "external": [
-        "@deepseek-ai/dsh-api-gateway/client"
+        "@master-harness/api-gateway/client"
       ],
       "inject": [
-        "@deepseek-ai/dsh-api-gateway",
-        "@deepseek-ai/dsh-client-ui-renderer"
+        "@master-harness/api-gateway",
+        "@master-harness/client-ui-renderer"
       ],
       "platform": "web"
     }
@@ -67,19 +67,19 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*",
+    "@master-harness/typert-protocol": "workspace:*",
     "zod": "4.4.3"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~"
+    "@master-harness/cordis": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-api-gateway": "workspace:*",
-    "@deepseek-ai/dsh-client-connection": "workspace:*",
-    "@deepseek-ai/dsh-client-ui-renderer": "workspace:*",
-    "@deepseek-ai/dsh-client-ui-slots": "workspace:*",
-    "@deepseek-ai/dsh-host-webserver": "workspace:*",
-    "@deepseek-ai/dsh-typert-registry": "workspace:*"
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/api-gateway": "workspace:*",
+    "@master-harness/client-connection": "workspace:*",
+    "@master-harness/client-ui-renderer": "workspace:*",
+    "@master-harness/client-ui-slots": "workspace:*",
+    "@master-harness/host-webserver": "workspace:*",
+    "@master-harness/typert-registry": "workspace:*"
   }
 }

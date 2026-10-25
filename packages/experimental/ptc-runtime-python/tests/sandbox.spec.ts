@@ -2,14 +2,14 @@ import { mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promis
 import { homedir } from 'node:os'
 import { createServer, type Socket } from 'node:net'
 import { basename, delimiter, join } from 'node:path'
-import { Context } from '@deepseek-ai/cordis'
-import Sandbox from '@deepseek-ai/dsh-sandbox-local'
-import SandboxPolicy from '@deepseek-ai/dsh-sandbox-policy'
-import SessionProjections from '@deepseek-ai/dsh-session-projection'
-import { SandboxUnavailableError } from '@deepseek-ai/dsh-sandbox'
-import { SessionId } from '@deepseek-ai/dsh-session'
+import { Context } from '@master-harness/cordis'
+import Sandbox from '@master-harness/sandbox-local'
+import SandboxPolicy from '@master-harness/sandbox-policy'
+import SessionProjections from '@master-harness/session-projection'
+import { SandboxUnavailableError } from '@master-harness/sandbox'
+import { SessionId } from '@master-harness/session'
 import { describe, expect, it, onTestFinished, vi } from 'vitest'
-import type { ConfinedArgv, SandboxMode } from '@deepseek-ai/dsh-sandbox'
+import type { ConfinedArgv, SandboxMode } from '@master-harness/sandbox'
 import type { Config } from '../src/index.ts'
 import { PythonPtcRuntime } from '../src/index.ts'
 import { createRuntimeContext } from './setup.ts'
@@ -29,7 +29,7 @@ const sandboxUsable = await (async () => {
 
 async function setup(mode: SandboxMode = 'read-only', config: Config = {}) {
   // A home-directory fixture stays outside the Linux backend's writable /tmp.
-  const root = await mkdtemp(join(homedir(), '.dsh-python-sandbox-test-'))
+  const root = await mkdtemp(join(homedir(), '.mh-python-sandbox-test-'))
   const cwd = join(root, 'workspace')
   await mkdir(cwd)
   const ctx = await createRuntimeContext({ mode, workspaceRoot: cwd })
@@ -199,10 +199,10 @@ describe('Python file sandbox', () => {
 
   it.skipIf(!sandboxUsable)('boots under confinement with stdin EOF, fd-3 bindings, resource limits and a scrubbed environment', async () => {
     const { runtime } = await setup('read-only', { cpuSeconds: 7 })
-    vi.stubEnv('DSH_PYTHON_TEST_SECRET', 'must-not-inherit')
+    vi.stubEnv('MH_PYTHON_TEST_SECRET', 'must-not-inherit')
     onTestFinished(() => { vi.unstubAllEnvs() })
     const result = await runtime.run(runtime.resolve({
-      program: 'import sys, os, resource\nreturn [sys.stdin.read(), await tools.echo(42), resource.getrlimit(resource.RLIMIT_CPU)[0], os.environ.get("DSH_PYTHON_TEST_SECRET")]',
+      program: 'import sys, os, resource\nreturn [sys.stdin.read(), await tools.echo(42), resource.getrlimit(resource.RLIMIT_CPU)[0], os.environ.get("MH_PYTHON_TEST_SECRET")]',
       bindings: [{ global: 'tools', functions: { echo: async args => args as number } }],
     }))
     expect(result.error).toBeUndefined()

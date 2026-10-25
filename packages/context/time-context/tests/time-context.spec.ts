@@ -1,19 +1,19 @@
 import { afterEach, beforeEach, describe, expect, it, onTestFinished, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import Loader from '@deepseek-ai/cordis-plugin-loader'
-import { createUserMessage, ToolCallId, LlmAdapter } from '@deepseek-ai/dsh-llm'
-import type { GenerateOptions, StreamChunk } from '@deepseek-ai/dsh-llm'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
-import { Session, SessionId, SessionLogOffset, type SessionEvent } from '@deepseek-ai/dsh-session'
-import AgentRegistry, { agentEvents, type Agent } from '@deepseek-ai/dsh-agent'
-import { defineContentToolFixture } from '@deepseek-ai/dsh-tool-testkit'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import { unsupportedModel, unsupportedInbox, mountAgentLoopTestDependencies } from '@deepseek-ai/dsh-agent-loop-testkit'
-import * as timeContext from '@deepseek-ai/dsh-time-context'
-import type { Config } from '@deepseek-ai/dsh-time-context'
+import { Context } from '@master-harness/cordis'
+import Loader from '@master-harness/cordis-plugin-loader'
+import { createUserMessage, ToolCallId, LlmAdapter } from '@master-harness/llm'
+import type { GenerateOptions, StreamChunk } from '@master-harness/llm'
+import type { ContextFormed } from '@master-harness/llm'
+import { Session, SessionId, SessionLogOffset, type SessionEvent } from '@master-harness/session'
+import AgentRegistry, { agentEvents, type Agent } from '@master-harness/agent'
+import { defineContentToolFixture } from '@master-harness/tool-testkit'
+import AgentLoop from '@master-harness/agent-loop'
+import SessionProjectionRegistry from '@master-harness/session-projection'
+import { unsupportedModel, unsupportedInbox, mountAgentLoopTestDependencies } from '@master-harness/agent-loop-testkit'
+import * as timeContext from '@master-harness/time-context'
+import type { Config } from '@master-harness/time-context'
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@master-harness/llm' {
   interface MessageSourceMap {
     'compaction-basic': { kind: 'compaction-basic' } & ContextFormed
     'time-context-test': { kind: 'time-context-test' } & ContextFormed

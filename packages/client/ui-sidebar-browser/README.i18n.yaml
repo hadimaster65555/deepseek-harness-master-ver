@@ -5,48 +5,48 @@
 /:
   en: aceaa4f1e64f54b1
   zh: 0f43a543e01f0778
-/deepseek-ai-dsh-client-ui-sidebar-browser:
-  en: a84cb48a92ad07c9
-  zh: 8c87b76cbe4c2f53
-/deepseek-ai-dsh-client-ui-sidebar-browser/summary:
+/master-harness-client-ui-sidebar-browser:
+  en: 5c78a2f850f7fb20
+  zh: 634be8d2c67a233c
+/master-harness-client-ui-sidebar-browser/summary:
   en: 6da22559ff372e95
   zh: 8ad8f2b4ed655878
-/deepseek-ai-dsh-client-ui-sidebar-browser/table-of-contents:
+/master-harness-client-ui-sidebar-browser/table-of-contents:
   en: d152484eb41ac6b4
   zh: de4a2a92773d135e
-/deepseek-ai-dsh-client-ui-sidebar-browser/use-this-package:
-  en: 8cf8739a3e4c3504
-  zh: a893ba17036fd8f7
-/deepseek-ai-dsh-client-ui-sidebar-browser/use-this-package/when-to-choose-it:
-  en: fb79cb7d59bc01af
-  zh: 5f6202d8b0b62d7d
-/deepseek-ai-dsh-client-ui-sidebar-browser/use-this-package/minimal-configuration:
-  en: abf28ea63777e2a8
-  zh: 1b68bdf5729de71e
-/deepseek-ai-dsh-client-ui-sidebar-browser/understand-the-implementation:
+/master-harness-client-ui-sidebar-browser/use-this-package:
+  en: 92896e14cb6ac969
+  zh: b7ead75ef4928320
+/master-harness-client-ui-sidebar-browser/use-this-package/when-to-choose-it:
+  en: ff35ad47bf7e2bdc
+  zh: cec3b0502cae3b9a
+/master-harness-client-ui-sidebar-browser/use-this-package/minimal-configuration:
+  en: 0261608e774a0167
+  zh: b00600f5d95a5d2e
+/master-harness-client-ui-sidebar-browser/understand-the-implementation:
   en: 42b15ac6321706aa
   zh: e15901d8462ec7c7
-/deepseek-ai-dsh-client-ui-sidebar-browser/understand-the-implementation/protocol-policy:
-  en: dfcf047442eaa96e
-  zh: a1fc57195f4c2425
-/deepseek-ai-dsh-client-ui-sidebar-browser/understand-the-implementation/iframe-carrier:
-  en: e535f7330bb62a79
-  zh: 485932298fdabaa3
-/deepseek-ai-dsh-client-ui-sidebar-browser/understand-the-implementation/controller:
+/master-harness-client-ui-sidebar-browser/understand-the-implementation/protocol-policy:
+  en: 682d587beb722c9c
+  zh: 91cf2d69b71f0d3f
+/master-harness-client-ui-sidebar-browser/understand-the-implementation/iframe-carrier:
+  en: a3ff0feca60495b5
+  zh: 764d697004226901
+/master-harness-client-ui-sidebar-browser/understand-the-implementation/controller:
   en: 6ddc24ffe34846cd
   zh: aa81157d18f850cd
-/deepseek-ai-dsh-client-ui-sidebar-browser/further-exploration:
-  en: 4ebd881b4ade9d8f
-  zh: 715f2553210c08e6
-/deepseek-ai-dsh-client-ui-sidebar-browser/model-experience:
+/master-harness-client-ui-sidebar-browser/further-exploration:
+  en: ef53dfc8bef86a0c
+  zh: cbab33e780e33b08
+/master-harness-client-ui-sidebar-browser/model-experience:
   en: 69e711858e7d9ebc
   zh: d84610491e69a35b
-/deepseek-ai-dsh-client-ui-sidebar-browser/model-experience/kv-cache-effect:
+/master-harness-client-ui-sidebar-browser/model-experience/kv-cache-effect:
   en: e17a5fd3d5405745
   zh: db957a16dddce770
-/deepseek-ai-dsh-client-ui-sidebar-browser/known-limitations-and-deferred-work:
+/master-harness-client-ui-sidebar-browser/known-limitations-and-deferred-work:
   en: 307604babbe74f38
   zh: 7d7a5aa4b99964d0
-/deepseek-ai-dsh-client-ui-sidebar-browser/known-limitations-and-deferred-work/dev-note:
+/master-harness-client-ui-sidebar-browser/known-limitations-and-deferred-work/dev-note:
   en: e67f633dc6fe7773
   zh: e88aeb617ffb74ea

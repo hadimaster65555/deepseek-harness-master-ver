@@ -25,7 +25,7 @@ it('shares menu transparency and blur across palettes and follows native menu bo
   onTestFinished(() => browser.close())
   const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, locale: 'en-US' })
   await page.addInitScript(() => {
-    Object.defineProperty(globalThis, 'dshDesktop', { value: { protocolVersion: 1 } })
+    Object.defineProperty(globalThis, 'mhDesktop', { value: { protocolVersion: 1 } })
   })
   await page.goto(scaffold.authenticatedUrl, { waitUntil: 'load' })
   const account = page.getByRole('button', { name: 'Account menu', exact: true })
@@ -42,7 +42,7 @@ it('shares menu transparency and blur across palettes and follows native menu bo
       }, { platform, dark })
       const overlayFill = await page.evaluate(() => {
         const overlay = document.createElement('div')
-        overlay.style.background = 'var(--dsw-specific-menu)'
+        overlay.style.background = 'var(--mh-specific-menu)'
         document.body.appendChild(overlay)
         try { return getComputedStyle(overlay).backgroundColor } finally { overlay.remove() }
       })

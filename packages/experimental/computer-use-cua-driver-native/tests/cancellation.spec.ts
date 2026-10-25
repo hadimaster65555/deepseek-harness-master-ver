@@ -1,18 +1,18 @@
 /** Provider unload owns screenshot admission as well as the native call. */
-import { executeToolFixture } from '@deepseek-ai/dsh-tool-testkit'
+import { executeToolFixture } from '@master-harness/tool-testkit'
 
 import { mkdtemp, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import LocalAttachmentStore from '@deepseek-ai/dsh-attachment-local'
-import { mountAgentLoopTestDependencies, mountAgentLoopTestHarness } from '@deepseek-ai/dsh-agent-loop-testkit'
-import ComputerUseRegistry from '@deepseek-ai/dsh-computer-use'
-import { LlmAdapter, ToolCallId } from '@deepseek-ai/dsh-llm'
-import type { GenerateOptions, LlmResolvedModelInfo, StreamChunk } from '@deepseek-ai/dsh-llm'
-import { SessionId } from '@deepseek-ai/dsh-session'
-import type { ToolExecution } from '@deepseek-ai/dsh-tools'
+import { Context } from '@master-harness/cordis'
+import LocalAttachmentStore from '@master-harness/attachment-local'
+import { mountAgentLoopTestDependencies, mountAgentLoopTestHarness } from '@master-harness/agent-loop-testkit'
+import ComputerUseRegistry from '@master-harness/computer-use'
+import { LlmAdapter, ToolCallId } from '@master-harness/llm'
+import type { GenerateOptions, LlmResolvedModelInfo, StreamChunk } from '@master-harness/llm'
+import { SessionId } from '@master-harness/session'
+import type { ToolExecution } from '@master-harness/tools'
 import * as NativeProvider from '../src/index.ts'
 import { fixture, resetFixture } from './fixtures/cua-driver.ts'
 
@@ -26,8 +26,8 @@ beforeEach(async () => {
   ctx = new Context()
   await mountAgentLoopTestDependencies(ctx)
   await ctx.plugin(ComputerUseRegistry)
-  root = await mkdtemp(join(tmpdir(), 'dsh-native-cancellation-'))
-  await ctx.plugin(LocalAttachmentStore, { dshHome: root })
+  root = await mkdtemp(join(tmpdir(), 'mh-native-cancellation-'))
+  await ctx.plugin(LocalAttachmentStore, { mhHome: root })
 })
 
 afterEach(async () => {

@@ -1,23 +1,23 @@
-import { executeToolFixture } from '@deepseek-ai/dsh-tool-testkit'
-import * as NativeToolExecutor from '@deepseek-ai/dsh-tool-executor-native'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
+import { executeToolFixture } from '@master-harness/tool-testkit'
+import * as NativeToolExecutor from '@master-harness/tool-executor-native'
+import SessionProjectionRegistry from '@master-harness/session-projection'
 import { describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { ToolCallId } from '@deepseek-ai/dsh-llm'
-import { Session, SessionId } from '@deepseek-ai/dsh-session'
-import { SESSION_FORMAT_VERSION } from '@deepseek-ai/dsh-session/types'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime, { TOOL_ABORTED } from '@deepseek-ai/dsh-tools'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import { unsupportedModel, provideWorkingDirectoryFixture, unsupportedInbox } from '@deepseek-ai/dsh-agent-loop-testkit'
-import LocalJobRegistry from '@deepseek-ai/dsh-jobs-local'
-import * as ToolTasks from '@deepseek-ai/dsh-tool-jobs'
-import { ShellExecutor } from '@deepseek-ai/dsh-shell'
-import type { ShellExecRequest, ShellExecSpec, ShellExecution, ShellProcess } from '@deepseek-ai/dsh-shell'
+import { Context } from '@master-harness/cordis'
+import { ToolCallId } from '@master-harness/llm'
+import { Session, SessionId } from '@master-harness/session'
+import { SESSION_FORMAT_VERSION } from '@master-harness/session/types'
+import SystemPrompt from '@master-harness/system-prompt'
+import ToolRuntime, { TOOL_ABORTED } from '@master-harness/tools'
+import AgentRegistry from '@master-harness/agent'
+import type { Agent } from '@master-harness/agent'
+import { unsupportedModel, provideWorkingDirectoryFixture, unsupportedInbox } from '@master-harness/agent-loop-testkit'
+import LocalJobRegistry from '@master-harness/jobs-local'
+import * as ToolTasks from '@master-harness/tool-jobs'
+import { ShellExecutor } from '@master-harness/shell'
+import type { ShellExecRequest, ShellExecSpec, ShellExecution, ShellProcess } from '@master-harness/shell'
 import { renderPwshPromoted } from '../src/render.ts'
-import * as ToolPwsh from '@deepseek-ai/dsh-tool-pwsh'
-import * as BashEnvPlugin from '@deepseek-ai/dsh-shell-env'
+import * as ToolPwsh from '@master-harness/tool-pwsh'
+import * as BashEnvPlugin from '@master-harness/shell-env'
 import { processSources, ringDelta } from '../src/background.ts'
 
 const testToolSignal = new AbortController().signal
@@ -68,7 +68,7 @@ class FakePwsh extends ShellExecutor {
       onExpiry: request.onExpiry ?? 'kill',
       stdoutMaxBytes: request.stdoutMaxBytes ?? 64_000,
       ...request.signal ? { signal: request.signal } : {},
-      ...request.dshEnv !== undefined ? { dshEnv: request.dshEnv } : {},
+      ...request.mhEnv !== undefined ? { mhEnv: request.mhEnv } : {},
       sandboxPolicy: request.sandboxPolicy,
     }
   }
@@ -456,7 +456,7 @@ describe('foreground commands as jobs (pwsh)', () => {
   })
 
   it('runs under the deadline kill when no job controller serves the owner', async () => {
-    // The same composition minus dsh-tool-jobs: the registry exists, so the
+    // The same composition minus mh-tool-jobs: the registry exists, so the
     // job-backed variant is registered, but admission refuses at the start
     // and the call runs under the executor's deadline instead.
     const ctx = new Context()

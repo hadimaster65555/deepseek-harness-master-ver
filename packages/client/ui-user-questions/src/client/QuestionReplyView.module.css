@@ -6,7 +6,7 @@
 }
 
 .bubbleWidth {
-  max-width: min(calc(var(--dsh-chat-content-width, 748px) * 0.702), 82%);
+  max-width: min(calc(var(--mh-chat-content-width, 748px) * 0.702), 82%);
   min-width: 0;
 }
 
@@ -27,11 +27,11 @@
 .question {
   display: grid;
   gap: 3px;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
 }
 
 .header {
-  font-size: var(--dsh-content-font-size-secondary, 13px);
+  font-size: var(--mh-content-font-size-secondary, 13px);
 }
 
 .answer {
@@ -44,7 +44,7 @@
   gap: 8px;
   height: 28px;
   padding-right: 4px;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
 }
 
 .time {
@@ -62,7 +62,7 @@
   height: 28px;
   padding: 6px;
   border: none;
-  border-radius: var(--dsw-radius-sm);
+  border-radius: var(--mh-radius-sm);
   background: transparent;
   color: inherit;
   cursor: pointer;
@@ -75,7 +75,7 @@
 
 @media (hover: hover) {
   .action:hover {
-    background: var(--dsw-alias-interactive-bg-hover);
-    color: var(--dsw-alias-label-secondary);
+    background: var(--mh-alias-interactive-bg-hover);
+    color: var(--mh-alias-label-secondary);
   }
 }

@@ -3,8 +3,8 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/architecture/2026-08-31-alpha-historical-unknown-event-refusal.md
 /agent-note-alpha-session-migration-refuses-every-unknown-historical-event:
-  en: 4c7472b402f5dd38
-  zh: 1d7aa8233d13a083
+  en: 66918f6b2eb5464c
+  zh: ca7d0fed7c3c7239
 /agent-note-alpha-session-migration-refuses-every-unknown-historical-event/problem:
   en: 8864f28d0139c490
   zh: 2aa7b6eceb5510c0
@@ -12,8 +12,8 @@
   en: 62afb095b98209a6
   zh: 55b3eae2a6f64989
 /agent-note-alpha-session-migration-refuses-every-unknown-historical-event/consequences:
-  en: 8416322aefd92a3d
-  zh: 6e06f732ae2f48fc
+  en: 406bc1d860e24d87
+  zh: 9e370af637d44806
 /agent-note-alpha-session-migration-refuses-every-unknown-historical-event/alternatives-considered:
   en: 3adeafa6fb02ab56
   zh: daf6c67c43804da7

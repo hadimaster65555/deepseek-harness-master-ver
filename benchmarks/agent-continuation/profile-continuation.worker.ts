@@ -1,9 +1,9 @@
-/** End-to-end SDK continuation through built dsh sdk-minimal with an explicitly mounted file editor. */
+/** End-to-end SDK continuation through built mh sdk-minimal with an explicitly mounted file editor. */
 
 import { mkdir, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { performance } from 'node:perf_hooks'
-import { DeepSeekHarness } from '@deepseek-ai/dsh-sdk-client'
+import { MasterHarness } from '@master-harness/sdk-client'
 import { assertBuiltBenchmarkRuntime } from '../support/built-worker.ts'
 import { PARENT_ID, resultText, WORKLOAD } from './workload.ts'
 
@@ -28,18 +28,18 @@ async function run(root: string): Promise<ProfileReport> {
     '- id: llm-deepseek', '  disabled: true',
     '- id: sessions', '  config:', '    root: ' + JSON.stringify(join(root, 'profile-sessions')), '    compression: zstd',
     '- insert:',
-    '    - id: fs-local', "      name: '@deepseek-ai/dsh-fs-local'",
-    '    - id: str-replace-editor', "      name: '@deepseek-ai/dsh-tool-str-replace-editor'",
+    '    - id: fs-local', "      name: '@master-harness/fs-local'",
+    '    - id: str-replace-editor', "      name: '@master-harness/tool-str-replace-editor'",
     '    - id: benchmark-model', '      name: ' + JSON.stringify(join(import.meta.dirname, 'profile-adapter.js')),
     '',
   ].join('\n'))
   const env: NodeJS.ProcessEnv = {
     PATH: process.env.PATH, HOME: home, USERPROFILE: home,
-    DSH_AGENTS_HOME: join(home, 'agents'),
+    MH_AGENTS_HOME: join(home, 'agents'),
   }
-  const harness = new DeepSeekHarness({
-    dshBin: join(import.meta.dirname, '..', '..', '..', 'apps', 'cli', 'lib', 'bin.js'),
-    profile: 'sdk-minimal', dshHome: home, processCwd: cwd, cwd,
+  const harness = new MasterHarness({
+    mhBin: join(import.meta.dirname, '..', '..', '..', 'apps', 'cli', 'lib', 'bin.js'),
+    profile: 'sdk-minimal', mhHome: home, processCwd: cwd, cwd,
     provider: 'bench', model: 'bench', patches: [patch], env,
     initializeTimeoutMs: 15_000, requestTimeoutMs: 15_000,
   })
@@ -82,7 +82,7 @@ async function run(root: string): Promise<ProfileReport> {
   }
 }
 
-assertBuiltBenchmarkRuntime(import.meta.url, { '@deepseek-ai/dsh-sdk-client': import.meta.resolve('@deepseek-ai/dsh-sdk-client') })
+assertBuiltBenchmarkRuntime(import.meta.url, { '@master-harness/sdk-client': import.meta.resolve('@master-harness/sdk-client') })
 const [root] = process.argv.slice(2)
 if (root === undefined) throw new Error('usage: profile-continuation.worker.js <root>')
 process.stdout.write(JSON.stringify(await run(root)) + '\n')

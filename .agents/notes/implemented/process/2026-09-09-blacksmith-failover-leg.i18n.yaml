@@ -3,11 +3,11 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/process/2026-09-09-blacksmith-failover-leg.md
 /agent-note-blacksmith-as-a-failover-leg-for-ci-pools:
-  en: 018c4f4b64ca6634
-  zh: 949f97c78d0f0236
+  en: 30e3fb19aab3cdf6
+  zh: 5cdff94cf831c094
 /agent-note-blacksmith-as-a-failover-leg-for-ci-pools/problem:
-  en: 43ecfec1601f933e
-  zh: 3db5365403ffeac5
+  en: faafab0c309bca9b
+  zh: 6c09a66491e8202b
 /agent-note-blacksmith-as-a-failover-leg-for-ci-pools/decision:
   en: 667aae1665477840
   zh: ff95c9c5fd9d1793

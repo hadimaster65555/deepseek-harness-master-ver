@@ -1,0 +1,66 @@
+{
+  "name": "@master-harness/subagent-mh-sdk",
+  "description": "Out-of-process SDK subagent backend: drives a child Master Harness runtime subprocess over stdio JSON-RPC through the TypeScript SDK client",
+  "version": "0.2.1-rc.3",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
+    "directory": "packages/subagent/subagent-mh-sdk"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./src/*": "./src/*",
+    "./locale/*.json": "./locale/*.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "locale/*.json",
+    "lib/index.js",
+    "lib/types/**/*.d.ts"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/agent": "workspace:*",
+    "@master-harness/llm": "workspace:*",
+    "@master-harness/sdk-client": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/subagent": "workspace:*",
+    "@master-harness/subprocess": "workspace:*"
+  },
+  "dependencies": {
+    "@master-harness/brand": "workspace:*",
+    "@master-harness/schemastery": "workspace:~"
+  },
+  "devDependencies": {
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/cordis-plugin-loader": "workspace:~",
+    "@master-harness/agent": "workspace:*",
+    "@master-harness/agent-instructions": "workspace:*",
+    "@master-harness/app-boot": "workspace:*",
+    "@master-harness/llm": "workspace:*",
+    "@master-harness/llm-deepseek": "workspace:*",
+    "@master-harness/llm-deepseek-api-key": "workspace:*",
+    "@master-harness/loader-smoke": "workspace:*",
+    "@master-harness/sdk-client": "workspace:*",
+    "@master-harness/sdk-protocol": "workspace:*",
+    "@master-harness/session": "workspace:*",
+    "@master-harness/session-checkpoint-policy": "workspace:*",
+    "@master-harness/session-persistence-jsonl": "workspace:*",
+    "@master-harness/session-projection": "workspace:*",
+    "@master-harness/skill-filesystem": "workspace:*",
+    "@master-harness/subagent": "workspace:*",
+    "@master-harness/subprocess": "workspace:*",
+    "@master-harness/system-prompt": "workspace:*",
+    "@master-harness/tool-subagent": "workspace:*"
+  }
+}

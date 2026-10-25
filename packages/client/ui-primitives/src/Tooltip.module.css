@@ -13,9 +13,9 @@
   max-height: calc(100vh - 24px);
   overflow: auto;
   padding: 3px 7px;
-  border-radius: var(--dsw-radius-sm);
-  background: var(--dsw-alias-tooltip-bg);
-  color: var(--dsw-static-neutral-bluish-00);
+  border-radius: var(--mh-radius-sm);
+  background: var(--mh-alias-tooltip-bg);
+  color: var(--mh-static-neutral-bluish-00);
   font-size: 13px;
   line-height: 20px;
   white-space: pre-line;

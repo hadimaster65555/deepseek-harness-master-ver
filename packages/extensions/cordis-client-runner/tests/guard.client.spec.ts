@@ -7,7 +7,7 @@
  * dynamic package from reaching a foreign context. Registrations ride the
  * CALLING fiber, so disposing it must remove them (HMR safety).
  */
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@master-harness/cordis'
 import { describe, expect, it, vi } from 'vitest'
 import type { FC } from 'react'
 import type {
@@ -15,8 +15,8 @@ import type {
   CordisDynamicPluginId,
   CordisDynamicPluginRunId,
   DynamicCordisPackage,
-} from '@deepseek-ai/dsh-api-remotes/client'
-import { SlotRegistry } from '@deepseek-ai/dsh-client-ui-renderer/client'
+} from '@master-harness/api-remotes/client'
+import { SlotRegistry } from '@master-harness/client-ui-renderer/client'
 import { dynamicCordisContext } from '../src/client/guard.ts'
 import type { DynamicCordisSlotLedgerRow } from '../src/client/guard.ts'
 
@@ -226,7 +226,7 @@ describe('theme seat', () => {
   it('pins the override source to the package id whatever the caller passes', async () => {
     const bench = await boot(['theme'])
     const theme = bench.facade.theme as { overrideTokens(source: unknown, tokens: unknown): () => void }
-    const tokens = { '--dsw-alias-x': { light: '#fff', dark: '#000' } }
+    const tokens = { '--mh-alias-x': { light: '#fff', dark: '#000' } }
     theme.overrideTokens('pretend-to-be-someone-else', tokens)
     expect(bench.overrideTokens).toHaveBeenCalledWith('dyn-1.pkg-1', tokens)
   })

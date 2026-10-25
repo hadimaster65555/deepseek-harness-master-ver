@@ -4,7 +4,7 @@
   grid-template-rows: minmax(0, 1fr) auto;
   height: 100%;
   overflow: hidden;
-  background: var(--dsw-alias-bg-base);
+  background: var(--mh-alias-bg-base);
 }
 
 /* Only a discrete collapse/expand toggle eases the tracks (the TSX holds
@@ -24,15 +24,15 @@
 
 /* The Windows caption row remains outside every conversation and file panel. */
 :global([data-windows-titlebar]) .frame {
-  --dsh-windows-content-radius: 16px;
+  --mh-windows-content-radius: 16px;
   box-sizing: border-box;
-  padding-top: var(--dsh-windows-titlebar-height);
-  background: var(--dsw-specific-sidebar-fill);
+  padding-top: var(--mh-windows-titlebar-height);
+  background: var(--mh-specific-sidebar-fill);
 }
 
 :global([data-windows-titlebar]) .centerCol {
-  background: var(--dsw-alias-bg-base);
-  border-radius: var(--dsh-windows-content-radius) 0 0 0;
+  background: var(--mh-alias-bg-base);
+  border-radius: var(--mh-windows-content-radius) 0 0 0;
   corner-shape: round;
 }
 
@@ -40,8 +40,8 @@
   content: '';
   position: absolute;
   inset: 0 0 auto;
-  height: var(--dsh-windows-titlebar-height);
-  background: var(--dsw-specific-sidebar-fill);
+  height: var(--mh-windows-titlebar-height);
+  background: var(--mh-specific-sidebar-fill);
   -webkit-app-region: drag;
 }
 
@@ -58,8 +58,8 @@
 .sidebarCol {
   min-width: 0;
   overflow: hidden;
-  background: var(--dsw-specific-sidebar-fill);
-  border-right: 0.5px solid var(--dsw-alias-border-l3);
+  background: var(--mh-specific-sidebar-fill);
+  border-right: 0.5px solid var(--mh-alias-border-l3);
 }
 
 .centerCol {
@@ -86,25 +86,25 @@
    Declared on the root element rather than the frame so
    overlays portalled to document.body inherit it too. */
 :global(html[data-platform='darwin']) {
-  --dsh-frame-top-clearance: 48px;
+  --mh-frame-top-clearance: 48px;
 }
 
 /* In-frame Windows content already clears the caption through .frame padding. */
 :global(html[data-windows-titlebar]) {
-  --dsh-frame-top-clearance: var(--dsh-windows-titlebar-height);
-  --dsh-frame-chrome-top: var(--dsh-windows-titlebar-height);
+  --mh-frame-top-clearance: var(--mh-windows-titlebar-height);
+  --mh-frame-chrome-top: var(--mh-windows-titlebar-height);
 }
 
 /* Portalled overlays share a viewport inset without adding space to entry pages. */
 :global(html[data-platform='darwin']),
 :global(html[data-windows-titlebar]) {
-  --dsh-frame-overlay-top: calc(var(--dsh-frame-top-clearance) + 20px);
+  --mh-frame-overlay-top: calc(var(--mh-frame-top-clearance) + 20px);
 }
 
 :global(html[data-platform='darwin'][data-fullscreen]),
 :global(html[data-windows-titlebar][data-fullscreen]) {
-  --dsh-frame-overlay-top: 20px;
-  --dsh-frame-chrome-top: 0px;
+  --mh-frame-overlay-top: 20px;
+  --mh-frame-chrome-top: 0px;
 }
 
 :global([data-platform='darwin']) .sidebarCol {
@@ -120,7 +120,7 @@
       rgb(143 137 184 / 0) 68%,
       rgb(143 137 184 / 0.09)
     ),
-    color-mix(in srgb, color-mix(in srgb, var(--dsw-specific-sidebar-fill) 97%, rgb(122 155 240)) 40%, transparent);
+    color-mix(in srgb, color-mix(in srgb, var(--mh-specific-sidebar-fill) 97%, rgb(122 155 240)) 40%, transparent);
   border-right: none;
 }
 
@@ -135,7 +135,7 @@
       rgb(143 137 184 / 0) 68%,
       rgb(143 137 184 / 0.07)
     ),
-    color-mix(in srgb, var(--dsw-specific-sidebar-fill) 50%, transparent);
+    color-mix(in srgb, var(--mh-specific-sidebar-fill) 50%, transparent);
 }
 
 /* macOS Reduce Transparency: the OS flattens the window's vibrancy layer to a
@@ -145,13 +145,13 @@
 @media (prefers-reduced-transparency: reduce) {
   :global([data-platform='darwin']) .sidebarCol,
   :global([data-platform='darwin']) :global([data-ds-dark-theme]) .sidebarCol {
-    background: color-mix(in srgb, var(--dsw-specific-sidebar-fill) 90%, transparent);
+    background: color-mix(in srgb, var(--mh-specific-sidebar-fill) 90%, transparent);
   }
 }
 
 :global([data-platform='darwin']) .centerCol {
-  background: var(--dsw-alias-bg-base);
-  border-left: 0.5px solid var(--dsw-alias-border-l3);
+  background: var(--mh-alias-bg-base);
+  border-left: 0.5px solid var(--mh-alias-border-l3);
 }
 
 /* The right track paints the base ground on the transparent frame: while the
@@ -160,7 +160,7 @@
    diverge would otherwise show vibrancy glass between the centre's right edge
    and the incoming panel. The occupant's opaque panel covers this at rest. */
 :global([data-platform='darwin']) .rightbarCol {
-  background: var(--dsw-alias-bg-base);
+  background: var(--mh-alias-bg-base);
 }
 
 /* The darwin closed sidebar has no rail: the centre reaches the window edge,
@@ -176,7 +176,7 @@
    (28 + 8 + 28), then 8px of air. Main panels whose content reaches the
    top-left corner pad by this. */
 :global([data-platform='darwin']) .frame[data-sidebar-collapsed] {
-  --dsh-frame-leading-clearance: 160px;
+  --mh-frame-leading-clearance: 160px;
 }
 
 /* Fullscreen hides the traffic lights (preload mirrors the window state onto
@@ -185,7 +185,7 @@
    expanded sidebar strip's inline padding (ui-sidebar .topStrip), so
    collapsing never shifts the toggle. */
 :global([data-platform='darwin'][data-fullscreen]) .frame[data-sidebar-collapsed] {
-  --dsh-frame-leading-clearance: 84px;
+  --mh-frame-leading-clearance: 84px;
 }
 
 :global([data-platform='darwin'][data-fullscreen]) .leadingSeat {
@@ -275,7 +275,7 @@
   min-width: 0;
   min-height: 0;
   overflow: auto;
-  background: var(--dsw-alias-bg-base);
+  background: var(--mh-alias-bg-base);
 }
 
 .overlayLayer {

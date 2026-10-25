@@ -1,8 +1,8 @@
 /** Native execution plugin for the mounting Agent, preset, or deployment scope. @module */
-import type { Context } from '@deepseek-ai/cordis'
-import { projectToolSchema } from '@deepseek-ai/dsh-tools'
-import type { ToolDefinition, ToolExecutor, ToolModelInput, ToolBatchInput, ToolBatchResult } from '@deepseek-ai/dsh-tools'
-import { ToolExecutionPipeline, executeToolBatch } from '@deepseek-ai/dsh-tools/pipeline'
+import type { Context } from '@master-harness/cordis'
+import { projectToolSchema } from '@master-harness/tools'
+import type { ToolDefinition, ToolExecutor, ToolModelInput, ToolBatchInput, ToolBatchResult } from '@master-harness/tools'
+import { ToolExecutionPipeline, executeToolBatch } from '@master-harness/tools/pipeline'
 
 /** Executes visible capabilities directly and owns their complete batch settlement. */
 export class NativeToolExecutor implements ToolExecutor {

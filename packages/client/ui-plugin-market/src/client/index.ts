@@ -3,14 +3,14 @@
  * `pluginMarket` Remote and installs an entry through the page's install dialog; entry pages show each version's
  * detail document.
  */
-import type { Context as ClientContext } from '@deepseek-ai/cordis'
-import type {} from '@deepseek-ai/dsh-client-locale/client'
-import type {} from '@deepseek-ai/dsh-client-ui-renderer/client'
+import type { Context as ClientContext } from '@master-harness/cordis'
+import type {} from '@master-harness/client-locale/client'
+import type {} from '@master-harness/client-ui-renderer/client'
 // Type-only: the ctx.remote Context merge, the forwarded events, and the `plugins.tab` slot declaration.
-import type {} from '@deepseek-ai/dsh-api-remotes/client'
-import type {} from '@deepseek-ai/dsh-plugin-manager/types'
-import type {} from '@deepseek-ai/dsh-plugin-market/types'
-import type {} from '@deepseek-ai/dsh-client-ui-plugin-manager/client'
+import type {} from '@master-harness/api-remotes/client'
+import type {} from '@master-harness/plugin-manager/types'
+import type {} from '@master-harness/plugin-market/types'
+import type {} from '@master-harness/client-ui-plugin-manager/client'
 import { DiscoverSection } from './DiscoverSection.tsx'
 import { en, ja, es, fr, de, ru, pt, zh, type PluginMarketLocaleKey } from './locales.ts'
 import { DiscoverController } from './market-store.ts'
@@ -18,7 +18,7 @@ import { DiscoverController } from './market-store.ts'
 export type { DiscoverFace, DiscoverState } from './market-store.ts'
 export type { PluginMarketLocaleKey } from './locales.ts'
 
-declare module '@deepseek-ai/dsh-client-ui-slots' {
+declare module '@master-harness/client-ui-slots' {
   interface LocaleNamespaceMap {
     /** Discover tab copy. */
     'pluginMarket': PluginMarketLocaleKey

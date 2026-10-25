@@ -1,14 +1,14 @@
 /** Explicit-need official plugin recommendations: an `enable_official_plugin` card offers one plugin, and only a human click enables it. */
 import { z } from 'zod'
-import { Service, type Context } from '@deepseek-ai/cordis'
-import { Remote, TypertRemoteService } from '@deepseek-ai/dsh-typert-protocol'
-import type { ToolCallId } from '@deepseek-ai/dsh-llm'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import { isPluginStopping } from '@deepseek-ai/dsh-action-cards'
-import type { ActionCardDecision, ActionCardProposalOf, ActionCardResult } from '@deepseek-ai/dsh-action-cards'
-import type {} from '@deepseek-ai/dsh-plugin-manager'
-import type { ChangeResult } from '@deepseek-ai/dsh-plugin-manager/types'
-import type {} from '@deepseek-ai/dsh-skill'
+import { Service, type Context } from '@master-harness/cordis'
+import { Remote, TypertRemoteService } from '@master-harness/typert-protocol'
+import type { ToolCallId } from '@master-harness/llm'
+import type { Agent } from '@master-harness/agent'
+import { isPluginStopping } from '@master-harness/action-cards'
+import type { ActionCardDecision, ActionCardProposalOf, ActionCardResult } from '@master-harness/action-cards'
+import type {} from '@master-harness/plugin-manager'
+import type { ChangeResult } from '@master-harness/plugin-manager/types'
+import type {} from '@master-harness/skill'
 import { eligible, registerOfficialPluginsSkill } from './skill.ts'
 import type { PluginData, PluginDetails, PluginPhase, RecommendationDetails } from './types.ts'
 export type * from './types.ts'
@@ -18,7 +18,7 @@ export const name = 'plugin-recommendations'
 /** Services the plugin uses; `actionCards` owns the card tool, card state and user actions. */
 export const inject = ['pluginManager', 'agents', 'skills', 'actionCards']
 
-declare module '@deepseek-ai/cordis' {
+declare module '@master-harness/cordis' {
   interface Context { pluginRecommendations: PluginRecommendations }
 }
 
@@ -64,7 +64,7 @@ export class PluginRecommendations extends TypertRemoteService {
         + 'do not say the plugin is already on.',
       verbs: { enable: { global: true } },
       openPhases: ['failed', 'unconfirmed'],
-      statusGuidance: 'Plugin cards: enabled means the plugin is on now, or after a DSH restart when application is restart-required; '
+      statusGuidance: 'Plugin cards: enabled means the plugin is on now, or after a MH restart when application is restart-required; '
         + 'already-enabled means it was on before; failed, or unconfirmed when a reload cut enabling off, can be retried from the card; '
         + 'dismissed means the user declined it, so do not offer it again in this conversation; enabling authorizes nothing beyond that plugin.',
       // Every action, including Not now, first learns whether an interrupted enable has since landed.

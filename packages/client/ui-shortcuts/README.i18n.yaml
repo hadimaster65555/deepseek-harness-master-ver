@@ -5,33 +5,33 @@
 /:
   en: 425afaf83c04db08
   zh: d9e6db1541ba0911
-/deepseek-ai-dsh-client-ui-shortcuts:
-  en: 736bacbd5c6483a5
-  zh: 1c49a7b2c6141a74
-/deepseek-ai-dsh-client-ui-shortcuts/summary:
+/master-harness-client-ui-shortcuts:
+  en: 0cccdbbd50251abb
+  zh: 77613d50635ed805
+/master-harness-client-ui-shortcuts/summary:
   en: 17b5fa1a23fa2756
   zh: ec6223b8d2a090f0
-/deepseek-ai-dsh-client-ui-shortcuts/table-of-contents:
+/master-harness-client-ui-shortcuts/table-of-contents:
   en: d152484eb41ac6b4
   zh: 0cd57b7b8d8c9b59
-/deepseek-ai-dsh-client-ui-shortcuts/use-this-package:
-  en: 84a109505e902f0a
-  zh: 87053c34cf4da672
-/deepseek-ai-dsh-client-ui-shortcuts/understand-the-implementation:
+/master-harness-client-ui-shortcuts/use-this-package:
+  en: e342b431951e4b4f
+  zh: aff4d732752602c1
+/master-harness-client-ui-shortcuts/understand-the-implementation:
   en: f56f2610e7258825
   zh: 249d7cdd55c57166
-/deepseek-ai-dsh-client-ui-shortcuts/further-exploration:
-  en: 8fe02ef5221e434d
-  zh: 3aabfcfeb6d49a0e
-/deepseek-ai-dsh-client-ui-shortcuts/model-experience:
+/master-harness-client-ui-shortcuts/further-exploration:
+  en: 0f8f3f4c7841d440
+  zh: 1ed8407922504bf4
+/master-harness-client-ui-shortcuts/model-experience:
   en: 3120df665299c634
   zh: e2dc75ed76d271bc
-/deepseek-ai-dsh-client-ui-shortcuts/model-experience/kv-cache-effect:
+/master-harness-client-ui-shortcuts/model-experience/kv-cache-effect:
   en: ca75c51c89c2c9b0
   zh: a0e9f8d52b4b62ee
-/deepseek-ai-dsh-client-ui-shortcuts/known-limitations-and-deferred-work:
-  en: 4c1ee388c3bbb5b0
-  zh: f3e5d73036a449b5
-/deepseek-ai-dsh-client-ui-shortcuts/known-limitations-and-deferred-work/dev-note:
+/master-harness-client-ui-shortcuts/known-limitations-and-deferred-work:
+  en: 0adce53598453c40
+  zh: 830c4659a1ae9ed1
+/master-harness-client-ui-shortcuts/known-limitations-and-deferred-work/dev-note:
   en: e67f633dc6fe7773
   zh: e88aeb617ffb74ea

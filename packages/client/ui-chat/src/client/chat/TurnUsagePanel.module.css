@@ -19,15 +19,15 @@
   align-items: center;
   gap: 4px;
   min-width: 0;
-  height: calc(28px + var(--dsh-content-font-delta, 0px));
+  height: calc(28px + var(--mh-content-font-delta, 0px));
   padding: 6px 8px;
   border: none;
-  border-radius: var(--dsw-radius-sm);
+  border-radius: var(--mh-radius-sm);
   background: transparent;
-  color: var(--dsw-alias-label-tertiary);
-  font-size: calc(var(--dsh-content-font-size-secondary, 13px) - 1px);
+  color: var(--mh-alias-label-tertiary);
+  font-size: calc(var(--mh-content-font-size-secondary, 13px) - 1px);
   font-variant-numeric: tabular-nums;
-  line-height: calc(24px + var(--dsh-content-font-delta, 0px));
+  line-height: calc(24px + var(--mh-content-font-delta, 0px));
   white-space: nowrap;
   cursor: pointer;
 }
@@ -41,20 +41,20 @@
 }
 
 .trigger svg {
-  width: calc(15px + var(--dsh-content-font-delta, 0px));
-  height: calc(15px + var(--dsh-content-font-delta, 0px));
+  width: calc(15px + var(--mh-content-font-delta, 0px));
+  height: calc(15px + var(--mh-content-font-delta, 0px));
   flex: none;
 }
 
 .trigger[aria-expanded='true'] {
-  background: var(--dsw-alias-interactive-bg-hover);
-  color: var(--dsw-alias-label-tertiary);
+  background: var(--mh-alias-interactive-bg-hover);
+  color: var(--mh-alias-label-tertiary);
 }
 
 @media (hover: hover) {
   .trigger:hover {
-    background: var(--dsw-alias-interactive-bg-hover);
-    color: var(--dsw-alias-label-tertiary);
+    background: var(--mh-alias-interactive-bg-hover);
+    color: var(--mh-alias-label-tertiary);
   }
 }
 
@@ -65,7 +65,7 @@
 @media (max-width: 480px) {
   .trigger {
     justify-content: center;
-    width: calc(28px + var(--dsh-content-font-delta, 0px));
+    width: calc(28px + var(--mh-content-font-delta, 0px));
     padding: 6px;
   }
 

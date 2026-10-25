@@ -3,20 +3,20 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/architecture/2026-07-08-tool-output-spill-files.md
 /agent-note-tool-output-spill-policy:
-  en: 06b99197145a4080
-  zh: 698a61dcd2385985
+  en: c423182fe07ef758
+  zh: 144bccfe5bad6922
 /agent-note-tool-output-spill-policy/problem:
-  en: fe94bf904e838bad
-  zh: d936ebf9f2ec0ce1
+  en: 13640cebf66a01b8
+  zh: ebf1a8b0ca618d03
 /agent-note-tool-output-spill-policy/decision:
-  en: 5f467657361e732d
-  zh: 24c4c47034c8a6eb
+  en: bd84df1d2b0957e3
+  zh: fdbe675467b148d5
 /agent-note-tool-output-spill-policy/decision/spill-seam:
   en: 1e92bc9a0548def9
   zh: c99cf6878981ba71
 /agent-note-tool-output-spill-policy/decision/spill-policy:
-  en: 702ec228efeca0b8
-  zh: 0b817f9db08a7aeb
+  en: fd4c8d0fe997415d
+  zh: 10215b22c1411115
 /agent-note-tool-output-spill-policy/showcase-web-fetch:
   en: d5c334b50f458925
   zh: 7631307b5d9fbc55

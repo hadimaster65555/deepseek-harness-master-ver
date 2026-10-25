@@ -3,11 +3,11 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/proposed/architecture/2026-09-14-composer-model-and-draft-editor.md
 /agent-note-two-stage-composer-and-drafteditor-isolation:
-  en: 28f1ad8c58451112
-  zh: f54f43862019e385
+  en: 39ed7c2544536fde
+  zh: 16b08e8109fa3655
 /agent-note-two-stage-composer-and-drafteditor-isolation/problem:
-  en: 6316522fcd01a9bc
-  zh: aa6e339e8b528a5b
+  en: 1021aa711f8b2f7c
+  zh: 80b07a26a3bcc15e
 /agent-note-two-stage-composer-and-drafteditor-isolation/proposal:
   en: fbd8d96d050a288c
   zh: d312590845174596

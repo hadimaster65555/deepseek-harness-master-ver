@@ -1,11 +1,11 @@
 /** Scoped tool that declares filesystem deliveries in their owning Session. */
-import type {} from '@deepseek-ai/dsh-working-directory'
-import type { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { FsError } from '@deepseek-ai/dsh-fs'
-import { defineTool, type ToolExecution } from '@deepseek-ai/dsh-tools'
-import type {} from '@deepseek-ai/dsh-agent'
-import type { Session } from '@deepseek-ai/dsh-session'
+import type {} from '@master-harness/working-directory'
+import type { Context } from '@master-harness/cordis'
+import z from '@master-harness/schemastery'
+import { FsError } from '@master-harness/fs'
+import { defineTool, type ToolExecution } from '@master-harness/tools'
+import type {} from '@master-harness/agent'
+import type { Session } from '@master-harness/session'
 import type { PresentedFile } from './types.ts'
 
 /** Stable Loader identity. */

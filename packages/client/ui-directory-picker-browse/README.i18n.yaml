@@ -5,36 +5,36 @@
 /:
   en: 5f823b578f5be33d
   zh: 5e12bb5290b0286b
-/deepseek-ai-dsh-client-ui-directory-picker-browse:
-  en: d866390164091176
-  zh: a6272e2f828456ec
-/deepseek-ai-dsh-client-ui-directory-picker-browse/summary:
-  en: bc47bb4e84459d7f
-  zh: 321afd2438ac00e0
-/deepseek-ai-dsh-client-ui-directory-picker-browse/table-of-contents:
+/master-harness-client-ui-directory-picker-browse:
+  en: 4380e766573fbe56
+  zh: 1b38c0e8800bd375
+/master-harness-client-ui-directory-picker-browse/summary:
+  en: ccd9f834c1e4df33
+  zh: 2bb3181840945d9f
+/master-harness-client-ui-directory-picker-browse/table-of-contents:
   en: d152484eb41ac6b4
   zh: 09388d293f9be9cb
-/deepseek-ai-dsh-client-ui-directory-picker-browse/use-this-package:
-  en: a01ffb4ce6031a21
-  zh: 7e2d5b70d4aa9b6c
-/deepseek-ai-dsh-client-ui-directory-picker-browse/use-this-package/navigating-and-creating:
+/master-harness-client-ui-directory-picker-browse/use-this-package:
+  en: f7e522f5f9893782
+  zh: 4628192504e95581
+/master-harness-client-ui-directory-picker-browse/use-this-package/navigating-and-creating:
   en: 18e10884b02f288f
   zh: 06debd0a4a88bdac
-/deepseek-ai-dsh-client-ui-directory-picker-browse/understand-the-implementation:
-  en: 66780e5a328376eb
-  zh: 7c58a39492a70967
-/deepseek-ai-dsh-client-ui-directory-picker-browse/further-exploration:
-  en: 1aa7d7ba154532ed
-  zh: 5bda0ac2de26758c
-/deepseek-ai-dsh-client-ui-directory-picker-browse/model-experience:
+/master-harness-client-ui-directory-picker-browse/understand-the-implementation:
+  en: adc1b36f73dc9b32
+  zh: 29ee58569748cca5
+/master-harness-client-ui-directory-picker-browse/further-exploration:
+  en: bc3544bd4ec64b08
+  zh: 39da06a5a96d1d4c
+/master-harness-client-ui-directory-picker-browse/model-experience:
   en: 3bcc2b54b66f366e
   zh: 489716ece3a4ef2a
-/deepseek-ai-dsh-client-ui-directory-picker-browse/model-experience/kv-cache-effect:
+/master-harness-client-ui-directory-picker-browse/model-experience/kv-cache-effect:
   en: ca75c51c89c2c9b0
   zh: f57cc48a1b5cbfa9
-/deepseek-ai-dsh-client-ui-directory-picker-browse/known-limitations-and-deferred-work:
+/master-harness-client-ui-directory-picker-browse/known-limitations-and-deferred-work:
   en: 20e381071e1644e2
   zh: 9260bcb09a52dd8c
-/deepseek-ai-dsh-client-ui-directory-picker-browse/known-limitations-and-deferred-work/dev-note:
+/master-harness-client-ui-directory-picker-browse/known-limitations-and-deferred-work/dev-note:
   en: e67f633dc6fe7773
   zh: 3bb0c20c93f16f98

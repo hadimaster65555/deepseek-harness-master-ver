@@ -18,9 +18,9 @@
   min-height: 28px;
   padding: 3px 2px;
   border: 0;
-  border-radius: var(--dsw-radius-sm);
+  border-radius: var(--mh-radius-sm);
   background: transparent;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   font-size: 12px;
   line-height: 18px;
   cursor: pointer;
@@ -34,12 +34,12 @@
   gap: 4px;
   min-width: 0;
   max-width: 244px;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
   font-weight: 500;
 }
 
 .ancestorSwitcherTrigger {
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   font-weight: 400;
 }
 
@@ -65,32 +65,32 @@
 }
 
 .trigger:focus-visible {
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
 }
 
 @media (hover: hover) {
   .trigger:hover {
-    color: var(--dsw-alias-label-primary);
+    color: var(--mh-alias-label-primary);
   }
 }
 
 .switcherTrigger:focus-visible {
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
 }
 
 @media (hover: hover) {
   .switcherTrigger:hover {
-    color: var(--dsw-alias-label-primary);
+    color: var(--mh-alias-label-primary);
   }
 }
 
 .ancestorSwitcherTrigger:focus-visible {
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
 }
 
 @media (hover: hover) {
   .ancestorSwitcherTrigger:hover {
-    color: var(--dsw-alias-label-tertiary);
+    color: var(--mh-alias-label-tertiary);
   }
 }
 
@@ -114,11 +114,11 @@
   max-height: min(560px, calc(100vh - 140px));
   padding: 4px;
   overflow: hidden;
-  border-radius: var(--dsw-radius-lg);
-  --dsh-scrollbar-thumb: var(--dsw-alias-scrollbar-bg-l2);
-  --dsh-scrollbar-thumb-hover: var(--dsw-alias-scrollbar-hover-l2);
-  --dsw-elevation-stroke-color: var(--dsw-alias-border-l1);
-  box-shadow: var(--dsw-elevation-prominent);
+  border-radius: var(--mh-radius-lg);
+  --mh-scrollbar-thumb: var(--mh-alias-scrollbar-bg-l2);
+  --mh-scrollbar-thumb-hover: var(--mh-alias-scrollbar-hover-l2);
+  --mh-elevation-stroke-color: var(--mh-alias-border-l1);
+  box-shadow: var(--mh-elevation-prominent);
 }
 
 /* The menu skin lives on a pseudo-element: backdrop-filter on the menu itself
@@ -131,8 +131,8 @@
   z-index: -1;
   inset: 0;
   border-radius: inherit;
-  background: var(--dsw-specific-menu);
-  backdrop-filter: var(--dsw-menu-backdrop-filter);
+  background: var(--mh-specific-menu);
+  backdrop-filter: var(--mh-menu-backdrop-filter);
 }
 
 .menuBody {
@@ -161,9 +161,9 @@
   min-height: 44px;
   padding: 6px 7px 6px 9px;
   border: 0;
-  border-radius: var(--dsw-radius-md);
+  border-radius: var(--mh-radius-md);
   background: transparent;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
   font-size: 12px;
   line-height: 17px;
   text-align: left;
@@ -172,12 +172,12 @@
 }
 
 .row:focus-visible > .clickarea {
-  background: var(--dsw-alias-interactive-bg-hover);
+  background: var(--mh-alias-interactive-bg-hover);
 }
 
 @media (hover: hover) {
   .row:hover > .clickarea {
-    background: var(--dsw-alias-interactive-bg-hover);
+    background: var(--mh-alias-interactive-bg-hover);
   }
 }
 
@@ -191,7 +191,7 @@
   min-width: 0;
   margin: -6px -7px -6px;
   padding: 6px 7px;
-  border-radius: var(--dsw-radius-md);
+  border-radius: var(--mh-radius-md);
 }
 
 .rowActivitySlot {
@@ -217,7 +217,7 @@
   padding: 0;
   border: 0;
   background: transparent;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   cursor: pointer;
   transition: transform 120ms ease;
 }
@@ -229,7 +229,7 @@
 
 @media (hover: hover) {
   .disclosure:hover {
-    color: var(--dsw-alias-label-primary);
+    color: var(--mh-alias-label-primary);
   }
 }
 
@@ -262,7 +262,7 @@
 
 .summary,
 .metrics {
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   font-size: 10px;
   line-height: 15px;
 }
@@ -300,21 +300,21 @@
   justify-content: center;
   padding: 6px;
   border: 0;
-  border-radius: var(--dsw-radius-sm);
+  border-radius: var(--mh-radius-sm);
   background: transparent;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   cursor: pointer;
 }
 
 .sidebarButton:focus-visible {
-  background: var(--dsw-alias-interactive-bg-hover);
-  color: var(--dsw-alias-label-primary);
+  background: var(--mh-alias-interactive-bg-hover);
+  color: var(--mh-alias-label-primary);
 }
 
 @media (hover: hover) {
   .sidebarButton:hover {
-    background: var(--dsw-alias-interactive-bg-hover);
-    color: var(--dsw-alias-label-primary);
+    background: var(--mh-alias-interactive-bg-hover);
+    color: var(--mh-alias-label-primary);
   }
 }
 
@@ -329,7 +329,7 @@
   content: '';
   position: absolute;
   left: 0;
-  border-left: 0.5px solid var(--dsw-alias-border-l2);
+  border-left: 0.5px solid var(--mh-alias-border-l2);
 }
 
 .children::before {
@@ -358,13 +358,13 @@
   top: 14px;
   left: -3px;
   width: 12px;
-  border-top: 0.5px solid var(--dsw-alias-border-l2);
+  border-top: 0.5px solid var(--mh-alias-border-l2);
 }
 
 .notice,
 .error {
   padding: 8px 10px;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   font-size: 11px;
   line-height: 16px;
 }
@@ -374,7 +374,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  color: var(--dsw-alias-state-error-primary);
+  color: var(--mh-alias-state-error-primary);
 }
 
 .refresh {
@@ -384,7 +384,7 @@
   gap: 3px;
   padding: 3px 5px;
   border: 0;
-  border-radius: var(--dsw-radius-sm);
+  border-radius: var(--mh-radius-sm);
   background: transparent;
   color: inherit;
   cursor: pointer;
@@ -397,6 +397,6 @@
 
 @media (hover: hover) {
   .refresh:hover {
-    background: var(--dsw-alias-interactive-bg-hover);
+    background: var(--mh-alias-interactive-bg-hover);
   }
 }

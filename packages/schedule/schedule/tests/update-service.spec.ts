@@ -1,8 +1,8 @@
 /** Host timing updates share delivery FIFO and publish only durable task writes. */
-import type { Context } from '@deepseek-ai/cordis'
-import type { KvTable } from '@deepseek-ai/dsh-storage-domain'
-import { SessionId } from '@deepseek-ai/dsh-session'
-import { MessageId } from '@deepseek-ai/dsh-llm/brand'
+import type { Context } from '@master-harness/cordis'
+import type { KvTable } from '@master-harness/storage-domain'
+import { SessionId } from '@master-harness/session'
+import { MessageId } from '@master-harness/llm/brand'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 import { createDailyScheduleRecord, createEveryScheduleRecord, ScheduleId } from '../src/domain.ts'
 import { scheduleDomain, type ScheduleTask } from '../src/storage.ts'

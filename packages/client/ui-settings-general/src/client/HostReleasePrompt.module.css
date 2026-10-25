@@ -13,7 +13,7 @@
 }
 
 .label {
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
 }
 
 .release {
@@ -22,11 +22,11 @@
 }
 
 .solid {
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
 }
 
 .faded {
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
 }
 
 /* Both connectors share one 1px stroke; only style and color differ. */
@@ -49,12 +49,12 @@
 
 .done {
   border-top-style: solid;
-  border-top-color: var(--dsw-alias-state-success-primary);
-  color: var(--dsw-alias-state-success-primary);
+  border-top-color: var(--mh-alias-state-success-primary);
+  color: var(--mh-alias-state-success-primary);
 }
 
 .pending {
   border-top-style: dashed;
-  border-top-color: var(--dsw-alias-label-tertiary);
-  color: var(--dsw-alias-label-tertiary);
+  border-top-color: var(--mh-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
 }

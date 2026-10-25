@@ -4,13 +4,13 @@
   z-index: 1001;
   display: flex;
   flex-direction: column;
-  background: var(--dsw-alias-bg-base);
+  background: var(--mh-alias-bg-base);
 }
 
 /* Windows Electron: the Desktop caption menu owns the window's top strip, so
    the return bar and the native Platform view start below it. */
 :global([data-windows-titlebar]) .overlay {
-  padding-top: var(--dsh-windows-titlebar-height);
+  padding-top: var(--mh-windows-titlebar-height);
 }
 
 /* The macOS shell's drag row: on darwin this bar IS the window's top strip, and
@@ -23,7 +23,7 @@
   height: 48px;
   flex: none;
   padding: 6px 16px;
-  border-bottom: 0.5px solid var(--dsw-alias-border-l1);
+  border-bottom: 0.5px solid var(--mh-alias-border-l1);
 }
 
 .controls {
@@ -53,9 +53,9 @@
   height: 28px;
   padding: 0 6px;
   border: none;
-  border-radius: var(--dsw-radius-sm);
+  border-radius: var(--mh-radius-sm);
   background: transparent;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
   font: inherit;
   font-size: 14px;
   line-height: 22px;
@@ -67,7 +67,7 @@
   position: relative;
   flex: 1;
   min-height: 0;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
 }
 
 .status {
@@ -81,7 +81,7 @@
 }
 
 .failure {
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   font-size: 14px;
   line-height: 22px;
   text-align: center;
@@ -92,8 +92,8 @@
   height: 32px;
   min-width: 58px;
   padding: 0 12px;
-  --dsh-button-outline-color: var(--dsw-alias-border-l2);
-  border-radius: var(--dsw-radius-md);
+  --mh-button-outline-color: var(--mh-alias-border-l2);
+  border-radius: var(--mh-radius-md);
   font-size: 13px;
   line-height: 20px;
   font-weight: 400;

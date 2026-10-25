@@ -1,7 +1,7 @@
 /**
  * Default artwork for the product icon set. Each glyph is an SVG document
  * whose geometry may depend on the stroke weight; ui-theme publishes every
- * glyph and weight as one `<symbol id="dsw-icon-<glyph>-<weight>">` in the
+ * glyph and weight as one `<symbol id="mh-icon-<glyph>-<weight>">` in the
  * document icon sprite, which a theme can replace with its own SVG.
  */
 
@@ -112,8 +112,8 @@ export const ICON_ARTWORK = {
   'chevrons-up-down-outline': { size: 16, svg: strokeWidth => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="${strokeWidth}"><path d="m5.1 6 2.9-2.9L10.9 6"></path><path d="m5.1 10 2.9 2.9 2.9-2.9"></path></svg>` },
   'drag-handle-outline': { size: 16, svg: strokeWidth => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="${strokeWidth}"><path d="M4 5h8M4 8h8M4 11h8"></path></svg>` },
   'archive-off-outline': { size: 16, svg: strokeWidth => strokeWidth === ICON_MEDIUM_STROKE
-    ? `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="${strokeWidth}"><mask id="dsw-icon-archive-off-outline-medium-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16"><rect x="0" y="0" width="16" height="16" fill="white" stroke="none"></rect><path d="m2.2 1.3 11.6 12.8" stroke="black" stroke-width="4.3"></path></mask><g mask="url(#dsw-icon-archive-off-outline-medium-mask)"><rect x="1.9" y="2.1" width="12.2" height="3.4" rx="1.1"></rect><path d="M2.95 5.7v4.8a2.9 2.9 0 0 0 2.9 2.9h4.3a2.9 2.9 0 0 0 2.9-2.9V5.7"></path></g><path d="m2.2 1.3 11.6 12.8"></path></svg>`
-    : `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="${strokeWidth}"><mask id="dsw-icon-archive-off-outline-regular-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16"><rect x="0" y="0" width="16" height="16" fill="white" stroke="none"></rect><path d="m2.2 1.3 11.6 12.8" stroke="black" stroke-width="4"></path></mask><g mask="url(#dsw-icon-archive-off-outline-regular-mask)"><rect x="1.9" y="2.1" width="12.2" height="3.4" rx="1.1"></rect><path d="M2.95 5.7v4.8a2.9 2.9 0 0 0 2.9 2.9h4.3a2.9 2.9 0 0 0 2.9-2.9V5.7"></path></g><path d="m2.2 1.3 11.6 12.8"></path></svg>` },
+    ? `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="${strokeWidth}"><mask id="mh-icon-archive-off-outline-medium-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16"><rect x="0" y="0" width="16" height="16" fill="white" stroke="none"></rect><path d="m2.2 1.3 11.6 12.8" stroke="black" stroke-width="4.3"></path></mask><g mask="url(#mh-icon-archive-off-outline-medium-mask)"><rect x="1.9" y="2.1" width="12.2" height="3.4" rx="1.1"></rect><path d="M2.95 5.7v4.8a2.9 2.9 0 0 0 2.9 2.9h4.3a2.9 2.9 0 0 0 2.9-2.9V5.7"></path></g><path d="m2.2 1.3 11.6 12.8"></path></svg>`
+    : `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="${strokeWidth}"><mask id="mh-icon-archive-off-outline-regular-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16"><rect x="0" y="0" width="16" height="16" fill="white" stroke="none"></rect><path d="m2.2 1.3 11.6 12.8" stroke="black" stroke-width="4"></path></mask><g mask="url(#mh-icon-archive-off-outline-regular-mask)"><rect x="1.9" y="2.1" width="12.2" height="3.4" rx="1.1"></rect><path d="M2.95 5.7v4.8a2.9 2.9 0 0 0 2.9 2.9h4.3a2.9 2.9 0 0 0 2.9-2.9V5.7"></path></g><path d="m2.2 1.3 11.6 12.8"></path></svg>` },
   'archive-check-outline': { size: 16, svg: strokeWidth => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="${strokeWidth}"><rect x="1.9" y="2.1" width="12.2" height="3.4" rx="1.1"></rect><path d="M2.95 5.7v4.8a2.9 2.9 0 0 0 2.9 2.9h4.3a2.9 2.9 0 0 0 2.9-2.9V5.7"></path><path d="m6 9.35 1.4 1.4 2.6-2.6"></path></svg>` },
   'sliders-two-outline': { size: 16, svg: strokeWidth => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="${strokeWidth}"><path d="M2.3 5h5.85M12.05 5h1.65"></path><circle cx="9.95" cy="5" r="1.45"></circle><path d="M2.3 11h1.65M7.85 11h5.85"></path><circle cx="5.75" cy="11" r="1.45"></circle></svg>` },
   'microphone-outline': { size: 16, svg: strokeWidth => strokeWidth === ICON_MEDIUM_STROKE
@@ -135,14 +135,14 @@ const STROKES: Record<IconWeight, number> = { regular: ICON_REGULAR_STROKE, medi
  * Name the sprite symbol that carries one glyph weight.
  * @param glyph - glyph key in {@link ICON_ARTWORK}.
  * @param weight - stroke weight.
- * @returns the `dsw-icon-<glyph>-<weight>` element id.
+ * @returns the `mh-icon-<glyph>-<weight>` element id.
  */
 export function iconSymbolId(glyph: IconGlyph, weight: IconWeight): IconSymbolId {
-  return `dsw-icon-${glyph}-${weight}`
+  return `mh-icon-${glyph}-${weight}`
 }
 
 /** Sprite symbol id of one product glyph weight. */
-export type IconSymbolId = `dsw-icon-${IconGlyph}-${IconWeight}`
+export type IconSymbolId = `mh-icon-${IconGlyph}-${IconWeight}`
 
 /** Default SVG document of every product icon symbol, keyed by symbol id. */
 export const ICON_SYMBOLS = Object.freeze(Object.fromEntries(

@@ -1,17 +1,17 @@
 import { describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { createMessage, createUserMessage } from '@deepseek-ai/dsh-llm'
-import type { TokenUsage } from '@deepseek-ai/dsh-llm'
-import SessionStore from '@deepseek-ai/dsh-session'
-import type { Session, SessionSeq } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import TokenMeter from '@deepseek-ai/dsh-token-meter'
-import type { ContextPressureProjection, TokenUsageProjection } from '@deepseek-ai/dsh-token-meter/client'
-import { RetryId } from '@deepseek-ai/dsh-llm-retry'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
-import { CompactionId } from '@deepseek-ai/dsh-compaction'
+import { Context } from '@master-harness/cordis'
+import { createMessage, createUserMessage } from '@master-harness/llm'
+import type { TokenUsage } from '@master-harness/llm'
+import SessionStore from '@master-harness/session'
+import type { Session, SessionSeq } from '@master-harness/session'
+import SessionProjectionRegistry from '@master-harness/session-projection'
+import TokenMeter from '@master-harness/token-meter'
+import type { ContextPressureProjection, TokenUsageProjection } from '@master-harness/token-meter/client'
+import { RetryId } from '@master-harness/llm-retry'
+import type { ContextFormed } from '@master-harness/llm'
+import { CompactionId } from '@master-harness/compaction'
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@master-harness/llm' {
   interface MessageSourceMap {
     'test': { kind: 'test' } & ContextFormed
   }

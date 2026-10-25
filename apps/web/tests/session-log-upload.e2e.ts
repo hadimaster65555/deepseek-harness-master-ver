@@ -5,17 +5,17 @@ import { join } from 'node:path'
 import { chromium } from 'playwright'
 import yaml from 'js-yaml'
 import { expect, it, onTestFinished } from 'vitest'
-import { credentialRef } from '@deepseek-ai/dsh-credentials'
-import { startMockLlmServer } from '@deepseek-ai/dsh-llm-mock-server'
+import { credentialRef } from '@master-harness/credentials'
+import { startMockLlmServer } from '@master-harness/llm-mock-server'
 import { launchWebScaffold, webSnapshotMode } from './scaffold.ts'
 import { connectFreshWorkspace, newEnglishPage, openSettings } from './support.ts'
 
 it.skipIf(webSnapshotMode() === 'record')('persists the upload switch and omits or resumes session logs on subsequent API requests', async () => {
-  const root = await mkdtemp(join(tmpdir(), 'dsh-upload-browser-'))
+  const root = await mkdtemp(join(tmpdir(), 'mh-upload-browser-'))
   onTestFinished(() => rm(root, { recursive: true, force: true }))
   const server = await startMockLlmServer({ sequence: ['success', 'success', 'success'], successText: 'UPLOAD_SETTING_DONE' })
   onTestFinished(() => server.close())
-  const key = credentialRef('DSH_UPLOAD_BROWSER_KEY')
+  const key = credentialRef('MH_UPLOAD_BROWSER_KEY')
   const overlay = join(root, 'upload.yml')
   await writeFile(overlay, JSON.stringify([
     { id: 'llm-deepseek', config: { baseURL: server.baseURL, apiKeyEnv: key } },

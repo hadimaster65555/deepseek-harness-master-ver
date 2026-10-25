@@ -2,30 +2,30 @@
 # section, a hash of its English and Chinese blocks outside code blocks and generated regions.
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write docs/ui-radius.md
-/dsh-unified-corner-radius-standard:
-  en: e29e91bf80386fff
-  zh: 0bfca32865bcdfff
-/dsh-unified-corner-radius-standard/summary:
-  en: 9f7d83fc6c1e56ff
-  zh: 1bfd616392982482
-/dsh-unified-corner-radius-standard/table-of-contents:
+/mh-unified-corner-radius-standard:
+  en: 3c12572e86bed641
+  zh: 3ccd9f4a9ef2a516
+/mh-unified-corner-radius-standard/summary:
+  en: d127f169c9c89a95
+  zh: 1d1344f3e8683237
+/mh-unified-corner-radius-standard/table-of-contents:
   en: aad65e4a8399adbb
   zh: e76b80d421b17992
-/dsh-unified-corner-radius-standard/scope-and-authority:
-  en: cd8120cba5566e19
-  zh: 65359436088c8bc5
-/dsh-unified-corner-radius-standard/select-the-radius:
-  en: e736416ec85d6e16
-  zh: 0edf60fccc867295
-/dsh-unified-corner-radius-standard/reuse-tokens-and-preserve-deliberate-shapes:
-  en: fb6d50f3139ad186
-  zh: 668cb0c02bd22167
-/dsh-unified-corner-radius-standard/nested-geometry-and-hover:
-  en: 7fe4eb7707e6a9f3
-  zh: be7530a05c205e27
-/dsh-unified-corner-radius-standard/settings-card-materials:
-  en: 85e7e63183df06d1
-  zh: 1da2b44083d7ebe2
-/dsh-unified-corner-radius-standard/apply-and-verify:
+/mh-unified-corner-radius-standard/scope-and-authority:
+  en: 51b89ae4d0314642
+  zh: e7512df7fb7ebe8c
+/mh-unified-corner-radius-standard/select-the-radius:
+  en: b0630325b56cf4e9
+  zh: 44db584776382ca9
+/mh-unified-corner-radius-standard/reuse-tokens-and-preserve-deliberate-shapes:
+  en: 44923195566e8778
+  zh: c1f44a9af04598b6
+/mh-unified-corner-radius-standard/nested-geometry-and-hover:
+  en: e38e06db9f731501
+  zh: 8ebf7dbdd0e9a4d7
+/mh-unified-corner-radius-standard/settings-card-materials:
+  en: f6d0a84b65bd0e2c
+  zh: 84d7cdcd77518440
+/mh-unified-corner-radius-standard/apply-and-verify:
   en: 2f6f10e45b27c19b
   zh: 9eb5fd964c643be6

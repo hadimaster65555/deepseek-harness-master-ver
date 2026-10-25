@@ -13,38 +13,38 @@
   flex: none;
   padding: 1px 8px;
   border: none;
-  border-radius: var(--dsw-radius-sm);
+  border-radius: var(--mh-radius-sm);
   background: transparent;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   font-family: inherit;
-  font-size: var(--dsh-content-font-size-secondary, 13px);
+  font-size: var(--mh-content-font-size-secondary, 13px);
   font-variant-numeric: tabular-nums;
-  line-height: calc(20px + var(--dsh-content-font-delta-secondary, 0px));
+  line-height: calc(20px + var(--mh-content-font-delta-secondary, 0px));
   white-space: nowrap;
   cursor: pointer;
 }
 
 .trigger[aria-expanded='true'] {
-  background: var(--dsw-alias-interactive-bg-hover);
-  color: var(--dsw-alias-label-secondary);
+  background: var(--mh-alias-interactive-bg-hover);
+  color: var(--mh-alias-label-secondary);
 }
 
 @media (hover: hover) {
   .trigger:hover {
-    background: var(--dsw-alias-interactive-bg-hover);
-    color: var(--dsw-alias-label-secondary);
+    background: var(--mh-alias-interactive-bg-hover);
+    color: var(--mh-alias-label-secondary);
   }
 }
 
 .track {
   fill: none;
-  stroke: var(--dsw-alias-border-l3);
+  stroke: var(--mh-alias-border-l3);
   stroke-width: 2;
 }
 
 .fill {
   fill: none;
-  stroke: var(--dsw-alias-label-tertiary);
+  stroke: var(--mh-alias-label-tertiary);
   stroke-width: 2;
   stroke-linecap: round;
 }
@@ -56,14 +56,14 @@
   width: min(264px, calc(100vw - 24px));
   padding: 12px;
   border: 0;
-  border-radius: var(--dsw-radius-lg);
-  background: var(--dsw-specific-menu);
-  backdrop-filter: var(--dsw-menu-backdrop-filter);
-  --dsw-elevation-stroke-color: var(--dsw-alias-border-l1);
-  box-shadow: var(--dsw-elevation-prominent);
+  border-radius: var(--mh-radius-lg);
+  background: var(--mh-specific-menu);
+  backdrop-filter: var(--mh-menu-backdrop-filter);
+  --mh-elevation-stroke-color: var(--mh-alias-border-l1);
+  box-shadow: var(--mh-elevation-prominent);
   font-size: 12px;
   line-height: 20px;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
   cursor: default;
 }
 
@@ -77,16 +77,16 @@
   margin-left: auto;
   font-weight: 500;
   font-variant-numeric: tabular-nums;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
 }
 
 .percent {
   font-weight: 500;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
 }
 
 .headline {
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
 }
 
 /* The headline brackets the reading, so the side a locale leaves empty must
@@ -102,7 +102,7 @@
   height: 4px;
   border-radius: 999px;
   corner-shape: round;
-  background: var(--dsw-alias-interactive-bg-hover);
+  background: var(--mh-alias-interactive-bg-hover);
   overflow: hidden;
 }
 
@@ -111,7 +111,7 @@
   min-width: 2px;
   height: 100%;
   border-radius: 1px;
-  background: var(--meter-tint, var(--dsw-alias-label-tertiary));
+  background: var(--meter-tint, var(--mh-alias-label-tertiary));
 }
 
 .swatch {
@@ -125,7 +125,7 @@
 }
 
 .colorSystem {
-  --meter-tint: var(--dsw-static-neutral-bluish-400);
+  --meter-tint: var(--mh-static-neutral-bluish-400);
 }
 
 .colorTools {
@@ -134,7 +134,7 @@
 }
 
 .colorMessages {
-  --meter-tint: var(--dsw-static-blue-450);
+  --meter-tint: var(--mh-static-blue-450);
 }
 
 .rows {
@@ -150,11 +150,11 @@
 }
 
 .row dt {
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
 }
 
 .row dd {
   margin: 0;
   font-variant-numeric: tabular-nums;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
 }

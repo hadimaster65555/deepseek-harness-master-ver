@@ -1,15 +1,15 @@
 /**
  * Public package manifest and plugin display types, with no runtime exports.
- * @module @deepseek-ai/dsh-package-manifest
+ * @module @master-harness/package-manifest
  */
 
 export type {
-  DshBundleManifest,
-  DshClientManifest,
-  DshEnginesManifest,
-  DshManifest,
-  DshPackageManifest,
-  DshProfileManifest,
+  MhBundleManifest,
+  MhClientManifest,
+  MhEnginesManifest,
+  MhManifest,
+  MhPackageManifest,
+  MhProfileManifest,
   LocalizedText,
   PluginLocalizedMeta,
 } from './types.ts'

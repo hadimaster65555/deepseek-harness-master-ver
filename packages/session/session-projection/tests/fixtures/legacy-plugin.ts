@@ -1,17 +1,17 @@
 /** Third-party-style projection plugin using synchronous registration and keyed reads. */
 /* oxlint-disable typescript/no-deprecated -- this fixture intentionally keeps the legacy plugin API. */
-import type { Context } from '@deepseek-ai/cordis'
-import type { Session } from '@deepseek-ai/dsh-session'
-import type { ProjectionDefinition } from '@deepseek-ai/dsh-session-projection'
+import type { Context } from '@master-harness/cordis'
+import type { Session } from '@master-harness/session'
+import type { ProjectionDefinition } from '@master-harness/session-projection'
 import { z } from 'zod'
 
-declare module '@deepseek-ai/dsh-session-projection/types' {
+declare module '@master-harness/session-projection/types' {
   interface SessionProjectionMap {
     'fixture/legacy-projection': number
   }
 }
 
-declare module '@deepseek-ai/cordis' {
+declare module '@master-harness/cordis' {
   interface Context {
     legacyProjectionFixture: {
       read(session: Session): unknown

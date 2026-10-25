@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { makeTranslate } from '@deepseek-ai/dsh-client-test-runtime'
-import { zh as commonZh } from '@deepseek-ai/dsh-client-locale/src/locales/zh.ts'
+import { makeTranslate } from '@master-harness/client-test-runtime'
+import { zh as commonZh } from '@master-harness/client-locale/src/locales/zh.ts'
 import { attachmentErrorText, imageSizeText } from '../src/client/image-labels.ts'
 import { en, zh } from '../src/client/locales.ts'
 

@@ -3,11 +3,11 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/architecture/2026-09-24-preparing-tool-arguments.md
 /agent-note-incremental-tool-argument-scanning-and-argument-order-during-preparation:
-  en: 07f6420c67ea2700
-  zh: b9b53250e050cf6e
+  en: 6eced2707096c7d0
+  zh: 3b9fc1b04ec1ba52
 /agent-note-incremental-tool-argument-scanning-and-argument-order-during-preparation/problem:
-  en: c97b3edd4ef1d063
-  zh: 5c8b6065e662f326
+  en: e1505d393c80e9ba
+  zh: 997ee11935fd1917
 /agent-note-incremental-tool-argument-scanning-and-argument-order-during-preparation/decision:
   en: a15c7c13f167e5ac
   zh: 63bcc2ef60c2f344

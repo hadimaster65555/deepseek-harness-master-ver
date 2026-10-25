@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-experimental-cot-translation-bundle",
+  "name": "@master-harness/experimental-cot-translation-bundle",
   "description": "Experimental machine translation of expanded reasoning",
   "version": "0.2.1-rc.3",
   "icon": "./icon.svg",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/experimental/cot-translation-bundle"
   },
   "type": "module",
@@ -34,18 +34,18 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@deepseek-ai/dsh-experimental-translator": "workspace:*",
-    "@deepseek-ai/dsh-experimental-client-ui-cot-translation": "workspace:*"
+    "@master-harness/experimental-translator": "workspace:*",
+    "@master-harness/experimental-client-ui-cot-translation": "workspace:*"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~"
+    "@master-harness/cordis": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/cordis-plugin-include": "workspace:~",
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/cordis-plugin-include": "workspace:~",
     "js-yaml": "^4.3.2"
   },
-  "dsh": {
+  "mh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
     }

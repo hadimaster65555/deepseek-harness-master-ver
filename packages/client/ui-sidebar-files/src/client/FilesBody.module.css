@@ -7,8 +7,8 @@
   flex-direction: column;
   height: 100%;
   min-height: 0;
-  color: var(--dsw-alias-label-primary);
-  font-size: var(--dsh-content-font-size-secondary, 13px);
+  color: var(--mh-alias-label-primary);
+  font-size: var(--mh-content-font-size-secondary, 13px);
   line-height: 1.5;
 }
 
@@ -24,7 +24,7 @@
   box-sizing: border-box;
   height: 38px;
   padding: 0 6px 0 16px;
-  border-bottom: 0.5px solid var(--dsw-alias-border-l3);
+  border-bottom: 0.5px solid var(--mh-alias-border-l3);
 }
 
 /* The margin plus the header's gap keeps the path 16px clear of reload. */
@@ -81,20 +81,20 @@
   text-align: left;
   background: transparent;
   border: 0;
-  border-radius: var(--dsw-radius-md);
+  border-radius: var(--mh-radius-md);
   cursor: pointer;
 }
 
 @media (hover: hover) {
   .row:hover {
-    background: var(--dsw-alias-interactive-bg-hover);
+    background: var(--mh-alias-interactive-bg-hover);
   }
 }
 
 /* The folder glyph rides the tertiary ink, as the workspace tree's does (ui-workspace Rows `.slot`). */
 .icon {
   flex: 0 0 auto;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
 }
 
 /* The type's coloured sheet at the folder glyph's 16px; its colour is its own. */
@@ -112,7 +112,7 @@
 /* Neither a file nor a directory: shown so the directory is reported whole,
    greyed so nobody tries to open it. */
 .other {
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   cursor: default;
 }
 
@@ -125,7 +125,7 @@
 .note {
   margin: 0;
   padding: 3px 10px;
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
   font-size: 12px;
 }
 
@@ -137,8 +137,8 @@
 
 .statusLine {
   margin: 0;
-  color: var(--dsw-alias-label-secondary);
-  font-size: var(--dsh-content-font-size-secondary, 13px);
+  color: var(--mh-alias-label-secondary);
+  font-size: var(--mh-content-font-size-secondary, 13px);
   line-height: 1.6;
 }
 
@@ -152,11 +152,11 @@
   width: 28px;
   height: 28px;
   padding: 6px;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
   line-height: 1;
   background: transparent;
   border: none;
-  border-radius: var(--dsw-radius-sm);
+  border-radius: var(--mh-radius-sm);
   cursor: pointer;
 }
 
@@ -167,14 +167,14 @@
 
 @media (hover: hover) {
   .tool:hover {
-    color: var(--dsw-alias-label-primary);
-    background: var(--dsw-alias-interactive-bg-hover);
+    color: var(--mh-alias-label-primary);
+    background: var(--mh-alias-interactive-bg-hover);
   }
 }
 
 .tool[aria-pressed='true'] {
-  color: var(--dsw-alias-label-primary);
-  background: var(--dsw-alias-interactive-bg-hover);
+  color: var(--mh-alias-label-primary);
+  background: var(--mh-alias-interactive-bg-hover);
 }
 
 /* The folder sheet before the chip's text; the chip's title row centres it

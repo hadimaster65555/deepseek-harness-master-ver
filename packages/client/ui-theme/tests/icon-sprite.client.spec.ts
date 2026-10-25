@@ -1,22 +1,22 @@
 // @vitest-environment jsdom
 /** Icon sprite: default symbols, theme replacements, replacement validation, and disposal. */
 import { describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { stubConfigForm } from '@deepseek-ai/dsh-client-test-runtime'
-import { ICON_SYMBOLS } from '@deepseek-ai/dsh-client-ui-primitives'
-import type { ThemeSettings } from '@deepseek-ai/dsh-client-ui-theme/client'
-import { ThemeRuntime } from '@deepseek-ai/dsh-client-ui-theme/client'
+import { Context } from '@master-harness/cordis'
+import { stubConfigForm } from '@master-harness/client-test-runtime'
+import { ICON_SYMBOLS } from '@master-harness/client-ui-primitives'
+import type { ThemeSettings } from '@master-harness/client-ui-theme/client'
+import { ThemeRuntime } from '@master-harness/client-ui-theme/client'
 import { installIconSprite } from '../src/client/icon-sprite.ts'
 
-const SEARCH = 'dsw-icon-search-outline-regular'
-const TWO_TONE = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" class="x"><circle cx="8" cy="8" r="6" fill="var(--dsw-alias-link)"/><path d="M4 8h8" stroke="currentColor"/></svg>'
+const SEARCH = 'mh-icon-search-outline-regular'
+const TWO_TONE = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" class="x"><circle cx="8" cy="8" r="6" fill="var(--mh-alias-link)"/><path d="M4 8h8" stroke="currentColor"/></svg>'
 
 async function mount() {
   const ctx = new Context()
   const theme = new ThemeRuntime(ctx, stubConfigForm<ThemeSettings>().scope)
   const fiber = ctx.plugin({ apply(scope) { installIconSprite(scope, theme.getTheme().active.icons) } })
   await fiber.await()
-  const sprite = (): SVGSVGElement | null => document.querySelector('svg[data-dsh-icon-sprite]')
+  const sprite = (): SVGSVGElement | null => document.querySelector('svg[data-mh-icon-sprite]')
   const symbol = (id: string): Element | null => sprite()?.querySelector(`symbol[id="${id}"]`) ?? null
   return { ctx, theme, fiber, sprite, symbol }
 }
@@ -40,11 +40,11 @@ describe('icon sprite', () => {
     const replaced = symbol(SEARCH)!
     expect(replaced.getAttribute('viewBox')).toBe('0 0 16 16')
     expect(replaced.hasAttribute('width') || replaced.hasAttribute('class')).toBe(false)
-    expect(replaced.querySelector('circle')?.getAttribute('fill')).toBe('var(--dsw-alias-link)')
-    const untouched = symbol('dsw-icon-plus-outline-regular')
+    expect(replaced.querySelector('circle')?.getAttribute('fill')).toBe('var(--mh-alias-link)')
+    const untouched = symbol('mh-icon-plus-outline-regular')
     theme.setTheme('light')
     expect(symbol(SEARCH)?.querySelector('circle')).toBeNull()
-    expect(symbol('dsw-icon-plus-outline-regular')).toBe(untouched)
+    expect(symbol('mh-icon-plus-outline-regular')).toBe(untouched)
     dispose()
     await fiber.dispose()
   })
@@ -53,7 +53,7 @@ describe('icon sprite', () => {
     const { theme, fiber } = await mount()
     const reject = (icons: Record<string, unknown>) => () => theme.register({ id: 'x', colorScheme: 'light', tokens: {}, icons })
     const svg = (body: string, root = 'xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"') => `<svg ${root}>${body}</svg>`
-    expect(reject({ 'dsw-icon-nope': TWO_TONE })).toThrow(/"dsw-icon-nope" is not an ICON_SYMBOLS id/)
+    expect(reject({ 'mh-icon-nope': TWO_TONE })).toThrow(/"mh-icon-nope" is not an ICON_SYMBOLS id/)
     expect(reject({ toString: TWO_TONE })).toThrow(/is not an ICON_SYMBOLS id/)
     expect(reject({ [SEARCH]: 1 })).toThrow(/SVG document string/)
     expect(reject({ [SEARCH]: '<svg><path></svg>' })).toThrow(/not a well-formed SVG-namespace/)
@@ -61,7 +61,7 @@ describe('icon sprite', () => {
     expect(reject({ [SEARCH]: '<g xmlns="http://www.w3.org/2000/svg"/>' })).toThrow(/not a well-formed SVG-namespace/)
     expect(reject({ [SEARCH]: svg('<path/>', 'xmlns="http://www.w3.org/2000/svg" width="16"') })).toThrow(/needs a viewBox/)
     expect(reject({ [SEARCH]: svg('<style>path{fill:red}</style>') })).toThrow(/<style> or <script>/)
-    expect(reject({ [SEARCH]: svg('<mask id="root"/>') })).toThrow(/element id "root" must start with "dsw-icon-search-outline-regular-"/)
+    expect(reject({ [SEARCH]: svg('<mask id="root"/>') })).toThrow(/element id "root" must start with "mh-icon-search-outline-regular-"/)
     expect(reject({ [SEARCH]: svg(`<g id="${SEARCH}"/>`) })).toThrow(/must start with/)
     expect(theme.getTheme().themes.map(t => t.id)).toEqual(['light', 'dark'])
     await fiber.dispose()

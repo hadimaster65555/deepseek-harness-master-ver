@@ -5,36 +5,36 @@
 /:
   en: 99c36d8cf52f1a8a
   zh: 3cc3f1e8c2f42c23
-/deepseek-ai-dsh-client-ui-input-trigger:
-  en: b40e9083c7d330ed
-  zh: 127f5e9ec56b9165
-/deepseek-ai-dsh-client-ui-input-trigger/summary:
+/master-harness-client-ui-input-trigger:
+  en: e6fdd055e5657a4d
+  zh: 77551fec3f6c70aa
+/master-harness-client-ui-input-trigger/summary:
   en: 2a968a6e0bc65ac4
   zh: 883f1be84003a5c5
-/deepseek-ai-dsh-client-ui-input-trigger/table-of-contents:
+/master-harness-client-ui-input-trigger/table-of-contents:
   en: d152484eb41ac6b4
   zh: 09388d293f9be9cb
-/deepseek-ai-dsh-client-ui-input-trigger/use-this-package:
-  en: c32eed8d234a108d
-  zh: e0d192dca9c6a1f6
-/deepseek-ai-dsh-client-ui-input-trigger/use-this-package/keyboard-and-mouse:
+/master-harness-client-ui-input-trigger/use-this-package:
+  en: 776170ca747e42a5
+  zh: 1c4a1f8b2db4aa22
+/master-harness-client-ui-input-trigger/use-this-package/keyboard-and-mouse:
   en: ba909f11dc3f1acc
   zh: ce56946c7a884026
-/deepseek-ai-dsh-client-ui-input-trigger/understand-the-implementation:
-  en: 3b69752e15d35f56
-  zh: 17cc44ae44cfb3db
-/deepseek-ai-dsh-client-ui-input-trigger/further-exploration:
-  en: 9252e930a7fb0250
-  zh: db83c31847110b38
-/deepseek-ai-dsh-client-ui-input-trigger/model-experience:
+/master-harness-client-ui-input-trigger/understand-the-implementation:
+  en: ea31b15c16dfb09a
+  zh: 1725025aba6c5077
+/master-harness-client-ui-input-trigger/further-exploration:
+  en: 360f80725407795a
+  zh: 5af5a2e288233447
+/master-harness-client-ui-input-trigger/model-experience:
   en: 5d1596f50088f468
   zh: 3c72b4f6b1ba27ee
-/deepseek-ai-dsh-client-ui-input-trigger/model-experience/kv-cache-effect:
+/master-harness-client-ui-input-trigger/model-experience/kv-cache-effect:
   en: ca75c51c89c2c9b0
   zh: de54f3467ef3b9be
-/deepseek-ai-dsh-client-ui-input-trigger/known-limitations-and-deferred-work:
+/master-harness-client-ui-input-trigger/known-limitations-and-deferred-work:
   en: 560e5df72c0fb698
   zh: ed6fa149bc90258a
-/deepseek-ai-dsh-client-ui-input-trigger/known-limitations-and-deferred-work/dev-note:
+/master-harness-client-ui-input-trigger/known-limitations-and-deferred-work/dev-note:
   en: e67f633dc6fe7773
   zh: 3bb0c20c93f16f98

@@ -3,7 +3,7 @@
   justify-content: center;
   /* Sides = clearance + 16px: the card lands on the shared content width
      (input card - 32) at every viewport. */
-  padding: 6px calc(var(--dsh-composer-side-clearance) + 16px) 10px;
+  padding: 6px calc(var(--mh-composer-side-clearance) + 16px) 10px;
 }
 
 .card {
@@ -11,13 +11,13 @@
   overflow: hidden;
   flex-direction: column;
   width: 100%;
-  max-width: var(--dsh-chat-content-width);
-  --dsw-elevation-stroke-color: var(--dsw-alias-border-l2);
+  max-width: var(--mh-chat-content-width);
+  --mh-elevation-stroke-color: var(--mh-alias-border-l2);
   border: 0;
-  border-radius: var(--dsw-radius-xl);
-  background: var(--dsw-specific-input-major);
-  box-shadow: var(--dsw-elevation-panel);
-  color: var(--dsw-alias-label-primary);
+  border-radius: var(--mh-radius-xl);
+  background: var(--mh-specific-input-major);
+  box-shadow: var(--mh-elevation-panel);
+  color: var(--mh-alias-label-primary);
 }
 
 .card,
@@ -32,8 +32,8 @@
   flex-shrink: 0;
   gap: 8px;
   padding: 12px 16px;
-  background: var(--dsw-alias-state-warn-tertiary);
-  color: var(--dsw-alias-state-warn-primary);
+  background: var(--mh-alias-state-warn-tertiary);
+  color: var(--mh-alias-state-warn-primary);
   font-size: 14px;
   line-height: 20px;
 }
@@ -49,7 +49,7 @@
 
 .feedback {
   min-height: 16px;
-  color: var(--dsw-alias-state-error-primary);
+  color: var(--mh-alias-state-error-primary);
   font-size: 11px;
   line-height: 16px;
 }
@@ -82,7 +82,7 @@
   -webkit-line-clamp: 2;
   overflow: hidden;
   margin: 8px 0 0;
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
   font-size: 14px;
   line-height: 24px;
 }
@@ -93,7 +93,7 @@
 
 @media (max-width: 720px) {
   .card {
-    border-radius: var(--dsw-radius-xl);
+    border-radius: var(--mh-radius-xl);
   }
 
   .footer {

@@ -12,12 +12,12 @@
 }
 
 .modalError {
-  color: var(--dsw-alias-state-error-primary);
+  color: var(--mh-alias-state-error-primary);
 }
 
 .menuStatus,
 .pathSuffix {
-  color: var(--dsw-alias-label-secondary);
+  color: var(--mh-alias-label-secondary);
 }
 
 /* A same-titled Workspace row: the title shrinks first and the path suffix

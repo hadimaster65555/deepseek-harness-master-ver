@@ -1,18 +1,18 @@
 /** Rows for the More menus of the left sidebar, Conversation View tabs, and right-sidebar guide. */
-import type { Context } from '@deepseek-ai/cordis'
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
-import type {} from '@deepseek-ai/dsh-client-locale/client'
-import type {} from '@deepseek-ai/dsh-client-product-analytics/client'
-import type {} from '@deepseek-ai/dsh-client-ui-renderer/client'
-import type {} from '@deepseek-ai/dsh-client-ui-sidebar/client'
-import type {} from '@deepseek-ai/dsh-client-ui-conversation/client'
-import type {} from '@deepseek-ai/dsh-client-ui-sidebar-right/client'
-import type {} from '@deepseek-ai/dsh-client-ui-plugin-manager/client'
-import type {} from '@deepseek-ai/dsh-client-ui-workspace/client'
+import type { Context } from '@master-harness/cordis'
+import { createSnapshotStore } from '@master-harness/client-store'
+import type {} from '@master-harness/client-locale/client'
+import type {} from '@master-harness/client-product-analytics/client'
+import type {} from '@master-harness/client-ui-renderer/client'
+import type {} from '@master-harness/client-ui-sidebar/client'
+import type {} from '@master-harness/client-ui-conversation/client'
+import type {} from '@master-harness/client-ui-sidebar-right/client'
+import type {} from '@master-harness/client-ui-plugin-manager/client'
+import type {} from '@master-harness/client-ui-workspace/client'
 import { EntryMenuContent, type EntryMenuInjected, type EntryRegion } from './EntryMenuContent.tsx'
 import { en, ja, es, fr, de, ru, pt, zh } from './locales.ts'
 
-declare module '@deepseek-ai/dsh-client-ui-slots' {
+declare module '@master-harness/client-ui-slots' {
   interface LocaleNamespaceMap {
     /** More menu rows: navigation actions, and Creator draft prompts. */
     entryCustomization: keyof typeof en

@@ -10,5 +10,5 @@
   height: 4px;
   border-radius: 50%;
   corner-shape: round;
-  background: var(--dsw-alias-state-error-primary);
+  background: var(--mh-alias-state-error-primary);
 }

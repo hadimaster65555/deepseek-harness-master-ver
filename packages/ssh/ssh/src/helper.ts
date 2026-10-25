@@ -3,16 +3,16 @@ import { createHash, randomUUID } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import { mkdtemp, rm } from 'node:fs/promises'
 import type { Readable, Writable } from 'node:stream'
-import { Context } from '@deepseek-ai/cordis'
-import { brandString } from '@deepseek-ai/dsh-brand'
-import { FsError, type FsTarget, type FsWriteIntent, type FsVersion } from '@deepseek-ai/dsh-fs'
-import { SandboxedFileSystem } from '@deepseek-ai/dsh-fs-sandbox'
-import type {} from '@deepseek-ai/dsh-subprocess'
-import { LocalSubprocessRuntime } from '@deepseek-ai/dsh-subprocess-local'
-import { LocalSandboxProvider } from '@deepseek-ai/dsh-sandbox-local'
-import { SandboxPolicyService } from '@deepseek-ai/dsh-sandbox-policy'
-import { SessionProjectionRegistry } from '@deepseek-ai/dsh-session-projection'
-import type { SandboxExecutionPolicy, SandboxPolicy } from '@deepseek-ai/dsh-sandbox'
+import { Context } from '@master-harness/cordis'
+import { brandString } from '@master-harness/brand'
+import { FsError, type FsTarget, type FsWriteIntent, type FsVersion } from '@master-harness/fs'
+import { SandboxedFileSystem } from '@master-harness/fs-sandbox'
+import type {} from '@master-harness/subprocess'
+import { LocalSubprocessRuntime } from '@master-harness/subprocess-local'
+import { LocalSandboxProvider } from '@master-harness/sandbox-local'
+import { SandboxPolicyService } from '@master-harness/sandbox-policy'
+import { SessionProjectionRegistry } from '@master-harness/session-projection'
+import type { SandboxExecutionPolicy, SandboxPolicy } from '@master-harness/sandbox'
 import { z } from 'zod'
 import { SshRpcPeer, RemoteOperationError, SSH_MAX_PROCESS_HANDLES, SSH_MAX_TEXT_STREAMS, SSH_PROTOCOL_VERSION } from './protocol.ts'
 import { RemoteProcesses } from './helper-processes.ts'
@@ -58,7 +58,7 @@ export async function runSshHelper(transport: HelperTransport): Promise<void> {
   transport.signal.throwIfAborted()
   const runtime = await services()
   const { ctx } = runtime
-  const root = await mkdtemp('/tmp/dsh-ssh-')
+  const root = await mkdtemp('/tmp/mh-ssh-')
   const processes = new RemoteProcesses(ctx, root, SSH_MAX_PROCESS_HANDLES, 30_000)
   const lifetime = new AbortController()
   const iterators = new Map<SshTextStreamId, { iterator: AsyncIterator<string>; controller: AbortController }>()

@@ -3,15 +3,15 @@ description: "The agent-plane presentation selector for users and maintainers ch
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-agent-tool-presentation
+# @master-harness/agent-tool-presentation
 
 English | [中文](README.zh.md)
 
-> **Deprecated:** For new configurations, mount `@deepseek-ai/dsh-tool-executor-native` or `@deepseek-ai/dsh-tool-executor-ptc` directly. Existing configurations remain supported. To migrate, replace this selector row with the corresponding executor row and remove `config.mode`; do not load both in the same scope.
+> **Deprecated:** For new configurations, mount `@master-harness/tool-executor-native` or `@master-harness/tool-executor-ptc` directly. Existing configurations remain supported. To migrate, replace this selector row with the corresponding executor row and remove `config.mode`; do not load both in the same scope.
 
 ## Summary
 
-Existing [agent presets](../../preset/agent-preset-registry/README.md) can keep using `dsh-agent-tool-presentation` to select whether models see every native tool schema or only `run_code` with a generated SDK. Each preset can choose independently, so native and PTC agents can share one process without sharing tool catalogs. Selecting `ptc` requires a compatible PTC runtime. The `mode` field is required when this package is present, while omitting the package keeps the deployment default.
+Existing [agent presets](../../preset/agent-preset-registry/README.md) can keep using `mh-agent-tool-presentation` to select whether models see every native tool schema or only `run_code` with a generated SDK. Each preset can choose independently, so native and PTC agents can share one process without sharing tool catalogs. Selecting `ptc` requires a compatible PTC runtime. The `mode` field is required when this package is present, while omitting the package keeps the deployment default.
 
 ## Table of Contents
 
@@ -32,7 +32,7 @@ Add this row to an agent preset to fix how every agent joined to that preset see
 ### Add the row to a preset
 
 ```yaml
-- name: '@deepseek-ai/dsh-agent-tool-presentation'
+- name: '@master-harness/agent-tool-presentation'
   config:
     mode: ptc
 ```
@@ -41,11 +41,11 @@ Add this row to an agent preset to fix how every agent joined to that preset see
 |---|---|---|
 | `mode` | required | `native` — every schema; `ptc` — `run_code` plus generated SDK |
 
-The generated [configuration catalog](../../../docs/config-catalog.md#deepseek-aidsh-agent-tool-presentation) is the exhaustive source for every accepted field. `mode` is required rather than defaulted because a preset without this row inherits the deployment default.
+The generated [configuration catalog](../../../docs/config-catalog.md#master-harnessagent-tool-presentation) is the exhaustive source for every accepted field. `mode` is required rather than defaulted because a preset without this row inherits the deployment default.
 
 ### What PTC mode requires
 
-Selecting `ptc` needs a composed PTC runtime (`ctx.ptcRuntime`) whose language has a registered SDK renderer — the TypeScript runtime ships via [`dsh-ptc-runtime-node`](../../ptc-runtime/ptc-runtime-node/README.md), and both the TypeScript and Python SDK renderers are built into `dsh-tool-executor-ptc`. Before the runtime first becomes available, this compatibility selector leaves the inherited executor active. Mount `dsh-tool-executor-ptc` directly when preset activation must reject a missing runtime.
+Selecting `ptc` needs a composed PTC runtime (`ctx.ptcRuntime`) whose language has a registered SDK renderer — the TypeScript runtime ships via [`mh-ptc-runtime-node`](../../ptc-runtime/ptc-runtime-node/README.md), and both the TypeScript and Python SDK renderers are built into `mh-tool-executor-ptc`. Before the runtime first becomes available, this compatibility selector leaves the inherited executor active. Mount `mh-tool-executor-ptc` directly when preset activation must reject a missing runtime.
 
 ### One presentation per agent
 
@@ -95,7 +95,7 @@ The package-level contract is enough for most consumers; read these when you nee
 <a id="model-experience"></a>
 ## Model Experience
 
-Indirectly, through the tool presentation it selects in `dsh-tools` — the row only chooses between the two projections `dsh-tools` owns and registers no prompt, schema, or result of its own.
+Indirectly, through the tool presentation it selects in `mh-tools` — the row only chooses between the two projections `mh-tools` owns and registers no prompt, schema, or result of its own.
 
 #### KV Cache effect
 

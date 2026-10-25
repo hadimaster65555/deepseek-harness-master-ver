@@ -5,8 +5,8 @@
   height: var(--inspector-height);
   min-height: 0;
   overflow: hidden;
-  background: var(--dsw-alias-bg-base);
-  border-top: 0.5px solid var(--dsw-alias-border-l3);
+  background: var(--mh-alias-bg-base);
+  border-top: 0.5px solid var(--mh-alias-border-l3);
   box-sizing: border-box;
 }
 
@@ -20,7 +20,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 6px 12px 4px;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
   font-size: 12px;
   line-height: 20px;
 }
@@ -40,12 +40,12 @@
 }
 
 .resize:focus-visible {
-  background: var(--dsw-alias-interactive-bg-hover);
+  background: var(--mh-alias-interactive-bg-hover);
 }
 
 @media (hover: hover) {
   .resize:hover {
-    background: var(--dsw-alias-interactive-bg-hover);
+    background: var(--mh-alias-interactive-bg-hover);
   }
 }
 

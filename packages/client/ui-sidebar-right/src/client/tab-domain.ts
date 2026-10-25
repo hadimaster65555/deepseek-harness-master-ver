@@ -16,12 +16,12 @@
  * aborted on that commit. The slot framework binds the navigation sources for
  * each record's `useTabInfo` reader.
  */
-import type { Branded } from '@deepseek-ai/dsh-brand'
-import { randomUUID } from '@deepseek-ai/dsh-util-crypto'
-import type { LayoutState, PaneId, TabId, TabRecord } from '@deepseek-ai/dsh-client-ui-dockkit'
-import { findTabPane } from '@deepseek-ai/dsh-client-ui-dockkit'
-import { createSnapshotStore, type SnapshotStore } from '@deepseek-ai/dsh-client-store'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
+import type { Branded } from '@master-harness/brand'
+import { randomUUID } from '@master-harness/util-crypto'
+import type { LayoutState, PaneId, TabId, TabRecord } from '@master-harness/client-ui-dockkit'
+import { findTabPane } from '@master-harness/client-ui-dockkit'
+import { createSnapshotStore, type SnapshotStore } from '@master-harness/client-store'
+import type { SessionId } from '@master-harness/session/types'
 import type { SidebarRightNavigationParams } from './contract/params.ts'
 import type { SidebarRightTabActions, SidebarRightTabCommands, SidebarRightTabNavigation, SidebarRightTabPlacement } from './contract/slots.ts'
 import type { SidebarRightOpenResourceOptions, SidebarRightOpenTabOptions, SidebarRightPlacement } from './service.ts'

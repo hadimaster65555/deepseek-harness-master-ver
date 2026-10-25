@@ -1,11 +1,11 @@
 /**
  * The effect controller behind `whenAccess`: install a callback's effects
  * while one access answer is true and dispose them while it is false.
- * @module @deepseek-ai/dsh-api-remote-access/src/client/when-allowed
+ * @module @master-harness/api-remote-access/src/client/when-allowed
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type { HostObservable } from '@deepseek-ai/dsh-client-ui-slots'
+import type { Context } from '@master-harness/cordis'
+import type { HostObservable } from '@master-harness/client-ui-slots'
 
 /** One synchronous effect installed while access holds: a disposer, or disposers installed as one transaction. */
 export type AccessEffect = (() => void) | Iterable<() => void, void, void>

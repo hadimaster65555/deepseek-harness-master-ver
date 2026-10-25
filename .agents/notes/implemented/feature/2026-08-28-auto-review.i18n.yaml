@@ -3,26 +3,26 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/feature/2026-08-28-auto-review.md
 /agent-note-experimental-auto-review-before-each-tool-call:
-  en: 66cfb9da0816f4f2
-  zh: 79f66b9713964a5e
+  en: 43e010def16cdbb2
+  zh: 248134d67dbde385
 /agent-note-experimental-auto-review-before-each-tool-call/problem:
   en: 492ba2355360d81a
   zh: 825c0e7ab1cf4beb
 /agent-note-experimental-auto-review-before-each-tool-call/decision:
-  en: d31f010f9c22c452
-  zh: 5c3966a953227998
+  en: f5d09c7e20c9b20f
+  zh: 67aac1ef1a2b1998
 /agent-note-experimental-auto-review-before-each-tool-call/decision/effects-and-authority:
-  en: db0a2deb9193a00d
-  zh: dab5a65b88957464
+  en: 561af376a229a535
+  zh: 243fdcda7099f650
 /agent-note-experimental-auto-review-before-each-tool-call/decision/one-complete-reviewer-request:
   en: 7bd9fef90e8639b9
   zh: e2a096885c9c1e83
 /agent-note-experimental-auto-review-before-each-tool-call/decision/result-and-cancellation:
-  en: 647fe68c52b907e0
-  zh: 267a739bad44ad65
+  en: 8226023877bf72ff
+  zh: 24084eb687b60ef2
 /agent-note-experimental-auto-review-before-each-tool-call/decision/process-catalog-and-children:
-  en: 0042c645360c8361
-  zh: 5dba39466d376559
+  en: de95c24ab6dce225
+  zh: 3139339e2875a0a9
 /agent-note-experimental-auto-review-before-each-tool-call/alternatives-considered:
   en: a7e7f25cf98215bc
   zh: 1ddcabec2bba3539

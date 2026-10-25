@@ -28,7 +28,7 @@
 
 - insert:
     - id: replay
-      name: '@deepseek-ai/dsh-llm-replay'
+      name: '@master-harness/llm-replay'
 
     - id: await-subagents
       name: '../../../../../packages/test-support/session-snapshot/tests/fixtures/subagent-settlement-barrier.ts'

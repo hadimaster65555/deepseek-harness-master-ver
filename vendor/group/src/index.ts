@@ -1,3 +1,3 @@
-import { Group } from '@deepseek-ai/cordis-plugin-loader'
+import { Group } from '@master-harness/cordis-plugin-loader'
 
 export default Group

@@ -3,23 +3,23 @@
  * Provider lifecycle controls tool registration and context-sensitive schema
  * wording. Every delegation starts a managed activation and returns its child
  * id; the subagent runtime owns result delivery and resource cleanup.
- * @module @deepseek-ai/dsh-tool-subagent
+ * @module @master-harness/tool-subagent
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { scopeChainOf, scopeOf } from '@deepseek-ai/dsh-scope'
-import { defineTool } from '@deepseek-ai/dsh-tools'
-import type { ToolDefinition } from '@deepseek-ai/dsh-tools'
-import type { Agent, AgentOptions } from '@deepseek-ai/dsh-agent'
-import { ReasoningEffortId } from '@deepseek-ai/dsh-llm'
-import type { ContentBlock } from '@deepseek-ai/dsh-llm'
+import type { Context } from '@master-harness/cordis'
+import z from '@master-harness/schemastery'
+import { scopeChainOf, scopeOf } from '@master-harness/scope'
+import { defineTool } from '@master-harness/tools'
+import type { ToolDefinition } from '@master-harness/tools'
+import type { Agent, AgentOptions } from '@master-harness/agent'
+import { ReasoningEffortId } from '@master-harness/llm'
+import type { ContentBlock } from '@master-harness/llm'
 import {
   assertSubagentMaxDepth,
   delegationDepthOf,
   parentAgentOptionsForDelegation,
-} from '@deepseek-ai/dsh-subagent'
-import type { SubagentProvider } from '@deepseek-ai/dsh-subagent'
+} from '@master-harness/subagent'
+import type { SubagentProvider } from '@master-harness/subagent'
 import {
   assertAllowedModelSelection,
   hasConfiguredLlmSelection,

@@ -1,6 +1,6 @@
 /** Fixed POSIX directory context for synthetic compaction pressure recordings. */
-import type { Context } from '@deepseek-ai/cordis'
-import type {} from '@deepseek-ai/dsh-agent'
+import type { Context } from '@master-harness/cordis'
+import type {} from '@master-harness/agent'
 
 /** Stable Loader identity. */
 export const name = 'compaction-working-directory'

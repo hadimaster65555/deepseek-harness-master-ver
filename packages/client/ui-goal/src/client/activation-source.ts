@@ -1,10 +1,10 @@
 /** Goal activation observable that orders Remote reads and live activation events. */
 
-import type { RemoteResult } from '@deepseek-ai/dsh-api-remotes/client'
-import type { HostObservable } from '@deepseek-ai/dsh-client-ui-slots'
+import type { RemoteResult } from '@master-harness/api-remotes/client'
+import type { HostObservable } from '@master-harness/client-ui-slots'
 import type {
   GoalActivationChanged, GoalProjection, GoalRef, GoalView,
-} from '@deepseek-ai/dsh-goal/client'
+} from '@master-harness/goal/client'
 import type { GoalActivationSnapshot } from './slots.ts'
 
 /** Live inputs for one Session's goal activation source. */

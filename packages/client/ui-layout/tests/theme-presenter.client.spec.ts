@@ -1,9 +1,9 @@
 // @vitest-environment jsdom
 
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
-import type { FontFamilies, ThemePreference, ThemeSnapshot } from '@deepseek-ai/dsh-client-ui-theme/client'
-import { fontFamilyVariable } from '@deepseek-ai/dsh-client-ui-theme/src/theme-settings.ts'
-import { DARK_ATTRIBUTE, THEME_SOURCE_ATTRIBUTE, ThemePresenter } from '@deepseek-ai/dsh-client-ui-layout/src/client/theme-presenter.ts'
+import type { FontFamilies, ThemePreference, ThemeSnapshot } from '@master-harness/client-ui-theme/client'
+import { fontFamilyVariable } from '@master-harness/client-ui-theme/src/theme-settings.ts'
+import { DARK_ATTRIBUTE, THEME_SOURCE_ATTRIBUTE, ThemePresenter } from '@master-harness/client-ui-layout/src/client/theme-presenter.ts'
 
 const LIGHT_THEME_COLOR = 'rgb(255, 255, 255)'
 const DARK_THEME_COLOR = 'rgb(21, 21, 23)'
@@ -71,23 +71,23 @@ describe('ThemePresenter', () => {
 
   it('applies tokens as inline variables and clears the previous set on theme change', () => {
     const presenter = new ThemePresenter()
-    presenter.apply(snapshot('dark', { '--dsw-alias-bg': '#111', '--dsw-alias-fg': '#eee' }))
-    expect(document.body.style.getPropertyValue('--dsw-alias-bg')).toBe('#111')
-    expect(document.body.style.getPropertyValue('--dsw-alias-fg')).toBe('#eee')
-    presenter.apply(snapshot('light', { '--dsw-alias-bg': '#fff' }))
-    expect(document.body.style.getPropertyValue('--dsw-alias-bg')).toBe('#fff')
+    presenter.apply(snapshot('dark', { '--mh-alias-bg': '#111', '--mh-alias-fg': '#eee' }))
+    expect(document.body.style.getPropertyValue('--mh-alias-bg')).toBe('#111')
+    expect(document.body.style.getPropertyValue('--mh-alias-fg')).toBe('#eee')
+    presenter.apply(snapshot('light', { '--mh-alias-bg': '#fff' }))
+    expect(document.body.style.getPropertyValue('--mh-alias-bg')).toBe('#fff')
     // The old theme's extra variable is gone, not merged.
-    expect(document.body.style.getPropertyValue('--dsw-alias-fg')).toBe('')
+    expect(document.body.style.getPropertyValue('--mh-alias-fg')).toBe('')
   })
 
   it('publishes the content font size and follows changes', () => {
     const presenter = new ThemePresenter()
     presenter.apply(snapshot('light'))
-    expect(document.body.style.getPropertyValue('--dsh-content-font-size')).toBe('14px')
-    expect(document.body.style.getPropertyValue('--dsh-code-font-size')).toBe('11px')
-    expect(document.body.style.getPropertyValue('--dsh-terminal-font-size')).toBe('13px')
+    expect(document.body.style.getPropertyValue('--mh-content-font-size')).toBe('14px')
+    expect(document.body.style.getPropertyValue('--mh-code-font-size')).toBe('11px')
+    expect(document.body.style.getPropertyValue('--mh-terminal-font-size')).toBe('13px')
     presenter.apply(snapshot('light', {}, 17))
-    expect(document.body.style.getPropertyValue('--dsh-content-font-size')).toBe('17px')
+    expect(document.body.style.getPropertyValue('--mh-content-font-size')).toBe('17px')
   })
 
   it('publishes non-empty font lists and removes a list once it returns to the built-in stack', () => {
@@ -98,15 +98,15 @@ describe('ThemePresenter', () => {
       expect(document.body.style.getPropertyValue(fontFamilyVariable(kind))).toBe(list)
     }
     presenter.apply(snapshot('light', {}, 14, 'light', { text: '"Inter"', code: '"Iosevka"', terminal: '' }))
-    expect(document.body.style.getPropertyValue('--dsh-font-family-text')).toBe('"Inter"')
-    expect(document.body.style.getPropertyValue('--dsh-font-family-code')).toBe('"Iosevka"')
-    expect(document.body.style.getPropertyValue('--dsh-font-family-terminal')).toBe('')
+    expect(document.body.style.getPropertyValue('--mh-font-family-text')).toBe('"Inter"')
+    expect(document.body.style.getPropertyValue('--mh-font-family-code')).toBe('"Iosevka"')
+    expect(document.body.style.getPropertyValue('--mh-font-family-terminal')).toBe('')
     presenter.apply(snapshot('light', {}, 14, 'light', { text: '', code: '"Iosevka"', terminal: '"MesloLGS NF"' }))
-    expect(document.body.style.getPropertyValue('--dsh-font-family-text')).toBe('')
-    expect(document.body.style.getPropertyValue('--dsh-font-family-terminal')).toBe('"MesloLGS NF"')
+    expect(document.body.style.getPropertyValue('--mh-font-family-text')).toBe('')
+    expect(document.body.style.getPropertyValue('--mh-font-family-terminal')).toBe('"MesloLGS NF"')
     presenter.dispose()
-    expect(document.body.style.getPropertyValue('--dsh-font-family-code')).toBe('')
-    expect(document.body.style.getPropertyValue('--dsh-font-family-terminal')).toBe('')
+    expect(document.body.style.getPropertyValue('--mh-font-family-code')).toBe('')
+    expect(document.body.style.getPropertyValue('--mh-font-family-terminal')).toBe('')
   })
 
   it('publishes the theme source: system stays system, fixed preferences publish the resolved scheme', () => {
@@ -122,14 +122,14 @@ describe('ThemePresenter', () => {
   it('dispose removes color-scheme, the attribute, the font-size axis, and every applied variable, sparing foreign inline styles', () => {
     document.body.style.setProperty('--foreign', 'kept')
     const presenter = new ThemePresenter()
-    presenter.apply(snapshot('dark', { '--dsw-alias-bg': '#111' }))
+    presenter.apply(snapshot('dark', { '--mh-alias-bg': '#111' }))
     const meta = themeColorMeta()
     presenter.dispose()
     expect(document.documentElement.style.colorScheme).toBe('')
     expect(document.body.hasAttribute(DARK_ATTRIBUTE)).toBe(false)
-    expect(document.body.style.getPropertyValue('--dsw-alias-bg')).toBe('')
-    expect(document.body.style.getPropertyValue('--dsh-content-font-size')).toBe('')
-    expect(document.body.style.getPropertyValue('--dsh-code-font-size')).toBe('')
+    expect(document.body.style.getPropertyValue('--mh-alias-bg')).toBe('')
+    expect(document.body.style.getPropertyValue('--mh-content-font-size')).toBe('')
+    expect(document.body.style.getPropertyValue('--mh-code-font-size')).toBe('')
     expect(document.body.style.getPropertyValue('--foreign')).toBe('kept')
     expect(meta?.isConnected).toBe(false)
   })

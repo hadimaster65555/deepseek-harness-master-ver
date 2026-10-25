@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@master-harness/cordis'
 import { describe, expect, it, vi } from 'vitest'
 import { mountClient } from '../src/mount.ts'
 

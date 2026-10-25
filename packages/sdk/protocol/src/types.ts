@@ -1,17 +1,17 @@
 /**
- * Named wire types for the DeepSeek Harness SDK runtime protocol: its
+ * Named wire types for the Master Harness SDK runtime protocol: its
  * request/result pairs and server-to-client notification payloads
  * exchanged over the newline-delimited JSON-RPC stdio transport. The server
- * plugin (`@deepseek-ai/dsh-sdk-jsonrpc-server`) and SDK clients share these shapes;
- * `serverInfo.name` stays the wire-stable `deepseek-harness-sdk-runtime`.
+ * plugin (`@master-harness/sdk-jsonrpc-server`) and SDK clients share these shapes;
+ * `serverInfo.name` stays the wire-stable `master-harness-sdk-runtime`.
  *
- * @module @deepseek-ai/dsh-sdk-protocol/types
+ * @module @master-harness/sdk-protocol/types
  */
 
-import type { ContentBlock, ReasoningEffortId } from '@deepseek-ai/dsh-llm'
-import type { SessionEvent } from '@deepseek-ai/dsh-session'
-import type { SubagentStopReason } from '@deepseek-ai/dsh-subagent'
-import type { AskUserQuestionAnswer, AskUserQuestionItem } from '@deepseek-ai/dsh-user-questions/types'
+import type { ContentBlock, ReasoningEffortId } from '@master-harness/llm'
+import type { SessionEvent } from '@master-harness/session'
+import type { SubagentStopReason } from '@master-harness/subagent'
+import type { AskUserQuestionAnswer, AskUserQuestionItem } from '@master-harness/user-questions/types'
 
 /** Parameters for the process-wide SDK handshake. */
 export interface InitializeParams {
@@ -59,7 +59,7 @@ export interface HarnessSdkHostRequestMap {
 
 /** Wire-stable server identity returned by initialization. */
 export interface InitializeResult {
-  /** Wire-stable server identity (`deepseek-harness-sdk-runtime`) and version. */
+  /** Wire-stable server identity (`master-harness-sdk-runtime`) and version. */
   serverInfo: { name: string; version: string }
 }
 

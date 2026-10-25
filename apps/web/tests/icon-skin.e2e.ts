@@ -7,7 +7,7 @@ import { launchWebScaffold } from './scaffold.ts'
 import { newEnglishPage, saveFailureShot } from './support.ts'
 
 const FIXTURE = fileURLToPath(new URL('./fixtures/plugins/fixture-icon-skin', import.meta.url))
-const ICON = 'svg[data-icon="dsw-icon-search-outline-regular"]'
+const ICON = 'svg[data-icon="mh-icon-search-outline-regular"]'
 
 it('renders product icons from the sprite and swaps in a theme plugin replacement', async () => {
   const scaffold = await launchWebScaffold({ extraInstallAnchors: [join(FIXTURE, 'package.json')] })
@@ -33,7 +33,7 @@ it('renders product icons from the sprite and swaps in a theme plugin replacemen
   // The replacement disc spans viewBox units 2..14 of 16 on both axes.
   const width = await icon.evaluate((svg: SVGSVGElement) => svg.getBoundingClientRect().width)
   await expect.poll(geometry).toEqual([2, 2, 12, 12].map(units => Math.round((width * units) / 16 * 10) / 10))
-  const disc = page.locator('svg[data-dsh-icon-sprite] symbol[id="dsw-icon-search-outline-regular"] [data-skin-disc]')
+  const disc = page.locator('svg[data-mh-icon-sprite] symbol[id="mh-icon-search-outline-regular"] [data-skin-disc]')
   expect(await disc.evaluate(element => getComputedStyle(element).fill)).not.toBe('none')
 
   scaffold.ctx.loader.remove(entryId)

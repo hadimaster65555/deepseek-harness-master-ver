@@ -3,20 +3,20 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/proposed/feature/2026-09-08-desktop-update-extensions.md
 /agent-note-deferred-desktop-update-extensions:
-  en: 01b20c9e8c51f739
-  zh: 2b2ef6d0d38d3d19
+  en: 3f22bfb6a91b181e
+  zh: c9bb38585b54e9eb
 /agent-note-deferred-desktop-update-extensions/problem:
   en: da98b267b01e4829
   zh: 0ae373bd57094e74
 /agent-note-deferred-desktop-update-extensions/proposal:
-  en: eb4ae06bfef53a90
-  zh: f40702aa6a557792
+  en: 42cff4a41c2c12e0
+  zh: a97c911aeec6b514
 /agent-note-deferred-desktop-update-extensions/proposal/independent-revisions:
   en: 403bd786a8411349
   zh: c44584e8a7e5b74a
 /agent-note-deferred-desktop-update-extensions/proposal/stable-subscription-and-channel-switching:
-  en: f39b1ed0d941d372
-  zh: 05b9a006c9ec0d3c
+  en: fb8115ff5ea9f0a6
+  zh: da0057efa2f48325
 /agent-note-deferred-desktop-update-extensions/proposal/automatic-installation-setting:
   en: 758d49f0a7dc6707
   zh: ddb0bfe616eb93bc

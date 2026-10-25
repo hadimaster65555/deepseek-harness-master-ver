@@ -4,9 +4,9 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { once } from 'node:events'
 import { afterEach, describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import type { SubprocessHandle, SubprocessSpawnSpec } from '@deepseek-ai/dsh-subprocess'
-import { SUBPROCESS_CONTROL_ENV } from '@deepseek-ai/dsh-subprocess/control'
+import { Context } from '@master-harness/cordis'
+import type { SubprocessHandle, SubprocessSpawnSpec } from '@master-harness/subprocess'
+import { SUBPROCESS_CONTROL_ENV } from '@master-harness/subprocess/control'
 import { LocalSubprocessRuntime } from '../src/index.ts'
 import { spawnSubprocess } from '../src/spawn.ts'
 
@@ -83,7 +83,7 @@ describe('managed subprocess control pipe', () => {
   })
 
   it.each(['managed', 'fallback'] as const)('returns exact binary control bytes through %s independently of stdio', async (backend) => {
-    root = await mkdtemp(join(tmpdir(), 'dsh-control-'))
+    root = await mkdtemp(join(tmpdir(), 'mh-control-'))
     ctx = new Context()
     await ctx.plugin(LocalSubprocessRuntime)
     const input = Buffer.alloc(256 * 1024)

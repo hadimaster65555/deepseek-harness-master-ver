@@ -13,9 +13,9 @@
   box-sizing: border-box;
   height: 24px;
   overflow: hidden;
-  border: 0.5px solid var(--dsw-alias-border-l4);
-  border-radius: var(--dsw-radius-sm);
-  font-family: var(--dsw-font-family);
+  border: 0.5px solid var(--mh-alias-border-l4);
+  border-radius: var(--mh-radius-sm);
+  font-family: var(--mh-font-family);
 }
 
 .main,
@@ -25,7 +25,7 @@
   justify-content: center;
   border: 0;
   background: none;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
   font-size: 11px;
   line-height: 16px;
   white-space: nowrap;
@@ -39,19 +39,19 @@
 
 .chevron {
   padding: 3px 4px 3px 3px;
-  border-left: 0.5px solid var(--dsw-alias-border-l4);
-  color: var(--dsw-alias-label-secondary);
+  border-left: 0.5px solid var(--mh-alias-border-l4);
+  color: var(--mh-alias-label-secondary);
 }
 
 .main:focus-visible,
 .chevron:focus-visible {
-  background: var(--dsw-alias-interactive-bg-hover);
+  background: var(--mh-alias-interactive-bg-hover);
 }
 
 @media (hover: hover) {
   .main:hover:not(:disabled),
   .chevron:hover:not(:disabled) {
-    background: var(--dsw-alias-interactive-bg-hover);
+    background: var(--mh-alias-interactive-bg-hover);
   }
 }
 
@@ -68,8 +68,8 @@
 /* The unavailable preview emphasizes the same actions with a labeled button. */
 .split[data-size='large'] {
   height: 36px;
-  border-radius: var(--dsw-radius-md);
-  border-color: var(--dsw-alias-border-l2);
+  border-radius: var(--mh-radius-md);
+  border-color: var(--mh-alias-border-l2);
 }
 
 .split[data-size='large'] .main {
@@ -82,4 +82,4 @@
   padding: 6px 10px;
 }
 
-.skeleton { display: inline-block; flex: none; border-radius: var(--dsw-radius-xs); background: var(--dsw-alias-interactive-bg-hover); }
+.skeleton { display: inline-block; flex: none; border-radius: var(--mh-radius-xs); background: var(--mh-alias-interactive-bg-hover); }

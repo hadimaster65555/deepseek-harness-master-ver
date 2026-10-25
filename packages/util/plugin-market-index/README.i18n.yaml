@@ -3,32 +3,32 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write packages/util/plugin-market-index/README.md
 /:
-  en: be1a45173d5c1ce7
-  zh: a9a5a976e40e4a8a
-/dsh-plugin-market-index:
-  en: 78d8cc75e40d4e48
-  zh: 9db1a93fb07d4ded
-/dsh-plugin-market-index/summary:
-  en: f68c94d63c1ec0e5
-  zh: 52db4114eef7454d
-/dsh-plugin-market-index/table-of-contents:
+  en: 4ae436c16a108459
+  zh: 9bb903ba159b53a9
+/mh-plugin-market-index:
+  en: 2ca86c72e17f177f
+  zh: 205f9c12b9e888ab
+/mh-plugin-market-index/summary:
+  en: 2c313d299534e225
+  zh: e9d8b105e35a2ad2
+/mh-plugin-market-index/table-of-contents:
   en: cd2a60a905c978d6
   zh: cc71d387d0cbd442
-/dsh-plugin-market-index/use-this-package:
+/mh-plugin-market-index/use-this-package:
   en: 8eac2625e2e366a8
   zh: 652131f240e929e0
-/dsh-plugin-market-index/api:
+/mh-plugin-market-index/api:
   en: e0e4444616427bf2
   zh: 3960a7602bb17705
-/dsh-plugin-market-index/model-experience:
-  en: c060b1659cf43243
-  zh: 4a2313822283291e
-/dsh-plugin-market-index/model-experience/kv-cache-effect:
+/mh-plugin-market-index/model-experience:
+  en: 7402c62685725c2a
+  zh: 4560aca10f1b62d2
+/mh-plugin-market-index/model-experience/kv-cache-effect:
   en: a7a5484352ac021c
   zh: fe00da8797e85e06
-/dsh-plugin-market-index/known-limitations-and-deferred-work:
-  en: acfbb04ae4682367
-  zh: 48af36f974976528
-/dsh-plugin-market-index/known-limitations-and-deferred-work/dev-note:
+/mh-plugin-market-index/known-limitations-and-deferred-work:
+  en: 6ec97085a5ba5626
+  zh: 8be9986f2d50b4c9
+/mh-plugin-market-index/known-limitations-and-deferred-work/dev-note:
   en: e67f633dc6fe7773
   zh: 3bb0c20c93f16f98

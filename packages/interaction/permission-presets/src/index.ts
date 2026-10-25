@@ -9,40 +9,40 @@
  * side exposes a process catalog plus the current-value-only `permissions`
  * Session projection; the write side ships as the `/permission` command.
  *
- * @module dsh-permission-presets
+ * @module mh-permission-presets
  */
-import type {} from '@deepseek-ai/dsh-settings'
-import type {} from '@deepseek-ai/dsh-agent'
+import type {} from '@master-harness/settings'
+import type {} from '@master-harness/agent'
 
-import type { Volatile } from '@deepseek-ai/cordis'
+import type { Volatile } from '@master-harness/cordis'
 
-import { Context, Service } from '@deepseek-ai/cordis'
-import { CommandDefinitionId } from '@deepseek-ai/dsh-commands/brand'
-import z from '@deepseek-ai/schemastery'
+import { Context, Service } from '@master-harness/cordis'
+import { CommandDefinitionId } from '@master-harness/commands/brand'
+import z from '@master-harness/schemastery'
 import { z as zod } from 'zod'
-import { Remote, TypertRemoteService } from '@deepseek-ai/dsh-typert-protocol'
-import type { Session, SessionEvent } from '@deepseek-ai/dsh-session'
-import type { SandboxMode } from '@deepseek-ai/dsh-sandbox'
-import { SANDBOX_MODES, setSandboxMode } from '@deepseek-ai/dsh-sandbox-policy'
+import { Remote, TypertRemoteService } from '@master-harness/typert-protocol'
+import type { Session, SessionEvent } from '@master-harness/session'
+import type { SandboxMode } from '@master-harness/sandbox'
+import { SANDBOX_MODES, setSandboxMode } from '@master-harness/sandbox-policy'
 // Side-effect type import: declaration-merges `ctx.shell` (the capability fact
 // `sandboxMode` this service reads), without a value dependency on the seam.
-import type {} from '@deepseek-ai/dsh-shell'
-import type { ApprovalPolicy } from '@deepseek-ai/dsh-user-approval'
-import { APPROVAL_POLICIES, setApprovalPolicy } from '@deepseek-ai/dsh-user-approval'
+import type {} from '@master-harness/shell'
+import type { ApprovalPolicy } from '@master-harness/user-approval'
+import { APPROVAL_POLICIES, setApprovalPolicy } from '@master-harness/user-approval'
 // Type-only: resolves the required projection service and optional settings/command children.
-import type { ProjectionHandle } from '@deepseek-ai/dsh-session-projection'
-import type {} from '@deepseek-ai/dsh-commands'
+import type { ProjectionHandle } from '@master-harness/session-projection'
+import type {} from '@master-harness/commands'
 import type { PermissionCatalog, PermissionSelection, PresetOption } from './types.ts'
 
 export type * from './types.ts'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@master-harness/cordis' {
   interface Context {
     permissionPresets: PermissionPresetService
   }
 }
 
-declare module '@deepseek-ai/dsh-session/types' {
+declare module '@master-harness/session/types' {
   interface SessionEventMap {
     /**
      * Records the selected preset as durable, log-only user intent. The knob
@@ -253,7 +253,7 @@ export class PermissionPresetService extends TypertRemoteService {
     // activates only when a command registry is composed.
     ctx.inject(['commands'], (commandCtx) => {
       commandCtx.commands.register({
-        definitionId: CommandDefinitionId('@deepseek-ai/dsh-permission-presets'),
+        definitionId: CommandDefinitionId('@master-harness/permission-presets'),
         name: 'permission',
         description: 'Switch the permission preset (sandbox mode + approval policy)',
         input: { hint: '<preset>' },

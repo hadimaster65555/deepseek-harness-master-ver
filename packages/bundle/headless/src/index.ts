@@ -1,39 +1,39 @@
 /**
- * @deepseek-ai/dsh-headless — one-shot direct Agent driver. The bundle patch
- * rides over dsh-base without Host, HTTP, or browser plugins; this runner
+ * @master-harness/headless — one-shot direct Agent driver. The bundle patch
+ * rides over mh-base without Host, HTTP, or browser plugins; this runner
  * creates one Agent through the core registry (or adopts the exact Session a
  * `--session-id` names), drives the task to quiescence, streams provider
  * reasoning to stderr, flushes its Session, prints the final assistant text to
  * stdout, and exits. With `--json` it projects the run as newline-delimited
  * events instead of the final text.
  *
- * @module @deepseek-ai/dsh-headless
+ * @module @master-harness/headless
  */
 
 import { randomUUID } from 'node:crypto'
-import type { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { brandString } from '@deepseek-ai/dsh-brand'
-import type { Agent, AgentOptions } from '@deepseek-ai/dsh-agent'
-import type {} from '@deepseek-ai/dsh-agent-default-model'
-import { installModelSelection } from '@deepseek-ai/dsh-agent'
-import type {} from '@deepseek-ai/dsh-fs'
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
-import { APPROVAL_POLICIES, setApprovalPolicy, type ApprovalPolicy } from '@deepseek-ai/dsh-user-approval'
-import { assertNever } from '@deepseek-ai/dsh-util-values'
-import { SessionSeq } from '@deepseek-ai/dsh-session'
-import type { Session, SessionEvent, SessionId, SessionLogOffset } from '@deepseek-ai/dsh-session'
-import { SessionQueryError } from '@deepseek-ai/dsh-session-query'
+import type { Context } from '@master-harness/cordis'
+import z from '@master-harness/schemastery'
+import { brandString } from '@master-harness/brand'
+import type { Agent, AgentOptions } from '@master-harness/agent'
+import type {} from '@master-harness/agent-default-model'
+import { installModelSelection } from '@master-harness/agent'
+import type {} from '@master-harness/fs'
+import { createUserMessage } from '@master-harness/llm'
+import { APPROVAL_POLICIES, setApprovalPolicy, type ApprovalPolicy } from '@master-harness/user-approval'
+import { assertNever } from '@master-harness/util-values'
+import { SessionSeq } from '@master-harness/session'
+import type { Session, SessionEvent, SessionId, SessionLogOffset } from '@master-harness/session'
+import { SessionQueryError } from '@master-harness/session-query'
 // Empty type imports carry the loader Context merge for the settlement await,
 // the cmdline Context merge for the appExit host value, and the sessionQuery
 // Context merge for exact Session adoption.
-import type {} from '@deepseek-ai/cordis-plugin-loader'
-import type {} from '@deepseek-ai/dsh-cmdline'
-import type {} from '@deepseek-ai/dsh-session-query'
-import type {} from '@deepseek-ai/dsh-subagent'
+import type {} from '@master-harness/cordis-plugin-loader'
+import type {} from '@master-harness/cmdline'
+import type {} from '@master-harness/session-query'
+import type {} from '@master-harness/subagent'
 // Optional service peers stay type-only so profiles can omit their packages.
-import type {} from '@deepseek-ai/dsh-permission-presets'
-import type {} from '@deepseek-ai/dsh-sandbox-policy'
+import type {} from '@master-harness/permission-presets'
+import type {} from '@master-harness/sandbox-policy'
 import type {} from './startup.ts'
 import { internals } from './runner-internals.ts'
 import { projectJsonRun, boundJsonLine } from './json-stream.ts'
@@ -146,7 +146,7 @@ function streamReasoning(
       case 'reasoning-delta':
         if (chunk.text === '') return
         if (!open) {
-          stderr.write('dsh: reasoning:\n')
+          stderr.write('mh: reasoning:\n')
           open = true
         }
         stderr.write(chunk.text)
@@ -204,7 +204,7 @@ function* liveEvents(session: Session): Generator<SessionEvent> {
 function currentPreset(header: AdoptableHeader, events: Iterable<SessionEvent>, sessionId: SessionId): string | undefined {
   let preset = header.agentPreset
   for (const event of events) {
-    // Owned by dsh-agent-preset-registry, which this bundle does not compose, so the
+    // Owned by mh-agent-preset-registry, which this bundle does not compose, so the
     // event is read structurally rather than through its module augmentation.
     const candidate = event as unknown as { type: string; data?: { agentPreset?: unknown } }
     if (candidate.type !== 'agent-preset/selected') continue
@@ -272,7 +272,7 @@ async function resolveAgent(
   // query service, so every --session-id run requires it.
   const query = ctx.get('sessionQuery')
   if (query === undefined) {
-    throw new Error('headless --session-id requires the sessionQuery service; dsh-base provides it')
+    throw new Error('headless --session-id requires the sessionQuery service; mh-base provides it')
   }
   const live = agents.get(sessionId)
   if (live !== undefined) {
@@ -308,7 +308,7 @@ async function resolveAgent(
 function fail(io: HeadlessIo, error: unknown, json: boolean): void {
   const message = error instanceof Error ? error.message : String(error)
   if (json) io.stdout.write(`${boundJsonLine({ type: 'error', message })}\n`)
-  io.stderr.write(`dsh: ${message}\n`)
+  io.stderr.write(`mh: ${message}\n`)
   io.exit(1)
 }
 
@@ -359,7 +359,7 @@ async function run(ctx: Context, config: Config, io: HeadlessIo): Promise<void> 
     ? await internals.readStdin()
     : config.task
   if (task.trim() === '') {
-    throw new Error('a task is required, for example: dsh --profile headless "run the tests"')
+    throw new Error('a task is required, for example: mh --profile headless "run the tests"')
   }
 
   const selection = defaultModel.currentSelection()
@@ -367,7 +367,7 @@ async function run(ctx: Context, config: Config, io: HeadlessIo): Promise<void> 
   // This bundle composes no preset roster, so the model-facing rows sit in the
   // host plane and the agent reads them from the global layer. A deployment
   // that DOES configure one has to join it here first
-  // (@deepseek-ai/dsh-agent-preset-registry README, "Composing a child agent").
+  // (@master-harness/agent-preset-registry README, "Composing a child agent").
   const setup = (agentCtx: Context, agent: Agent): void => {
     // A resumed Session continues with this run's configured model.
     if (config.sessionId !== undefined) {
@@ -438,7 +438,7 @@ async function run(ctx: Context, config: Config, io: HeadlessIo): Promise<void> 
     if (projection === undefined) io.stdout.write(outcome.text + '\n')
     else projection.finish(outcome.text, outcome.reason)
     if (outcome.reason?.kind === 'error') {
-      io.stderr.write(`dsh: ${outcome.reason.error.code}: ${outcome.reason.error.message}\n`)
+      io.stderr.write(`mh: ${outcome.reason.error.code}: ${outcome.reason.error.message}\n`)
     }
     io.exit(outcome.reason?.kind === 'completed' ? 0 : 1)
   } finally {

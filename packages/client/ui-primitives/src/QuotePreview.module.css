@@ -7,15 +7,15 @@
   margin: 0;
   padding: 0;
   vertical-align: baseline;
-  color: var(--dsw-alias-state-business-primary);
-  font-size: var(--dsh-content-font-size, 14px);
-  line-height: calc(20px + var(--dsh-content-font-delta, 0px));
+  color: var(--mh-alias-state-business-primary);
+  font-size: var(--mh-content-font-size, 14px);
+  line-height: calc(20px + var(--mh-content-font-delta, 0px));
 }
 
 .popoverText {
   display: block;
   padding: 8px 10px;
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
   font-size: 14px;
   line-height: 20px;
   overflow-wrap: anywhere;

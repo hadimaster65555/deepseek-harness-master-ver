@@ -1,10 +1,10 @@
 /** Tool definitions and invocation data shared by registries and executors. @module */
-import { HarnessError } from '@deepseek-ai/dsh-llm'
-import type { ToolCallId, ContentBlock, ToolSchema } from '@deepseek-ai/dsh-llm'
-import type { Agent, ModelSelection } from '@deepseek-ai/dsh-agent'
-import type { ScopeKey } from '@deepseek-ai/dsh-scope'
-import type { UserMessage } from '@deepseek-ai/dsh-session'
-import type { JsonValue } from '@deepseek-ai/dsh-util-values'
+import { HarnessError } from '@master-harness/llm'
+import type { ToolCallId, ContentBlock, ToolSchema } from '@master-harness/llm'
+import type { Agent, ModelSelection } from '@master-harness/agent'
+import type { ScopeKey } from '@master-harness/scope'
+import type { UserMessage } from '@master-harness/session'
+import type { JsonValue } from '@master-harness/util-values'
 import type { JsonSchemaNode } from './json-schema.ts'
 import type { ToolCallView, ToolResultView } from './presentation.ts'
 
@@ -61,7 +61,7 @@ export interface ToolDefinition extends ToolSchema {
   finalizeContent?(exec: Readonly<ToolExecution>, result: Readonly<ToolExecutionResult>): ContentBlock[] | undefined
   /**
    * Cooperative tool-call timeout budget in milliseconds. Omit for no deadline.
-   * Enforced by `@deepseek-ai/dsh-tool-call-timeout-policy` (a `tools/execute` wrapper); it
+   * Enforced by `@master-harness/tool-call-timeout-policy` (a `tools/execute` wrapper); it
    * is NEVER sent to the model — `schemas()` whitelists only name/description/
    * parameters. Declaring it asserts this tool forwards `exec.signal` to a
    * cooperative implementation that can reach quiescence when the signal aborts.

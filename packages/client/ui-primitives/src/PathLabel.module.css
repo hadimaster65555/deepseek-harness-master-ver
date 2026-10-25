@@ -20,9 +20,9 @@
 }
 
 .directory {
-  color: var(--dsw-alias-label-tertiary);
+  color: var(--mh-alias-label-tertiary);
 }
 
 .name {
-  color: var(--dsw-alias-label-primary);
+  color: var(--mh-alias-label-primary);
 }

@@ -9,15 +9,15 @@
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { act, cleanup, screen } from '@testing-library/react'
-import type { TypertResourceKind } from '@deepseek-ai/dsh-api-remote-access/client'
-import { ClientAccessState } from '@deepseek-ai/dsh-api-remote-access/src/client/state.ts'
-import type { WorkspaceId } from '@deepseek-ai/dsh-api-workspace-controller/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
-import { LocaleRuntime } from '@deepseek-ai/dsh-client-locale/client'
-import type { PropsRenderSlots } from '@deepseek-ai/dsh-client-ui-slots'
-import { allowAllAccessPlugin, SlotTestRuntime, usePinnedBrowserLanguages } from '@deepseek-ai/dsh-client-test-runtime'
-import { apply, inject } from '@deepseek-ai/dsh-client-ui-workspace/client'
+import type { TypertResourceKind } from '@master-harness/api-remote-access/client'
+import { ClientAccessState } from '@master-harness/api-remote-access/src/client/state.ts'
+import type { WorkspaceId } from '@master-harness/api-workspace-controller/client'
+import type { SessionId } from '@master-harness/session/types'
+import { createSnapshotStore } from '@master-harness/client-store'
+import { LocaleRuntime } from '@master-harness/client-locale/client'
+import type { PropsRenderSlots } from '@master-harness/client-ui-slots'
+import { allowAllAccessPlugin, SlotTestRuntime, usePinnedBrowserLanguages } from '@master-harness/client-test-runtime'
+import { apply, inject } from '@master-harness/client-ui-workspace/client'
 
 usePinnedBrowserLanguages('zh-CN')
 

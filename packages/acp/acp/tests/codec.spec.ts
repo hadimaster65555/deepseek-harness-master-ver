@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import type { TurnEndReason } from '@deepseek-ai/dsh-session'
+import type { TurnEndReason } from '@master-harness/session'
 import { turnEndToStopReason } from '../src/codec.ts'
 
 describe('ACP codec', () => {

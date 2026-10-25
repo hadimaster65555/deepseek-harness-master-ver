@@ -3,14 +3,14 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/simplification/2026-09-19-remove-desktop-profile-core-cleanup.md
 /agent-note-remove-the-desktop-production-profile-core-package-cleanup:
-  en: c0f7b1fb34a21423
-  zh: 2ed4b90f28d21faa
+  en: ca0359dc6a7b2b6d
+  zh: 23dae224de806b66
 /agent-note-remove-the-desktop-production-profile-core-package-cleanup/problem:
-  en: 7176d7d629dd9e9f
-  zh: f0e02f220e3ae72b
+  en: 9806ea5c46831518
+  zh: 9042d4f996f172ba
 /agent-note-remove-the-desktop-production-profile-core-package-cleanup/decision:
-  en: 411b72fcdcb37d61
-  zh: 7fac6dfd6d0ab0e4
+  en: 240d5e16b0ebfeaa
+  zh: 155f287efebb3d76
 /agent-note-remove-the-desktop-production-profile-core-package-cleanup/alternatives-considered:
   en: 92f74de20afec309
   zh: 6ace8389378cc343

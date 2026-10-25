@@ -5,51 +5,51 @@
 /:
   en: 94ee43dddb605a56
   zh: 1928b76cbc58ca5a
-/deepseek-ai-dsh-host-plugin-inventory:
-  en: f176d2f67d853178
-  zh: b75160b74076f8ba
-/deepseek-ai-dsh-host-plugin-inventory/summary:
+/master-harness-host-plugin-inventory:
+  en: c764e701c65e6113
+  zh: 8387e0c75fe90d5f
+/master-harness-host-plugin-inventory/summary:
   en: 103ae63994bb9291
   zh: 3b2658a7a6064e4b
-/deepseek-ai-dsh-host-plugin-inventory/table-of-contents:
+/master-harness-host-plugin-inventory/table-of-contents:
   en: d152484eb41ac6b4
   zh: 09388d293f9be9cb
-/deepseek-ai-dsh-host-plugin-inventory/use-this-package:
+/master-harness-host-plugin-inventory/use-this-package:
   en: 10bbb42c37ba25d2
   zh: d628b1c9db7847e4
-/deepseek-ai-dsh-host-plugin-inventory/use-this-package/what-a-snapshot-contains:
+/master-harness-host-plugin-inventory/use-this-package/what-a-snapshot-contains:
   en: c8afdb1aec1c97bd
   zh: 0a8a765e02caab91
-/deepseek-ai-dsh-host-plugin-inventory/use-this-package/per-preset-compositions:
+/master-harness-host-plugin-inventory/use-this-package/per-preset-compositions:
   en: dfc89b14d4c0d21e
   zh: 062b233951ed157b
-/deepseek-ai-dsh-host-plugin-inventory/use-this-package/what-you-can-and-cannot-do-with-it:
+/master-harness-host-plugin-inventory/use-this-package/what-you-can-and-cannot-do-with-it:
   en: 387f87777eef7ec5
   zh: badcd90c8840f870
-/deepseek-ai-dsh-host-plugin-inventory/understand-the-implementation:
+/master-harness-host-plugin-inventory/understand-the-implementation:
   en: 42b15ac6321706aa
   zh: 4ed0861911abaf5d
-/deepseek-ai-dsh-host-plugin-inventory/understand-the-implementation/design-concept:
+/master-harness-host-plugin-inventory/understand-the-implementation/design-concept:
   en: 48a7d7ce9170c859
   zh: 21a44bf23d9c5c89
-/deepseek-ai-dsh-host-plugin-inventory/understand-the-implementation/the-phase-mapping:
+/master-harness-host-plugin-inventory/understand-the-implementation/the-phase-mapping:
   en: 67fd54c8c49f6dbc
   zh: f6743f8f5c34b886
-/deepseek-ai-dsh-host-plugin-inventory/understand-the-implementation/source-map:
+/master-harness-host-plugin-inventory/understand-the-implementation/source-map:
   en: 0182cb9dbcff5eae
   zh: fce809d7b06d2ed8
-/deepseek-ai-dsh-host-plugin-inventory/further-exploration:
-  en: 47de2da39cf6aefa
-  zh: c7e945dcba775177
-/deepseek-ai-dsh-host-plugin-inventory/model-experience:
+/master-harness-host-plugin-inventory/further-exploration:
+  en: 14eee8b002750b85
+  zh: 47b80c8bc60aece8
+/master-harness-host-plugin-inventory/model-experience:
   en: c3e5d5439c1a56fe
   zh: 32804643402d54ea
-/deepseek-ai-dsh-host-plugin-inventory/model-experience/kv-cache-effect:
+/master-harness-host-plugin-inventory/model-experience/kv-cache-effect:
   en: ca75c51c89c2c9b0
   zh: de54f3467ef3b9be
-/deepseek-ai-dsh-host-plugin-inventory/known-limitations-and-deferred-work:
-  en: 6c1380959d4f5b13
-  zh: dab0c5c64b88a273
-/deepseek-ai-dsh-host-plugin-inventory/known-limitations-and-deferred-work/dev-note:
+/master-harness-host-plugin-inventory/known-limitations-and-deferred-work:
+  en: 7794b60064bfeceb
+  zh: d90371b7ee6ecb19
+/master-harness-host-plugin-inventory/known-limitations-and-deferred-work/dev-note:
   en: e67f633dc6fe7773
   zh: 3bb0c20c93f16f98

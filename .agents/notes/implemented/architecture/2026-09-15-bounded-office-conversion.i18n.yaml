@@ -3,14 +3,14 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/architecture/2026-09-15-bounded-office-conversion.md
 /agent-note-bounded-shared-office-conversion:
-  en: 10c171aa2a5ab0c2
-  zh: 13e8e134e3a68e98
+  en: 570e4505776561a2
+  zh: 96d58ed4a08f5b54
 /agent-note-bounded-shared-office-conversion/problem:
   en: b305613daff5a763
   zh: 1aba13289664f65c
 /agent-note-bounded-shared-office-conversion/decision:
-  en: bcd0780f95f173bf
-  zh: 2a7f49db2575c59d
+  en: af008f28d1df605f
+  zh: 11f12c2306e6ff06
 /agent-note-bounded-shared-office-conversion/alternatives-considered:
   en: 9d5cfb7fa5f66bd6
   zh: 4f4133daa2f02f43
@@ -18,5 +18,5 @@
   en: c2800ff56c8f89d1
   zh: 3b3710072b59c443
 /agent-note-bounded-shared-office-conversion/related:
-  en: 2e7b1a0f01c1f617
-  zh: ed2abc0181ea4abe
+  en: a70e022a170873d1
+  zh: 65072e3ef4eca261

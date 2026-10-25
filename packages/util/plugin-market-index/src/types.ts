@@ -1,9 +1,9 @@
 /**
  * Validated plugin market index records.
- * @module @deepseek-ai/dsh-plugin-market-index/types
+ * @module @master-harness/plugin-market-index/types
  */
 
-import type { LocalizedText } from '@deepseek-ai/dsh-package-manifest'
+import type { LocalizedText } from '@master-harness/package-manifest'
 
 /** A market-declared category or label: an opaque id's display title. */
 export interface MarketDeclaration {
@@ -59,8 +59,8 @@ export type MarketSource =
 
 /** Runtime requirements of one version. */
 export interface MarketEngines {
-  /** SemVer range of DSH versions the version runs on; absent means any DSH version. */
-  readonly dsh?: string
+  /** SemVer range of MH versions the version runs on; absent means any MH version. */
+  readonly mh?: string
 }
 
 /** One installable version of a plugin. */

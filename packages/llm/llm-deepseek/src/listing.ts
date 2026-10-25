@@ -1,9 +1,16 @@
 /** DeepSeek `GET /models` listing: one authenticated request and per-entry decoding. */
-import { APP_IDENTITY, attributionHeaders, LlmError } from '@deepseek-ai/dsh-llm'
-import type { ModelModality } from '@deepseek-ai/dsh-llm'
-import { timeoutOf } from '@deepseek-ai/dsh-timeout'
+import { attributionHeaders, LlmError } from '@master-harness/llm'
+import type { ModelModality } from '@master-harness/llm'
+import { timeoutOf } from '@master-harness/timeout'
 
 const LISTED_MODALITIES = ['text', 'image'] as const satisfies readonly ModelModality[]
+
+/**
+ * Key the DeepSeek model listing uses for harness version requirements. It
+ * stays the upstream protocol identifier so the server's catalog keeps
+ * matching this client.
+ */
+const CLIENT_REQUIREMENT_PRODUCT = 'deepseek-harness'
 
 /** Code of a listing deadline's timeout reason; {@link requestModelListing} reports it as `TIMEOUT`. */
 export const LISTING_TIMEOUT = 'MODEL_LISTING_TIMEOUT'
@@ -48,7 +55,7 @@ export interface ListingEntry {
   readonly id: string
   /** Display name, when the entry declares a non-empty one. */
   readonly name?: string
-  /** Requirement declared under `client_requirements[APP_IDENTITY.product]`. */
+  /** Requirement declared under `client_requirements[CLIENT_REQUIREMENT_PRODUCT]`. */
   readonly requirement: ClientRequirement
   /** Declared capabilities. */
   readonly capabilities: ListedCapabilities
@@ -86,7 +93,7 @@ function requirementOf(entry: Fields): ClientRequirement {
   if (entry.client_requirements === undefined) return { kind: 'none' }
   const requirements = fieldsOf(entry.client_requirements)
   if (requirements === undefined) return { kind: 'invalid' }
-  const declared = requirements[APP_IDENTITY.product]
+  const declared = requirements[CLIENT_REQUIREMENT_PRODUCT]
   if (declared === undefined) return { kind: 'none' }
   const own = fieldsOf(declared)
   if (own === undefined) return { kind: 'invalid' }
@@ -102,7 +109,7 @@ function capabilitiesOf(entry: Fields): ListedCapabilities {
   const outputs = entry.output_modalities === undefined ? ['text'] : knownModalities(entry.output_modalities)
   if (outputs?.includes('text') !== true) return { usable: false, reason: 'declares no text output' }
   const inputs = entry.input_modalities === undefined ? ['text' as const] : knownModalities(entry.input_modalities)
-  if (inputs === undefined || inputs.length === 0) return { usable: false, reason: 'declares no input modality DeepSeek Harness supports' }
+  if (inputs === undefined || inputs.length === 0) return { usable: false, reason: 'declares no input modality Master Harness supports' }
   const contextWindow = capacity(entry.context_window)
   const maxOutputTokens = capacity(entry.max_output_tokens)
   if (contextWindow === false || maxOutputTokens === false) {

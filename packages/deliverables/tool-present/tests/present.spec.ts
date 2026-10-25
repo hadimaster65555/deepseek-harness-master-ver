@@ -1,20 +1,20 @@
 /** Explicit deliveries commit only after a successful final tool result. */
-import { executeToolFixture } from '@deepseek-ai/dsh-tool-testkit'
-import * as NativeToolExecutor from '@deepseek-ai/dsh-tool-executor-native'
-import { unsupportedModel, provideWorkingDirectoryFixture, unsupportedInbox } from '@deepseek-ai/dsh-agent-loop-testkit'
+import { executeToolFixture } from '@master-harness/tool-testkit'
+import * as NativeToolExecutor from '@master-harness/tool-executor-native'
+import { unsupportedModel, provideWorkingDirectoryFixture, unsupportedInbox } from '@master-harness/agent-loop-testkit'
 import { mkdtemp, rm, writeFile, symlink, realpath } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join, relative } from 'node:path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import AgentRegistry, { type Agent } from '@deepseek-ai/dsh-agent'
-import LocalFileSystem from '@deepseek-ai/dsh-fs-local'
-import { createScope, type Scope } from '@deepseek-ai/dsh-scope'
-import { ToolCallId } from '@deepseek-ai/dsh-llm'
-import { SESSION_FORMAT_VERSION, Session, SessionId } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime, { defineTool } from '@deepseek-ai/dsh-tools'
+import { Context } from '@master-harness/cordis'
+import AgentRegistry, { type Agent } from '@master-harness/agent'
+import LocalFileSystem from '@master-harness/fs-local'
+import { createScope, type Scope } from '@master-harness/scope'
+import { ToolCallId } from '@master-harness/llm'
+import { SESSION_FORMAT_VERSION, Session, SessionId } from '@master-harness/session'
+import SessionProjectionRegistry from '@master-harness/session-projection'
+import SystemPrompt from '@master-harness/system-prompt'
+import ToolRuntime, { defineTool } from '@master-harness/tools'
 import type { PresentedFile } from '../src/types.ts'
 import * as Present from '../src/index.ts'
 
@@ -54,7 +54,7 @@ async function agent(ctx: Context, cwd: string | undefined): Promise<Agent> {
 
 
 async function setup() {
-  const root = await mkdtemp(join(tmpdir(), 'dsh-present-minimal-'))
+  const root = await mkdtemp(join(tmpdir(), 'mh-present-minimal-'))
   cleanups.push(() => rm(root, { recursive: true, force: true }))
   const ctx = new Context()
   provideWorkingDirectoryFixture(ctx)
@@ -175,7 +175,7 @@ it('requires an agent, an open turn, and a workspace', async () => {
 
 it('declares readable files outside the Session directory using absolute and relative paths', async () => {
   const { root, execute, owner } = await setup()
-  const outside = await mkdtemp(join(tmpdir(), 'dsh-present-external-'))
+  const outside = await mkdtemp(join(tmpdir(), 'mh-present-external-'))
   cleanups.push(() => rm(outside, { recursive: true, force: true }))
   const file = join(outside, 'report.txt')
   await writeFile(file, 'external report')

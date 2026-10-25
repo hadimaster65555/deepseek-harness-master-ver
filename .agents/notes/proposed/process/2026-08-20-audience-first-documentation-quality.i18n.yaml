@@ -3,14 +3,14 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/proposed/process/2026-08-20-audience-first-documentation-quality.md
 /agent-note-audience-first-documentation-quality-criteria:
-  en: 5fd84aa1a097f80f
-  zh: 073d973331b00ca4
+  en: f37fb8d8596f8d67
+  zh: ae8bd4ff5e004520
 /agent-note-audience-first-documentation-quality-criteria/problem:
   en: 86ee1c395115b7d2
   zh: 7fea995569331599
 /agent-note-audience-first-documentation-quality-criteria/problem/semantic-correctness-can-pass-without-a-current-owner:
-  en: d752be65975937fa
-  zh: f0c9a94ccff8e059
+  en: 7ddb47dec5af4c03
+  zh: aa2933aa29d335a3
 /agent-note-audience-first-documentation-quality-criteria/problem/reader-success-is-implicit-rather-than-testable:
   en: 9d7c94e84fdeea18
   zh: e315ae5d470d576b
@@ -27,8 +27,8 @@
   en: 1f28c04d5002af94
   zh: 4d4dfea99fc6aee2
 /agent-note-audience-first-documentation-quality-criteria/proposal/prototype-rules:
-  en: 6ee5714bc0b33cda
-  zh: 587bd85f6f712868
+  en: b36a4bff9a812374
+  zh: 9bf3cda0fc805e32
 /agent-note-audience-first-documentation-quality-criteria/proposal/criteria-by-document-job:
   en: 9abbe4f2d5038284
   zh: 45d30352d9cce4b5
@@ -45,8 +45,8 @@
   en: 5f09627b84bf112b
   zh: b0f1845df90e5f1a
 /agent-note-audience-first-documentation-quality-criteria/acceptance-criteria:
-  en: 696ff7205b3362d0
-  zh: a62a50cf3ceadac6
+  en: 49076bf5f62bd1d9
+  zh: ea9797f40729f9b6
 /agent-note-audience-first-documentation-quality-criteria/risks:
   en: b920900d3ff05073
   zh: 05b2a0271b825260

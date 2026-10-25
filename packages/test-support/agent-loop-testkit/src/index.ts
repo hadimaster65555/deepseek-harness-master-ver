@@ -2,24 +2,24 @@
  * Shared service mounting, real AgentLoop drivers, and structural Agent stubs
  * for agent-loop tests. Callers retain ownership of their contexts, adapters,
  * optional plugins, agents, and teardown.
- * @module @deepseek-ai/dsh-agent-loop-testkit
+ * @module @master-harness/agent-loop-testkit
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import type { Agent, AgentOptions, Inbox, InboxTarget } from '@deepseek-ai/dsh-agent'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import LlmRuntime from '@deepseek-ai/dsh-llm'
-import SessionStore from '@deepseek-ai/dsh-session'
-import type { SessionHeader, SessionId, UserMessage } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import type { Config as SystemPromptConfig } from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime from '@deepseek-ai/dsh-tools'
-import * as NativeToolExecutor from '@deepseek-ai/dsh-tool-executor-native'
-import * as PtcToolExecutor from '@deepseek-ai/dsh-tool-executor-ptc'
-import FsLocal from '@deepseek-ai/dsh-fs-local'
-import WorkingDirectory from '@deepseek-ai/dsh-working-directory'
+import type { Context } from '@master-harness/cordis'
+import AgentRegistry from '@master-harness/agent'
+import type { Agent, AgentOptions, Inbox, InboxTarget } from '@master-harness/agent'
+import AgentLoop from '@master-harness/agent-loop'
+import LlmRuntime from '@master-harness/llm'
+import SessionStore from '@master-harness/session'
+import type { SessionHeader, SessionId, UserMessage } from '@master-harness/session'
+import SessionProjectionRegistry from '@master-harness/session-projection'
+import SystemPrompt from '@master-harness/system-prompt'
+import type { Config as SystemPromptConfig } from '@master-harness/system-prompt'
+import ToolRuntime from '@master-harness/tools'
+import * as NativeToolExecutor from '@master-harness/tool-executor-native'
+import * as PtcToolExecutor from '@master-harness/tool-executor-ptc'
+import FsLocal from '@master-harness/fs-local'
+import WorkingDirectory from '@master-harness/working-directory'
 
 export { createInboxStub, unsupportedInbox } from './inbox.ts'
 export { unsupportedModel } from './model.ts'

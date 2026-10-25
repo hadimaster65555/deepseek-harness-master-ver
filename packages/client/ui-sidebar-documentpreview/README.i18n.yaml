@@ -5,42 +5,42 @@
 /:
   en: ef50065f5ff17aa1
   zh: ee5d2b7986739fca
-/deepseek-ai-dsh-client-ui-sidebar-documentpreview:
-  en: 5168e03d461318f5
-  zh: 7ad97d70ee331bfd
-/deepseek-ai-dsh-client-ui-sidebar-documentpreview/summary:
+/master-harness-client-ui-sidebar-documentpreview:
+  en: b1aefb50e0f51765
+  zh: a170d5226fee30ef
+/master-harness-client-ui-sidebar-documentpreview/summary:
   en: a74c16667d0baada
   zh: 4fd709ff9f98b84f
-/deepseek-ai-dsh-client-ui-sidebar-documentpreview/table-of-contents:
+/master-harness-client-ui-sidebar-documentpreview/table-of-contents:
   en: 0dd8c3a22e28aacf
   zh: c27c11bf4b5cceba
-/deepseek-ai-dsh-client-ui-sidebar-documentpreview/what-it-registers:
-  en: a02e6fd89e332967
-  zh: b5c61cb75458d1a2
-/deepseek-ai-dsh-client-ui-sidebar-documentpreview/addresses:
-  en: 57942270e23d3a8e
-  zh: 6617124e652b3f67
-/deepseek-ai-dsh-client-ui-sidebar-documentpreview/how-it-reads:
-  en: e197303166b5a86f
-  zh: 8d151e49321d67aa
-/deepseek-ai-dsh-client-ui-sidebar-documentpreview/excel-preview:
-  en: 595499992ceea693
-  zh: 83c6147c46a80dca
-/deepseek-ai-dsh-client-ui-sidebar-documentpreview/office-preview:
-  en: 372d8ce6492e6896
-  zh: 912f613bc9221aa3
-/deepseek-ai-dsh-client-ui-sidebar-documentpreview/navigation:
+/master-harness-client-ui-sidebar-documentpreview/what-it-registers:
+  en: 76c36e74ab1b3186
+  zh: a7096ca46afdc4c5
+/master-harness-client-ui-sidebar-documentpreview/addresses:
+  en: a3c02dc99a334d07
+  zh: 239f7e88c5287266
+/master-harness-client-ui-sidebar-documentpreview/how-it-reads:
+  en: 3f3c45b1b611ffad
+  zh: 9a6ec6f86fae7509
+/master-harness-client-ui-sidebar-documentpreview/excel-preview:
+  en: c488c537d40b7952
+  zh: 5735e54a99829b41
+/master-harness-client-ui-sidebar-documentpreview/office-preview:
+  en: 65d9fcd5f6c5f0a0
+  zh: e73d388da83c755c
+/master-harness-client-ui-sidebar-documentpreview/navigation:
   en: 59256644b39e412d
   zh: 8ab908393b018431
-/deepseek-ai-dsh-client-ui-sidebar-documentpreview/model-experience:
+/master-harness-client-ui-sidebar-documentpreview/model-experience:
   en: ca1deb99d0e44755
   zh: f285fc56cee669ec
-/deepseek-ai-dsh-client-ui-sidebar-documentpreview/model-experience/kv-cache-effect:
+/master-harness-client-ui-sidebar-documentpreview/model-experience/kv-cache-effect:
   en: 7edb4c0bb5f13847
   zh: ae5d0bbebe4aa563
-/deepseek-ai-dsh-client-ui-sidebar-documentpreview/known-limitations-and-deferred-work:
-  en: 7be2ad2e198131f8
-  zh: 21b35eae72a49ad2
-/deepseek-ai-dsh-client-ui-sidebar-documentpreview/known-limitations-and-deferred-work/dev-note:
+/master-harness-client-ui-sidebar-documentpreview/known-limitations-and-deferred-work:
+  en: d7f3075354f3a56f
+  zh: be9c075015b69c08
+/master-harness-client-ui-sidebar-documentpreview/known-limitations-and-deferred-work/dev-note:
   en: e67f633dc6fe7773
   zh: e88aeb617ffb74ea

@@ -1,10 +1,10 @@
 {
-  "name": "@deepseek-ai/dsh-experimental-ptc-runtime-python",
-  "description": "CPython subprocess implementation of the DeepSeek Harness PTC execution seam",
+  "name": "@master-harness/experimental-ptc-runtime-python",
+  "description": "CPython subprocess implementation of the Master Harness PTC execution seam",
   "version": "0.2.1-rc.3",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/hadimaster65555/deepseek-harness-master-ver.git",
     "directory": "packages/experimental/ptc-runtime-python"
   },
   "type": "module",
@@ -26,26 +26,26 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-ptc-runtime": "workspace:*",
-    "@deepseek-ai/dsh-timeout": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-util-values": "workspace:*",
-    "@deepseek-ai/dsh-sandbox": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:*"
+    "@master-harness/ptc-runtime": "workspace:*",
+    "@master-harness/timeout": "workspace:*",
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/util-values": "workspace:*",
+    "@master-harness/sandbox": "workspace:*",
+    "@master-harness/sandbox-policy": "workspace:*"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-ptc-runtime": "workspace:*",
-    "@deepseek-ai/dsh-timeout": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-util-values": "workspace:*",
-    "@deepseek-ai/dsh-sandbox": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-local": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*"
+    "@master-harness/ptc-runtime": "workspace:*",
+    "@master-harness/timeout": "workspace:*",
+    "@master-harness/cordis": "workspace:~",
+    "@master-harness/util-values": "workspace:*",
+    "@master-harness/sandbox": "workspace:*",
+    "@master-harness/sandbox-policy": "workspace:*",
+    "@master-harness/sandbox-local": "workspace:*",
+    "@master-harness/session-projection": "workspace:*",
+    "@master-harness/session": "workspace:*"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:~"
+    "@master-harness/schemastery": "workspace:~"
   },
   "publishConfig": {
     "access": "public"

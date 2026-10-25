@@ -3,8 +3,8 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/architecture/2026-10-12-peer-principal-and-remote-access.md
 /agent-note-peer-principals-and-method-level-remote-access-control:
-  en: 0c0fd0f567bd5c89
-  zh: 464e34d05737a7bc
+  en: 646311c0aeca1a05
+  zh: 277241cce8e9e6c9
 /agent-note-peer-principals-and-method-level-remote-access-control/problem:
   en: f5b70ee2c0a3e32a
   zh: 68776a916cb41f11
@@ -27,8 +27,8 @@
   en: a01ac57fc71a84f0
   zh: 3e488ef3da5e4b8c
 /agent-note-peer-principals-and-method-level-remote-access-control/decision/method-level-access-control:
-  en: 725a2d4145c0a75e
-  zh: b98a64532cadeaba
+  en: 2fa12579b7219509
+  zh: f9683ef1e82f4da3
 /agent-note-peer-principals-and-method-level-remote-access-control/decision/method-level-access-control/correspondence-with-rbac:
   en: a78a2410eb52f777
   zh: a868bf1b0e690c9f
@@ -60,20 +60,20 @@
   en: 7be28cd7e19e5377
   zh: 30b5aee957271d6c
 /agent-note-peer-principals-and-method-level-remote-access-control/decision/security-invariants:
-  en: 2094587c320b6ccc
-  zh: 3a1d2a6b343500f4
+  en: 4fbc38dc1a098be0
+  zh: ec3fee94fa978a63
 /agent-note-peer-principals-and-method-level-remote-access-control/decision/recording-the-message-source:
-  en: 2ee3abed24d418f4
-  zh: 25653dd24b95c220
+  en: 079a9805dc4b6437
+  zh: fe497f2b1d840b3c
 /agent-note-peer-principals-and-method-level-remote-access-control/decision/code-review-rule-and-documentation:
-  en: e9a2e0d1534b8fe7
-  zh: 085813c0b2b3c0d8
+  en: 555620c45f3d86c1
+  zh: 9178851e5945725f
 /agent-note-peer-principals-and-method-level-remote-access-control/decision/out-of-scope-and-future-work:
-  en: a84e07716719e3b5
-  zh: 9649ccb4a035a1df
+  en: 280be7a73628e170
+  zh: 3b9ecabc082d4ad5
 /agent-note-peer-principals-and-method-level-remote-access-control/decision/relation-to-existing-notes:
-  en: 305ec45a7cd85ed7
-  zh: d2cd4209a56b1d0c
+  en: 5185ae25eb5538bf
+  zh: 582686e335d55213
 /agent-note-peer-principals-and-method-level-remote-access-control/alternatives-considered:
   en: 60da38bca6e9c3d6
   zh: 61ea578fe8185b61

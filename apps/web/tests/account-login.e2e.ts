@@ -14,7 +14,7 @@ import { saveFailureShot } from './support.ts'
 
 const OVERLAY_TEMPLATE = fileURLToPath(new URL('./fixtures/account-login/cordis.patch.yml', import.meta.url))
 const MODE = webSnapshotMode()
-const TOKEN = 'dsh_web_login_test'
+const TOKEN = 'mh_web_login_test'
 const CODE = 'web-login-code'
 const AVATAR_EXPECTED = fileURLToPath(new URL('./expected/account-login/avatar-retry.expected.md', import.meta.url))
 
@@ -31,7 +31,7 @@ async function mockPlatform() {
       res.writeHead(200, { 'content-type': 'application/json' })
       res.end(JSON.stringify({ code: 0, data: { biz_code: 0, biz_data: payload } }))
     }
-    if (url.pathname === '/dsh/authorize') {
+    if (url.pathname === '/mh/authorize') {
       pages.push(url.href)
       // The user approves at once: Platform returns the browser to the Host callback.
       const callback = new URL(redirectUri ?? '/')
@@ -40,26 +40,26 @@ async function mockPlatform() {
       res.writeHead(302, { location: callback.href }).end()
       return
     }
-    if (url.pathname === '/dsh/authorized') {
+    if (url.pathname === '/mh/authorized') {
       pages.push(url.href)
       res.writeHead(200, { 'content-type': 'text/html' }).end('<title>Authorized</title>')
       return
     }
-    if (req.method === 'POST' && url.pathname.startsWith('/auth-api/v0/dsh/')) {
+    if (req.method === 'POST' && url.pathname.startsWith('/auth-api/v0/mh/')) {
       let body = ''
       req.setEncoding('utf8')
       req.on('data', (chunk: string) => { body += chunk })
       req.on('end', () => {
         const payload = JSON.parse(body) as Record<string, unknown>
-        if (url.pathname === '/auth-api/v0/dsh/auth_init') {
+        if (url.pathname === '/auth-api/v0/mh/auth_init') {
           inits.push(payload)
           state = String(payload.state)
           redirectUri = String(payload.redirect_uri)
-          reply({ authorize_url: `${origin}/dsh/authorize?authorize_id=web`, authorize_id: 'web', expires_in: 300 })
+          reply({ authorize_url: `${origin}/mh/authorize?authorize_id=web`, authorize_id: 'web', expires_in: 300 })
           return
         }
-        if (url.pathname === '/auth-api/v0/dsh/auth_exchange' && payload.code === CODE) {
-          reply({ token: TOKEN, authorized_url: `${origin}/dsh/authorized` })
+        if (url.pathname === '/auth-api/v0/mh/auth_exchange' && payload.code === CODE) {
+          reply({ token: TOKEN, authorized_url: `${origin}/mh/authorized` })
           return
         }
         res.writeHead(404).end()
@@ -104,7 +104,7 @@ describe.skipIf(MODE === 'record')('web e2e: DeepSeek account sign-in in a plain
 
   beforeAll(async () => {
     platform = await mockPlatform()
-    root = await mkdtemp(join(tmpdir(), 'dsh-web-account-login-'))
+    root = await mkdtemp(join(tmpdir(), 'mh-web-account-login-'))
     const overlay = join(root, 'account-login.overlay.yml')
     await writeFile(overlay, (await readFile(OVERLAY_TEMPLATE, 'utf8')).replaceAll('{{origin}}', platform.origin))
     scaffold = await launchWebScaffold({ extraOverlayPath: overlay })
@@ -130,7 +130,7 @@ describe.skipIf(MODE === 'record')('web e2e: DeepSeek account sign-in in a plain
     const tab = context.waitForEvent('page')
     await page.getByRole('menuitem', { name: 'Sign in', exact: true }).click()
     const authorization = await tab
-    await authorization.waitForURL(url => url.pathname === '/dsh/authorized', { timeout: 30_000 })
+    await authorization.waitForURL(url => url.pathname === '/mh/authorized', { timeout: 30_000 })
     expect(await authorization.evaluate(() => window.opener === null)).toBe(true)
     await expect.poll(() => menu.textContent(), { timeout: 30_000 }).toBe('Web User')
 

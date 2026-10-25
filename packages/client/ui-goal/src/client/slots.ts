@@ -7,9 +7,9 @@
  * activation hook source.
  */
 
-import type { RemoteResult } from '@deepseek-ai/dsh-api-remotes/client'
-import type { HostObservable } from '@deepseek-ai/dsh-client-ui-slots'
-import type { GoalActivation, GoalId } from '@deepseek-ai/dsh-goal/client'
+import type { RemoteResult } from '@master-harness/api-remotes/client'
+import type { HostObservable } from '@master-harness/client-ui-slots'
+import type { GoalActivation, GoalId } from '@master-harness/goal/client'
 
 /**
  * The one failure the strip reports without a wire call: the session projects

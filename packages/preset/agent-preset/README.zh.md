@@ -3,7 +3,7 @@ description: "在普通 Cordis YAML 中定义 Agent 的子插件列表。可同�
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-agent-preset
+# @master-harness/agent-preset
 
 [English](README.md) | 中文
 
@@ -27,11 +27,11 @@ kind: "package-reference"
 
 ```yaml
 - id: agent-preset-registry
-  name: '@deepseek-ai/dsh-agent-preset-registry'
+  name: '@master-harness/agent-preset-registry'
   config:
     default: standard
 - id: preset-standard
-  name: '@deepseek-ai/dsh-agent-preset'
+  name: '@master-harness/agent-preset'
   config:
     id: standard
     plugins: []

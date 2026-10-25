@@ -3,14 +3,14 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/process/2026-09-06-python-runtime-windows-hosted.md
 /agent-note-windows-python-runtime-ci-stays-on-github-hosted-windows:
-  en: d36b4627e3216a22
-  zh: aabdaed56959936a
+  en: 0caaeb66a5708f21
+  zh: a556c4c462bea855
 /agent-note-windows-python-runtime-ci-stays-on-github-hosted-windows/problem:
   en: 81d36185575e6d77
   zh: 19003ab154d93394
 /agent-note-windows-python-runtime-ci-stays-on-github-hosted-windows/decision:
-  en: 68aff432bf30d821
-  zh: 6633d254904a39f6
+  en: 6cdfb793b861adf2
+  zh: 530f15b3a187787a
 /agent-note-windows-python-runtime-ci-stays-on-github-hosted-windows/alternatives-considered:
   en: 817e77f011ea35c8
   zh: 2087bc653620a60f

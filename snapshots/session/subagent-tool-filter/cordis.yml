@@ -10,24 +10,24 @@
 
 - insert:
     - id: agent-preset-registry
-      name: '@deepseek-ai/dsh-agent-preset-registry'
+      name: '@master-harness/agent-preset-registry'
       config:
         default: parent
     - id: preset-parent
-      name: '@deepseek-ai/dsh-agent-preset'
+      name: '@master-harness/agent-preset'
       config:
         id: parent
         plugins:
-          - name: '@deepseek-ai/dsh-tool-fs'
-          - name: '@deepseek-ai/dsh-tool-fs-search'
+          - name: '@master-harness/tool-fs'
+          - name: '@master-harness/tool-fs-search'
             config:
               sampleOverCapGlobResults: false
-          - name: '@deepseek-ai/dsh-tool-web'
+          - name: '@master-harness/tool-web'
             config:
               fetch: true
               searchTimeoutMs: 60000
     - id: preset-child
-      name: '@deepseek-ai/dsh-agent-preset'
+      name: '@master-harness/agent-preset'
       config:
         id: child
         plugins: []
@@ -35,7 +35,7 @@
       name: '../../../packages/test-support/session-snapshot/tests/fixtures/parent-agent-preset.ts'
 
 - id: tool-subagent
-  name: '@deepseek-ai/dsh-tool-subagent'
+  name: '@master-harness/tool-subagent'
   inject: [agentPresets]
   config:
     provider: spawn

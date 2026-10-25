@@ -1,10 +1,10 @@
-# DSH unified corner-radius standard
+# MH unified corner-radius standard
 
 English | [中文](ui-radius.zh.md)
 
 ## Summary
 
-Choose consistent corner radii by component role and size, and align nested regions, hover fills, backgrounds, and strokes. This standard covers buttons, cells, cards, menus, dialogs, and avatars in DSH Web and Desktop.
+Choose consistent corner radii by component role and size, and align nested regions, hover fills, backgrounds, and strokes. This standard covers buttons, cells, cards, menus, dialogs, and avatars in MH Web and Desktop.
 
 ## Table of Contents
 
@@ -18,7 +18,7 @@ Choose consistent corner radii by component role and size, and align nested regi
 <a id="scope"></a>
 ## Scope and authority
 
-This reference defines the DSH Web and Desktop radius scale and its component rules. A local visual adjustment stays scoped to the named component or family and does not automatically change the global scale.
+This reference defines the MH Web and Desktop radius scale and its component rules. A local visual adjustment stays scoped to the named component or family and does not automatically change the global scale.
 
 The [Web UI style reference](web-styling.md) defines general styling ownership. Shared values live in [`base.css`](../packages/client/ui-theme/src/styles/base.css), and curve behavior lives in [`corner-shape.css`](../packages/client/ui-theme/src/styles/corner-shape.css). Update the theme implementation and both language versions of this standard together when changing a rule.
 
@@ -29,12 +29,12 @@ H means designed outer height in CSS pixels, including borders. R means CSS `bor
 
 | Role | Typical dimensions or examples | Radius | Shared token |
 |---|---|---|---|
-| Small detail | Below H20; keycaps, inline code, tiny controls | R4 | `--dsw-radius-xs` |
-| Compact control | H20–28; small buttons, compact icon buttons, compact menu items | R8 | `--dsw-radius-sm` |
-| Standard control or single-line cell | H32–40; buttons, inputs, selects, navigation rows | R12 | `--dsw-radius-md` |
-| Large control or grouped content | Large buttons, deliberately multiline cells, nested form groups | R16 | `--dsw-radius-lg` |
-| Independent content card | Settings cards, message bubbles, guide entry cards | R20 | `--dsw-radius-xl` |
-| Main enclosing surface | Composer, dialogs, main or floating panels | R28 | `--dsw-radius-panel` |
+| Small detail | Below H20; keycaps, inline code, tiny controls | R4 | `--mh-radius-xs` |
+| Compact control | H20–28; small buttons, compact icon buttons, compact menu items | R8 | `--mh-radius-sm` |
+| Standard control or single-line cell | H32–40; buttons, inputs, selects, navigation rows | R12 | `--mh-radius-md` |
+| Large control or grouped content | Large buttons, deliberately multiline cells, nested form groups | R16 | `--mh-radius-lg` |
+| Independent content card | Settings cards, message bubbles, guide entry cards | R20 | `--mh-radius-xl` |
+| Main enclosing surface | Composer, dialogs, main or floating panels | R28 | `--mh-radius-panel` |
 
 Prefer an existing shared size variant when a proposed control falls between these bands. A taller card remains a card: do not promote it to R28 merely because it exceeds a button's height. A multiline cell intentionally designed for multiple lines uses R16; an ordinary button whose label wraps retains its button variant.
 
@@ -88,7 +88,7 @@ For a split guide card, put the shared radius and clipping on the outer card; gi
 }
 ```
 
-The enclosing guide sets `--dsl-guide-entry-radius: var(--dsw-radius-xl)`. Do not give the inner buttons their own R28 ends while the outer card is R20.
+The enclosing guide sets `--dsl-guide-entry-radius: var(--mh-radius-xl)`. Do not give the inner buttons their own R28 ends while the outer card is R20.
 
 <a id="settings-cards"></a>
 ## Settings card materials
@@ -97,15 +97,15 @@ Account profile, balance, model-provider, preset, and plugin cards share this de
 
 ```css
 .card {
-  border-radius: var(--dsw-radius-xl);
-  border: 0.5px solid var(--dsw-alias-settings-card-stroke);
-  background: var(--dsw-alias-settings-card-fill);
+  border-radius: var(--mh-radius-xl);
+  border: 0.5px solid var(--mh-alias-settings-card-stroke);
+  background: var(--mh-alias-settings-card-fill);
 }
 ```
 
-The theme resolves the card fill to `--dsw-alias-bg-layer-2` and the stroke to `--dsw-alias-border-l4` on `body`, where palette aliases exist. Feature styles consume these aliases in both palettes. Nested editors use R16 and the existing module fill. Account usage/top-up links follow H36/R12 Button geometry; authorization buttons use the shared Button.
+The theme resolves the card fill to `--mh-alias-bg-layer-2` and the stroke to `--mh-alias-border-l4` on `body`, where palette aliases exist. Feature styles consume these aliases in both palettes. Nested editors use R16 and the existing module fill. Account usage/top-up links follow H36/R12 Button geometry; authorization buttons use the shared Button.
 
-Flat neutral borders use the shared 0.5px hairline. Elevated menus, popovers, dialogs, and panels use `border: 0` with the existing `--dsw-elevation-*` material, whose shadow includes the hairline. Do not add a second neutral border over that stroke or add a shadow to an ordinary settings card merely to distinguish its tab. Preserve semantic state-colored borders and the existing translucent-menu backdrop behavior.
+Flat neutral borders use the shared 0.5px hairline. Elevated menus, popovers, dialogs, and panels use `border: 0` with the existing `--mh-elevation-*` material, whose shadow includes the hairline. Do not add a second neutral border over that stroke or add a shadow to an ordinary settings card merely to distinguish its tab. Preserve semantic state-colored borders and the existing translucent-menu backdrop behavior.
 
 <a id="verification"></a>
 ## Apply and verify

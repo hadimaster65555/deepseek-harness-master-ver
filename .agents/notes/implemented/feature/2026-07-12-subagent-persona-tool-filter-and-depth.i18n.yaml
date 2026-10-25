@@ -3,14 +3,14 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/feature/2026-07-12-subagent-persona-tool-filter-and-depth.md
 /agent-note-configure-subagent-persona-tool-visibility-and-depth:
-  en: ea51f1e98afc88b7
-  zh: 6aa0101b8de5097f
+  en: 8132040196dc9e56
+  zh: 1b7e5912bcfc8ead
 /agent-note-configure-subagent-persona-tool-visibility-and-depth/problem:
   en: 311bc04b9c36ab53
   zh: 0c52e6493e9350a5
 /agent-note-configure-subagent-persona-tool-visibility-and-depth/decision:
-  en: 45111f900708aaf9
-  zh: e75bed4951516963
+  en: b686168804f13383
+  zh: b8cec91dd8f43b7c
 /agent-note-configure-subagent-persona-tool-visibility-and-depth/decision/persona-is-a-scoped-shadow:
   en: f9ee31a1fdcdd38f
   zh: c9d05721cef80659

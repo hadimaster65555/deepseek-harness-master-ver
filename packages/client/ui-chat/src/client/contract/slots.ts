@@ -1,26 +1,26 @@
 /** Chat-owned Slot declarations and composed component props. */
 import type { RefObject } from 'react'
-import type { MessageId } from '@deepseek-ai/dsh-llm/brand'
-import type { SessionId, SessionSeq } from '@deepseek-ai/dsh-session/types'
-import type { PendingSubmission } from '@deepseek-ai/dsh-api-session-controller/client'
-import type { FileAttachmentRef } from '@deepseek-ai/dsh-attachment'
-import type { InboxState } from '@deepseek-ai/dsh-agent/types'
+import type { MessageId } from '@master-harness/llm/brand'
+import type { SessionId, SessionSeq } from '@master-harness/session/types'
+import type { PendingSubmission } from '@master-harness/api-session-controller/client'
+import type { FileAttachmentRef } from '@master-harness/attachment'
+import type { InboxState } from '@master-harness/agent/types'
 import type {
   CommandNode, CompactionSummaryNode, ConversationLocationDataStore, ConversationTurnDataMap,
   TextInteractionGesture, TextInteractionSurface,
   ConversationGroupData, GroupSnapshot,
   MessageImageLoader, MessageImageSource, MessageImagesOwnerProps, RenderEntry, TurnLocation, UserTextFacts, UserTextInput,
-} from '@deepseek-ai/dsh-client-ui-conversation/client'
+} from '@master-harness/client-ui-conversation/client'
 import type {
   HostObservable, InjectFace, KeyedSnapshotSelectorHook, PropsLocale, PropsRenderSlots, PropsRuntime,
   PropsRenderFactories, PropsStore, SlotHookFactory, SnapshotSelectorHook,
-} from '@deepseek-ai/dsh-client-ui-slots'
-import type { ObservableSnapshot } from '@deepseek-ai/dsh-client-store'
-import type { ConnectionStateSource } from '@deepseek-ai/dsh-client-connection/client'
-import type { MarkdownFileMentions, MarkdownLabels } from '@deepseek-ai/dsh-client-ui-primitives'
-import type {} from '@deepseek-ai/dsh-client-ui-layout/client'
+} from '@master-harness/client-ui-slots'
+import type { ObservableSnapshot } from '@master-harness/client-store'
+import type { ConnectionStateSource } from '@master-harness/client-connection/client'
+import type { MarkdownFileMentions, MarkdownLabels } from '@master-harness/client-ui-primitives'
+import type {} from '@master-harness/client-ui-layout/client'
 // Type-only: the Session-scope access Hook (`useAccess`) the Chat entries read.
-import type {} from '@deepseek-ai/dsh-client-ui-session/client'
+import type {} from '@master-harness/client-ui-session/client'
 import type { createChatStore } from '../stores.ts'
 import type { ChatPresentationPolicy } from '../presentation-policy.ts'
 import type { FlowMotionRows } from '../chat/flow-motion.ts'
@@ -141,7 +141,7 @@ export interface ChatFileMentions {
   forClosing(owner: TurnTailOwnerProps, sessionId: SessionId): MarkdownFileMentions | undefined
 }
 
-declare module '@deepseek-ai/cordis' {
+declare module '@master-harness/cordis' {
   interface Context {
     /** Optional prose file-mention provider. */
     chatFileMentions: ChatFileMentions
@@ -299,7 +299,7 @@ export interface PerformanceUsageInjected {
 /** Business callbacks injected into the Chat view. */
 export interface ChatViewInjected {
   /** File preparation and failure callbacks owned by the file-drag plugin. */
-  readonly fileDrag: import('@deepseek-ai/dsh-client-ui-primitives').FileDragActions
+  readonly fileDrag: import('@master-harness/client-ui-primitives').FileDragActions
   /** Dispatch one gesture to the Conversation plugin registry. */
   dispatchInteraction: (gesture: TextInteractionGesture) => string | null
   hooks: {
@@ -371,7 +371,7 @@ export type ChatViewSlotProps =
 export type MessageImagesProps =
   PropsRuntime<'conversation.chat.user.images' | 'conversation.chat.message.images'> & PropsRenderFactories
 
-declare module '@deepseek-ai/dsh-client-ui-slots' {
+declare module '@master-harness/client-ui-slots' {
   interface SessionStandardProps {
     /** Selector hook over the current Conversation binding's Chat target. */
     useChat: UseChat

@@ -1,8 +1,8 @@
 /** Agent-facing read-only listing of configured plugin market indexes. */
-import { assertNever } from '@deepseek-ai/dsh-util-values'
-import type { Context } from '@deepseek-ai/cordis'
-import type { LocalizedText } from '@deepseek-ai/dsh-package-manifest'
-import { defineTool } from '@deepseek-ai/dsh-tools'
+import { assertNever } from '@master-harness/util-values'
+import type { Context } from '@master-harness/cordis'
+import type { LocalizedText } from '@master-harness/package-manifest'
+import { defineTool } from '@master-harness/tools'
 import type { MarketListingVersion } from './index.ts'
 
 /** Required services for the listing tool; `pluginMarket` is awaited inside `apply`. */
